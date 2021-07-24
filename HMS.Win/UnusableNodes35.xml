@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="PurchasingOrder_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PurchasingOrder">
+              <LayoutGroup Id="PurchasingOrder_col1">
+                <LayoutItem Id="date" Removed="True" />
+                <LayoutItem Id="inventory" Removed="True" />
+                <LayoutItem Id="isConfirmed" Removed="True" />
+                <LayoutItem Id="journalEntry" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PurchasingOrder_col2">
+                <LayoutItem Id="discount" Removed="True" />
+                <LayoutItem Id="paid" Removed="True" />
+                <LayoutItem Id="purchasingServices" Removed="True" />
+                <LayoutItem Id="tax" Removed="True" />
+                <LayoutItem Id="totalOrder" Removed="True" />
+                <LayoutItem Id="VAT" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

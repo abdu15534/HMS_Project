@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <CreatableItems Id="CreatableItems">
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Service" Caption="خدمة " />
+  </CreatableItems>
+</Application>

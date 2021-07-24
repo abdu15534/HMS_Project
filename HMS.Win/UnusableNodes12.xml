@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Inventory_ListView" ObjectKey="" ImageName="BO_Order_Item" ViewId="Inventory_ListView" Removed="True" />
+          <Item Id="Product_ListView" ObjectKey="" ImageName="BO_Product_Group_32x32" ViewId="Product_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

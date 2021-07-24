@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Stay_StockDetailsCollection_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="total">
+          <Summary Id="Summary">
+            <ColumnSummaryItem Id="@c91b9e67-8e24-4491-bea5-81c6d25bfaec" Removed="True" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

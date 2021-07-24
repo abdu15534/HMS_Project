@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-GB">
+  <Title Text="احصائيات مخازن" />
+  <DataSources>
+    <ObjectDataSource Name="Admision" ComponentName="dashboardObjectDataSource1">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="StockProduct" ComponentName="dashboardObjectDataSource2">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.StockProduct, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="StayMidcation" ComponentName="dashboardObjectDataSource3">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.StayMedications, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="StaySupply" ComponentName="dashboardObjectDataSource4">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.StaySupplies, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <Pie ComponentName="pieDashboardItem1" Name="جرد المخازن" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource2">
+      <DataItems>
+        <Dimension DataMember="Inventory.Name" DefaultId="DataItem0" />
+        <Measure DataMember="product.name" SummaryType="Count" DefaultId="DataItem1" />
+        <Measure DataMember="product.sellingPrice" Name="اجمالي قيمة البضائع" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+      </Values>
+    </Pie>
+    <Pivot ComponentName="pivotDashboardItem1" Name="ايرادات و ارباح" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="total" ShowValues="false" DefaultId="DataItem1" />
+        <Dimension DataMember="Medication.product.name" SortOrder="Descending" SortByMeasure="DataItem1" DefaultId="DataItem2" />
+        <Measure DataMember="quantity" ShowValues="false" ShowGrandTotals="false" DefaultId="DataItem3" />
+        <Measure DataMember="price" ShowValues="false" ShowGrandTotals="false" DefaultId="DataItem4" />
+        <Measure DataMember="profit" ShowValues="false" DefaultId="DataItem5" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem0" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem2" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem3" />
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem4" />
+        <Value DefaultId="DataItem5" />
+      </Values>
+    </Pivot>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Page 1" />
+        <Page ComponentName="dashboardTabPage2" Name="الصيدلية" />
+        <Page ComponentName="dashboardTabPage3" Name="المستلزمات" />
+      </Pages>
+    </TabContainer>
+    <Pivot ComponentName="pivotDashboardItem2" Name="ايرادات و ارباح" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Measure DataMember="total" ShowValues="false" DefaultId="DataItem1" />
+        <Measure DataMember="quantity" ShowValues="false" ShowGrandTotals="false" DefaultId="DataItem0" />
+        <Dimension DataMember="supplyProduct.product.name" SortOrder="Descending" SortByMeasure="DataItem1" DefaultId="DataItem2" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem3" />
+        <Measure DataMember="price" ShowValues="false" ShowGrandTotals="false" DefaultId="DataItem4" />
+        <Measure DataMember="profit" ShowValues="false" DefaultId="DataItem5" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem3" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem2" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem4" />
+        <Value DefaultId="DataItem5" />
+      </Values>
+    </Pivot>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="ID" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <RangeFilter ComponentName="rangeFilterDashboardItem2" Name="Range Filter 2" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="ID" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Chart ComponentName="chartDashboardItem1" Name="الكميات" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Measure DataMember="quantity" DefaultId="DataItem1" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="الكميات" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Measure DataMember="quantity" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="100">
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+          <LayoutItem DashboardItem="pieDashboardItem1" Weight="100" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage2" Weight="100">
+          <LayoutGroup Weight="83.2258064516129">
+            <LayoutItem DashboardItem="chartDashboardItem1" Weight="60.425531914893618" />
+            <LayoutItem DashboardItem="pivotDashboardItem1" Weight="39.574468085106382" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="16.774193548387096" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage3" Weight="100">
+          <LayoutGroup Weight="84.731182795698928">
+            <LayoutItem DashboardItem="chartDashboardItem2" Weight="56.063829787234042" />
+            <LayoutItem DashboardItem="pivotDashboardItem2" Weight="43.936170212765958" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="rangeFilterDashboardItem2" Weight="15.268817204301076" />
+        </LayoutTabPage>
+      </LayoutTabContainer>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-GB">
+  <Title Text="Purchasing Order Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="Object Data Source 1" ComponentName="dashboardObjectDataSource1">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="حركة الشراء" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Measure DataMember="totalOrder" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple Name="اجمالي التكلفة">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="totalOrder" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Pie ComponentName="pieDashboardItem1" Name="تفاصيل" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Measure DataMember="totalOrder" Name="انواع الطلبات" DefaultId="DataItem0" />
+        <Dimension DataMember="OrderType" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="82.625482625482618">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="82.625482625482618" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="82.625482625482618" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="17.374517374517374" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

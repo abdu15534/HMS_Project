@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="NonPersistentObject">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Name" Caption="إسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="StayTransfer" Caption="تحويل الإقامة">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Room" Caption="الغرفة" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="NonPersistentObject_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Name" Caption="إسم" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="رئيسى">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="NonPersistentObject" Caption="إسم" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NonPersistentObject_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Caption="إسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="NonPersistentObject_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Caption="إسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="NonPersistentObject_Owners_ListView" Caption="الحجز">
+      <Columns Id="Columns">
+        <ColumnInfo Id="admissionID" Caption="كود الإقامة" />
+        <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
+        <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
+        <ColumnInfo Id="Status" Caption="الحالة" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+        <ColumnInfo Id="bed" Caption="السرير" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="StayStart" Caption="تاريخ بداية الإقامة" />
+        <ColumnInfo Id="StayEnd" Caption="تاريخ نهاية الإقامة" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
+        <ColumnInfo Id="IsDischarged" Caption="خارج" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
+        <ColumnInfo Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
+        <ColumnInfo Id="companionSum" Caption="جمالى تكلفة المرافق" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StayTransfer_DetailView" Caption="تحويل الإقامة">
+      <Items Id="Items">
+        <PropertyEditor Id="Room" Caption="الغرفة" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="رئيسى">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StayTransfer" Caption="الغرفة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StayTransfer_ListView" Caption="تحويل الإقامة">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+      </Columns>
+    </ListView>
+    <ListView Id="StayTransfer_LookupListView" Caption="تحويل الإقامة">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

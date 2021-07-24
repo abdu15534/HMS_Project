@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="MedicationDetails_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="price" PropertyName="Pharmacy.Product.SellingPrice" />
+      </Columns>
+    </ListView>
+    <ListView Id="Stay_MedicationDetailsCollection_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Pharmacy" PropertyName="Pharmacy" Caption="product" />
+        <ColumnInfo Id="price" PropertyName="Pharmacy.Product.SellingPrice" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

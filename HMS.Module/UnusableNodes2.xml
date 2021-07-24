@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Stay_MedicationDetailsCollection_ListView" Filter="[Medication.Inventory.InventoryType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes,Pharmacy#" />
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Stay">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="MedicationDetailsCollection" DataSourceCriteria="[Medication.Inventory.InventoryType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes,Pharmacy#" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="StockProduct_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Inventory" Caption="المخازن" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

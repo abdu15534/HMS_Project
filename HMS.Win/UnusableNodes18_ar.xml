@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="Accounts" ShortCaption="الحسابات" ToolTip="الحسابات" Caption="الحسابات" />
+      <Action Id="PaymentBond" ToolTip="طباعة سند" Caption="طباعة سند" />
+      <Action Id="PaymentBondReport" ToolTip="طباعة قيد" Caption="طباعة قيد" />
+    </Actions>
+  </ActionDesign>
+</Application>

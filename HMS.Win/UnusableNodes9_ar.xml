@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="supplier" Caption="المورد" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="Supplier_PurchasingOrders_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="supplier" Caption="المورد" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PurchasingOrder_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="supplier" Caption="المورد" />
+      </Items>
+    </DetailView>
+    <ListView Id="PurchasingOrder_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="supplier" Caption="المورد" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchasingOrder_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="supplier" Caption="المورد" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Inventory_StockProducts_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="quantity">
+          <Summary Id="Summary">
+            <ColumnSummaryItem Id="@544e40d0-8579-4b31-988a-8ea915e4f7ae" SummaryType="Sum" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+    <DetailView Id="PurchasingOrder_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PurchasingOrder">
+              <LayoutGroup Id="PurchasingOrder_col1">
+                <LayoutItem Id="date" Removed="True" />
+                <LayoutItem Id="inventory" Removed="True" />
+                <LayoutItem Id="journalEntry" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PurchasingOrder_col2">
+                <LayoutItem Id="Discount" Removed="True" />
+                <LayoutItem Id="isConfirmed" Removed="True" />
+                <LayoutItem Id="paid" Removed="True" />
+                <LayoutItem Id="purchasingServices" Removed="True" />
+                <LayoutItem Id="totalOrder" Removed="True" />
+                <LayoutItem Id="VAT" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StockProduct_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="quantity" PropertyName="quantity" Index="1" Width="55" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="ar-EG">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="Object Data Source 1" ComponentName="dashboardObjectDataSource1">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Stay, HMS.Module, Version=1.0.7751.38364, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Object Data Source 2" ComponentName="dashboardObjectDataSource2">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Appointment, HMS.Module, Version=1.0.7751.38364, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Object Data Source 3" ComponentName="dashboardObjectDataSource3">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Emergency, HMS.Module, Version=1.0.7751.38364, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Object Data Source 4" ComponentName="dashboardObjectDataSource4">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Payments, HMS.Module, Version=1.0.7751.38364, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Object Data Source 5" ComponentName="dashboardObjectDataSource5">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Spendings, HMS.Module, Version=1.0.7751.38364, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <FederationDataSource Name="Federation Data Source 1" ComponentName="dashboardFederationDataSource1">
+      <Sources>
+        <Source Name="Object Data Source 1">
+          <DataSource>dashboardObjectDataSource1</DataSource>
+          <DataMember></DataMember>
+        </Source>
+        <Source Name="Object Data Source 2">
+          <DataSource>dashboardObjectDataSource2</DataSource>
+          <DataMember></DataMember>
+        </Source>
+        <Source Name="Object Data Source 3">
+          <DataSource>dashboardObjectDataSource3</DataSource>
+          <DataMember></DataMember>
+        </Source>
+        <Source Name="Object Data Source 4">
+          <DataSource>dashboardObjectDataSource4</DataSource>
+          <DataMember></DataMember>
+        </Source>
+        <Source Name="Object Data Source 5">
+          <DataSource>dashboardObjectDataSource5</DataSource>
+          <DataMember></DataMember>
+        </Source>
+      </Sources>
+      <Queries>
+        <Query Alias="Object Data Source 1" QueryType="UnionNode">
+          <UnionElements>
+            <Query Alias="Object Data Source 1" QueryType="SelectNode">
+              <Root QueryType="SourceNode" SourceName="Object Data Source 1" />
+              <Expressions>
+                <Expression ExpressionType="SelectColumnExpression" Name="amount" NodeAlias="Object Data Source 1" />
+                <Expression ExpressionType="SelectColumnExpression" Name="date" NodeAlias="Object Data Source 1" />
+                <Expression ExpressionType="SelectColumnExpression" Name="Transaction" NodeAlias="Object Data Source 1" />
+                <Expression ExpressionType="SelectColumnExpression" Name="TransactionsSecond" NodeAlias="Object Data Source 1" />
+              </Expressions>
+            </Query>
+            <Query Alias="Object Data Source 2" QueryType="SelectNode">
+              <Root QueryType="SourceNode" SourceName="Object Data Source 2" />
+              <Expressions>
+                <Expression ExpressionType="SelectColumnExpression" Name="amount" NodeAlias="Object Data Source 2" />
+                <Expression ExpressionType="SelectColumnExpression" Name="date" NodeAlias="Object Data Source 2" />
+                <Expression ExpressionType="SelectColumnExpression" Name="Transaction" NodeAlias="Object Data Source 2" />
+                <Expression ExpressionType="SelectColumnExpression" Name="TransactionsSecond" NodeAlias="Object Data Source 2" />
+              </Expressions>
+            </Query>
+            <Query Alias="Object Data Source 3" QueryType="SelectNode">
+              <Root QueryType="SourceNode" SourceName="Object Data Source 3" />
+              <Expressions>
+                <Expression ExpressionType="SelectColumnExpression" Name="amount" NodeAlias="Object Data Source 3" />
+                <Expression ExpressionType="SelectColumnExpression" Name="date" NodeAlias="Object Data Source 3" />
+                <Expression ExpressionType="SelectColumnExpression" Name="Transaction" NodeAlias="Object Data Source 3" />
+                <Expression ExpressionType="SelectColumnExpression" Name="TransactionsSecond" NodeAlias="Object Data Source 3" />
+              </Expressions>
+            </Query>
+            <Query Alias="Object Data Source 4" QueryType="SelectNode">
+              <Root QueryType="SourceNode" SourceName="Object Data Source 4" />
+              <Expressions>
+                <Expression ExpressionType="SelectColumnExpression" Name="amount" NodeAlias="Object Data Source 4" />
+                <Expression ExpressionType="SelectColumnExpression" Name="date" NodeAlias="Object Data Source 4" />
+                <Expression ExpressionType="SelectColumnExpression" Name="Transaction" NodeAlias="Object Data Source 4" />
+                <Expression ExpressionType="SelectColumnExpression" Name="TransactionsSecond" NodeAlias="Object Data Source 4" />
+              </Expressions>
+            </Query>
+            <Query Alias="Object Data Source 5" QueryType="SelectNode">
+              <Root QueryType="SourceNode" SourceName="Object Data Source 5" />
+              <Expressions>
+                <Expression ExpressionType="SelectColumnExpression" Name="amount" NodeAlias="Object Data Source 5" />
+                <Expression ExpressionType="SelectColumnExpression" Name="date" NodeAlias="Object Data Source 5" />
+                <Expression ExpressionType="SelectColumnExpression" Name="Transaction" NodeAlias="Object Data Source 5" />
+                <Expression ExpressionType="SelectColumnExpression" Name="TransactionsSecond" NodeAlias="Object Data Source 5" />
+              </Expressions>
+            </Query>
+          </UnionElements>
+        </Query>
+      </Queries>
+    </FederationDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="حركة خزنة" DataSource="dashboardFederationDataSource1" DataMember="Object Data Source 1" FilterString="[DataItem2] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,spending# Or [DataItem2] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,payment#">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+        <Dimension DataMember="Transaction" TopNCount="2" TopNMeasure="DataItem0" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple ShowPointMarkers="true" SeriesType="Spline">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem1" Name="الإيرادات" DataSource="dashboardFederationDataSource1" DataMember="Object Data Source 1" FilterString="[DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,stay# Or [DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,emergency# Or [DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,appointment#">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="Transaction" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <Pivot ComponentName="pivotDashboardItem1" Name="الاقسام" DataSource="dashboardFederationDataSource1" DataMember="Object Data Source 1" FilterString="[DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,stay# Or [DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,emergency# Or [DataItem1] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories,appointment#">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="Transaction" DefaultId="DataItem1" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem2" />
+      </DataItems>
+      <Columns>
+        <Column DefaultId="DataItem1" />
+      </Columns>
+      <Rows>
+        <Row DefaultId="DataItem2" />
+      </Rows>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pivot>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dashboardFederationDataSource1" DataMember="Object Data Source 1">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Pie ComponentName="pieDashboardItem2" Name="المصاريف" DataSource="dashboardFederationDataSource1" DataMember="Object Data Source 1" FilterString="[DataItem1] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionSecondCategories,none#" ShowPieCaptions="false">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="TransactionsSecond" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="43.665436654366545">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="50" />
+        <LayoutItem DashboardItem="pivotDashboardItem1" Weight="50" />
+      </LayoutGroup>
+      <LayoutGroup Weight="43.665436654366545">
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="50" />
+        <LayoutItem DashboardItem="pieDashboardItem2" Weight="50" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="12.669126691266913" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

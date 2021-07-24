@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-GB">
+  <Title Text="HR Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="JournalEntry" ComponentName="dashboardObjectDataSource1">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.JournalDetails, HMS.Module, Version=1.0.7804.18689, Culture=neutral, PublicKeyToken=null" />
+      <Filter>StartsWith([account.SubAccount.accountName], 'اجور') Or StartsWith([account.SubAccount.accountName], 'تأمينات')</Filter>
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="مرتبات و تأمينات" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Dimension DataMember="journal.date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem3" />
+        <Dimension DataMember="account.SubAccount.accountName" DefaultId="DataItem0" />
+        <Measure DataMember="debit" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem3" />
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple Name="مصروق">
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem1" Name="تفاصيل اجور" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Measure DataMember="debit" Name="اجور" DefaultId="DataItem0" />
+        <Dimension DataMember="account.accountName" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dashboardObjectDataSource1">
+      <DataItems>
+        <Measure DataMember="debit" DefaultId="DataItem0" />
+        <Dimension DataMember="journal.date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="85.13513513513513">
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="54.507337526205454" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="45.492662473794546" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="14.864864864864865" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

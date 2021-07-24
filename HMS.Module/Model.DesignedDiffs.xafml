@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application PreferredLanguage="(Default language)">
+  <NavigationItems>
+    <Items>
+      <Item Id="Default" IsNewNode="True" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <Dashboards EnableCustomization="False" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="20.2.3.0" IsNewNode="True" />
+    <SchemaModule Name="SchedulerModuleBase" Version="20.2.3.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="20.2.3.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

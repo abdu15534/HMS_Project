@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="ar-EG">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <ObjectDataSource Name="Appointment" ComponentName="dashboardObjectDataSource2">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Appointment, HMS.Module, Version=1.0.7798.31606, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Emergency" ComponentName="dashboardObjectDataSource3">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Emergency, HMS.Module, Version=1.0.7798.31606, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+    <ObjectDataSource Name="Admission" ComponentName="dashboardObjectDataSource4">
+      <DataSource Type="XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7798.31606, Culture=neutral, PublicKeyToken=null" />
+    </ObjectDataSource>
+  </DataSources>
+  <Items>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="القسم الداخلي" />
+        <Page ComponentName="dashboardTabPage2" Name="القسم الخارجي" ShowItemAsTabPage="false" />
+        <Page ComponentName="dashboardTabPage3" Name="الطوارئ" ShowItemAsTabPage="false" />
+      </Pages>
+    </TabContainer>
+    <Pie ComponentName="pieDashboardItem3" Name="Pies 3" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource2">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Dimension DataMember="clinc.Name" DefaultId="DataItem0" />
+        <Measure DataMember="amount" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem3" Name="Chart 3" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource2">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="StartOn" DateTimeGroupInterval="Month" DefaultId="DataItem1" />
+        <Dimension DataMember="clinc.Name" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="StackedBar">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem4" Name="Chart 4" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource2">
+      <DataItems>
+        <Measure DataMember="Patient.DisplayName" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="Patient.Gender" SortOrder="Descending" DefaultId="DataItem1" />
+        <Dimension DataMember="StartOn" DateTimeGroupInterval="Month" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem5" Name="Chart 5" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource2">
+      <DataItems>
+        <Measure DataMember="Patient.DisplayName" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="clinc.inCharge.DisplayName" DefaultId="DataItem1" />
+        <Measure DataMember="amount" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="StackedBar">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <RangeFilter ComponentName="rangeFilterDashboardItem2" Name="Range Filter 2" ParentContainer="dashboardTabPage2" DataSource="dashboardObjectDataSource2">
+      <DataItems>
+        <Measure DataMember="amount" DefaultId="DataItem0" />
+        <Dimension DataMember="StartOn" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Chart ComponentName="chartDashboardItem6" Name="Chart 6" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource3">
+      <InteractivityOptions MasterFilterMode="Multiple" />
+      <DataItems>
+        <Measure DataMember="TotalSum" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem4" Name="Pies 4" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Measure DataMember="medicationSum" DefaultId="DataItem0" />
+        <Measure DataMember="servicesSum" DefaultId="DataItem1" />
+        <Measure DataMember="supervision" DefaultId="DataItem2" />
+        <Measure DataMember="suppliesSum" DefaultId="DataItem3" />
+      </DataItems>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem7" Name="Chart 7" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Measure DataMember="Patient.DisplayName" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="doctor.DisplayName" TopNEnabled="true" TopNCount="10" TopNMeasure="DataItem0" DefaultId="DataItem1" />
+        <Measure DataMember="amount" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="StackedBar">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+            <Simple>
+              <Value DefaultId="DataItem2" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <RangeFilter ComponentName="rangeFilterDashboardItem3" Name="Range Filter 3" ParentContainer="dashboardTabPage3" DataSource="dashboardObjectDataSource3">
+      <DataItems>
+        <Measure DataMember="TotalSum" DefaultId="DataItem0" />
+        <Dimension DataMember="date" DateTimeGroupInterval="MonthYear" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem1" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem0" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Pie ComponentName="pieDashboardItem5" Name="Pies 5" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Dimension DataMember="Status" DefaultId="DataItem0" />
+        <Measure DataMember="stayTotalSum" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+    <Chart ComponentName="chartDashboardItem8" Name="Chart 8" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Dimension DataMember="StayEnd" DateTimeGroupInterval="Month" DefaultId="DataItem0" />
+        <Measure DataMember="stayTotalSum" DefaultId="DataItem1" />
+        <Dimension DataMember="Status" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem9" Name="Chart 9" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Measure DataMember="Patient.DisplayName" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="Patient.Gender" DefaultId="DataItem1" />
+        <Dimension DataMember="StayStart" DateTimeGroupInterval="Month" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem2" Name="Pies 2" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Measure DataMember="medicationSum" DefaultId="DataItem0" />
+        <Measure DataMember="suppliesSum" DefaultId="DataItem1" />
+        <Measure DataMember="servicesSum" DefaultId="DataItem2" />
+        <Measure DataMember="companionSum" DefaultId="DataItem3" />
+        <Measure DataMember="xraysSum" DefaultId="DataItem4" />
+        <Measure DataMember="testsSum" DefaultId="DataItem5" />
+        <Measure DataMember="roomStaySum" DefaultId="DataItem6" />
+        <Measure DataMember="MedicalSupervisionSum" DefaultId="DataItem7" />
+        <Measure DataMember="medicalCareSum" DefaultId="DataItem8" />
+        <Measure DataMember="endscopesSum" DefaultId="DataItem9" />
+        <Dimension DataMember="Status" DefaultId="DataItem10" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem10" />
+      </SeriesDimensions>
+      <Values>
+        <Value DefaultId="DataItem0" />
+        <Value DefaultId="DataItem1" />
+        <Value DefaultId="DataItem2" />
+        <Value DefaultId="DataItem3" />
+        <Value DefaultId="DataItem4" />
+        <Value DefaultId="DataItem5" />
+        <Value DefaultId="DataItem6" />
+        <Value DefaultId="DataItem7" />
+        <Value DefaultId="DataItem8" />
+        <Value DefaultId="DataItem9" />
+      </Values>
+    </Pie>
+    <RangeFilter ComponentName="rangeFilterDashboardItem4" Name="Range Filter 4" ParentContainer="dashboardTabPage1" DataSource="dashboardObjectDataSource4">
+      <DataItems>
+        <Dimension DataMember="StayStart" DateTimeGroupInterval="MonthYear" DefaultId="DataItem0" />
+        <Measure DataMember="stayTotalSum" DefaultId="DataItem1" />
+      </DataItems>
+      <Argument DefaultId="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value DefaultId="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutTabContainer DashboardItem="tabContainerDashboardItem1" Weight="100">
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1" Weight="100">
+          <LayoutGroup Weight="44.301075268817208">
+            <LayoutItem DashboardItem="pieDashboardItem5" Weight="49.8936170212766" />
+            <LayoutItem DashboardItem="chartDashboardItem8" Weight="50.1063829787234" />
+          </LayoutGroup>
+          <LayoutGroup Weight="44.516129032258064">
+            <LayoutItem DashboardItem="chartDashboardItem9" Weight="49.8936170212766" />
+            <LayoutItem DashboardItem="pieDashboardItem2" Weight="50.1063829787234" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="rangeFilterDashboardItem4" Weight="11.182795698924732" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage2" Weight="100">
+          <LayoutGroup Weight="40.43010752688172">
+            <LayoutItem DashboardItem="pieDashboardItem3" Weight="49.8936170212766" />
+            <LayoutItem DashboardItem="chartDashboardItem3" Weight="50.1063829787234" />
+          </LayoutGroup>
+          <LayoutGroup Weight="47.311827956989248">
+            <LayoutItem DashboardItem="chartDashboardItem4" Weight="49.8936170212766" />
+            <LayoutItem DashboardItem="chartDashboardItem5" Weight="50.1063829787234" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="rangeFilterDashboardItem2" Weight="12.258064516129032" />
+        </LayoutTabPage>
+        <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage3" Weight="100">
+          <LayoutItem DashboardItem="chartDashboardItem6" Weight="39.784946236559136" />
+          <LayoutGroup Weight="47.956989247311824">
+            <LayoutItem DashboardItem="chartDashboardItem7" Weight="49.8936170212766" />
+            <LayoutItem DashboardItem="pieDashboardItem4" Weight="50.1063829787234" />
+          </LayoutGroup>
+          <LayoutItem DashboardItem="rangeFilterDashboardItem3" Weight="12.258064516129032" />
+        </LayoutTabPage>
+      </LayoutTabContainer>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

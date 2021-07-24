@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Department" Caption="القسم">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="DepartmentID" Caption="الكود" />
+        <Member Name="Head" Caption="المدير" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Physician" Caption="الطبيب">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Appointments" Caption="المواعيد" />
+        <Member Name="Departments" Caption="الاقسام" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Position" Caption="المنصب" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Prescribes">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Appointment" Caption="الميعاد" />
+        <Member Name="Date" Caption="التاريخ" />
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="Physician" Caption="الطبيب" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Physician" Caption="الطبيب" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Employee">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="department" Caption="القسم" />
+        <Member Name="salary" Caption="الراتب" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <CreatableItems Id="CreatableItems">
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Department" Caption="القسم" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Physician" Caption="الطبيب" />
+  </CreatableItems>
+  <Views Id="Views">
+    <ListView Id="Physician_Appointments_ListView" Caption="الميعاد">
+      <Columns Id="Columns">
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Physician" Caption="الطبيب" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Physician_DetailView" Caption="الطبيب">
+      <Items Id="Items">
+        <PropertyEditor Id="Departments" Caption="الاقسام" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="Position" Caption="المنصب" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Physician" Caption="الطبيب" />
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Physician_ListView" Caption="الطبيب">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Position" Caption="المنصب" />
+      </Columns>
+    </ListView>
+    <ListView Id="Physician_LookupListView" Caption="الطبيب" />
+    <DetailView Id="Department_DetailView" Caption="القسم">
+      <Items Id="Items">
+        <PropertyEditor Id="DepartmentID" Caption="الكود" />
+        <PropertyEditor Id="Head" Caption="المدير" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Department" Caption="القسم" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Department_ListView" Caption="القسم">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="DepartmentID" Caption="الكود" />
+        <ColumnInfo Id="Head" Caption="المدير" />
+      </Columns>
+    </ListView>
+    <ListView Id="Department_LookupListView" Caption="القسم">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="Physician_Departments_ListView" Caption="القسم">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Head" Caption="المدير" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="DepartmentID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Prescribes_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Appointment" Caption="الميعاد" />
+        <PropertyEditor Id="Date" Caption="التاريخ" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="Patient" Caption="المريض" />
+        <PropertyEditor Id="Physician" Caption="الطبيب" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Prescribes_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Physician" Caption="الطبيب" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Date" Caption="التاريخ" />
+        <ColumnInfo Id="Appointment" Caption="الميعاد" />
+      </Columns>
+    </ListView>
+    <ListView Id="Prescribes_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Physician" Caption="الطبيب" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Date" Caption="التاريخ" />
+        <ColumnInfo Id="Appointment" Caption="الميعاد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Admission_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="doctor.FullName" Caption="الإسم بالكامل" />
+      </Items>
+    </DetailView>
+    <ListView Id="Admission_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="DoctorName" Caption="الطبيب المشرف" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Appointment_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Physician" Caption="الطبيب" />
+      </Items>
+    </DetailView>
+    <ListView Id="Appointment_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Physician" Caption="الطبيب" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Employee_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="department" Caption="القسم" />
+        <PropertyEditor Id="salary" Caption="الراتب" />
+      </Items>
+    </DetailView>
+    <ListView Id="Employee_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="salary" Caption="الراتب" />
+        <ColumnInfo Id="department" Caption="القسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Physician" Caption="الطبيب" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

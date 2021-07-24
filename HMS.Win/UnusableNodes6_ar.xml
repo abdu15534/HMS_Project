@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Stay" Caption="الاقامة">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="medicationSum" EditMask="C" Caption="اجمالي الادوية" DisplayFormat="{0:C}" />
+        <Member Name="careSum" Caption="اجمالي الرعاية الطبية" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="CompanionDetailsCollection" Caption="المرافق" />
+        <Member Name="companionSum" Caption="اجمالي تكلفة المرافق" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="doctor" Caption="الطبيب" />
+        <Member Name="finalDiagnosis" Caption="التشخيص النهائي" />
+        <Member Name="firstDiagnosis" Caption="التشخيص المبدئي" />
+        <Member Name="IsDischarged" Caption="منتهي" />
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="Room" Caption="الغرفة" />
+        <Member Name="roomStaySum" Caption="اجمالي اقامة الغرفة" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
+        <Member Name="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="Status" Caption="الحالة" />
+        <Member Name="StayEnd" Caption="تاريخ الإنتهاء" />
+        <Member Name="StayID" Caption="Stay ID" />
+        <Member Name="StayMedicications" Caption="الادوية" />
+        <Member Name="StayStart" Caption="تاريخ البداية" />
+        <Member Name="stayTotalSum" DisplayFormat="{0:C}" EditMask="C" Caption="اجمالي تكلفة الاقامة" />
+        <Member Name="StockDetailsCollection" Caption="تفاصيل المستلزمات الطبية" />
+        <Member Name="supervisionSum" Caption="اجمالي الاشراف الطبي" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="suppliesSum" Caption="اجمالي المستلزمات الطبية" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="Stay_CompanionDetailsCollection_ListView" Caption="المرافق">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Companion" Caption="المرافق" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Stay_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="medicationSum" EditMask="C" DisplayFormat="{0:C}" />
+        <PropertyEditor Id="Patient" Caption="المريض" />
+        <PropertyEditor Id="careSum" Caption="اجمالي الرعاية الطبية" DisplayFormat="{0:C}" EditMask="C" />
+        <PropertyEditor Id="CompanionDetailsCollection" Caption="المرافق" />
+        <PropertyEditor Id="companionSum" Caption="اجمالي تكلفة المرافق" DisplayFormat="{0:C}" EditMask="C" />
+        <PropertyEditor Id="doctor" Caption="الطبيب" />
+        <PropertyEditor Id="finalDiagnosis" Caption="التشخيص النهائي" />
+        <PropertyEditor Id="firstDiagnosis" Caption="التشخيص المبدئي" />
+        <PropertyEditor Id="IsDischarged" Caption="منتهي" />
+        <PropertyEditor Id="Room" Caption="الغرفة" />
+        <PropertyEditor Id="roomStaySum" Caption="اجمالي اقامة الغرفة" DisplayFormat="{0:C}" EditMask="C" />
+        <PropertyEditor Id="ServiceDetailsCollection" Caption="الخدمات" />
+        <PropertyEditor Id="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <PropertyEditor Id="Status" Caption="الحالة" />
+        <PropertyEditor Id="StayID" Caption="Stay ID" />
+        <PropertyEditor Id="stayTotalSum" DisplayFormat="{0:C}" EditMask="C" Caption="اجمالي تكلفة الاقامة" />
+        <PropertyEditor Id="supervisionSum" Caption="اجمالي الاشراف الطبي" DisplayFormat="{0:C}" EditMask="C" />
+        <PropertyEditor Id="suppliesSum" DisplayFormat="{0:C}" EditMask="C" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Stay" Caption="الاقامة" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="StockDetailsCollection" Caption="تفاصيل المستلزمات الطبية" />
+            <LayoutGroup Id="ServiceDetailsCollection" Caption="الخدمات" />
+            <LayoutGroup Id="CompanionDetailsCollection" Caption="المرافق" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Stay_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="StayID" Caption="Stay ID" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="IsDischarged" Caption="منتهي" />
+        <ColumnInfo Id="medicationSum" EditMask="C" DisplayFormat="{0:C}" />
+        <ColumnInfo Id="suppliesSum" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="companionSum" Caption="اجمالي تكلفة المرافق" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="roomStaySum" Caption="اجمالي اقامة الغرفة" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="supervisionSum" Caption="اجمالي الاشراف الطبي" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="careSum" Caption="اجمالي الرعاية الطبية" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="stayTotalSum" DisplayFormat="{0:C}" EditMask="C" Caption="اجمالي تكلفة الاقامة" />
+        <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائي" />
+        <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Stay_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="medicationSum" EditMask="C" DisplayFormat="{0:C}" />
+        <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائي" />
+        <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئي" />
+        <ColumnInfo Id="StayID" Caption="Stay ID" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="IsDischarged" Caption="منتهي" />
+        <ColumnInfo Id="suppliesSum" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="companionSum" Caption="اجمالي تكلفة المرافق" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="roomStaySum" Caption="اجمالي اقامة الغرفة" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="supervisionSum" Caption="اجمالي الاشراف الطبي" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="careSum" Caption="اجمالي الرعاية الطبية" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="stayTotalSum" DisplayFormat="{0:C}" EditMask="C" Caption="اجمالي تكلفة الاقامة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Stay_ServiceDetailsCollection_ListView" Caption="الخدمات">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Service" Caption="خدمة " />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Stay_StayMedicications_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" EditMask="C" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Medication" Caption="دواء" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+      </Columns>
+    </ListView>
+    <ListView Id="Stay_StockDetailsCollection_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" EditMask="C" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+  </Views>
+  <Localization Id="Localization">
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Stay+statusType">
+        <LocalizationItem Name="ICU" Value="وحدة عناية مركزة" />
+        <LocalizationItem Name="normal" Value="عناية" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+</Application>

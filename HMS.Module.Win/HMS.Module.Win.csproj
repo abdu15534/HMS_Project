@@ -1,0 +1,1082 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14714D79-87F8-4F50-A616-7937443A9AE5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HMS.Module.Win</RootNamespace>
+    <AssemblyName>HMS.Module.Win</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'EasyTest|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\EasyTest\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;EASYTEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bogus, Version=33.0.2.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bogus.33.0.2\lib\net40\Bogus.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v20.2.Core, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v20.2.Win">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Data.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v20.2.UI">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.AuditTrail.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Chart.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.CloneObject.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Dashboards.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.FileAttachment.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Kpi.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Notifications.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Objects.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Office.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Office.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotChart.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.PivotGrid.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ScriptRecorder.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Security.Xpo.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.StateMachine.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.TreeListEditors.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Validation.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.ViewVariantsModule.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Workflow.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Workflow.Win.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.ExpressApp.Xpo.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Images.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v20.2.Core, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Persistent.Base.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.2.Export, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v20.2.Core, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Spreadsheet.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v20.2.UI">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Workflow.Activities.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Workflow.Activities.v20.2.Design">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.2.UI">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v20.2.Wizard">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v20.2.Core, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v20.2.Extensions">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.2.Core.Desktop">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v20.2">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.51.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.51.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.51.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.51.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.51.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.51.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.51.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.51.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.51.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.51.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.51.0.2272, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.51.0.2272\lib\net45\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="N2C">
+      <HintPath>..\..\..\..\..\Desktop\N2C.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Activities">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Activities.Core.Presentation">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Activities.DurableInstancing">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Activities.Presentation">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Core">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Data">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Design">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.DurableInstancing">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.ServiceModel.Activities">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xaml">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="WindowsBase">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.configuration">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountingController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AccountingController.Designer.cs">
+      <DependentUpon>AccountingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CasherViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CasherViewController.Designer.cs">
+      <DependentUpon>CasherViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\EmergencyViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\EmergencyViewController.Designer.cs">
+      <DependentUpon>EmergencyViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HRController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\HRController.Designer.cs">
+      <DependentUpon>HRController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\LabsViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\LabsViewController.Designer.cs">
+      <DependentUpon>LabsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\OrderPaymentReportController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\OrderPaymentReportController.Designer.cs">
+      <DependentUpon>OrderPaymentReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PatientPaymentReportController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PatientPaymentReportController.Designer.cs">
+      <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PaymentReportController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PaymentReportController.Designer.cs">
+      <DependentUpon>PaymentReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\PurchasingController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\PurchasingController.Designer.cs">
+      <DependentUpon>PurchasingController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReceptionController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ReceptionController.Designer.cs">
+      <DependentUpon>ReceptionController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\StayReportController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\StayReportController.Designer.cs">
+      <DependentUpon>StayReportController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ViewController1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ViewController1.Designer.cs">
+      <DependentUpon>ViewController1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\WinSchedulerController.cs" />
+    <Compile Include="Controllers\WinSchedulerController.Designer.cs">
+      <DependentUpon>WinSchedulerController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\WinShowCustomFormWindowController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\WinShowCustomFormWindowController.Designer.cs">
+      <DependentUpon>WinShowCustomFormWindowController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WinCustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\WinCustomForm.Designer.cs">
+      <DependentUpon>WinCustomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WinCustomUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WinCustomUserControl.Designer.cs">
+      <DependentUpon>WinCustomUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\WinCustomUserControlViewItem.cs" />
+    <Compile Include="forms\CustomDashboardDesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\CustomDashboardDesignerForm.Designer.cs">
+      <DependentUpon>CustomDashboardDesignerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\NonXAFForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\NonXAFForm.Designer.cs">
+      <DependentUpon>NonXAFForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Accounts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Accounts.Designer.cs">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\AccountsSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\AccountsSheet.Designer.cs">
+      <DependentUpon>AccountsSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\AdmittedPatients.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\AdmittedPatients.Designer.cs">
+      <DependentUpon>AdmittedPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\BuyingInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\BuyingInvoice.Designer.cs">
+      <DependentUpon>BuyingInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\BuyingOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\BuyingOrder.Designer.cs">
+      <DependentUpon>BuyingOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Consultation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Consultation.Designer.cs">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\DailyAccounts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\DailyAccounts.Designer.cs">
+      <DependentUpon>DailyAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\DelayedPurchases.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\DelayedPurchases.Designer.cs">
+      <DependentUpon>DelayedPurchases.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\DelayedPurchases2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\DelayedPurchases2.Designer.cs">
+      <DependentUpon>DelayedPurchases2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\DischargeDetails.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\DischargeDetails.Designer.cs">
+      <DependentUpon>DischargeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\EmergencyInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\EmergencyInvoice.Designer.cs">
+      <DependentUpon>EmergencyInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\EmergencyPatients.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\EmergencyPatients.Designer.cs">
+      <DependentUpon>EmergencyPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\EmployeesWarnings.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\EmployeesWarnings.Designer.cs">
+      <DependentUpon>EmployeesWarnings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ExpiredItems.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ExpiredItems.Designer.cs">
+      <DependentUpon>ExpiredItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ICUpatients.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ICUpatients.Designer.cs">
+      <DependentUpon>ICUpatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\InventoryOperations.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\InventoryOperations.Designer.cs">
+      <DependentUpon>InventoryOperations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\JournalEntryReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\JournalEntryReport.Designer.cs">
+      <DependentUpon>JournalEntryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Makhzan_Awel_Modda.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Makhzan_Awel_Modda.Designer.cs">
+      <DependentUpon>Makhzan_Awel_Modda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\MeezanMoragaa.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\MeezanMoragaa.Designer.cs">
+      <DependentUpon>MeezanMoragaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\NeededItems.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\NeededItems.Designer.cs">
+      <DependentUpon>NeededItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\OrderReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\OrderReport.Designer.cs">
+      <DependentUpon>OrderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\OutPatients.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\OutPatients.Designer.cs">
+      <DependentUpon>OutPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PaymentInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PaymentInvoice.Designer.cs">
+      <DependentUpon>PaymentInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\paymentRepr.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\paymentRepr.Designer.cs">
+      <DependentUpon>paymentRepr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PaymentVoucherReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PaymentVoucherReport.Designer.cs">
+      <DependentUpon>PaymentVoucherReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PeriodBought.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PeriodBought.Designer.cs">
+      <DependentUpon>PeriodBought.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PeriodExpenses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PeriodExpenses.Designer.cs">
+      <DependentUpon>PeriodExpenses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PeriodSold.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PeriodSold.Designer.cs">
+      <DependentUpon>PeriodSold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PriceListRequest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PriceListRequest.Designer.cs">
+      <DependentUpon>PriceListRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\PurchasingOrder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PurchasingOrder.Designer.cs">
+      <DependentUpon>PurchasingOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ReceiptVoucherReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ReceiptVoucherReport.Designer.cs">
+      <DependentUpon>ReceiptVoucherReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\RefundDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\RefundDocument.Designer.cs">
+      <DependentUpon>RefundDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ReportParametersObject1.cs" />
+    <Compile Include="reports\SalariesReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\SalariesReport.Designer.cs">
+      <DependentUpon>SalariesReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\SalaryPaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\SalaryPaymentReport.Designer.cs">
+      <DependentUpon>SalaryPaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Sarf.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Sarf.Designer.cs">
+      <DependentUpon>Sarf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\SarfWQabd.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\SarfWQabd.Designer.cs">
+      <DependentUpon>SarfWQabd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\StayDetailed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StayDetailed.Designer.cs">
+      <DependentUpon>StayDetailed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\StayDetailReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StayDetailReport.Designer.cs">
+      <DependentUpon>StayDetailReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\StayTotals.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StayTotals.Designer.cs">
+      <DependentUpon>StayTotals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\SupplierItems.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\SupplierItems.Designer.cs">
+      <DependentUpon>SupplierItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\test.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\test.Designer.cs">
+      <DependentUpon>test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\TotalPayments.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\TotalPayments.Designer.cs">
+      <DependentUpon>TotalPayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\VacationsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\VacationsReport.Designer.cs">
+      <DependentUpon>VacationsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\WarningsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\WarningsReport.Designer.cs">
+      <DependentUpon>WarningsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport1.Designer.cs">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport3.Designer.cs">
+      <DependentUpon>XtraReport3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport4.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport4.Designer.cs">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport5.Designer.cs">
+      <DependentUpon>XtraReport5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport6.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport6.Designer.cs">
+      <DependentUpon>XtraReport6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\XtraReport7.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XtraReport7.Designer.cs">
+      <DependentUpon>XtraReport7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinGroupFooterViewController.cs" />
+    <Compile Include="WinModule.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinModule.Designer.cs">
+      <DependentUpon>WinModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinModuleEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\AccountingController.resx">
+      <DependentUpon>AccountingController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\CasherViewController.resx">
+      <DependentUpon>CasherViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\EmergencyViewController.resx">
+      <DependentUpon>EmergencyViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\HRController.resx">
+      <DependentUpon>HRController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\LabsViewController.resx">
+      <DependentUpon>LabsViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\OrderPaymentReportController.resx">
+      <DependentUpon>OrderPaymentReportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PatientPaymentReportController.resx">
+      <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PaymentReportController.resx">
+      <DependentUpon>PaymentReportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\PurchasingController.resx">
+      <DependentUpon>PurchasingController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ReceptionController.resx">
+      <DependentUpon>ReceptionController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\StayReportController.resx">
+      <DependentUpon>StayReportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ViewController1.resx">
+      <DependentUpon>ViewController1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WinCustomForm.resx">
+      <DependentUpon>WinCustomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WinCustomUserControl.resx">
+      <DependentUpon>WinCustomUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\CustomDashboardDesignerForm.resx">
+      <DependentUpon>CustomDashboardDesignerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Accounts.resx">
+      <DependentUpon>Accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\AccountsSheet.resx">
+      <DependentUpon>AccountsSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\AdmittedPatients.resx">
+      <DependentUpon>AdmittedPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\BuyingInvoice.resx">
+      <DependentUpon>BuyingInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\BuyingOrder.resx">
+      <DependentUpon>BuyingOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Consultation.resx">
+      <DependentUpon>Consultation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\DailyAccounts.resx">
+      <DependentUpon>DailyAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\DelayedPurchases.resx">
+      <DependentUpon>DelayedPurchases.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\DelayedPurchases2.resx">
+      <DependentUpon>DelayedPurchases2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\DischargeDetails.resx">
+      <DependentUpon>DischargeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\EmergencyInvoice.resx">
+      <DependentUpon>EmergencyInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\EmergencyPatients.resx">
+      <DependentUpon>EmergencyPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\EmployeesWarnings.resx">
+      <DependentUpon>EmployeesWarnings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ExpiredItems.resx">
+      <DependentUpon>ExpiredItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ICUpatients.resx">
+      <DependentUpon>ICUpatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\InventoryOperations.resx">
+      <DependentUpon>InventoryOperations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\JournalEntryReport.resx">
+      <DependentUpon>JournalEntryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Makhzan_Awel_Modda.resx">
+      <DependentUpon>Makhzan_Awel_Modda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\MeezanMoragaa.resx">
+      <DependentUpon>MeezanMoragaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\NeededItems.resx">
+      <DependentUpon>NeededItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\OrderReport.resx">
+      <DependentUpon>OrderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\OutPatients.resx">
+      <DependentUpon>OutPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PaymentInvoice.resx">
+      <DependentUpon>PaymentInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\paymentRepr.resx">
+      <DependentUpon>paymentRepr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PaymentVoucherReport.resx">
+      <DependentUpon>PaymentVoucherReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PeriodBought.resx">
+      <DependentUpon>PeriodBought.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PeriodExpenses.resx">
+      <DependentUpon>PeriodExpenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PeriodSold.resx">
+      <DependentUpon>PeriodSold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PriceListRequest.resx">
+      <DependentUpon>PriceListRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\PurchasingOrder.resx">
+      <DependentUpon>PurchasingOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ReceiptVoucherReport.resx">
+      <DependentUpon>ReceiptVoucherReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\RefundDocument.resx">
+      <DependentUpon>RefundDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\SalariesReport.resx">
+      <DependentUpon>SalariesReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\SalaryPaymentReport.resx">
+      <DependentUpon>SalaryPaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Sarf.resx">
+      <DependentUpon>Sarf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\SarfWQabd.resx">
+      <DependentUpon>SarfWQabd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StayDetailed.resx">
+      <DependentUpon>StayDetailed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StayDetailReport.resx">
+      <DependentUpon>StayDetailReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StayDetialReport.resx" />
+    <EmbeddedResource Include="reports\StayTotals.resx">
+      <DependentUpon>StayTotals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\SupplierItems.resx">
+      <DependentUpon>SupplierItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\test.resx">
+      <DependentUpon>test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\TotalPayments.resx">
+      <DependentUpon>TotalPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\VacationsReport.resx">
+      <DependentUpon>VacationsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\WarningsReport.resx">
+      <DependentUpon>WarningsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport1.resx">
+      <DependentUpon>XtraReport1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport3.resx">
+      <DependentUpon>XtraReport3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport4.resx">
+      <DependentUpon>XtraReport4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport5.resx">
+      <DependentUpon>XtraReport5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport6.resx">
+      <DependentUpon>XtraReport6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XtraReport7.resx">
+      <DependentUpon>XtraReport7.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\ExpressAppLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Controllers\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Editors\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.ar.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Model.DesignedDiffs.Localization.ar-001.xafml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HMS.Module\HMS.Module.csproj">
+      <Project>{BA8FB3EC-4D30-4622-BD61-B320A36D8DA6}</Project>
+      <Name>HMS.Module</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56d0f8e9-13fa-457b-a7f8-814156ba5330.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

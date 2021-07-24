@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Room_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="RoomName" Caption="أسم الغرفة" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

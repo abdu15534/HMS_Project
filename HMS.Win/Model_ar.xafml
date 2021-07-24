@@ -1,0 +1,4309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign>
+    <Actions>
+      <Action Id="518bc82a-7f89-4bab-b766-1d8bd0cbcc3c" Caption="اظهار المستند" />
+      <Action Id="CheckOutAction" ConfirmationMessage="هل تريد إنهاء الإقامة ؟" ToolTip="خروج" ShortCaption="خروج" Caption="خروج" />
+      <Action Id="CheckOutReception" ShortCaption="خروج" Caption="خروج" />
+      <Action Id="CurrentStay" ShortCaption="الاقامة الحالية" Caption="الاقامة الحالية" />
+      <Action Id="DetailedReport" ToolTip="فاتورة مفصلة" Caption="فاتورة مفصلة" />
+      <Action Id="DialogOK" Caption="كود" />
+      <Action Id="EmergencyInvoice" ShortCaption="فاتورة طوارئ" Caption="فاتورة طوارئ" />
+      <Action Id="EmergencyPatients" ShortCaption="مرضي الطوارئ" Caption="مرضي الطوارئ" />
+      <Action Id="JournalReport" Caption="طباعة القيد" />
+      <Action Id="New" Caption="إضافة" />
+      <Action Id="OpenObject" ShortCaption="فتح ملف الإرتباط" Caption="فتح ملف الإرتباط" />
+      <Action Id="OrderConfirmed" ToolTip="ترحيل" ShortCaption="ترحيل" Caption="ترحيل" />
+      <Action Id="OrderJournalReport" ToolTip="طباعة قيد" Caption="طباعة قيد" />
+      <Action Id="OrderUnConfirmed" ToolTip="إلغاء الترحيل" ShortCaption="إلغاء الترحيل" Caption="إلغاء الترحيل" />
+      <Action Id="PaymentBondConfirm" ToolTip="ترحيل" Caption="ترحيل" />
+      <Action Id="PaymentBondUnConfirm" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
+      <Action Id="PaymentInvoice" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
+      <Action Id="PaymentReceipt" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
+      <Action Id="Post" ToolTip="ترحيل" ShortCaption="ترحيل" Caption="ترحيل" />
+      <Action Id="PostSalaryDeduction" ToolTip="ترحيل" Caption="ترحيل" />
+      <Action Id="PostSalaryPayment" ToolTip="ترحيل" Caption="ترحيل" />
+      <Action Id="PurchasingOrder" ToolTip="فاتورة شراء" ShortCaption="فاتورة شراء" Caption="فاتورة شراء" />
+      <Action Id="ReceiptBondConfirm" ToolTip="ترحيل" Caption="ترحيل" />
+      <Action Id="ReceiptBondReport" ToolTip="طباعة تقرير" Caption="طباعة تقرير" />
+      <Action Id="ReceiptBondUnConfirm" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
+      <Action Id="ReceptionJournalReport" ToolTip="طباعة قيد" Caption="طباعة قيد" />
+      <Action Id="SalariesReport" ShortCaption="تقرير مرتبات" ToolTip="تقرير مرتبات" Caption="تقرير مرتبات" />
+      <Action Id="SalaryDeductionJournal" ToolTip="تقرير قيد الخصومات" Caption="تقرير قيد الخصومات" />
+      <Action Id="SalaryDeductionReport" ToolTip="الخصومات" Caption="الخصومات" />
+      <Action Id="SalaryPayment" Caption="سند مرتبات" />
+      <Action Id="SalaryPaymentJournal" ToolTip="تقرير قيد مرتبات" Caption="تقرير قيد مرتبات" />
+      <Action Id="SalaryPaymentReport" ToolTip="تقرير كشف مرتبات" Caption="تقرير كشف مرتبات" />
+      <Action Id="SaveAndClose" ToolTip="حفظ و إغلاق" ShortCaption="حفظ و إغلاق" Caption="حفظ و إغلاق" />
+      <Action Id="ShowAllContexts" Caption="اختبار" />
+      <Action Id="Stock Report " ShortCaption="تقرير المخزن" Caption="تقرير المخزن" />
+      <Action Id="Transfer" ToolTip="تحويل قسم داخلي" ShortCaption="تحويل قسم داخلي" Caption="تحويل قسم داخلي" />
+      <Action Id="UnCheckOutReception" ToolTip="الغاء الخروج" ShortCaption="الغاء الخروج" Caption="الغاء الخروج" />
+      <Action Id="UnPost" ToolTip="إلغاء الترحيل" ShortCaption="إلغاء الترحيل" Caption="إلغاء الترحيل" />
+      <Action Id="UnPostSalaryDeduction" ShortCaption="الغاء الترحيل" Caption="الغاء الترحيل" />
+      <Action Id="UnPostSalaryPayment" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
+    </Actions>
+    <ActionToContainerMapping>
+      <ActionContainer Id="Close" Caption="اغلاق" />
+      <ActionContainer Id="Print" Caption="طباعة" />
+    </ActionToContainerMapping>
+  </ActionDesign>
+  <BOModel>
+    <Class Name="DevExpress.ExpressApp.Kpi.BaseKpiObject">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.NonPersistentBaseObject">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Notifications.NotificationsObject">
+      <OwnMembers>
+        <Member Name="Postpone" Caption="تأجيل" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.StateMachine.Xpo.StateMachineObjectBase">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.SystemModule.Notifications.PostponeTime" Caption="وقت التأجيل" />
+    <Class Name="DevExpress.ExpressApp.Validation.AllContextsView.ContextValidationResult">
+      <OwnMembers>
+        <Member Name="Id" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.ExpressApp.Workflow.Xpo.WFBaseObject">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Base.SecuredActionDescriptor">
+      <OwnMembers>
+        <Member Name="Id" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.BaseObject">
+      <OwnMembers>
+        <Member Name="Oid" Caption="كود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.BaseImpl.Event">
+      <OwnMembers>
+        <Member Name="EndOn" EditMask="G" />
+        <Member Name="IsPostponed" Caption="مؤجل" />
+        <Member Name="StartOn" EditMask="G" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.IRuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Id" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Persistent.Validation.RuleBaseProperties">
+      <OwnMembers>
+        <Member Name="Id" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Xpo.XPObject">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Xpo.XPObjectType">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="DevExpress.Xpo.XPWeakReference">
+      <OwnMembers>
+        <Member Name="Oid" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="SimpleProjectManager.Module.BusinessObjects.Planning.ProjectTask" Caption="المهام">
+      <OwnMembers>
+        <Member Name="EndDate" Caption="تاريخ الإنتهاء" />
+        <Member Name="Notes" Caption="ملاحظات" />
+        <Member Name="Status" Caption="قسم الحجز" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.AbsenceDetails" Caption="تفاصيل الغياب">
+      <OwnMembers>
+        <Member Name="note" Caption="ملاحظة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Account" Caption="حساب">
+      <OwnMembers>
+        <Member Name="accountName" Caption="إسم الحساب" />
+        <Member Name="accountNumber" Caption="رقم الحساب" />
+        <Member Name="credit" Caption="دائن" />
+        <Member Name="debit" Caption="مدين" />
+        <Member Name="Journals" Caption="قيود" />
+        <Member Name="SubAccount" Caption="حساب فرعى" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Admission">
+      <OwnMembers>
+        <Member Name="CompanionDetailsCollection" Caption="المرافق" />
+        <Member Name="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <Member Name="EndscopeDetailsCollection" Caption="مناظير" />
+        <Member Name="endscopesSum" Caption="اجمالي المناظير" />
+        <Member Name="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <Member Name="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+        <Member Name="MedicalSupervisionSum" Caption="اجمالي الاشراف الطبي" />
+        <Member Name="medicationSum" Caption="إجمالى الأدوية" />
+        <Member Name="reception" Caption="الاستقبال" />
+        <Member Name="roomCareCost" Caption="تكلفة رعاية الغرفة" />
+        <Member Name="roomStayCost" Caption="تكلفة اقامة الغرفة" />
+        <Member Name="roomStaySum" Caption="اجمالي الغرفة" />
+        <Member Name="roomSupervisionCost" Caption="تكلفة الاشراف الطبي" />
+        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
+        <Member Name="servicesSum" Caption="إجمالى الخدمات" />
+        <Member Name="StayEnd" EditMask="f" DisplayFormat="{0:f}" />
+        <Member Name="StayMedicications" Caption="الادوية" />
+        <Member Name="StayStart" EditMask="f" DisplayFormat="{0:f}" />
+        <Member Name="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+        <Member Name="StockDetailsCollection" Caption="المستهلكات الطبية" />
+        <Member Name="SupervisionDetailsCollection" Caption="الاشراف الطبي" />
+        <Member Name="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <Member Name="TemporaryLeaves" Caption="خروج مؤقت" />
+        <Member Name="TestDetailsCollection" Caption="التحاليل" />
+        <Member Name="testsSum" Caption="اجمالي التحاليل" />
+        <Member Name="totalDays" Caption="عدد الايام" />
+        <Member Name="XraysDetailsCollection" Caption="الاشعة" />
+        <Member Name="xraysSum" Caption="اجمالي الاشعة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment" Caption="الميعاد">
+      <OwnMembers>
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Bank" Caption="البنك">
+      <OwnMembers>
+        <Member Name="address" Caption="العنوان" />
+        <Member Name="phone" Caption="الهاتف" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.bed">
+      <OwnMembers>
+        <Member Name="isAvailable" Caption="متاح ؟" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.BonusDetails" Caption="تفاصيل المكافأت">
+      <OwnMembers>
+        <Member Name="note" Caption="ملاحظة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Category" Caption="الصنف">
+      <OwnMembers>
+        <Member Name="Products" Caption="المنتجات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Clinc" Caption="العيادة">
+      <OwnMembers>
+        <Member Name="inCharge" Caption="مسئول" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Companion" Caption="المرافق">
+      <OwnMembers>
+        <Member Name="CompanionDetailsCollection" Caption="المرافق" />
+        <Member Name="ID" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.CompanionDetails" Caption="المرافق">
+      <OwnMembers>
+        <Member Name="Companion" Caption="المرافق" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="price" Caption="السعر" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="Stay" Caption="الاقامة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.CompensationDetails" Caption="المرافق" />
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.DeductionDetails" Caption="تفاصيل الخصومات">
+      <OwnMembers>
+        <Member Name="note" Caption="ملاحظة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Emergency" Caption="الطوارئ">
+      <OwnMembers>
+        <Member Name="medicationSum" Caption="إجمالى الأدوية" />
+        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
+        <Member Name="servicesSum" Caption="إجمالى الخدمات" />
+        <Member Name="supervision" Caption="الإشراف الطبى" />
+        <Member Name="SuppliesCollection" Caption="المستلزمات الطبية" />
+        <Member Name="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <Member Name="TotalSum" Caption="الإجمالى" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Employee" Caption="الموظف">
+      <OwnMembers>
+        <Member Name="AbsenceDetailsCollection" Caption="تفاصيل الغياب" />
+        <Member Name="baseSalary" Caption="مرتب اساسي" />
+        <Member Name="BonusDetailsCollection" Caption="المكافأت" />
+        <Member Name="daysOfWork" Caption="ايام العمل" />
+        <Member Name="DeductionDetailsCollection" Caption="الخصومات" />
+        <Member Name="hoursOfDay" Caption="ساعات العمل" />
+        <Member Name="housing" Caption="سكن" />
+        <Member Name="incentive" Caption="حافز" />
+        <Member Name="insuranceDeduction" Caption="حسميات تأمينات" />
+        <Member Name="job" Caption="الوظيقة" />
+        <Member Name="medicine" Caption="بدل علاج" />
+        <Member Name="NationalID" Caption="بطاقة الرقم القومي" />
+        <Member Name="otherDeductions" Caption="خصومات اخري" />
+        <Member Name="others" Caption="اخري" />
+        <Member Name="Salaries" Caption="المرتبات" />
+        <Member Name="SalaryAdvances" Caption="سُلفة" />
+        <Member Name="section" Caption="القسم" />
+        <Member Name="socialInsurane" Caption="تأمينات اجتماعية" />
+        <Member Name="totalAdvances" Caption="اجمالي سلف" />
+        <Member Name="TotalPenalties" Caption="اجمالي حسميات" />
+        <Member Name="TotalPenaltiesAndAdvancesPaid" Caption="اجمال السلف و الخصومات المسددة" />
+        <Member Name="transportation" Caption="بدل مواصلات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Endscope" Caption="منظار">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="EndscopeDetailsCollection" Caption="مناظير" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="note" Caption="ملاحظة" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.EndscopeDetails" Caption="مناظير">
+      <OwnMembers>
+        <Member Name="admission" Caption="الاقامات" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="Endscope" Caption="منظار" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="price" Caption="السعر" />
+        <Member Name="service" Caption="خدمة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.FinancialExchange" Caption="سند صرف مالي">
+      <OwnMembers>
+        <Member Name="amount" Caption="المبلغ" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="patient" Caption="المريض" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ICU" Caption="وحدة عناية مركزة">
+      <OwnMembers>
+        <Member Name="BedID" Caption="كود السرير" />
+        <Member Name="IsAvailable" Caption="متاح" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Inventory" Caption="المخازن">
+      <OwnMembers>
+        <Member Name="Employee" Caption="الموظف" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="InventoryType" Caption="نوع المخزن" />
+        <Member Name="Name" Caption="الاسم" />
+        <Member Name="StockProducts" Caption="المنتحات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Job" Caption="الوظيقة">
+      <OwnMembers>
+        <Member Name="id" Caption="كود" />
+        <Member Name="name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.JournalDetails" Caption="تفاصيل القيد">
+      <OwnMembers>
+        <Member Name="account" Caption="حساب" />
+        <Member Name="credit" Caption="دائن" />
+        <Member Name="debit" Caption="مدين" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="journal" Caption="القيد" />
+        <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.JournalEntry" Caption="قيد">
+      <OwnMembers>
+        <Member Name="JournalDetailsCollection" Caption="تفاصيل القيد" />
+        <Member Name="post" Caption="ترحيل" />
+        <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Kitchen" Caption="المطبخ">
+      <OwnMembers>
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="InCharge" Caption="مسئول" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.MasterAccount" Caption="حساب رئيسى">
+      <OwnMembers>
+        <Member Name="AccountClassification" Caption="تصنيف الحساب" />
+        <Member Name="accountName" Caption="إسم الحساب" />
+        <Member Name="accountNumber" Caption="رقم الحساب" />
+        <Member Name="credit" Caption="دائن" />
+        <Member Name="debit" Caption="مدين" />
+        <Member Name="SubAccounts" Caption="حسابات فرعية" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.NormalRoom" Caption="غرفة ">
+      <OwnMembers>
+        <Member Name="BedID" Caption="كود السرير" />
+        <Member Name="IsAvailable" Caption="متاح" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Patient" Caption="المريض">
+      <OwnMembers>
+        <Member Name="account" Caption="حسابات" />
+        <Member Name="Appointments" Caption="المواعيد" />
+        <Member Name="BloodType" Caption="فصيلة الدم" />
+        <Member Name="creditor" Caption="دائن" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="debtor" Caption="مدين" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="Emergencies" Caption="الطوارئ" />
+        <Member Name="FinancialExchanges" Caption="سندات الصرف" />
+        <Member Name="Gender" Caption="الجنس" />
+        <Member Name="HasAppointment" Caption="لديه ميعاد" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="InStay" Caption="في إقامة" />
+        <Member Name="Payments" Caption="الدفعات" />
+        <Member Name="Stays" Caption="الاقامات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Payer" Caption="المنفق">
+      <OwnMembers>
+        <Member Name="ID" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Payments" Caption="الدفعات">
+      <OwnMembers>
+        <Member Name="amount" Caption="المبلغ" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="Payer" Caption="المنفق" />
+        <Member Name="paymentID" Caption="كود الدفعة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.paymentSupplierBond" Caption="سند صرف خاص بالموردين">
+      <OwnMembers>
+        <Member Name="amount" Caption="المبلغ" />
+        <Member Name="chequeBank" Caption="بنك الشيك" />
+        <Member Name="chequeDate" Caption="تاريخ الشيك" />
+        <Member Name="chequeNumber" Caption="رقم الشيك" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="fromAccountBalance" Caption="رصيد حساب القبض" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="intoAccountBalance" Caption="رصيد حساب الصرف" />
+        <Member Name="journal" Caption="قيد" />
+        <Member Name="post" Caption="تم الترحيل ؟" />
+        <Member Name="statement" Caption="البيان" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Pharmacy" Caption="الصيدلية">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="note" Caption="ملاحظة" />
+        <Member Name="StayMedicationsCollection" Caption="تفاصيل الأدوية" />
+        <Member Name="total" Caption="الإجمالى" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Product" Caption="منتج">
+      <OwnMembers>
+        <Member Name="barCode" Caption="الباركود" />
+        <Member Name="Orders" Caption="الفواتير" />
+        <Member Name="purchasingPrice" Caption="سعر الشراء" />
+        <Member Name="sellingPrice" Caption="سعر البيع" />
+        <Member Name="sellUnit" Caption="وحدة البيع" />
+        <Member Name="unitAmount" Caption="وحدات العبوة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ProductUnit" Caption="الوحدة">
+      <OwnMembers>
+        <Member Name="unit" Caption="الوحدة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder" Caption="فاتورة شراء">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="discount" DisplayFormat="{0:N}%" EditMask="N" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="isConfirmed" Caption="ترحيل" />
+        <Member Name="journalEntry" Caption="قيد" />
+        <Member Name="paymentAccount" Caption="حساب دفعات" />
+        <Member Name="statement" Caption="بيان القيد" />
+        <Member Name="supplierAccount" Caption="حساب مورد" />
+        <Member Name="tax" DisplayFormat="{0:N}%" EditMask="N" Caption="ض.أ.ت.ص" />
+        <Member Name="totalOrder" Caption="اجمالي الفاتورة" />
+        <Member Name="VAT" EditMask="N" DisplayFormat="{0:N}%" Caption="ضريبة قيمة مضافة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail">
+      <OwnMembers>
+        <Member Name="id" Caption="الكود" />
+        <Member Name="price" Caption="السعر" />
+        <Member Name="product" Caption="منتج" />
+        <Member Name="puchasingOrder" Caption="فاتورة شراء" />
+        <Member Name="quantity" Caption="الكمية" EditMask="N" DisplayFormat="{0:N}" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.receiptClientBond" Caption="سند قبض خاص بالعملائ">
+      <OwnMembers>
+        <Member Name="amount" Caption="المبلغ" />
+        <Member Name="chequeBank" Caption="بنك الشيك" />
+        <Member Name="chequeDate" Caption="تاريخ الشيك" />
+        <Member Name="chequeNumber" Caption="رقم الشيك" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="fromAccountBalance" Caption="رصيد حساب القبض" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="intoAccountBalance" Caption="رصيد حساب الصرف" />
+        <Member Name="journal" Caption="قيد" />
+        <Member Name="post" Caption="تم الترحيل ؟" />
+        <Member Name="statement" Caption="البيان" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk">
+      <OwnMembers>
+        <Member Name="Admissions" Caption="الاقامات" />
+        <Member Name="dateEnter" DisplayFormat="{0:f}" EditMask="f" />
+        <Member Name="dateLeave" EditMask="f" DisplayFormat="{0:f}" />
+        <Member Name="journalEntry" Caption="قيد" />
+        <Member Name="note" Caption="ملاحظة" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Room" Caption="الغرفة">
+      <OwnMembers>
+        <Member Name="careCost" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="roomCost" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="Status" Caption="قسم الحجز" />
+        <Member Name="supervisionCost" Caption="تكلفة الإشراف الطبى" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SalaryAdvance" Caption="سُلفة">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="employee" Caption="الموظف" />
+        <Member Name="id" Caption="كود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SalaryDeduction" Caption="الخصم">
+      <OwnMembers>
+        <Member Name="AuditTrail" Caption="تتبع النشاط" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="journalEntry" Caption="قيد" />
+        <Member Name="paymentAccount" Caption="حساب الصرف" />
+        <Member Name="post" Caption="تم الترحيل ؟" />
+        <Member Name="SalaryDeductionDetailsCollection" Caption="الخصومات" />
+        <Member Name="statement" Caption="البيان" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails" Caption="الخصومات">
+      <OwnMembers>
+        <Member Name="AuditTrail" Caption="تتبع النشاط" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="deductionDays" Caption="الايام" />
+        <Member Name="deductionHours" Caption="عدد الساعات" />
+        <Member Name="deductionOthers" Caption="خصومات اخري" />
+        <Member Name="DeductionType" Caption="نوع الخصم" />
+        <Member Name="employee" Caption="الموظف" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="note" Caption="ملاحظات" />
+        <Member Name="payPerHour" Caption="اجر الساعة" />
+        <Member Name="SalaryDeduction" Caption="الخصم" />
+        <Member Name="totalDeduction" Caption="اجمالي خصومات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SalaryPayment" Caption="سند مرتبات">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="journalEntry" Caption="قيد" />
+        <Member Name="paymentAccount" Caption="حساب الصرف" />
+        <Member Name="post" Caption="تم الترحيل ؟" />
+        <Member Name="SalaryDetailsCollection" Caption="مرتبات" />
+        <Member Name="section" Caption="القسم" />
+        <Member Name="statement" Caption="البيان" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SalaryPaymentDetails" Caption="المرتبات">
+      <OwnMembers>
+        <Member Name="baseSalary" Caption="مرتب اساسي" />
+        <Member Name="daysOfWork" Caption="ايام العمل" />
+        <Member Name="employee" Caption="الموظف" />
+        <Member Name="grossPay" Caption="اجمالي مستحق" />
+        <Member Name="hoursOfWork" Caption="ساعات العمل" />
+        <Member Name="housing" Caption="سكن" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="incentive" Caption="حافز" />
+        <Member Name="insuranceDeduction" Caption="حسميات تأمينات" />
+        <Member Name="medicine" Caption="بدل علاج" />
+        <Member Name="netPay" Caption="الصافي" />
+        <Member Name="otherDeductions" Caption="خصومات اخري" />
+        <Member Name="others" Caption="اخري" />
+        <Member Name="paySalary" Caption="تم الصرف ؟" />
+        <Member Name="SalaryPayment" Caption="سند مرتبات" />
+        <Member Name="socialInsurane" Caption="تأمينات اجتماعية" />
+        <Member Name="totalAdvances" Caption="اجمالي سلف" />
+        <Member Name="totalDeductions" Caption="اجمالي خصومات" />
+        <Member Name="totalPenalties" Caption="اجمالي حسميات" />
+        <Member Name="transportation" Caption="بدل مواصلات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Section" Caption="القسم">
+      <OwnMembers>
+        <Member Name="id" Caption="كود" />
+        <Member Name="name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service" Caption="خدمة ">
+      <OwnMembers>
+        <Member Name="category" Caption="الصنف" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+        <Member Name="Price" Caption="السعر" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="ServiceType" Caption="نوع الخدمة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails" Caption="الخدمات">
+      <OwnMembers>
+        <Member Name="appointment" Caption="ميعاد" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="price" Caption="السعر" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="Service" Caption="خدمة " />
+        <Member Name="Stay" Caption="الاقامة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceFirstCategory" Caption="تصنيف رئيسي">
+      <OwnMembers>
+        <Member Name="description" Caption="الوصف" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="name" Caption="الاسم" />
+        <Member Name="ServiceSecondCategories" Caption="تصنيف فرعي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceSecondCategory" Caption="تصنيف فرعي">
+      <OwnMembers>
+        <Member Name="description" Caption="الوصف" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="name" Caption="الاسم" />
+        <Member Name="serviceFirstCategory" Caption="تصنيف رئيسي" />
+        <Member Name="Services" Caption="الخدمات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StartAccounts">
+      <OwnMembers>
+        <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StartAccountsDetails">
+      <OwnMembers>
+        <Member Name="account" Caption="حسابات" />
+        <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StayMedications" Caption="الادوية">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Medication" Caption="دواء" />
+        <Member Name="pharmacy" Caption="الصيدلية" />
+        <Member Name="price" Caption="السعر" EditMask="C" DisplayFormat="{0:C}" />
+        <Member Name="quantity" Caption="الكمية " />
+        <Member Name="Stay" Caption="الاقامة" />
+        <Member Name="total" Caption="الاجمالي" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StaySupplies" Caption="المستلزمات الطبية">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="price" Caption="السعر" EditMask="C" />
+        <Member Name="quantity" Caption="الكمية " />
+        <Member Name="Stay" Caption="الاقامة" />
+        <Member Name="supplyProduct" Caption="منتج" />
+        <Member Name="total" Caption="الاجمالي" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StockProduct" Caption="المستهلكات الطبية">
+      <OwnMembers>
+        <Member Name="firstUnitQuantity" Caption="وحدة جملة" />
+        <Member Name="Inventory" Caption="المخازن" />
+        <Member Name="product" Caption="منتج" />
+        <Member Name="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SubAccount" Caption="حساب فرعى">
+      <OwnMembers>
+        <Member Name="accountName" Caption="إسم الحساب" />
+        <Member Name="accountNumber" Caption="رقم الحساب" />
+        <Member Name="Accounts" Caption="الحسابات" />
+        <Member Name="credit" Caption="دائن" />
+        <Member Name="debit" Caption="مدين" />
+        <Member Name="masterAccount" Caption="حساب رئيسى" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SupervisionDetails" Caption="الاشراف الطبي">
+      <OwnMembers>
+        <Member Name="admission" Caption="اقامة" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="doctor" Caption="الطبيب" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="price" Caption="السعر" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Supplier">
+      <OwnMembers>
+        <Member Name="account" Caption="حسابات" />
+        <Member Name="Orders" Caption="الفواتير" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.TemporaryLeave" Caption="خروج مؤقت">
+      <OwnMembers>
+        <Member Name="admission" Caption="الاقامات" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="description" Caption="الوصف" />
+        <Member Name="id" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Test" Caption="تحليل">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="note" Caption="ملاحظة" />
+        <Member Name="TestDetailsCollection" Caption="التحاليل" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.TestDetails" Caption="التحاليل">
+      <OwnMembers>
+        <Member Name="admission" Caption="الاقامات" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="price" Caption="السعر" />
+        <Member Name="service" Caption="خدمة" />
+        <Member Name="Test" Caption="تحليل" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Transfer">
+      <OwnMembers>
+        <Member Name="fromSection" Caption="من قسم" />
+        <Member Name="intoRoom" Caption="الي غرفة" />
+        <Member Name="intoSection" Caption="الي قسم" />
+        <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.VacationDetails">
+      <OwnMembers>
+        <Member Name="note" Caption="ملاحظة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Xrays" Caption="الاشعة">
+      <OwnMembers>
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="note" Caption="ملاحظة" />
+        <Member Name="total" Caption="الاجمالي" />
+        <Member Name="XraysDetailsCollection" Caption="الاشعة" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.XraysDetails" Caption="الاشعة">
+      <OwnMembers>
+        <Member Name="admission" Caption="الاقامات" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="id" Caption="الكود" />
+        <Member Name="price" Caption="السعر" />
+        <Member Name="service" Caption="خدمة" />
+        <Member Name="Xrays" Caption="الاشعة" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <CreatableItems>
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Account" Caption="حساب" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Appointment" Caption="الميعاد" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Category" Caption="الصنف" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Clinc" Caption="العيادة" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.CompanionDetails" Caption="المرافق" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Emergency" Caption="الطوارئ" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Employee" Caption="الموظف" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.ICU" Caption="وحدة عناية مركزة" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Inventory" Caption="المخازن" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.JournalEntry" Caption="قيد" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Kitchen" Caption="المطبخ" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Patient" Caption="المريض" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Product" Caption="منتج" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Room" Caption="الغرفة" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.StockProduct" Caption="المستهلكات الطبية" />
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Test" Caption="تحليل" />
+  </CreatableItems>
+  <Localization>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="DevExpress.Data.Filtering.Aggregate">
+        <LocalizationItem Name="Sum" Value="الإجمالى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.Notifications.NotificationItemState">
+        <LocalizationItem Name="Postponed" Value="مؤجل" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="DevExpress.ExpressApp.Notifications.NotificationsType">
+        <LocalizationItem Name="Postponed" Value="مؤجل" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Admission+statusType" Value="القسم">
+        <LocalizationItem Name="covid" Value="عناية كوفيد19 " />
+        <LocalizationItem Name="ICU" Value="العناية المركزة" />
+        <LocalizationItem Name="normal" Value="اقامة غرفة" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes" Value="نوع المخزن">
+        <LocalizationItem Name="Other" Value="اخري" />
+        <LocalizationItem Name="Pharmacy" Value="الصيدلية" />
+        <LocalizationItem Name="Stock" Value="المخزن" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.MasterAccount+AccountClassifications" Value="تصنيف الحساب">
+        <LocalizationItem Name="Assets" Value="أصول و عملاء" />
+        <LocalizationItem Name="Expenses" Value="مصروفات نشاط" />
+        <LocalizationItem Name="Liabilities" Value="خصوم و موردين" />
+        <LocalizationItem Name="Revenues" Value="إيرادات نشاط" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Patient+Blood" Value="فصيلة الدم">
+        <LocalizationItem Name="ONegative" Value="ONegative" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Patient+Genders" Value="الجنس" />
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder+OrderTypes" Value="نوع الفاتورة">
+        <LocalizationItem Name="BeginningInventory" Value="جرد البداية" />
+        <LocalizationItem Name="InCash" Value="مشتريات نقدية" />
+        <LocalizationItem Name="IncashSalesReturns" Value="مردودات مشتريات نقدية" />
+        <LocalizationItem Name="NegativeStockTalking" Value="عجز جرد مخزن" />
+        <LocalizationItem Name="OnCredit" Value="مشتريات آجلة" />
+        <LocalizationItem Name="OnCreditSalesReturns" Value="مردودات مشتريات آجلة" />
+        <LocalizationItem Name="Partial" Value="مشتريات جزئية" />
+        <LocalizationItem Name="PartialSalesReturns" Value="مردودات مشتريات جزئية" />
+        <LocalizationItem Name="PositiveStockTalking" Value="زيادة جرد مخزن" />
+        <LocalizationItem Name="PurchasingOrder" Value="طلبية شراء" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails+DeductionTypes" Value="انواع الخصومات">
+        <LocalizationItem Name="PunitiveSanctions" Value="حسميات" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ServiceTypes" Value="نوع الخدمة">
+        <LocalizationItem Name="Tests" Value="التحاليل" />
+        <LocalizationItem Name="Xrays" Value="الاشعة" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories">
+        <LocalizationItem Name="appointment" Value="ميعاد" />
+        <LocalizationItem Name="emergency" Value="الطوارئ" />
+        <LocalizationItem Name="stay" Value="الاقامة" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionSecondCategories">
+        <LocalizationItem Name="salaries" Value="المرتبات" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+    <LocalizationGroup Name="Namespaces">
+      <LocalizationItem Name="DevExpress.Persistent.AuditTrail" Value="تتبع النشاط" />
+    </LocalizationGroup>
+  </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="In-Patient" Caption="المستشفي">
+        <Items>
+          <Item Id="StandardFormWithCustomUserControl" Caption="الرئيسي" />
+          <Item Id="Emergency_ListView" Caption="الطوارئ" />
+        </Items>
+      </Item>
+      <Item Id="Pharmacy" Caption="الصيدلية">
+        <Items>
+          <Item Id="Admission" Caption="الاقامات" />
+        </Items>
+      </Item>
+      <Item Id="Inventory &amp; products" Caption="المخازن و المنتجات">
+        <Items>
+          <Item Id="Product_ListView" Caption="منتج" />
+        </Items>
+      </Item>
+      <Item Id="القسم الخارجي">
+        <Items>
+          <Item Id="Appointments" Caption="مواعيد" />
+        </Items>
+      </Item>
+      <Item Id="Purchasing Department" Caption="المشتريات">
+        <Items>
+          <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="سند صرف موردين" />
+          <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="فواتير الشراء" />
+          <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="المورد" />
+        </Items>
+      </Item>
+      <Item Id="HRDepartment" Caption="الموارد البشرية">
+        <Items>
+          <Item Id="Job_ListView" Caption="الوظيقة" />
+          <Item Id="Employee_ListView" Caption="الموظفين" />
+        </Items>
+      </Item>
+      <Item Id="إحصائيات">
+        <Items>
+          <DashboardNavigationItem Id="Payments report" Caption="طباعة تقرير" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Product_ListView" Caption="منتج" />
+        </Items>
+      </Item>
+      <Item Id="Task" Caption="المهام" />
+      <Item Id="Services" Caption="الخدمات" />
+    </Items>
+  </NavigationItems>
+  <Validation>
+    <Contexts>
+      <ValidationContext Id="Delete" Caption="حذف" />
+      <ValidationContext Id="Save" Caption="حفظ" />
+    </Contexts>
+  </Validation>
+  <ViewItems>
+    <PropertyEditor Name="PropertyEditors">
+      <RegisteredPropertyEditor PropertyType="System.Decimal" DefaultDisplayFormat="{0:C}" />
+      <RegisteredPropertyEditor PropertyType="System.Double" DefaultDisplayFormat="{N:0}" DefaultEditMask="N" />
+    </PropertyEditor>
+  </ViewItems>
+  <Views>
+    <DetailView Id="AboutInfo_DetailView">
+      <Items>
+        <StaticText Id="AboutText" Text=" &lt; br &gt; الإصدار 1. 0. 7744 &lt; br &gt;  &lt; br &gt; " />
+      </Items>
+    </DetailView>
+    <DetailView Id="AbsenceDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="AbsenceDetails" Caption="تفاصيل الغياب" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="AbsenceDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="AbsenceDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Account_DetailView" Caption="حساب">
+      <Items>
+        <PropertyEditor Id="accountName" Caption="إسم الحساب" />
+        <PropertyEditor Id="accountNumber" Caption="رقم الحساب" />
+        <PropertyEditor Id="credit" Caption="دائن" />
+        <PropertyEditor Id="debit" Caption="مدين" />
+        <PropertyEditor Id="SubAccount" Caption="حساب فرعى" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Account" Caption="حساب" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Account_ListView" Caption="حساب">
+      <Columns>
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+        <ColumnInfo Id="accountNumber" Caption="رقم الحساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+        <ColumnInfo Id="SubAccount" Caption="حساب فرعى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Account_LookupListView" Caption="حساب">
+      <Columns>
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ActionContainerDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="ActionContainerDescriptor_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Address_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Address" Caption="العنوان" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Address_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_CompanionDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Admission_DetailView">
+      <Items>
+        <PropertyEditor Id="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <PropertyEditor Id="EndscopeDetailsCollection" Caption="مناظير" />
+        <PropertyEditor Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <PropertyEditor Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+        <PropertyEditor Id="medicationSum" Caption="إجمالى الأدوية" />
+        <PropertyEditor Id="roomStaySum" Caption="تكلفة الاقامة بالغرفة" />
+        <PropertyEditor Id="ServiceDetailsCollection" Caption="الخدمات" />
+        <PropertyEditor Id="servicesSum" Caption="إجمالى الخدمات: " />
+        <PropertyEditor Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+        <PropertyEditor Id="StockDetailsCollection" Caption="المستهلكات الطبية" />
+        <PropertyEditor Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <PropertyEditor Id="TemporaryLeaves" Caption="خروج مؤقت" />
+        <PropertyEditor Id="TestDetailsCollection" Caption="التحاليل" />
+        <PropertyEditor Id="testsSum" Caption="اجمالي التحاليل" />
+        <PropertyEditor Id="totalDays" Caption="عدد الايام" />
+        <PropertyEditor Id="xraysSum" Caption="اجمالي الاشعة" />
+      </Items>
+      <Layout>
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Main">
+            <TabbedGroup Id="Tabs">
+              <LayoutGroup Id="StockDetailsCollection" Caption="المستهلكات الطبية" />
+              <LayoutGroup Id="Item3" Caption="التحاليل" />
+              <LayoutGroup Id="Item4" Caption="الاشعة" />
+              <LayoutGroup Id="Item5" Caption="المناظير" />
+              <LayoutGroup Id="Item6" Caption="خروج مؤقت" />
+              <LayoutGroup Id="Item9" Caption="الاشراف الطبي" />
+            </TabbedGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136" Caption="Auto9aba8244-e836-405f-8960-49e671ecf136(32)" />
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Admission_EndscopeDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_ListView">
+      <Columns>
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+        <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
+        <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
+        <ColumnInfo Id="totalDays" Caption="عدد الايام" />
+        <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_LookupListView">
+      <Columns>
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
+        <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
+        <ColumnInfo Id="totalDays" Caption="عدد الايام" />
+        <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_StayMedicications_ListView">
+      <Columns>
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="Medication.product.sellUnit" Caption="وحدة البيع" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_StockDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="emergency" Caption="الطوارئ" />
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
+        <ColumnInfo Id="supplyProduct.product.sellUnit" Caption="وحدة البيع" />
+        <ColumnInfo Id="profit" Caption="الربح" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_SupervisionDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="اقامة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_TemporaryLeaves_ListView" Caption="خروج مؤقت">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_TestDetailsCollection_ListView" Caption="التحاليل">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="Test" Caption="تحليل" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="Admission_XraysDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Analysis_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Analysis_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Appointment_DetailView" Caption="الميعاد">
+      <Items>
+        <PropertyEditor Id="IsPostponed" Caption="مؤجل" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="Patient" Caption="المريض" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="ServiceDetailsCollection" Caption="الخدمات" />
+          </TabbedGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Appointment" Caption="الميعاد" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Appointment_ListView" Caption="الميعاد">
+      <Columns>
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+      </Columns>
+    </ListView>
+    <ListView Id="Appointment_LookupListView" Caption="الميعاد" />
+    <DetailView Id="AuditDataItemPersistent_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="AuditDataItemPersistent_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="AuditedObjectWeakReference_AuditDataItems_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="AuditedObjectWeakReference_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="AuthenticationStandardLogonParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Bank_DetailView">
+      <Items>
+        <PropertyEditor Id="address" Caption="العنوان" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="phone" Caption="الهاتف" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Bank" Caption="البنك" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Bank_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="phone" Caption="الهاتف" />
+        <ColumnInfo Id="address" Caption="العنوان" />
+      </Columns>
+    </ListView>
+    <ListView Id="Bank_LookupListView" Caption="البنك">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="phone" Caption="الهاتف" />
+        <ColumnInfo Id="address" Caption="العنوان" />
+      </Columns>
+    </ListView>
+    <DetailView Id="BaseAuditedObjectWeakReference_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="BaseObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="BaseObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="BaseObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="bed_DetailView">
+      <Items>
+        <PropertyEditor Id="isAvailable" Caption="متاح ؟" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+    </DetailView>
+    <ListView Id="bed_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="BonusDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="BonusDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="BonusDetails_LookupListView" Caption="تفاصيل المكافأت">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Category_DetailView" Caption="الصنف">
+      <Items>
+        <PropertyEditor Id="Products" Caption="المنتجات" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Category" Caption="الصنف" />
+          </LayoutGroup>
+          <LayoutGroup Id="Products_Group" Caption="المنتجات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Category_ListView" Caption="الصنف" />
+    <ListView Id="Category_LookupListView" Caption="الصنف" />
+    <ListView Id="Category_Products_ListView" Caption="منتج">
+      <Columns>
+        <ColumnInfo Id="purchasingPrice" Caption="سعر الشراء" />
+        <ColumnInfo Id="sellingPrice" Caption="سعر البيع" />
+        <ColumnInfo Id="barCode" Caption="الباركود" />
+        <ColumnInfo Id="sellUnit" Caption="وحدة البيع" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ChangePasswordOnLogonParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="ChangePasswordParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Clinc_DetailView">
+      <Items>
+        <PropertyEditor Id="inCharge" Caption="مسئول" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Clinc" Caption="العيادة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="CommonNotificationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Companion_CompanionDetailsCollection_ListView" Caption="المرافق">
+      <Columns>
+        <ColumnInfo Id="Companion" Caption="المرافق" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Companion_DetailView" Caption="المرافق">
+      <Items>
+        <PropertyEditor Id="CompanionDetailsCollection" Caption="المرافق" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Companion" Caption="الكود" />
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="CompanionDetailsCollection" Caption="المرافق" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Companion_ListView" Caption="المرافق">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Companion_LookupListView" Caption="المرافق" />
+    <DetailView Id="CompanionDetails_DetailView" Caption="المرافق">
+      <Items>
+        <PropertyEditor Id="Companion" Caption="المرافق" />
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="price" Caption="السعر" EditMask="C" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="CompanionDetails" Caption="المرافق" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="CompanionDetails_ListView" Caption="المرافق">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Companion" Caption="المرافق" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="CompanionDetails_LookupListView" Caption="المرافق">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Companion" Caption="المرافق" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ContextValidationResult_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ContextValidationResult_DisplayableValidationResultItems_ListView">
+      <Columns>
+        <ColumnInfo Id="RuleProperties.Name" Caption="الاسم" />
+        <ColumnInfo Id="RuleProperties.Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Country_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Country" Caption="البلد" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Country_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="CriteriaProvider_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="DashboardCreationInfo_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="DashboardCreationInfo_ViewItems_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DashboardData_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="DashboardData_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DashboardName_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="DashboardOrganizationItem_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="DashboardOrganizationItem_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="DashboardOrganizationItem_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DashboardOrganizer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="DashboardOrganizer_ViewItems_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DashboardViewer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="DashboardViewItemDescriptor_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="DeductionDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="DeductionDetails" Caption="تفاصيل الحسميات" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="DeductionDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="DeductionDetails_LookupListView" Caption="تفاصيل الخصومات">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="DiagnosticInfoObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="DisplayableValidationResultItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="DisplayableValidationResultItem_ListView">
+      <Columns>
+        <ColumnInfo Id="RuleProperties.Name" Caption="الاسم" />
+        <ColumnInfo Id="RuleProperties.Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EditModelPermission_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Emergency_DetailView">
+      <Items>
+        <PropertyEditor Id="doctor" Caption="الطبيب" />
+        <PropertyEditor Id="medicationSum" Caption="إجمالى الأدوية" />
+        <PropertyEditor Id="ServiceDetailsCollection" Caption="الخدمات" />
+        <PropertyEditor Id="servicesSum" Caption="إجمالى الخدمات" />
+        <PropertyEditor Id="supervision" Caption="الإشراف الطبى" />
+        <PropertyEditor Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <PropertyEditor Id="TotalSum" Caption="الإجمالى" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="SimpleEditors">
+          <LayoutGroup Id="Emergency" Caption="الطوارئ" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Emergency_ListView">
+      <Columns>
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="TotalSum" Caption="الإجمالى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Emergency_LookupListView">
+      <Columns>
+        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="TotalSum" Caption="الإجمالى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Emergency_StayMedicationsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+      </Columns>
+    </ListView>
+    <ListView Id="Emergency_SuppliesCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_AbsenceDetailsCollection_ListView" Caption="تفاصيل الغياب">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_BonusDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_DeductionDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Employee_DetailView" Caption="الموظف">
+      <Items>
+        <PropertyEditor Id="AbsenceDetailsCollection" Caption="تفاصيل الغياب" />
+        <PropertyEditor Id="BonusDetailsCollection" Caption="المكافأت" />
+        <PropertyEditor Id="NationalID" Caption="بطاقة الرقم القومي" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="SalaryAdvances" Caption="سُلفة" />
+        <PropertyEditor Id="section" Caption="القسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Employee" Caption="الموظف" />
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Salaries" Caption="المرتبات" />
+            <LayoutGroup Id="DeductionDetailsCollection" Caption="الخصومات" />
+            <LayoutGroup Id="SalaryAdvances" Caption="سُلفة" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Employee_ListView" Caption="الموظف">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="TotalPenalties" Caption="اجمالي حسميات" />
+        <ColumnInfo Id="TotalPenaltiesAndAdvancesPaid" Caption="اجمال السلف و الخصومات المسددة" />
+        <ColumnInfo Id="hoursOfDay" Caption="ساعات العمل" />
+        <ColumnInfo Id="job" Caption="الوظيقة" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_LookupListView" Caption="الموظف" />
+    <ListView Id="Employee_Salaries_ListView">
+      <Columns>
+        <ColumnInfo Id="transportation" Caption="بدل مواصلات" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_SalaryAdvances_ListView" Caption="سُلفة">
+      <Columns>
+        <ColumnInfo Id="employee" Caption="الموظف" />
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="Employee_VacationDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Endscope_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+        <PropertyEditor Id="total" Caption="الاجمالي" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Endscope" Caption="منظار" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Endscope_EndscopeDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="Endscope_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Endscope_LookupListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <DetailView Id="EndscopeDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="price" Caption="السعر" />
+        <PropertyEditor Id="service" Caption="خدمة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="EndscopeDetails" Caption="مناظير" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="EndscopeDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="EndscopeDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Event_DetailView">
+      <Items>
+        <PropertyEditor Id="IsPostponed" Caption="مؤجل" />
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Event_ListView">
+      <Columns>
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Event_Resources_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="FileAttachmentBase_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="FileAttachmentBase_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="FileData_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="FileData_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="FinancialExchange_DetailView" Caption="سند صرف مالي">
+      <Items>
+        <PropertyEditor Id="amount" Caption="المبلغ" EditMask="C" />
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="patient" Caption="المريض" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="FinancialExchange" Caption="سند صرف" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="FinancialExchange_ListView" Caption="سند صرف مالي">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="patient" Caption="المريض" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="FinancialExchange_LookupListView" Caption="سند صرف مالي">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="patient" Caption="المريض" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="HCategory_Children_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="HCategory_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="HCategory_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ICU_DetailView" Caption="وحدة عناية مركزة">
+      <Items>
+        <PropertyEditor Id="BedID" Caption="كود السرير" />
+        <PropertyEditor Id="IsAvailable" Caption="متاح" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ICU" Caption="وحدة عناية مركزة" />
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ICU_ListView" Caption="وحدة عناية مركزة">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="BedID" Caption="كود السرير" />
+        <ColumnInfo Id="IsAvailable" Caption="متاح" />
+      </Columns>
+    </ListView>
+    <ListView Id="ICU_LookupListView" Caption="وحدة عناية مركزة">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="BedID" Caption="كود السرير" />
+        <ColumnInfo Id="IsAvailable" Caption="متاح" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IDateRange_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DashboardView Id="InPatient">
+      <Items>
+        <DashboardViewItem Id="Admission" Caption="اقامة" />
+        <DashboardViewItem Id="Reception" Caption="الاستقبال" />
+        <DashboardViewItem Id="Room" Caption="الغرفة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DashboardView>
+    <DetailView Id="Inventory_DetailView" Caption="المخازن">
+      <Items>
+        <PropertyEditor Id="Employee" Caption="الموظف" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="InventoryType" Caption="نوع المخزن" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Inventory" Caption="المخازن" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Inventory_ListView" Caption="المخازن">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="InventoryType" Caption="نوع المخزن" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Employee" Caption="الموظف" />
+      </Columns>
+    </ListView>
+    <ListView Id="Inventory_LookupListView" Caption="المخازن">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="Inventory_StockProducts_ListView" Caption="منتج">
+      <Columns>
+        <ColumnInfo Id="Inventory" Caption="المخازن" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="product" Caption="منتج" />
+        <ColumnInfo Id="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleBaseProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleBaseProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleBaseProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleCollectionPropertyProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleCollectionPropertyProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleCollectionPropertyProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleCombinationOfPropertiesIsUniqueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleCombinationOfPropertiesIsUniqueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleCombinationOfPropertiesIsUniqueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleCriteriaProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleCriteriaProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleCriteriaProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleFromBoolPropertyProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleFromBoolPropertyProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleFromBoolPropertyProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleIsReferencedProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleIsReferencedProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleIsReferencedProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleObjectExistsProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleObjectExistsProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleObjectExistsProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRulePropertyValueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRulePropertyValueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRulePropertyValueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleRangeProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleRangeProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleRangeProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleRegularExpressionProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleRegularExpressionProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleRegularExpressionProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleRequiredFieldProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleRequiredFieldProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleRequiredFieldProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleSearchObjectProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleSearchObjectProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleSearchObjectProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleStringComparisonProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleStringComparisonProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleStringComparisonProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleSupportsCollectionAggregatesProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleSupportsCollectionAggregatesProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleSupportsCollectionAggregatesProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleUniqueValueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleUniqueValueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleUniqueValueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="IRuleValueComparisonProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="IRuleValueComparisonProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="IRuleValueComparisonProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Job_DetailView">
+      <Items>
+        <PropertyEditor Id="name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Job" Caption="الوظيقة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="JournalDetails_DetailView" Caption="تفاصيل القيد">
+      <Items>
+        <PropertyEditor Id="account" Caption="حساب" />
+        <PropertyEditor Id="credit" Caption="دائن" />
+        <PropertyEditor Id="debit" Caption="مدين" />
+        <PropertyEditor Id="id" Caption="الكود" />
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="JournalDetails" Caption="تفاصيل القيد">
+              <LayoutGroup Id="JournalDetails_col1" Caption="تفاصيل القيد1" />
+              <LayoutGroup Id="JournalDetails_col2" Caption="تفاصيل القيد2" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="JournalDetails_ListView" Caption="تفاصيل القيد">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="journal" Caption="القيد" />
+        <ColumnInfo Id="account" Caption="حساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="JournalDetails_LookupListView" Caption="تفاصيل القيد">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="journal" Caption="القيد" />
+        <ColumnInfo Id="account" Caption="حساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="JournalEntry_DetailView" Caption="قيد">
+      <Items>
+        <PropertyEditor Id="JournalDetailsCollection" Caption="تفاصيل القيد" />
+        <PropertyEditor Id="post" Caption="ترحيل" />
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="JournalEntry" Caption="قيد">
+              <LayoutGroup Id="JournalEntry_col1" Caption="القيد2" />
+              <LayoutGroup Id="JournalEntry_col2" Caption="القيد1" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="JournalDetailsCollection_Group" Caption="تفاصيل القيد" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="JournalEntry_JournalDetailsCollection_ListView" Caption="تفاصيل القيد">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="journal" Caption="القيد" />
+        <ColumnInfo Id="account" Caption="حساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="JournalEntry_ListView" Caption="قيد">
+      <Columns>
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="post" Caption="ترحيل" />
+      </Columns>
+    </ListView>
+    <ListView Id="JournalEntry_LookupListView" Caption="قيد">
+      <Columns>
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="post" Caption="ترحيل" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Kitchen_DetailView" Caption="المطبخ">
+      <Items>
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="InCharge" Caption="مسئول" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Kitchen" Caption="المطبخ" />
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Kitchen_ListView" Caption="المطبخ">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="InCharge" Caption="مسئول" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Kitchen_LookupListView" Caption="المطبخ">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="InCharge" Caption="مسئول" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="KpiDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="KpiHistoryItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="KpiInstance_Chart_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="KpiInstance_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="KpiScorecard_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="MarkerObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="MasterAccount_DetailView" Caption="حساب رئيسى">
+      <Items>
+        <PropertyEditor Id="AccountClassification" Caption="تصنيف الحساب" />
+        <PropertyEditor Id="accountName" Caption="إسم الحساب" />
+        <PropertyEditor Id="accountNumber" Caption="رقم الحساب" />
+        <PropertyEditor Id="credit" Caption="دائن" />
+        <PropertyEditor Id="debit" Caption="مدين" />
+        <PropertyEditor Id="SubAccounts" Caption="حسابات فرعية" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="MasterAccount" Caption="حساب رئيسى" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="MasterAccount_ListView" Caption="حساب رئيسى">
+      <Columns>
+        <ColumnInfo Id="accountNumber" Caption="رقم الحساب" />
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+        <ColumnInfo Id="AccountClassification" Caption="تصنيف الحساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+      </Columns>
+    </ListView>
+    <ListView Id="MasterAccount_LookupListView" Caption="حساب رئيسى">
+      <Columns>
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+      </Columns>
+    </ListView>
+    <ListView Id="MasterAccount_SubAccounts_ListView" Caption="حساب فرعى">
+      <Columns>
+        <ColumnInfo Id="accountNumber" Caption="رقم الحساب" />
+        <ColumnInfo Id="masterAccount" Caption="حساب رئيسى" />
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+      </Columns>
+    </ListView>
+    <ListView Id="ModelDifference_Aspects_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ModelDifference_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ModelDifference_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ModelDifferenceAspect_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ModelDifferenceAspect_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ModelDifferenceCopyParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="NewReportWizardParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="NewReportWizardParametersV2_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="NonPersistentBaseObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="NonPersistentBaseObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="NonPersistentBaseObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="NormalRoom_DetailView" Caption="غرفة ">
+      <Items>
+        <PropertyEditor Id="BedID" Caption="كود السرير" />
+        <PropertyEditor Id="IsAvailable" Caption="متاح" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="NormalRoom" Caption="غرفة" />
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NormalRoom_ListView" Caption="غرفة ">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="BedID" Caption="كود السرير" />
+        <ColumnInfo Id="IsAvailable" Caption="متاح" />
+      </Columns>
+    </ListView>
+    <ListView Id="NormalRoom_LookupListView" Caption="غرفة ">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="BedID" Caption="كود السرير" />
+        <ColumnInfo Id="IsAvailable" Caption="متاح" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Notification_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="NotificationsObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="MasterGroup">
+          <LayoutGroup Id="Main" Caption="الرئيسية" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NotificationsObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Postpone" Caption="تأجيل" />
+      </Columns>
+    </ListView>
+    <ListView Id="NotificationsObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Postpone" Caption="تأجيل" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ObjectAccessPermission_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Party_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Party_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Party_PhoneNumbers_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Appointments_ListView" Caption="الميعاد">
+      <Columns>
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Patient_DetailView" Caption="المريض">
+      <Items>
+        <PropertyEditor Id="account" Caption="حسابات" />
+        <PropertyEditor Id="Appointments" Caption="المواعيد" />
+        <PropertyEditor Id="BloodType" Caption="فصيلة الدم" />
+        <PropertyEditor Id="creditor" Caption="دائن" EditMask="C" />
+        <PropertyEditor Id="debtor" Caption="مدين" EditMask="C" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="Payments" Caption="الدفعات" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="Appointments" Caption="المواعيد" />
+            <LayoutGroup Id="Payments" Caption="الدفعات" />
+          </TabbedGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Patient" Caption="المريض" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Patient_Emergencies_ListView">
+      <Columns>
+        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="TotalSum" Caption="الإجمالى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_FinancialExchanges_ListView" Caption="سند صرف مالي">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="patient" Caption="المريض" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_ListView" Caption="المريض">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="BloodType" Caption="فصيلة الدم" />
+        <ColumnInfo Id="creditor" Caption="دائن" EditMask="C" />
+        <ColumnInfo Id="debtor" Caption="مدين" EditMask="C" />
+        <ColumnInfo Id="account" Caption="حسابات" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_LookupListView" Caption="المريض" />
+    <ListView Id="Patient_Payments_ListView" Caption="الدفعات">
+      <Columns>
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="Payer" Caption="المنفق" />
+        <ColumnInfo Id="paymentID" Caption="كود الدفعة" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Stays_ListView">
+      <Columns>
+        <ColumnInfo Id="companionSum" Caption="اجمالي تكلفة المرافق" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائي" />
+        <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئي" />
+        <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+        <ColumnInfo Id="medicationSum" EditMask="C" Caption="إجمالى الأدوية" DisplayFormat="{0:C}" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
+        <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
+        <ColumnInfo Id="Room" Caption="الغرفة" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
+        <ColumnInfo Id="StayEnd" Caption="تاريخ الإنتهاء" />
+        <ColumnInfo Id="reception" Caption="الاستقبال" />
+        <ColumnInfo Id="IsDischarged" Caption="منتهي" />
+        <ColumnInfo Id="totalDays" Caption="عدد ايام الاقامة" />
+        <ColumnInfo Id="stayTotalSum" Caption="اجمالي تكلفة الاقامة" DisplayFormat="{0:C}" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Payer_DetailView" Caption="المنفق">
+      <Items>
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Payer" Caption="الكود" />
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Payer_ListView" Caption="المنفق">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Payer_LookupListView" Caption="المنفق" />
+    <DetailView Id="Payments_DetailView" Caption="الدفعات">
+      <Items>
+        <PropertyEditor Id="amount" Caption="المبلغ" EditMask="C" />
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="Patient" Caption="المريض" />
+        <PropertyEditor Id="Payer" Caption="المنفق" />
+        <PropertyEditor Id="paymentID" Caption="كود الدفعة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Payments" Caption="الدفعات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Payments_ListView" Caption="الدفعات">
+      <Columns>
+        <ColumnInfo Id="paymentID" Caption="كود الدفعة" />
+        <ColumnInfo Id="Payer" Caption="المنفق" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="c" />
+      </Columns>
+    </ListView>
+    <ListView Id="Payments_LookupListView" Caption="الدفعات">
+      <Columns>
+        <ColumnInfo Id="paymentID" Caption="كود الدفعة" />
+        <ColumnInfo Id="Payer" Caption="المنفق" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="amount" Caption="المبلغ" EditMask="c" />
+      </Columns>
+    </ListView>
+    <DetailView Id="paymentSupplierBond_DetailView">
+      <Items>
+        <PropertyEditor Id="chequeBank" Caption="بنك الشيك" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DetailView>
+    <ListView Id="paymentSupplierBond_LookupListView" Caption="سند صرف خاص بالموردين">
+      <Columns>
+        <ColumnInfo Id="amount" Caption="المبلغ" />
+        <ColumnInfo Id="post" Caption="تم الترحيل ؟" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyActionPermissionObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyActionPermissionObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyActionPermissionObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyMemberPermissionsObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyMemberPermissionsObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyNavigationPermissionObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyNavigationPermissionObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyObjectPermissionsObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyObjectPermissionsObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyRole_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyRole_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyRole_Users_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyRoleBase_ActionPermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyRoleBase_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyRoleBase_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyRoleBase_NavigationPermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyRoleBase_TypePermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyTypePermissionObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyTypePermissionObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyTypePermissionObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyTypePermissionObject_MemberPermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyTypePermissionObject_ObjectPermissions_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PermissionPolicyUser_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="PermissionPolicyUser_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="PermissionPolicyUser_Roles_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Person_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="Person" Caption="الشخص" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Person_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Pharmacy_DetailView" Caption="الصيدلية">
+      <Items>
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="id" Caption="الكود" />
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+        <PropertyEditor Id="StayMedicationsCollection" Caption="تفاصيل الأدوية" />
+        <PropertyEditor Id="total" Caption="الإجمالى" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Pharmacy" Caption="الصيدلية" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+          <LayoutGroup Id="StayMedicationsCollection_Group" Caption="تفاصيل الأدوية" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Pharmacy_ListView" Caption="الصيدلية">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="total" Caption="الإجمالى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Pharmacy_LookupListView" Caption="الصيدلية">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="total" Caption="الإجمالى" />
+      </Columns>
+    </ListView>
+    <ListView Id="Pharmacy_StayMedicationsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="emergency" Caption="الطوارئ" />
+        <ColumnInfo Id="profit" Caption="الربح" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PhoneNumber_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PhoneNumber" Caption="رقم الهاتف" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PhoneNumber_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PostponeTime_DetailView" Caption="وقت التأجيل">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PostponeTime" Caption="فترة التاجيل" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PostponeTime_ListView" Caption="وقت التأجيل" />
+    <ListView Id="PostponeTime_LookupListView" Caption="وقت التأجيل" />
+    <DetailView Id="ProceedMember_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Product_DetailView" Caption="منتج">
+      <Items>
+        <PropertyEditor Id="barCode" Caption="الباركود" />
+        <PropertyEditor Id="purchasingPrice" Caption="سعر الشراء" />
+        <PropertyEditor Id="sellingPrice" Caption="سعر البيع" />
+        <PropertyEditor Id="sellUnit" Caption="وحدة البيع" />
+        <PropertyEditor Id="unitAmount" Caption="وحدات العبوة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Product" Caption="منتج" />
+          </LayoutGroup>
+          <LayoutGroup Id="Orders_Group" Caption="الفواتير" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Product_ListView" Caption="منتج">
+      <Columns>
+        <ColumnInfo Id="purchasingPrice" Caption="سعر الشراء" />
+        <ColumnInfo Id="sellingPrice" Caption="سعر البيع" />
+        <ColumnInfo Id="barCode" Caption="الباركود" />
+        <ColumnInfo Id="sellUnit" Caption="وحدة البيع" />
+      </Columns>
+    </ListView>
+    <ListView Id="Product_LookupListView" Caption="منتج" />
+    <DetailView Id="ProductUnit_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ProductUnit" Caption="الوحدة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ProductUnit_LookupListView" Caption="الوحدة" />
+    <DetailView Id="ProjectTask_DetailView" Caption="المهام">
+      <Items>
+        <PropertyEditor Id="EndDate" Caption="تاريخ الإنتهاء" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="Status" Caption="قسم الحجز" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ProjectTask_ListView" Caption="المهام">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Status" Caption="قسم الحجز" />
+        <ColumnInfo Id="EndDate" Caption="تاريخ الإنتهاء" />
+      </Columns>
+    </ListView>
+    <ListView Id="ProjectTask_LookupListView" Caption="المهام" />
+    <DetailView Id="PurchasingOrder_DetailView">
+      <Items>
+        <PropertyEditor Id="id" Caption="الكود" />
+        <PropertyEditor Id="isConfirmed" Caption="ترحيل" />
+        <PropertyEditor Id="journalEntry" Caption="قيد" />
+        <PropertyEditor Id="paymentAccount" Caption="حساب دفعات" />
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+        <PropertyEditor Id="supplierAccount" Caption="حساب مورد" />
+        <PropertyEditor Id="tax" Caption="ض.أ.ت.ص" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PurchasingOrder" Caption="فاتورة شراء" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PurchasingOrder_ListView">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="supplierAccount" Caption="حساب مورد" />
+        <ColumnInfo Id="paymentAccount" Caption="حساب دفعات" />
+        <ColumnInfo Id="journalEntry" Caption="قيد" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="isConfirmed" Caption="ترحيل" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="tax" Caption="ض.أ.ت.ص" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchasingOrder_LookupListView">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="supplierAccount" Caption="حساب مورد" />
+        <ColumnInfo Id="paymentAccount" Caption="حساب دفعات" />
+        <ColumnInfo Id="journalEntry" Caption="قيد" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="isConfirmed" Caption="ترحيل" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="VAT" Caption="ضريبة قيمة مضافة" />
+        <ColumnInfo Id="tax" Caption="ض.أ.ت.ص" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchasingOrder_PurchasingOrderDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="puchasingOrder" Caption="فاتورة شراء" />
+        <ColumnInfo Id="product" Caption="منتج" />
+        <ColumnInfo Id="quantity" Caption="الكمية" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PurchasingOrderDetail_DetailView">
+      <Items>
+        <PropertyEditor Id="id" Caption="الكود" />
+        <PropertyEditor Id="price" Caption="السعر" />
+        <PropertyEditor Id="product" Caption="منتج" />
+        <PropertyEditor Id="quantity" Caption="الكمية" />
+      </Items>
+    </DetailView>
+    <ListView Id="PurchasingOrderDetail_ListView">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="puchasingOrder" Caption="فاتورة شراء" />
+        <ColumnInfo Id="product" Caption="منتج" />
+        <ColumnInfo Id="quantity" Caption="الكمية" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchasingOrderDetail_LookupListView">
+      <Columns>
+        <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="puchasingOrder" Caption="فاتورة شراء" />
+        <ColumnInfo Id="product" Caption="منتج" />
+        <ColumnInfo Id="quantity" Caption="الكمية" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="receiptClientBond_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DetailView>
+    <ListView Id="receiptClientBond_ListView">
+      <Columns>
+        <ColumnInfo Id="chequeDate" Caption="تاريخ الشيك" />
+        <ColumnInfo Id="chequeNumber" Caption="رقم الشيك" />
+      </Columns>
+    </ListView>
+    <ListView Id="receiptClientBond_LookupListView" Caption="سند قبض خاص بالعملائ">
+      <Columns>
+        <ColumnInfo Id="fromAccountBalance" Caption="رصيد حساب القبض" />
+        <ColumnInfo Id="journal" Caption="قيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="ReceptionDesk_Admissions_ListView">
+      <Columns>
+        <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="roomCareCost" Caption="تكلفة رعاية الغرفة" />
+        <ColumnInfo Id="roomStayCost" Caption="تكلفة اقامة الغرفة" />
+        <ColumnInfo Id="roomSupervisionCost" Caption="تكلفة الاشراف الطبي" />
+        <ColumnInfo Id="totalDays" Caption="عدد الايام" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
+        <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
+        <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ReceptionDesk_DetailView">
+      <Items>
+        <PropertyEditor Id="dateEnter" Caption="تاريخ الدخول" />
+        <PropertyEditor Id="dateLeave" Caption="تاريخ الخروج" />
+        <PropertyEditor Id="enterID" Caption="كود الدخول" />
+        <PropertyEditor Id="note" Caption="ملاحظات" />
+        <PropertyEditor Id="patient" Caption="المريض" />
+        <PropertyEditor Id="room.Status" Caption="قسم الحجز" />
+        <PropertyEditor Id="Section" Caption="قسم الحجز" />
+        <PropertyEditor Id="total" Caption=":تكلفة الاقامة" />
+        <PropertyEditor Id="transferFrom" Caption="تحويل من" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ReceptionDesk" Caption="الاستقبال" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ReceptionDesk_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="ReceptionDesk_LookupListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ReportDataV2_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ReportDataV2_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ResetPasswordParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Resource_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Resource_Events_ListView">
+      <Columns>
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Resource_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Room_beds_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Room_DetailView" Caption="الغرفة">
+      <Items>
+        <PropertyEditor Id="careCost" EditMask="C" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="roomCost" EditMask="C" />
+        <PropertyEditor Id="Status" Caption="قسم الحجز" />
+        <PropertyEditor Id="supervisionCost" Caption="تكلفة الإشراف الطبى" EditMask="C" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Room" Caption="الغرفة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Room_ListView" Caption="الغرفة">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Status" Caption="قسم الحجز" />
+        <ColumnInfo Id="roomCost" EditMask="C" />
+        <ColumnInfo Id="supervisionCost" Caption="تكلفة الإشراف الطبى" EditMask="C" />
+        <ColumnInfo Id="careCost" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleBaseProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleBaseProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleBaseProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleCombinationOfPropertiesIsUniqueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleCombinationOfPropertiesIsUniqueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleCombinationOfPropertiesIsUniqueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleCriteriaProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleCriteriaProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleCriteriaProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleFromBoolPropertyProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleFromBoolPropertyProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleFromBoolPropertyProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleIsReferencedProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleIsReferencedProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleIsReferencedProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleObjectExistsProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleObjectExistsProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleObjectExistsProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RulePropertyValueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RulePropertyValueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RulePropertyValueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleRangeProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleRangeProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleRangeProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleRegularExpressionProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleRegularExpressionProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleRegularExpressionProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleRequiredFieldProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleRequiredFieldProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleRequiredFieldProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleSearchObjectProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleSearchObjectProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleSearchObjectProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleSetValidationResult_ByTarget_Error_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="RuleSetValidationResult_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="RuleSetValidationResultItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="RuleSetValidationResultItemAggregate_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="RuleStringComparisonProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleStringComparisonProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleStringComparisonProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleUniqueValueProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleUniqueValueProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleUniqueValueProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="RuleValueComparisonProperties_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="RuleValueComparisonProperties_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="RuleValueComparisonProperties_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Safe_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+    </DetailView>
+    <ListView Id="Safe_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Safe_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalaryAdvance_DetailView" Caption="سُلفة">
+      <Items>
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="employee" Caption="الموظف" />
+        <PropertyEditor Id="id" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SalaryAdvance" Caption="سُلفة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SalaryAdvance_ListView" Caption="سُلفة">
+      <Columns>
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="employee" Caption="الموظف" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="SalaryAdvance_LookupListView" Caption="سُلفة">
+      <Columns>
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="employee" Caption="الموظف" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="SalaryDeduction_AuditTrail_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalaryDeduction_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SalaryDeduction" Caption="الخصم" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="AuditTrail" Caption="تتبع النشاط" />
+            <LayoutGroup Id="SalaryDeductionDetailsCollection" Caption="الخصومات" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SalaryDeduction_LookupListView">
+      <Columns>
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="SalaryDeductionDetails_AuditTrail_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalaryDeductionDetails_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SalaryDeductionDetails" Caption="الخصومات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SalaryDeductionDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="totalDeduction" Caption="اجمالي خصومات" />
+        <ColumnInfo Id="note" Caption="ملاحظات" />
+      </Columns>
+    </ListView>
+    <ListView Id="SalaryDeductionDetails_LookupListView" Caption="الخصومات">
+      <Columns>
+        <ColumnInfo Id="DeductionType" Caption="نوع الخصم" />
+        <ColumnInfo Id="payPerHour" Caption="اجر الساعة" />
+        <ColumnInfo Id="deductionDays" Caption="الايام" />
+        <ColumnInfo Id="deductionHours" Caption="عدد الساعات" />
+        <ColumnInfo Id="deductionOthers" Caption="خصومات اخري" />
+        <ColumnInfo Id="SalaryDeduction" Caption="الخصم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalaryPayment_DetailView">
+      <Items>
+        <PropertyEditor Id="journalEntry" Caption="قيد" />
+        <PropertyEditor Id="paymentAccount" Caption="حساب الصرف" />
+        <PropertyEditor Id="statement" Caption="البيان" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SalaryPayment" Caption="سند مرتبات" />
+          </LayoutGroup>
+          <LayoutGroup Id="SalaryDetailsCollection_Group" Caption="مرتبات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SalaryPayment_SalaryDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="housing" Caption="سكن" />
+        <ColumnInfo Id="medicine" Caption="بدل علاج" />
+        <ColumnInfo Id="totalDeductions" Caption="اجمالي خصومات" />
+        <ColumnInfo Id="netPay" Caption="الصافي" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SalaryPaymentDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="baseSalary" Caption="مرتب اساسي" />
+        <PropertyEditor Id="insuranceDeduction" Caption="حسميات تأمينات" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SalaryPaymentDetails" Caption="المرتبات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SalaryPaymentDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="employee" Caption="الموظف" />
+        <ColumnInfo Id="hoursOfWork" Caption="ساعات العمل" />
+        <ColumnInfo Id="grossPay" Caption="اجمالي مستحق" />
+        <ColumnInfo Id="others" Caption="اخري" />
+        <ColumnInfo Id="totalAdvances" Caption="اجمالي سلف" />
+        <ColumnInfo Id="paySalary" Caption="تم الصرف ؟" />
+      </Columns>
+    </ListView>
+    <ListView Id="SalaryPaymentDetails_LookupListView" Caption="المرتبات">
+      <Columns>
+        <ColumnInfo Id="SalaryPayment" Caption="سند مرتبات" />
+        <ColumnInfo Id="daysOfWork" Caption="ايام العمل" />
+        <ColumnInfo Id="socialInsurane" Caption="تأمينات اجتماعية" />
+        <ColumnInfo Id="totalPenalties" Caption="اجمالي حسميات" />
+        <ColumnInfo Id="otherDeductions" Caption="خصومات اخري" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Script_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Section_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Section" Caption="القسم" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Section_LookupListView" Caption="القسم" />
+    <DetailView Id="SecuredActionDescriptor_DetailView">
+      <Items>
+        <PropertyEditor Id="Id" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="SecuredActionDescriptor_ListView">
+      <Columns>
+        <ColumnInfo Id="Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SecurityDiagnosticInfoObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Service_DetailView" Caption="خدمة ">
+      <Items>
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+        <PropertyEditor Id="Price" Caption="السعر" EditMask="C" />
+        <PropertyEditor Id="ServiceType" Caption="نوع الخدمة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Service" Caption="خدمة " />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Service_ListView" Caption="خدمة ">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="ServiceType" Caption="نوع الخدمة" />
+        <ColumnInfo Id="Price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="Service_LookupListView" Caption="خدمة ">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ServiceDetails_DetailView" Caption="الخدمات">
+      <Items>
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="price" Caption="السعر" EditMask="C" />
+        <PropertyEditor Id="Service" Caption="خدمة " />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ServiceDetails" Caption="الخدمات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ServiceDetails_ListView" Caption="الخدمات">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Service" Caption="خدمة " />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="ServiceDetails_LookupListView" Caption="الخدمات">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="Service" Caption="خدمة " />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="appointment" Caption="ميعاد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ServiceFirstCategory_DetailView">
+      <Items>
+        <PropertyEditor Id="ServiceSecondCategories" Caption="تصنيف فرعي" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ServiceFirstCategory" Caption="تصنيف رئيسي" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ServiceFirstCategory_LookupListView" Caption="تصنيف رئيسي" />
+    <DetailView Id="ServiceSecondCategory_DetailView">
+      <Items>
+        <PropertyEditor Id="serviceFirstCategory" Caption="تصنيف رئيسي" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ServiceSecondCategory" Caption="تصنيف فرعي" />
+          </LayoutGroup>
+          <LayoutGroup Id="Services_Group" Caption="الخدمات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ServiceSecondCategory_ListView">
+      <Columns>
+        <ColumnInfo Id="description" Caption="الوصف" />
+      </Columns>
+    </ListView>
+    <ListView Id="ServiceSecondCategory_LookupListView" Caption="تصنيف فرعي" />
+    <ListView Id="ServiceSecondCategory_Services_ListView">
+      <Columns>
+        <ColumnInfo Id="category" Caption="الصنف" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StartAccounts_DetailView">
+      <Items>
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+      </Items>
+    </DetailView>
+    <ListView Id="StartAccounts_ListView">
+      <Columns>
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="StartAccounts_LookupListView">
+      <Columns>
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="StartAccounts_StartAccountsDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="account" Caption="حسابات" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StartAccountsDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="account" Caption="حسابات" />
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+      </Items>
+    </DetailView>
+    <ListView Id="StartAccountsDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="account" Caption="حسابات" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="StartAccountsDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="account" Caption="حسابات" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StaticImageDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="StaticTextDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="StayMedications_DetailView">
+      <Items>
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="price" Caption="السعر" EditMask="C" />
+        <PropertyEditor Id="quantity" Caption="الكمية " />
+        <PropertyEditor Id="total" EditMask="C" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StayMedications" Caption="الادوية" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StayMedications_ListView">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" Caption="الاجمالي" EditMask="C" />
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+      </Columns>
+    </ListView>
+    <ListView Id="StayMedications_LookupListView">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" EditMask="C" />
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StaySupplies_DetailView">
+      <Items>
+        <PropertyEditor Id="date" Caption="التاريخ" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="price" Caption="السعر" EditMask="C" />
+        <PropertyEditor Id="quantity" Caption="الكمية " />
+        <PropertyEditor Id="supplyProduct" Caption="منتج" />
+        <PropertyEditor Id="total" EditMask="C" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StaySupplies" Caption="المستلزمات الطبية" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StaySupplies_ListView">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="StaySupplies_LookupListView">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="total" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StockProduct_DetailView" Caption="المستهلكات الطبية">
+      <Items>
+        <PropertyEditor Id="firstUnitQuantity" Caption="وحدة جملة" />
+        <PropertyEditor Id="Inventory" Caption="المخازن" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="product" Caption="منتج" />
+        <PropertyEditor Id="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StockProduct" Caption="المستهلكات الطبية">
+              <LayoutGroup Id="StockProduct_col1" Caption="المستهلكات الطبية1" />
+              <LayoutGroup Id="StockProduct_col2" Caption="المستهلكات الطبية2" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StockProduct_ListView" Caption="المستهلكات الطبية">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Inventory" Caption="المخازن" />
+        <ColumnInfo Id="product" Caption="منتج" />
+        <ColumnInfo Id="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </Columns>
+    </ListView>
+    <ListView Id="StockProduct_LookupListView" Caption="المستهلكات الطبية">
+      <Columns>
+        <ColumnInfo Id="Inventory" Caption="المخازن" />
+        <ColumnInfo Id="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StringObject_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="SubAccount_Accounts_ListView" Caption="حساب">
+      <Columns>
+        <ColumnInfo Id="SubAccount" Caption="حساب فرعى" />
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+        <ColumnInfo Id="accountNumber" Caption="رقم الحساب" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SubAccount_DetailView" Caption="حساب فرعى">
+      <Items>
+        <PropertyEditor Id="accountName" Caption="إسم الحساب" />
+        <PropertyEditor Id="accountNumber" Caption="رقم الحساب" />
+        <PropertyEditor Id="Accounts" Caption="الحسابات" />
+        <PropertyEditor Id="credit" Caption="دائن" />
+        <PropertyEditor Id="debit" Caption="مدين" />
+        <PropertyEditor Id="masterAccount" Caption="حساب رئيسى" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SubAccount" Caption="حساب فرعى">
+              <LayoutGroup Id="SubAccount_col1" Caption="حساب فرعى1" />
+              <LayoutGroup Id="SubAccount_col2" Caption="حساب فرعى2" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Accounts_Group" Caption="الحسابات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SubAccount_ListView" Caption="حساب فرعى">
+      <Columns>
+        <ColumnInfo Id="accountNumber" Caption="رقم الحساب" />
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+        <ColumnInfo Id="masterAccount" Caption="حساب رئيسى" />
+        <ColumnInfo Id="credit" Caption="دائن" />
+        <ColumnInfo Id="debit" Caption="مدين" />
+      </Columns>
+    </ListView>
+    <ListView Id="SubAccount_LookupListView" Caption="حساب فرعى">
+      <Columns>
+        <ColumnInfo Id="accountName" Caption="إسم الحساب" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SupervisionDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="doctor" Caption="الطبيب" />
+        <PropertyEditor Id="price" Caption="السعر" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SupervisionDetails" Caption="الاشراف الطبي" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SupervisionDetails_LookupListView" Caption="الاشراف الطبي" />
+    <DetailView Id="Supplier_DetailView">
+      <Items>
+        <PropertyEditor Id="account" Caption="حساب" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Supplier" Caption="الكود" />
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Supplier_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="account" Caption="حساب" />
+      </Columns>
+    </ListView>
+    <ListView Id="Supplier_Orders_ListView">
+      <Columns>
+        <ColumnInfo Id="supplierAccount" Caption="حساب مورد" />
+        <ColumnInfo Id="paymentAccount" Caption="حساب دفعات" />
+        <ColumnInfo Id="journalEntry" Caption="قيد" />
+        <ColumnInfo Id="isConfirmed" Caption="ترحيل" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="tax" Caption="ض.أ.ت.ص" />
+      </Columns>
+    </ListView>
+    <DetailView Id="TemporaryLeave_DetailView" Caption="خروج مؤقت">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="TemporaryLeave" Caption="خروج مؤقت" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="TemporaryLeave_ListView" Caption="خروج مؤقت">
+      <Columns>
+        <ColumnInfo Id="description" Caption="الوصف" />
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <ListView Id="TemporaryLeave_LookupListView" Caption="خروج مؤقت">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Test_DetailView" Caption="تحليل">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+        <PropertyEditor Id="TestDetailsCollection" Caption="التحاليل" />
+        <PropertyEditor Id="total" Caption="الاجمالي" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Test" Caption="تحليل" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+          <LayoutGroup Id="TestDetailsCollection_Group" Caption="التحاليل" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Test_ListView" Caption="تحليل">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Test_LookupListView" Caption="تحليل">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Test_TestDetailsCollection_ListView" Caption="التحاليل">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="Test" Caption="اختبار" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="TestDetails_DetailView" Caption="التحاليل">
+      <Items>
+        <PropertyEditor Id="price" Caption="السعر" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="TestDetails" Caption="التحاليل" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="TestDetails_ListView" Caption="التحاليل">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="price" Caption="السعر" />
+        <ColumnInfo Id="Test" Caption="تحليل" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="TestDetails_LookupListView" Caption="التحاليل">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="price" Caption="السعر" />
+        <ColumnInfo Id="Test" Caption="تحليل" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Transfer_DetailView">
+      <Items>
+        <PropertyEditor Id="fromSection" Caption="من قسم" />
+        <PropertyEditor Id="intoSection" Caption="الي قسم" />
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+      </Items>
+    </DetailView>
+    <ListView Id="Transfer_ListView">
+      <Columns>
+        <ColumnInfo Id="fromSection" Caption="من قسم" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="Transfer_LookupListView">
+      <Columns>
+        <ColumnInfo Id="fromSection" Caption="من قسم" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+      </Columns>
+    </ListView>
+    <DetailView Id="VacationDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="VacationDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <ListView Id="VacationDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ValidationResults_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="ValidationResults_DisplayableValidationResultItems_ListView">
+      <Columns>
+        <ColumnInfo Id="RuleProperties.Name" Caption="الاسم" />
+        <ColumnInfo Id="RuleProperties.Id" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ValidationResults_Error_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="ValidationResults_Passed_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="ViewDashboardOrganizationItem_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XafWizardParameters_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XPObject_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="XPObject_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="XPObject_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XpoInstanceKey_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="XpoInstanceKey_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="XpoInstanceKey_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XpoRunningWorkflowInstanceInfo_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <ListView Id="XpoRunningWorkflowInstanceInfo_TrackingRecords_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XpoStartWorkflowRequest_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoState_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoStateAppearance_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoStateMachine_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoTrackingRecord_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="XpoTrackingRecord_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="XpoTrackingRecord_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XpoTransition_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoUserActivityVersion_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoWorkflowDefinition_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main_Copy" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="XpoWorkflowInstance_DetailView">
+      <Items>
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XPObject" Caption="الكود" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="XpoWorkflowInstance_ListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="XpoWorkflowInstance_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XpoWorkflowInstanceControlCommandRequest_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="Xrays_DetailView">
+      <Items>
+        <PropertyEditor Id="note" Caption="ملاحظة" />
+        <PropertyEditor Id="total" Caption="الاجمالي" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Xrays" Caption="الاشعة" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظة" />
+          <LayoutGroup Id="XraysDetailsCollection_Group" Caption="الاشعة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Xrays_ListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Xrays_LookupListView">
+      <Columns>
+        <ColumnInfo Id="note" Caption="ملاحظة" />
+        <ColumnInfo Id="total" Caption="الاجمالي" />
+      </Columns>
+    </ListView>
+    <ListView Id="Xrays_XraysDetailsCollection_ListView">
+      <Columns>
+        <ColumnInfo Id="Xrays" Caption="الاشعة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="XraysDetails_DetailView">
+      <Items>
+        <PropertyEditor Id="price" Caption="السعر" />
+        <PropertyEditor Id="service" Caption="خدمة" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="XraysDetails" Caption="الاشعة" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="XraysDetails_ListView" Caption="الاشعة">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+    <ListView Id="XraysDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+        <ColumnInfo Id="service" Caption="خدمة" />
+        <ColumnInfo Id="price" Caption="السعر" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

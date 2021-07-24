@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Bond">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="amount" Caption="الكمية" />
+        <Member Name="date" Caption="تاريخ" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="statement" Caption="بيان" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Bond_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="amount" Caption="الكمية" />
+        <PropertyEditor Id="date" Caption="تاريخ" />
+        <PropertyEditor Id="id" Caption="كود" />
+        <PropertyEditor Id="statement" Caption="بيان" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="رئيسى" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Bond_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+        <ColumnInfo Id="statement" Caption="بيان" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="Bond_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+        <ColumnInfo Id="statement" Caption="بيان" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

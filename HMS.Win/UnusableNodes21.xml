@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Stay_ListView">
+      <Sorting Id="Sorting">
+        <SortProperty Id="@3e130227-8684-4009-8ec6-4766b45836b4" PropertyName="StayStart" Removed="True" />
+      </Sorting>
+    </ListView>
+  </Views>
+</Application>

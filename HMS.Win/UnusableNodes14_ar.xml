@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Bond" Caption="السند">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="statement" Caption="بيان القيد" />
+        <Member Name="BondType" Caption="نوع السند" />
+        <Member Name="chequeBank" Caption="بنك الشيك" />
+        <Member Name="chequeDate" Caption="تاريخ الشيك" />
+        <Member Name="chequeNumber" Caption="رقم الشيك" />
+        <Member Name="fromAccount" Caption="من حساب" />
+        <Member Name="fromAccountBalance" Caption="من رصيد حساب" />
+        <Member Name="intoAccount" Caption="إلى حساب" />
+        <Member Name="intoAccountBalance" Caption="فى رصيد حساب" />
+        <Member Name="journal" Caption="القيد" />
+        <Member Name="post" Caption="ترحيل" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <CreatableItems Id="CreatableItems">
+    <CreatableItem ClassName="XafDataModel.Module.BusinessObjects.test2.Bond" Caption="السند" />
+  </CreatableItems>
+  <Views Id="Views">
+    <DetailView Id="Bond_DetailView" Caption="السند">
+      <Items Id="Items">
+        <PropertyEditor Id="statement" Caption="بيان القيد" />
+        <PropertyEditor Id="BondType" Caption="نوع السند" />
+        <PropertyEditor Id="chequeBank" Caption="بنك الشيك" />
+        <PropertyEditor Id="chequeDate" Caption="تاريخ الشيك" />
+        <PropertyEditor Id="chequeNumber" Caption="رقم الشيك" />
+        <PropertyEditor Id="fromAccount" Caption="من حساب" />
+        <PropertyEditor Id="fromAccountBalance" Caption="من رصيد حساب" />
+        <PropertyEditor Id="intoAccount" Caption="إلى حساب" />
+        <PropertyEditor Id="intoAccountBalance" Caption="فى رصيد حساب" />
+        <PropertyEditor Id="journal" Caption="القيد" />
+        <PropertyEditor Id="post" Caption="ترحيل" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Bond" Caption="السند" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Bond_ListView" Caption="السند">
+      <Columns Id="Columns">
+        <ColumnInfo Id="BondType" Caption="نوع السند" />
+        <ColumnInfo Id="fromAccount" Caption="من حساب" />
+        <ColumnInfo Id="intoAccount" Caption="إلى حساب" />
+        <ColumnInfo Id="fromAccountBalance" Caption="من رصيد حساب" />
+        <ColumnInfo Id="intoAccountBalance" Caption="فى رصيد حساب" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="chequeNumber" Caption="رقم الشيك" />
+        <ColumnInfo Id="chequeDate" Caption="تاريخ الشيك" />
+        <ColumnInfo Id="chequeBank" Caption="بنك الشيك" />
+        <ColumnInfo Id="post" Caption="ترحيل" />
+        <ColumnInfo Id="journal" Caption="القيد" />
+      </Columns>
+    </ListView>
+    <ListView Id="Bond_LookupListView" Caption="السند">
+      <Columns Id="Columns">
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
+        <ColumnInfo Id="BondType" Caption="نوع السند" />
+        <ColumnInfo Id="fromAccount" Caption="من حساب" />
+        <ColumnInfo Id="intoAccount" Caption="إلى حساب" />
+        <ColumnInfo Id="fromAccountBalance" Caption="من رصيد حساب" />
+        <ColumnInfo Id="intoAccountBalance" Caption="فى رصيد حساب" />
+        <ColumnInfo Id="chequeNumber" Caption="رقم الشيك" />
+        <ColumnInfo Id="chequeDate" Caption="تاريخ الشيك" />
+        <ColumnInfo Id="chequeBank" Caption="بنك الشيك" />
+        <ColumnInfo Id="post" Caption="ترحيل" />
+        <ColumnInfo Id="journal" Caption="القيد" />
+      </Columns>
+    </ListView>
+  </Views>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="BondConfirm" ShortCaption="ترحيل" ToolTip="ترحيل" Caption="ترحيل" />
+      <Action Id="BondUnConfirm" ShortCaption="الغاء الترحيل" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
+    </Actions>
+  </ActionDesign>
+  <Localization Id="Localization">
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Bond+BondTypes" Value="نوع السند" />
+    </LocalizationGroup>
+  </Localization>
+</Application>

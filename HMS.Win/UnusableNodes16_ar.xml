@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="TestDetails_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="admission" Caption="الاقامات" />
+      </Items>
+    </DetailView>
+    <DetailView Id="XraysDetails_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="admission" Caption="الاقامات" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>
