@@ -186,7 +186,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fMedicalSupervisionSum; }
             set { SetPropertyValue<decimal>(nameof(MedicalSupervisionSum), ref fMedicalSupervisionSum, value); }
         }
-        [PersistentAlias("[companionSum] + [medicationSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum]")]
+        [PersistentAlias("[companionSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum]")]
         public decimal stayTotalSum
         {
             get { return (decimal)(EvaluateAlias(nameof(stayTotalSum))); }
@@ -209,6 +209,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return froomSupervisionCost; }
             set { SetPropertyValue<decimal>(nameof(roomSupervisionCost), ref froomSupervisionCost, value); }
         }
+        decimal fDiscount;
+        public decimal Discount
+        {
+            get { return fDiscount; }
+            set { SetPropertyValue<decimal>(nameof(Discount), ref fDiscount, value); }
+        }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }
         [Association(@"StayMedicicationReferencesStay"), Aggregated]
@@ -217,8 +223,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<StaySupplies> StockDetailsCollection { get { return GetCollection<StaySupplies>(nameof(StockDetailsCollection)); } }
         [Association(@"ServiceDetailsReferencesStay"), Aggregated]
         public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
-        [Association(@"TemporaryLeaveReferencesAdmission"), Aggregated]
-        public XPCollection<TemporaryLeave> TemporaryLeaves { get { return GetCollection<TemporaryLeave>(nameof(TemporaryLeaves)); } }
         [Association(@"EndscopeDetailsReferencesAdmission"), Aggregated]
         public XPCollection<EndscopeDetails> EndscopeDetailsCollection { get { return GetCollection<EndscopeDetails>(nameof(EndscopeDetailsCollection)); } }
         [Association(@"CompanionDetailsReferencesAdmission"), Aggregated]

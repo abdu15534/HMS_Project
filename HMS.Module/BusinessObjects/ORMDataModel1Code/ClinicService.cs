@@ -8,9 +8,9 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class TemporaryLeave
+    public partial class ClinicService
     {
-        public TemporaryLeave(Session session) : base(session) { }
+        public ClinicService(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 

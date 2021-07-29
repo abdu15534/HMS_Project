@@ -17,30 +17,57 @@ namespace HMS.Module.InitialData
         {
             List<ServicesInitialData> serviceCollection = new List<ServicesInitialData>();
 
-            serviceCollection.Add(new ServicesInitialData() { name = "Chest-X RAY", price = 600, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "CT-CHEST", price = 1500, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "CT-BRAIN", price = 1500, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "ECHO", price = 1200, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "COLORE Dopler", price = 1000, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "ULTRA SOUND", price = 800, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "Chest-X RAY اشعة صدر", price = 600, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "CT-CHEST اشعة مقطعية على الصدر", price = 1500, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "CT-BRAIN  اشعة مقطعية على المخ", price = 1500, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "CT-STOMACH  اشعة مقطعية على البطن", price = 1500, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "ECHO موجات صوتية على القلب", price = 1380, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "COLORE Dopler", price = 1150, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "ULTRA SOUND سونار", price = 1000, serviceType = ServiceTypes.Xrays });
             serviceCollection.Add(new ServicesInitialData() { name = "MONITOR", price = 200, serviceType = ServiceTypes.Xrays });
             serviceCollection.Add(new ServicesInitialData() { name = "رسم قلب", price = 300, serviceType = ServiceTypes.Xrays });
             serviceCollection.Add(new ServicesInitialData() { name = "Chest-X RAY", price = 600, serviceType = ServiceTypes.Xrays });
-            serviceCollection.Add(new ServicesInitialData() { name = "Chest-X RAY", price = 600, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "رنين مغناطيسي على البطن", price = 600, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "رنين مغناطيسي على الصدر", price = 600, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "رنين مغناطيسي على المخ", price = 600, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "بذل من بطن", price = 350, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "بذل من الرئة", price = 350, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "دوبلر على الرقبة", price = 350, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "دوبلر على الاطراف", price = 350, serviceType = ServiceTypes.Xrays });
+            serviceCollection.Add(new ServicesInitialData() { name = "موجات صوتية على البطن", price = 1380, serviceType = ServiceTypes.Xrays });
 
 
-            serviceCollection.Add(new ServicesInitialData() { name = "نقل دم", price = 1200, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "نقل دم مفلتر", price = 2400, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "نقل بلازما", price = 250, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "صفائح 6 وحدات", price = 1800, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "صفائح 12 وحدات", price = 3600, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "علاج طبيعي ", price = 400, serviceType = ServiceTypes.Other });
-            serviceCollection.Add(new ServicesInitialData() { name = "بذل بطن", price = 1200, serviceType = ServiceTypes.Other });
-            
+            serviceCollection.Add(new ServicesInitialData() { name = "نقل دم", price = 1200, serviceType = ServiceTypes.Blood });
+            serviceCollection.Add(new ServicesInitialData() { name = "نقل دم مفلتر", price = 2400, serviceType = ServiceTypes.Blood });
+            serviceCollection.Add(new ServicesInitialData() { name = "نقل بلازما", price = 180, serviceType = ServiceTypes.Blood });
+            serviceCollection.Add(new ServicesInitialData() { name = "صفائح 6 وحدات", price = 1800, serviceType = ServiceTypes.Blood });
+            serviceCollection.Add(new ServicesInitialData() { name = "صفائح 12 وحدات", price = 3600, serviceType = ServiceTypes.Blood });
 
-            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين", price = 800, serviceType = ServiceTypes.Oxygen });
-            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين CPAP", price = 1000, serviceType = ServiceTypes.Oxygen });
-            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين VENT", price = 1800, serviceType = ServiceTypes.Oxygen });
+            serviceCollection.Add(new ServicesInitialData() { name = "جلسة علاج طبيعي", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "COLORE Dopler", price = 1150, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "SERYNG PUMP مضخة محاليل", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "جلسة غسيل كلوي شامل المستهلكات", price = 2000, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب قسطرة وريد مركزى CVP", price = 2000, serviceType = ServiceTypes.Other });
+
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب ماهوكر", price = 1500, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "حقن بذل من سائل النخاع الشوكى", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب بروتوكاث - هيكمان", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب هيكمان", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب بيرميكاث", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "قسطرة ذيل الخنزير", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب ايبيديورال", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "بذل سائل عن طريق الماهوكر", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "بذل بيرونى ", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "بذل بيرونى", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب قسطرة داخل الأم الجافية", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب أنبوبة حنجرية", price = 450, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "تركيب أنبوبة صدرية", price = 450, serviceType = ServiceTypes.Other });
+
+
+
+            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين", price = 800, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين CPAP", price = 1000, serviceType = ServiceTypes.Other });
+            serviceCollection.Add(new ServicesInitialData() { name = "اكسجين VENT", price = 1800, serviceType = ServiceTypes.Other });
             
 
             serviceCollection.Add(new ServicesInitialData() { name = "ماسحه covid- 19", price = 2000, serviceType = ServiceTypes.Tests });
@@ -95,6 +122,10 @@ namespace HMS.Module.InitialData
             serviceCollection.Add(new ServicesInitialData() { name = "IL6", price = 800, serviceType = ServiceTypes.Tests });
             serviceCollection.Add(new ServicesInitialData() { name = "PSA  T&F", price = 450, serviceType = ServiceTypes.Tests });
             serviceCollection.Add(new ServicesInitialData() { name = "AFP", price = 150, serviceType = ServiceTypes.Tests });
+
+            serviceCollection.Add(new ServicesInitialData() { name = "كيس بلاستك", price = 250, serviceType = ServiceTypes.Deceased });
+            serviceCollection.Add(new ServicesInitialData() { name = "ملاية", price = 200, serviceType = ServiceTypes.Deceased });
+            serviceCollection.Add(new ServicesInitialData() { name = "جوانتي, 2 رباط , لفت", price = 50, serviceType = ServiceTypes.Deceased });
 
             return serviceCollection;
         }

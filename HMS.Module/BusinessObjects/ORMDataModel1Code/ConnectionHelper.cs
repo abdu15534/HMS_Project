@@ -65,7 +65,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(bed),
             typeof(Pharmacy),
             typeof(EndscopeDetails),
-            typeof(TemporaryLeave),
             typeof(Test),
             typeof(Endscope),
             typeof(Xrays),
@@ -80,7 +79,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(SalaryDeduction),
             typeof(SalaryDeductionDetails),
             typeof(SupervisionDetails),
-            typeof(paymentSupplierBond)
+            typeof(paymentSupplierBond),
+            typeof(ClinicService),
+            typeof(ClinicServiceDetail)
         };
         public static Type[] GetPersistentTypes()
         {

@@ -110,7 +110,7 @@ namespace HMS.Module.Win.Controllers
 
         private void AdmissionReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.StayDetailed report = new reports.StayDetailed();
+            reports.StayDetailReoprt report = new reports.StayDetailReoprt();
 
             var curr = View.CurrentObject as ReceptionDesk;
             if (curr == null)
@@ -126,36 +126,36 @@ namespace HMS.Module.Win.Controllers
 
         private void DetailedReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.StayDetailReport report = new reports.StayDetailReport();
+            //reports.StayDetailReport report = new reports.StayDetailReport();
 
-            var curr = View.CurrentObject as ReceptionDesk;
+            //var curr = View.CurrentObject as ReceptionDesk;
             
-            if (curr == null)
-            {
-                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
-                report.Parameters["enterID"].Value = x;
-            }
+            //if (curr == null)
+            //{
+            //    var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+            //    report.Parameters["enterID"].Value = x;
+            //}
 
-            else
-            {
-                report.Parameters["enterID"].Value = curr.enterID;
-                report.Parameters["patientName"].Value = curr.patient.FullName;
-                report.Parameters["enterDate"].Value = curr.dateEnter;
-                report.Parameters["leaveDate"].Value = curr.dateLeave;
-                if(!curr.isDischarged)
-                    report.Parameters["leaveDate"].Value = "مازال في الاقامة";
-                report.Parameters["totalStay"].Value = curr.total;
-                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه" , "قرش") + " فقط لاغير ";
+            //else
+            //{
+            //    report.Parameters["enterID"].Value = curr.enterID;
+            //    report.Parameters["patientName"].Value = curr.patient.FullName;
+            //    report.Parameters["enterDate"].Value = curr.dateEnter;
+            //    report.Parameters["leaveDate"].Value = curr.dateLeave;
+            //    if(!curr.isDischarged)
+            //        report.Parameters["leaveDate"].Value = "مازال في الاقامة";
+            //    report.Parameters["totalStay"].Value = curr.total;
+            //    report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه" , "قرش") + " فقط لاغير ";
                 
-                PermissionPolicyUser user;
-                if (SecuritySystem.CurrentUser != null)
-                {
-                    user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
-                    report.Parameters["user"].Value = user.UserName;
-                }
-            }
+            //    PermissionPolicyUser user;
+            //    if (SecuritySystem.CurrentUser != null)
+            //    {
+            //        user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
+            //        report.Parameters["user"].Value = user.UserName;
+            //    }
+            //}
 
-            report.ShowPreviewDialog();
+            //report.ShowPreviewDialog();
         }
 
         private void ReceptionJournalReport_Execute(object sender, SimpleActionExecuteEventArgs e)
@@ -191,6 +191,7 @@ namespace HMS.Module.Win.Controllers
             else
             {
                 report.Parameters["parameter1"].Value = curr.enterID;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
                 //report.Parameters["patientName"].Value = curr.patient.FullName;
                 //report.Parameters["enterDate"].Value = curr.dateEnter;
                 //report.Parameters["leaveDate"].Value = curr.dateLeave;
@@ -209,6 +210,24 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
 
+        }
+
+        
+
+        private void DiscoutAndService_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var reception = View.CurrentObject as ReceptionDesk;
+            reception.IsDiscounted = !reception.IsDiscounted;
+
+        }
+
+        private void PatientLable_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.PatientLable report = new reports.PatientLable();
+
+            var curr = View.CurrentObject as ReceptionDesk;
+            report.Parameters["parameter1"].Value = curr.enterID;
+            report.ShowPreviewDialog();
         }
     }
 }

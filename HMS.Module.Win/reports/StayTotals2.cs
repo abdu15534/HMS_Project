@@ -6,16 +6,12 @@ using System.Drawing;
 
 namespace HMS.Module.Win.reports
 {
-    public partial class StayDetailed : DevExpress.XtraReports.UI.XtraReport
+    public partial class StayTotals2 : DevExpress.XtraReports.UI.XtraReport
     {
-        public StayDetailed()
+        public StayTotals2()
         {
             InitializeComponent();
         }
 
-        private void xrTableCell33_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-
-        }
     }
 }

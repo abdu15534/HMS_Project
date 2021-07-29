@@ -19,10 +19,23 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+            this.DeceasedPackageApplyed = false;
             dateEnter = DateTime.Now;
+            this.ServiceRate = 12;
             currentStay = new Admission(Session);
             journalEntry = new JournalEntry(Session);
+            
 
+        }
+
+        public enum dischargeTypes { فيالمستشفى , Healthy, وفاة, Other }
+
+        dischargeTypes reasonForDischarge;
+
+        public dischargeTypes ReasonForDischarge
+        {
+            get => reasonForDischarge;
+            set => SetPropertyValue(nameof(ReasonForDischarge), ref reasonForDischarge, value);
         }
 
         statusType section;
@@ -32,6 +45,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get => section;
             set => SetPropertyValue(nameof(Section), ref section, value);
         }
+
+        
+
 
         protected override void OnDeleting()
         {
@@ -48,6 +64,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
             journalEntry.objectKey = this.enterID.ToString();
 
             base.OnSaving();
+            if(this.patient.InStay ==false && this.isDischarged == false)
+            {
+                this.patient.InStay = true;
+            }
+            if(reasonForDischarge == dischargeTypes.وفاة && DeceasedPackageApplyed == false)
+            {
+                var l = Session.Query<Service>().Where(p => p.ServiceType == ServiceTypes.Deceased);
+                foreach (var item in l)
+                {
+                    //if (!(Session is NestedUnitOfWork)
+                    //    && (Session.DataLayer != null)
+                    //       && Session.IsNewObject(this)
+                    //           && (Session.ObjectLayer is SimpleObjectLayer))
+                    //            {
+
+                                    ServiceDetails deceassedService = new ServiceDetails(Session);
+                                    deceassedService.Stay = this.currentStay;
+                                    deceassedService.Service = item;
+                                    deceassedService.Save();
+
+                                //}
+                    
+                }
+                DeceasedPackageApplyed = true;
+            }
             if (this.Session.IsNewObject(this))
             {
                 currentStay.Status = this.Section;
@@ -69,6 +110,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 SetJournal();
                 journalEntry.Post(false);
             }
+            if(this.IsDiscounted == true)
+            {
+                this.IsDiscounted = false;
+            }
             //this.patient.InStay = true;
 
         }
@@ -82,7 +127,28 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public void CalculateTotal()
         {
-            this.total = Admissions.Sum(p => p.stayTotalSum);
+            
+            decimal totalWithoutDiscount;
+            decimal sumation;
+            this.medication = Admissions.Sum(p => p.medicationSum);
+            if (patient.Nationality == Patient.Nationalitys.Egypt)
+            {
+                sumation = Admissions.Sum(p => p.stayTotalSum);
+            }
+            else
+            {
+                sumation = Admissions.Sum(p => p.stayTotalSum)* Convert.ToDecimal(1.5);
+            }
+            this.amount = sumation;
+            this.ServiceFee = sumation * Convert.ToDecimal((this.ServiceRate / 100));
+            
+            
+        
+
+            totalWithoutDiscount = sumation + this.ServiceFee;
+
+            this.total = totalWithoutDiscount - Discount;
+            this.total = this.total + medication;
         }
 
         public void CheckOut()
@@ -98,6 +164,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if(this.Admissions.Sum(p=>p.stayTotalSum) > this.PaymentsCollection.Sum(p => p.amount))
             {
                 MessageBox.Show("الرجاء السداد اولا", "لم تسدد جميع المستحقات ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (reasonForDischarge == dischargeTypes.فيالمستشفى)
+            {
+                MessageBox.Show("يجب تحديد سبب الخروج اولا", "لم يتم تحديد سبب الخروج ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             CalculateTotal();

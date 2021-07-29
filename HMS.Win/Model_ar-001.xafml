@@ -208,7 +208,6 @@
         <Member Name="amount" Caption="الكمية" />
         <Member Name="clinc" Caption="العيادة" />
         <Member Name="id" Caption="كود" />
-        <Member Name="Transaction" Caption="التحويل" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Bank">
@@ -697,7 +696,6 @@
         <PropertyEditor Id="IsPostponed" Caption="مؤجل" />
         <PropertyEditor Id="StartOn" Caption="ميعاد بداية الحجز" />
         <PropertyEditor Id="Status" Caption="الحالة" />
-        <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
@@ -713,7 +711,6 @@
         <ColumnInfo Id="Description" Caption="الوصف" />
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Status" Caption="الحالة" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="clinc" Caption="العيادة" />
         <ColumnInfo Id="amount" Caption="الكمية" />
@@ -1538,7 +1535,6 @@
         <ColumnInfo Id="Description" Caption="الوصف" />
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Status" Caption="الحالة" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="clinc" Caption="العيادة" />
         <ColumnInfo Id="amount" Caption="الكمية" />
@@ -1554,7 +1550,6 @@
         <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
         <PropertyEditor Id="FullName" Caption="الإسم بالكامل" />
         <PropertyEditor Id="Gender" Caption="النوع" />
-        <PropertyEditor Id="ID" Caption="كود المريض" />
         <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
         <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
         <PropertyEditor Id="nationalID" Caption="الرقم القومى" />

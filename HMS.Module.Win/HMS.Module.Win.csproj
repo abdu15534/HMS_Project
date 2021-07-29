@@ -649,6 +649,12 @@
     <Compile Include="reports\OutPatients.Designer.cs">
       <DependentUpon>OutPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\PatientLable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PatientLable.Designer.cs">
+      <DependentUpon>PatientLable.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\PaymentInvoice.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -734,12 +740,6 @@
     <Compile Include="reports\SarfWQabd.Designer.cs">
       <DependentUpon>SarfWQabd.cs</DependentUpon>
     </Compile>
-    <Compile Include="reports\StayDetailed.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\StayDetailed.Designer.cs">
-      <DependentUpon>StayDetailed.cs</DependentUpon>
-    </Compile>
     <Compile Include="reports\StayDetailReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -751,6 +751,12 @@
     </Compile>
     <Compile Include="reports\StayTotals.Designer.cs">
       <DependentUpon>StayTotals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\StayTotals2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StayTotals2.Designer.cs">
+      <DependentUpon>StayTotals2.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\SupplierItems.cs">
       <SubType>Component</SubType>
@@ -950,6 +956,9 @@
     <EmbeddedResource Include="reports\OutPatients.resx">
       <DependentUpon>OutPatients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\PatientLable.resx">
+      <DependentUpon>PatientLable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\PaymentInvoice.resx">
       <DependentUpon>PaymentInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -992,15 +1001,14 @@
     <EmbeddedResource Include="reports\SarfWQabd.resx">
       <DependentUpon>SarfWQabd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\StayDetailed.resx">
-      <DependentUpon>StayDetailed.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="reports\StayDetailReport.resx">
       <DependentUpon>StayDetailReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\StayDetialReport.resx" />
     <EmbeddedResource Include="reports\StayTotals.resx">
       <DependentUpon>StayTotals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StayTotals2.resx">
+      <DependentUpon>StayTotals2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\SupplierItems.resx">
       <DependentUpon>SupplierItems.cs</DependentUpon>

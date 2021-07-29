@@ -116,6 +116,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<Warning> Warnings { get { return GetCollection<Warning>(nameof(Warnings)); } }
         [Association(@"SalaryAdvanceReferencesEmployee")]
         public XPCollection<SalaryAdvance> SalaryAdvances { get { return GetCollection<SalaryAdvance>(nameof(SalaryAdvances)); } }
+        [Association(@"AppointmentReferencesEmployee"), Aggregated]
+        public XPCollection<Appointment> Appointments { get { return GetCollection<Appointment>(nameof(Appointments)); } }
     }
 
 }

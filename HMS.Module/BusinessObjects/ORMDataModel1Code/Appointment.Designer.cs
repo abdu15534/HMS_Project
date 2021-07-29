@@ -48,8 +48,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(total))); }
         }
+        Employee fDoctor;
+        [Association(@"AppointmentReferencesEmployee")]
+        public Employee Doctor
+        {
+            get { return fDoctor; }
+            set { SetPropertyValue<Employee>(nameof(Doctor), ref fDoctor, value); }
+        }
         [Association(@"ServiceDetailsReferencesAppointment"), Aggregated]
         public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
+        [Association(@"ClinicServiceDetailReferencesAppointment"), Aggregated]
+        public XPCollection<ClinicServiceDetail> ClinicServiceDetails { get { return GetCollection<ClinicServiceDetail>(nameof(ClinicServiceDetails)); } }
     }
 
 }

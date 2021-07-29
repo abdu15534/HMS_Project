@@ -19,12 +19,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Patient : DevExpress.Persistent.BaseImpl.Person
     {
         int fID;
-        [Persistent(@"Name")]
-        [DevExpress.Persistent.Validation.RuleRequiredField]
         public int ID
         {
             get { return fID; }
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
+        }
+        string fMedicalID;
+        [Persistent(@"Name")]
+        [DevExpress.Persistent.Validation.RuleRequiredField]
+        public string MedicalID
+        {
+            get { return fMedicalID; }
+            set { SetPropertyValue<string>(nameof(MedicalID), ref fMedicalID, value); }
         }
         string fnationalID;
         [Indexed(Name = @"Index1", Unique = true)]

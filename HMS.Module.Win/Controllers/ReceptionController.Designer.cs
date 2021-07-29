@@ -37,6 +37,8 @@ namespace HMS.Module.Win.Controllers
             this.Transfer = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
             this.ReceptionJournalReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.TotalsReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.DiscoutAndService = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.PatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -91,6 +93,7 @@ namespace HMS.Module.Win.Controllers
             this.CurrentStay.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.CurrentStay.ToolTip = null;
             this.CurrentStay.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.CurrentStay.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.CurrentStay_Execute);
             // 
             // Transfer
             // 
@@ -104,6 +107,7 @@ namespace HMS.Module.Win.Controllers
             this.Transfer.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.Transfer.ToolTip = null;
             this.Transfer.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Transfer.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.Transfer_Execute);
             // 
             // ReceptionJournalReport
             // 
@@ -131,6 +135,28 @@ namespace HMS.Module.Win.Controllers
             this.TotalsReport.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.TotalsReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.TotalsReport_Execute);
             // 
+            // DiscoutAndService
+            // 
+            this.DiscoutAndService.Caption = "Discout And Service";
+            this.DiscoutAndService.ConfirmationMessage = null;
+            this.DiscoutAndService.Id = "DiscoutAndService";
+            this.DiscoutAndService.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.DiscoutAndService.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.DiscoutAndService.ToolTip = null;
+            this.DiscoutAndService.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.DiscoutAndService.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.DiscoutAndService_Execute);
+            // 
+            // PatientLable
+            // 
+            this.PatientLable.Caption = "Patient Lable";
+            this.PatientLable.ConfirmationMessage = null;
+            this.PatientLable.Id = "PatientLable";
+            this.PatientLable.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.PatientLable.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.PatientLable.ToolTip = null;
+            this.PatientLable.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.PatientLable.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PatientLable_Execute);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -140,6 +166,8 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.Transfer);
             this.Actions.Add(this.ReceptionJournalReport);
             this.Actions.Add(this.TotalsReport);
+            this.Actions.Add(this.DiscoutAndService);
+            this.Actions.Add(this.PatientLable);
 
         }
 
@@ -151,5 +179,7 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction Transfer;
         private DevExpress.ExpressApp.Actions.SimpleAction ReceptionJournalReport;
         private DevExpress.ExpressApp.Actions.SimpleAction TotalsReport;
+        private DevExpress.ExpressApp.Actions.SimpleAction DiscoutAndService;
+        private DevExpress.ExpressApp.Actions.SimpleAction PatientLable;
     }
 }

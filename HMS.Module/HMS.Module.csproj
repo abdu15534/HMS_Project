@@ -294,6 +294,14 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Bed.Designer.cs">
       <DependentUpon>Bed.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicService.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicService.Designer.cs">
+      <DependentUpon>ClinicService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicServiceDetail.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicServiceDetail.Designer.cs">
+      <DependentUpon>ClinicServiceDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.Designer.cs">
       <DependentUpon>paymentSupplierBond.cs</DependentUpon>
@@ -490,10 +498,6 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="BusinessObjects\ORMDataModel1Code\TemporaryLeaves.cs" />
-    <Compile Include="BusinessObjects\ORMDataModel1Code\TemporaryLeaves.Designer.cs">
-      <DependentUpon>TemporaryLeaves.cs</DependentUpon>
-    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.Designer.cs">
       <DependentUpon>TestDetails.cs</DependentUpon>
@@ -602,6 +606,7 @@
     <Compile Include="editors\CustomUserControlViewItem.cs" />
     <Compile Include="InitialData\Accounts.cs" />
     <Compile Include="InitialData\ClincData.cs" />
+    <Compile Include="InitialData\ClinicServiceInitialData.cs" />
     <Compile Include="InitialData\PaymentData.cs" />
     <Compile Include="InitialData\RoomData.cs" />
     <Compile Include="InitialData\ServicesInitialData.cs" />

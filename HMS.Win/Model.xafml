@@ -241,7 +241,6 @@
         <Member Name="amount" Caption="الكمية" />
         <Member Name="clinc" Caption="العيادة" />
         <Member Name="id" Caption="كود" />
-        <Member Name="Transaction" Caption="التحويل" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Bank">
@@ -443,18 +442,23 @@
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk" Caption="إستقبال القسم الداخلى">
       <AppearanceRules>
         <AppearanceRule Id="@55ede0fd-d37b-4635-8e30-8cbd68c4830d" Criteria="[isDischarged] = True" TargetItems="*" Enabled="False" IsNewNode="True" />
+        <AppearanceRule Id="Discount" Criteria="[IsDiscounted] = False" TargetItems="Discount, ServiceRate" Visibility="Hide" IsNewNode="True" />
+        <AppearanceRule Id="leaveDate" TargetItems="dateLeave" Visibility="Hide" Criteria="[isDischarged] = False" IsNewNode="True" />
         <AppearanceRule Id="ReceptionDisabledInfo" TargetItems="bed , dateEnter , room , Section , patient" Enabled="False" Criteria="[Admissions][].Count() &gt; 0" IsNewNode="True" />
       </AppearanceRules>
       <OwnMembers>
+        <Member Name="amount" AllowEdit="False" />
         <Member Name="bed" Caption="السرير" />
         <Member Name="currentStay" Caption="الإقامة الحالية" />
         <Member Name="dateEnter" Caption="تاريخ الدخول" />
         <Member Name="dateLeave" Caption="تاريخ الخروج" />
         <Member Name="enterID" Caption="أدخل الكود" />
         <Member Name="isDischarged" Caption="خارج" />
+        <Member Name="medication" AllowEdit="False" />
         <Member Name="patient" Caption="مريض" />
         <Member Name="room" Caption="الغرفة" />
         <Member Name="Section" Caption="القسم" />
+        <Member Name="ServiceFee" AllowEdit="False" />
         <Member Name="total" AllowEdit="False" />
         <Member Name="transferFrom" Caption="تحويل من" />
       </OwnMembers>
@@ -1077,19 +1081,19 @@
       <Layout>
         <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
           <LayoutGroup Id="Main" ShowCaption="True" Index="0" RelativeSize="100" Caption="بيانات الحجز" TextAlignMode="UseParentOptions" IsNewNode="True">
-            <LayoutGroup Id="SimpleEditors" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="17.851239669421489" IsNewNode="True">
+            <LayoutGroup Id="SimpleEditors" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="22.832980972515855" IsNewNode="True">
               <LayoutGroup Id="Admission_col2" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
                 <LayoutGroup Id="Item7" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="اساسي" Direction="Vertical" GroupStyle="Light" IsNewNode="True">
                   <LayoutGroup Id="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d" ShowCaption="False" Caption="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d(6)" Direction="Horizontal" Index="0" RelativeSize="34.177215189873415" IsNewNode="True">
-                    <LayoutItem Id="admissionID" ViewItem="admissionID" Index="0" RelativeSize="49.548387096774192" IsNewNode="True" />
-                    <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="50.451612903225808" IsNewNode="True" />
+                    <LayoutItem Id="admissionID" ViewItem="admissionID" Index="0" RelativeSize="49.452269170579029" IsNewNode="True" />
+                    <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="50.547730829420971" IsNewNode="True" />
                   </LayoutGroup>
                   <LayoutGroup Id="Autoafd14b6b-f69e-4aa8-87d4-7f61d5f711b8" ShowCaption="False" Caption="Autoafd14b6b-f69e-4aa8-87d4-7f61d5f711b8(9)" Direction="Horizontal" Index="1" RelativeSize="65.822784810126578" IsNewNode="True">
-                    <LayoutGroup Id="Autof28457bf-452e-42a5-9257-4ae9cd3422d3" ShowCaption="False" Caption="Autof28457bf-452e-42a5-9257-4ae9cd3422d3(10)" Index="0" RelativeSize="49.548387096774192" IsNewNode="True">
+                    <LayoutGroup Id="Autof28457bf-452e-42a5-9257-4ae9cd3422d3" ShowCaption="False" Caption="Autof28457bf-452e-42a5-9257-4ae9cd3422d3(10)" Index="0" RelativeSize="49.452269170579029" IsNewNode="True">
                       <LayoutItem Id="doctor" ViewItem="doctor" Index="0" RelativeSize="48.07692307692308" IsNewNode="True" />
                       <LayoutItem Id="StayStart" ViewItem="StayStart" Index="1" RelativeSize="51.92307692307692" IsNewNode="True" />
                     </LayoutGroup>
-                    <LayoutGroup Id="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83" ShowCaption="False" Caption="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83(13)" Index="1" RelativeSize="50.451612903225808" IsNewNode="True">
+                    <LayoutGroup Id="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83" ShowCaption="False" Caption="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83(13)" Index="1" RelativeSize="50.547730829420971" IsNewNode="True">
                       <LayoutItem Id="totalDays" ViewItem="totalDays" Index="0" RelativeSize="48.07692307692308" IsNewNode="True" />
                       <LayoutItem Id="StayEnd" ViewItem="StayEnd" Index="1" RelativeSize="51.92307692307692" IsNewNode="True" />
                     </LayoutGroup>
@@ -1097,30 +1101,30 @@
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Auto832128af-fdfd-4ec7-958f-27b3034ad989" ShowCaption="False" Caption="Auto832128af-fdfd-4ec7-958f-27b3034ad989(16)" Direction="Vertical" Index="1" RelativeSize="9.0909090909090917" IsCollapsibleGroup="False" IsNewNode="True">
+            <LayoutGroup Id="Auto832128af-fdfd-4ec7-958f-27b3034ad989" ShowCaption="False" Caption="Auto832128af-fdfd-4ec7-958f-27b3034ad989(16)" Direction="Vertical" Index="1" RelativeSize="11.627906976744185" IsCollapsibleGroup="False" IsNewNode="True">
               <LayoutGroup Id="Item11" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="0" RelativeSize="100" GroupStyle="Light" Caption="القسم" IsNewNode="True">
-                <LayoutItem Id="Status" ViewItem="Status" Index="0" RelativeSize="33.032258064516128" IsNewNode="True" />
-                <LayoutItem Id="Room" ViewItem="Room" Index="1" RelativeSize="32.903225806451616" ShowCaption="True" IsNewNode="True" />
-                <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="34.064516129032256" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" Index="0" RelativeSize="33.489827856025038" IsNewNode="True" />
+                <LayoutItem Id="Room" ViewItem="Room" Index="1" RelativeSize="33.020344287949925" ShowCaption="True" IsNewNode="True" />
+                <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="33.489827856025038" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Item8" ShowCaption="False" CaptionLocation="Top" Index="2" RelativeSize="27.438016528925619" IsNewNode="True">
+            <LayoutGroup Id="Item8" ShowCaption="False" CaptionLocation="Top" Index="2" RelativeSize="35.095137420718814" IsNewNode="True">
               <LayoutGroup Id="Autod6966d8f-ab28-4da6-a898-6d7545f14d93" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
                 <LayoutGroup Id="Autof6b5e97f-27f9-43df-9053-56e5b3dc3247" ShowCaption="True" Index="0" RelativeSize="33.734939759036145" Caption="سعر اقامة الغرفة و الاشراف و الرعاية" Direction="Horizontal" IsNewNode="True">
-                  <LayoutItem Id="roomStayCost" ViewItem="roomStayCost" Index="0" RelativeSize="33.032258064516128" IsNewNode="True" />
-                  <LayoutItem Id="roomCareCost" ViewItem="roomCareCost" Index="1" RelativeSize="32.903225806451616" IsNewNode="True" />
-                  <LayoutItem Id="roomSupervisionCost" ViewItem="roomSupervisionCost" Index="2" RelativeSize="34.064516129032256" IsNewNode="True" />
+                  <LayoutItem Id="roomStayCost" ViewItem="roomStayCost" Index="0" RelativeSize="33.489827856025038" IsNewNode="True" />
+                  <LayoutItem Id="roomCareCost" ViewItem="roomCareCost" Index="1" RelativeSize="33.020344287949925" IsNewNode="True" />
+                  <LayoutItem Id="roomSupervisionCost" ViewItem="roomSupervisionCost" Index="2" RelativeSize="33.489827856025038" IsNewNode="True" />
                 </LayoutGroup>
                 <LayoutGroup Id="Item14" ShowCaption="True" Caption="اجمالي الاقامة" CaptionLocation="Top" GroupStyle="Light" Index="1" RelativeSize="33.132530120481931" IsNewNode="True">
                   <LayoutItem Id="stayTotalSum" ViewItem="stayTotalSum" Index="0" RelativeSize="100" IsNewNode="True" />
                 </LayoutGroup>
                 <LayoutGroup Id="Auto4e6f1af9-a60d-4a9b-867e-e637465905d7" ShowCaption="True" Caption="التحويل" TextAlignMode="AlignWithChildren" GroupStyle="Light" Direction="Horizontal" Index="2" RelativeSize="33.132530120481931" IsNewNode="True">
-                  <LayoutItem Id="ignoreFirstDay" ViewItem="ignoreFirstDay" Index="0" RelativeSize="48.774193548387096" IsNewNode="True" />
-                  <LayoutItem Id="transferDayCount" ViewItem="transferDayCount" Index="1" RelativeSize="51.225806451612904" IsNewNode="True" />
+                  <LayoutItem Id="ignoreFirstDay" ViewItem="ignoreFirstDay" Index="0" RelativeSize="48.6697965571205" IsNewNode="True" />
+                  <LayoutItem Id="transferDayCount" ViewItem="transferDayCount" Index="1" RelativeSize="51.3302034428795" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <TabbedGroup Id="Tabs" Index="3" RelativeSize="45.6198347107438" IsNewNode="True">
+            <TabbedGroup Id="Tabs" Index="3" RelativeSize="30.443974630021142" IsNewNode="True">
               <LayoutGroup Id="StayMedicications" ShowCaption="True" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" Caption="أدوية الحجز" IsNewNode="True">
                 <LayoutItem Id="StayMedicications" TextAlignMode="AutoSize" ViewItem="StayMedicications" Index="0" RelativeSize="100" IsNewNode="True" />
               </LayoutGroup>
@@ -1142,10 +1146,7 @@
               <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" TextAlignMode="AlignWithChildren" Index="6" RelativeSize="100" IsNewNode="True">
                 <LayoutItem Id="EndscopeDetailsCollection" ViewItem="EndscopeDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" TextAlignMode="AlignWithChildren" Index="7" RelativeSize="100" IsNewNode="True">
-                <LayoutItem Id="TemporaryLeaves" ViewItem="TemporaryLeaves" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
-              </LayoutGroup>
-              <LayoutGroup Id="Item9" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="8" Caption="Supervisions" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Item9" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="7" Caption="Supervisions" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
                 <LayoutItem Id="SupervisionDetailsCollection" ViewItem="SupervisionDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
               </LayoutGroup>
             </TabbedGroup>
@@ -1153,29 +1154,29 @@
           <LayoutGroup Id="Item13" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="تفصيل تكلفة الاقامة" RelativeSize="100" IsNewNode="True">
             <LayoutGroup Id="Item10" ShowCaption="True" Caption="تفاصيل تكلفة الاقامة" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
               <LayoutGroup Id="Auto642984a1-e6d5-4117-befa-28a8ad578e46" ShowCaption="False" Caption="Auto642984a1-e6d5-4117-befa-28a8ad578e46(24)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
-                <LayoutGroup Id="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8" ShowCaption="False" Caption="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8(25)" Index="0" RelativeSize="49.553001277139209" IsNewNode="True">
-                  <LayoutItem Id="companionSum" ViewItem="companionSum" Index="0" RelativeSize="4.6391752577319592" IsNewNode="True" />
-                  <LayoutItem Id="xraysSum" ViewItem="xraysSum" Index="1" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="roomStaySum" ViewItem="roomStaySum" Index="2" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="medicalCareSum" ViewItem="medicalCareSum" Index="3" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="4" RelativeSize="82.989690721649481" IsNewNode="True" />
+                <LayoutGroup Id="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8" ShowCaption="False" Caption="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8(25)" Index="0" RelativeSize="49.459041731066463" IsNewNode="True">
+                  <LayoutItem Id="companionSum" ViewItem="companionSum" Index="0" RelativeSize="6" IsNewNode="True" />
+                  <LayoutItem Id="xraysSum" ViewItem="xraysSum" Index="1" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="roomStaySum" ViewItem="roomStaySum" Index="2" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="medicalCareSum" ViewItem="medicalCareSum" Index="3" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="4" RelativeSize="78" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutGroup Id="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143" ShowCaption="False" Caption="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143(32)" Index="1" RelativeSize="50.446998722860791" IsNewNode="True">
-                  <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="0" RelativeSize="4.6391752577319592" IsNewNode="True" />
-                  <LayoutItem Id="endscopesSum" ViewItem="endscopesSum" Index="1" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="testsSum" ViewItem="testsSum" Index="2" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="MedicalSupervisionSum" ViewItem="MedicalSupervisionSum" Index="3" RelativeSize="4.1237113402061851" IsNewNode="True" />
-                  <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="4" RelativeSize="82.989690721649481" IsNewNode="True" />
+                <LayoutGroup Id="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143" ShowCaption="False" Caption="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143(32)" Index="1" RelativeSize="50.540958268933537" IsNewNode="True">
+                  <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="0" RelativeSize="6" IsNewNode="True" />
+                  <LayoutItem Id="endscopesSum" ViewItem="endscopesSum" Index="1" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="testsSum" ViewItem="testsSum" Index="2" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="MedicalSupervisionSum" ViewItem="MedicalSupervisionSum" Index="3" RelativeSize="5.333333333333333" IsNewNode="True" />
+                  <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="4" RelativeSize="78" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
           <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="2" RelativeSize="100" Caption="البيانات طبية" IsNewNode="True">
-            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="4.6280991735537187" Caption="Auto9aba8244-e836-405f-8960-49e671ecf136(62)" IsNewNode="True">
+            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="5.9196617336152224" Caption="Auto9aba8244-e836-405f-8960-49e671ecf136(62)" IsNewNode="True">
               <LayoutItem Id="Patient.BloodType" Index="0" RelativeSize="100" ViewItem="Patient.BloodType" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutItem Id="firstDiagnosis" CaptionLocation="Top" Index="1" RelativeSize="46.942148760330582" ViewItem="firstDiagnosis" IsNewNode="True" />
-            <LayoutItem Id="finalDiagnosis" CaptionLocation="Top" Index="2" RelativeSize="48.429752066115704" ViewItem="finalDiagnosis" IsNewNode="True" />
+            <LayoutItem Id="firstDiagnosis" CaptionLocation="Top" Index="1" RelativeSize="46.088794926004226" ViewItem="firstDiagnosis" IsNewNode="True" />
+            <LayoutItem Id="finalDiagnosis" CaptionLocation="Top" Index="2" RelativeSize="47.991543340380552" ViewItem="finalDiagnosis" IsNewNode="True" />
           </LayoutGroup>
         </TabbedGroup>
         <LayoutGroup Id="Main" Removed="True" />
@@ -1325,9 +1326,9 @@
     <ListView Id="Admission_XraysDetailsCollection_ListView" ShowFindPanel="False" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="Xrays" Index="-1" />
-        <ColumnInfo Id="date" Width="65" />
-        <ColumnInfo Id="service" Width="54" />
-        <ColumnInfo Id="price" Width="56">
+        <ColumnInfo Id="service" Width="54" Index="0" />
+        <ColumnInfo Id="date" Width="65" Index="1" />
+        <ColumnInfo Id="price" Width="56" Index="2">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1359,7 +1360,6 @@
         <PropertyEditor Id="IsPostponed" Caption="مؤجل" />
         <PropertyEditor Id="StartOn" Caption="ميعاد بداية الحجز" />
         <PropertyEditor Id="Status" Caption="الحالة" />
-        <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" GroupStyle="Card" RelativeSize="100">
@@ -1400,7 +1400,6 @@
         <ColumnInfo Id="Description" Caption="الوصف" />
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Status" Caption="الحالة" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="clinc" Caption="العيادة" />
         <ColumnInfo Id="amount" Caption="الكمية" />
@@ -2044,7 +2043,15 @@
         <ColumnInfo Id="Patient" Width="181" />
       </Columns>
     </ListView>
-    <ListView Id="EndscopeDetails_LookupListView" AllowDelete="True" AllowNew="True" AllowLink="True" />
+    <ListView Id="EndscopeDetails_LookupListView" AllowDelete="True" AllowNew="True" AllowLink="True">
+      <Columns>
+        <ColumnInfo Id="admission" Index="-1" />
+        <ColumnInfo Id="Endscope" Index="-1" />
+        <ColumnInfo Id="service" Index="0" />
+        <ColumnInfo Id="date" Index="1" />
+        <ColumnInfo Id="price" Index="2" />
+      </Columns>
+    </ListView>
     <DetailView Id="Event_DetailView">
       <Items>
         <PropertyEditor Id="Description" Caption="الوصف" />
@@ -2467,13 +2474,11 @@
       </Columns>
     </ListView>
     <ListView Id="Party_PhoneNumbers_ListView" Caption="رقم الهاتف" />
-    <ListView Id="Patient_Appointments_ListView" DayViewTimeScale="00:30:00" WorkWeekViewTimeScale="00:30:00" FullWeekViewTimeScale="00:30:00" SelectedIntervalStart="2021-03-21" SelectedIntervalEnd="2021-03-22" SchedulerViewType="Timeline">
+    <ListView Id="Patient_Appointments_ListView" DayViewTimeScale="00:30:00" WorkWeekViewTimeScale="00:30:00" FullWeekViewTimeScale="00:30:00" SelectedIntervalStart="2021-03-21" SelectedIntervalEnd="2021-03-22" SchedulerViewType="Gantt">
       <Columns>
         <ColumnInfo Id="Description" Caption="الوصف" />
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Status" Caption="الحالة" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" Index="-1" />
-        <ColumnInfo Id="TransactionsSecond" Index="-1" />
         <ColumnInfo Id="id" Caption="كود" Index="1" />
         <ColumnInfo Id="clinc" Caption="العيادة" Index="2" />
         <ColumnInfo Id="amount" Caption="الكمية" Index="3" />
@@ -2492,47 +2497,48 @@
         <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
         <PropertyEditor Id="FullName" Caption="الإسم بالكامل" />
         <PropertyEditor Id="Gender" Caption="النوع" />
-        <PropertyEditor Id="ID" Caption="كود المريض" />
         <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
+        <PropertyEditor Id="MedicalID" AllowEdit="False" />
         <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
         <PropertyEditor Id="nationalID" Caption="الرقم القومى" />
         <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
         <PropertyEditor Id="Photo" Caption="صورة بطاقة الرقم القومى" />
       </Items>
       <Layout>
-        <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="57.954545454545453" IsNewNode="True">
-          <LayoutGroup Id="SimpleEditors" ShowCaption="False" GroupStyle="Card" Index="0" RelativeSize="100" Caption="اساسية" IsNewNode="True">
-            <LayoutGroup Id="Auto349933a2-8e57-42f5-b83c-480f91841d2e" ShowCaption="False" Caption="Auto349933a2-8e57-42f5-b83c-480f91841d2e(3)" Direction="Horizontal" Index="0" RelativeSize="65.543071161048687" IsNewNode="True">
-              <LayoutGroup Id="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c" ShowCaption="False" Caption="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c(4)" Index="0" RelativeSize="47.967479674796749" IsNewNode="True">
+        <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="63.567362428842507" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" ShowCaption="True" GroupStyle="Card" Index="0" RelativeSize="100" Caption="اساسية" IsNewNode="True">
+            <LayoutGroup Id="Auto349933a2-8e57-42f5-b83c-480f91841d2e" ShowCaption="False" Caption="Auto349933a2-8e57-42f5-b83c-480f91841d2e(3)" Direction="Horizontal" Index="0" RelativeSize="67.229729729729726" IsNewNode="True">
+              <LayoutGroup Id="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c" ShowCaption="False" Caption="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c(4)" Index="0" RelativeSize="47.804878048780488" IsNewNode="True">
                 <LayoutGroup Id="Auto0c68a9ff-f894-4891-b13a-f7df9ffb1cc7" ShowCaption="True" Caption="بيانات اساسية" Index="0" RelativeSize="100" IsNewNode="True">
-                  <LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="23.529411764705884" IsNewNode="True" />
-                  <LayoutItem Id="LastName" ViewItem="LastName" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
-                  <LayoutItem Id="FullName" ViewItem="FullName" Index="2" RelativeSize="17.647058823529413" IsNewNode="True" />
-                  <LayoutItem Id="Birthday" ViewItem="Birthday" Index="3" RelativeSize="17.647058823529413" IsNewNode="True" />
-                  <LayoutItem Id="nationalID" ViewItem="nationalID" Index="4" RelativeSize="23.529411764705884" IsNewNode="True" />
+                  <LayoutItem Id="MedicalID" ViewItem="MedicalID" Index="0" RelativeSize="20" IsNewNode="True" />
+                  <LayoutItem Id="FirstName" ViewItem="FirstName" Index="1" RelativeSize="15" IsNewNode="True" />
+                  <LayoutItem Id="LastName" ViewItem="LastName" Index="2" RelativeSize="15" IsNewNode="True" />
+                  <LayoutItem Id="FullName" ViewItem="FullName" Index="3" RelativeSize="15" IsNewNode="True" />
+                  <LayoutItem Id="Birthday" ViewItem="Birthday" Index="4" RelativeSize="15" IsNewNode="True" />
+                  <LayoutItem Id="nationalID" ViewItem="nationalID" Index="5" RelativeSize="20" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
-              <LayoutGroup Id="Autoda6756be-bbe8-4c94-98ae-658a9c865e80" ShowCaption="False" Caption="Autoda6756be-bbe8-4c94-98ae-658a9c865e80(12)" Index="1" RelativeSize="52.032520325203251" IsNewNode="True">
+              <LayoutGroup Id="Autoda6756be-bbe8-4c94-98ae-658a9c865e80" ShowCaption="False" Caption="Autoda6756be-bbe8-4c94-98ae-658a9c865e80(12)" Index="1" RelativeSize="52.195121951219512" IsNewNode="True">
                 <LayoutGroup Id="Person_col1" ShowCaption="False" Index="0" RelativeSize="100" Caption="Person_col1" IsNewNode="True">
                   <LayoutItem Id="Photo" ViewItem="Photo" Index="0" RelativeSize="100" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Party" ShowCaption="True" Caption="العنوان" Index="1" RelativeSize="34.456928838951313" IsNewNode="True">
+            <LayoutGroup Id="Party" ShowCaption="True" Caption="العنوان" Index="1" RelativeSize="32.770270270270274" IsNewNode="True">
               <LayoutItem Id="Address2" ViewItem="Address2" Index="0" RelativeSize="50" IsNewNode="True" />
               <LayoutItem Id="Address1" ViewItem="Address1" Index="1" RelativeSize="50" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
           <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" RelativeSize="100" Caption="تفاصيل" IsNewNode="True">
             <LayoutGroup Id="Person_col2" ShowCaption="True" Caption="أخري" Index="0" RelativeSize="100" IsNewNode="True">
-              <LayoutItem Id="Gender" ViewItem="Gender" Index="0" RelativeSize="13.223140495867769" IsNewNode="True" />
-              <LayoutItem Id="BloodType" ViewItem="BloodType" Index="1" RelativeSize="9.9173553719008272" IsNewNode="True" />
-              <LayoutItem Id="Email" ViewItem="Email" Index="2" RelativeSize="9.9173553719008272" IsNewNode="True" />
-              <LayoutItem Id="account" ViewItem="account" Index="3" RelativeSize="66.942148760330582" IsNewNode="True" />
+              <LayoutItem Id="Gender" ViewItem="Gender" Index="0" RelativeSize="11.808118081180812" IsNewNode="True" />
+              <LayoutItem Id="BloodType" ViewItem="BloodType" Index="1" RelativeSize="8.85608856088561" IsNewNode="True" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="2" RelativeSize="8.85608856088561" IsNewNode="True" />
+              <LayoutItem Id="account" ViewItem="account" Index="3" RelativeSize="70.479704797047972" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
         </TabbedGroup>
-        <LayoutGroup Id="Main" RelativeSize="42.045454545454547" Index="1" TextAlignMode="UseParentOptions" Direction="Vertical">
+        <LayoutGroup Id="Main" RelativeSize="36.432637571157493" Index="1" TextAlignMode="UseParentOptions" Direction="Vertical">
           <TabbedGroup Id="Tabs" RelativeSize="100" Index="0">
             <LayoutGroup Id="Stays" TextAlignMode="AlignWithChildren" RelativeSize="100">
               <LayoutItem Id="Stays" TextAlignMode="AutoSize" RelativeSize="100" />
@@ -2556,7 +2562,7 @@
               <LayoutItem Id="XraysCollection" TextAlignMode="AutoSize" RelativeSize="100" />
             </LayoutGroup>
             <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="7" TextAlignMode="AlignWithChildren" RelativeSize="100" Caption="Payments" IsNewNode="True">
-              <LayoutItem Id="Payments" ViewItem="Payments" Index="0" RelativeSize="100" IsNewNode="True" />
+              <LayoutItem Id="Payments" ViewItem="Payments" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
             </LayoutGroup>
             <LayoutGroup Id="FinancialExchanges" TextAlignMode="AlignWithChildren" RelativeSize="100" Removed="True">
               <LayoutItem Id="FinancialExchanges" TextAlignMode="AutoSize" RelativeSize="100" />
@@ -2622,7 +2628,6 @@
         <ColumnInfo Id="Birthday" Caption="تاريخ الميلاد" />
         <ColumnInfo Id="DisplayName" Caption="الإسم المعروض" />
         <ColumnInfo Id="FirstName" Caption="الإسم الأول" />
-        <ColumnInfo Id="ID" Width="32" Index="-1" />
         <ColumnInfo Id="LastName" Caption="الإسم الأخير" />
         <ColumnInfo Id="MiddleName" Caption="الإسم الأوسط" />
         <ColumnInfo Id="Photo" Caption="صورة" />
@@ -3166,22 +3171,22 @@
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100" Direction="Vertical">
-            <LayoutGroup Id="receiptClientBond" Direction="Vertical" RelativeSize="35.725190839694655" Caption="البيانات الاساسية">
-              <LayoutGroup Id="Auto0ee04d19-9f02-41dc-95d4-9b2b9651a8f6" ShowCaption="False" Caption="Auto0ee04d19-9f02-41dc-95d4-9b2b9651a8f6(4)" Direction="Horizontal" Index="0" RelativeSize="17.412935323383085" IsNewNode="True">
-                <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="49.925037481259373" IsNewNode="True" />
-                <LayoutItem Id="date" ViewItem="date" Index="1" RelativeSize="50.074962518740627" IsNewNode="True" />
+            <LayoutGroup Id="receiptClientBond" Direction="Vertical" RelativeSize="62.3342175066313" Caption="البيانات الاساسية">
+              <LayoutGroup Id="Auto0ee04d19-9f02-41dc-95d4-9b2b9651a8f6" ShowCaption="False" Caption="Auto0ee04d19-9f02-41dc-95d4-9b2b9651a8f6(4)" Direction="Horizontal" Index="0" RelativeSize="17.326732673267326" IsNewNode="True">
+                <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="49.832775919732441" IsNewNode="True" />
+                <LayoutItem Id="date" ViewItem="date" Index="1" RelativeSize="50.167224080267559" IsNewNode="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Autob5977c95-f5d1-4bfd-a418-db12233a3801" ShowCaption="False" Caption="Autob5977c95-f5d1-4bfd-a418-db12233a3801(7)" Index="1" RelativeSize="55.223880597014926" IsNewNode="True">
-                <LayoutItem Id="fromAccount" ViewItem="fromAccount" Index="0" RelativeSize="24.324324324324323" IsNewNode="True" />
-                <LayoutItem Id="intoAccount" ViewItem="intoAccount" Index="1" RelativeSize="21.621621621621621" IsNewNode="True" />
-                <LayoutItem Id="amount" ViewItem="amount" Index="2" RelativeSize="21.621621621621621" IsNewNode="True" />
-                <LayoutGroup Id="Autoa2203436-7c50-4212-8d12-59acadc4aabb" ShowCaption="False" Caption="Autoa2203436-7c50-4212-8d12-59acadc4aabb(11)" Direction="Horizontal" Index="3" RelativeSize="32.432432432432435" IsNewNode="True">
-                  <LayoutItem Id="fromAccountBalance" ViewItem="fromAccountBalance" Index="0" RelativeSize="49.925037481259373" IsNewNode="True" />
-                  <LayoutItem Id="intoAccountBalance" ViewItem="intoAccountBalance" Index="1" RelativeSize="50.074962518740627" IsNewNode="True" />
+              <LayoutGroup Id="Autob5977c95-f5d1-4bfd-a418-db12233a3801" ShowCaption="False" Caption="Autob5977c95-f5d1-4bfd-a418-db12233a3801(7)" Index="1" RelativeSize="66.831683168316829" IsNewNode="True">
+                <LayoutItem Id="PaymentDestnation" ViewItem="PaymentDestnation" Index="0" RelativeSize="20" IsNewNode="True" />
+                <LayoutItem Id="fromAccount" ViewItem="fromAccount" Index="1" RelativeSize="17.777777777777779" IsNewNode="True" />
+                <LayoutItem Id="intoAccount" ViewItem="intoAccount" Index="2" RelativeSize="17.777777777777779" IsNewNode="True" />
+                <LayoutItem Id="amount" ViewItem="amount" Index="3" RelativeSize="17.777777777777779" IsNewNode="True" />
+                <LayoutGroup Id="Autoa2203436-7c50-4212-8d12-59acadc4aabb" ShowCaption="False" Caption="Autoa2203436-7c50-4212-8d12-59acadc4aabb(11)" Direction="Horizontal" Index="4" RelativeSize="26.666666666666668" IsNewNode="True">
+                  <LayoutItem Id="fromAccountBalance" ViewItem="fromAccountBalance" Index="0" RelativeSize="49.832775919732441" IsNewNode="True" />
+                  <LayoutItem Id="intoAccountBalance" ViewItem="intoAccountBalance" Index="1" RelativeSize="50.167224080267559" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
-              <LayoutItem Id="statement" ViewItem="statement" Index="2" RelativeSize="11.940298507462687" IsNewNode="True" />
-              <LayoutItem Id="post" ViewItem="post" Index="3" RelativeSize="15.422885572139304" IsNewNode="True" />
+              <LayoutItem Id="statement" ViewItem="statement" Index="2" RelativeSize="15.841584158415841" IsNewNode="True" />
               <LayoutGroup Id="receiptClientBond_col2" ShowCaption="True" Index="3" RelativeSize="75.2442996742671" Caption="بيانات الشيك" Removed="True">
                 <LayoutItem Id="chequeNumber" ViewItem="chequeNumber" Index="0" RelativeSize="7.4592074592074589" IsNewNode="True" />
                 <LayoutItem Id="chequeDate" ViewItem="chequeDate" Index="1" RelativeSize="5.5944055944055942" IsNewNode="True" />
@@ -3191,10 +3196,10 @@
               </LayoutGroup>
               <LayoutGroup Id="receiptClientBond_col1" Removed="True" />
             </LayoutGroup>
-            <LayoutGroup Id="receiptClientBond_col2" ShowCaption="True" Caption="بيانات الشيك" Index="1" RelativeSize="64.274809160305338" IsNewNode="True">
-              <LayoutItem Id="chequeNumber" ViewItem="chequeNumber" Index="0" RelativeSize="8.24742268041237" IsNewNode="True" />
-              <LayoutItem Id="chequeDate" ViewItem="chequeDate" Index="1" RelativeSize="6.1855670103092786" IsNewNode="True" />
-              <LayoutItem Id="chequeBank" ViewItem="chequeBank" Index="2" RelativeSize="85.567010309278345" IsNewNode="True" />
+            <LayoutGroup Id="receiptClientBond_col2" ShowCaption="True" Caption="بيانات الشيك" Index="1" RelativeSize="37.6657824933687" IsNewNode="True">
+              <LayoutItem Id="chequeNumber" ViewItem="chequeNumber" Index="0" RelativeSize="29.357798165137616" IsNewNode="True" />
+              <LayoutItem Id="chequeDate" ViewItem="chequeDate" Index="1" RelativeSize="22.01834862385321" IsNewNode="True" />
+              <LayoutItem Id="chequeBank" ViewItem="chequeBank" Index="2" RelativeSize="48.623853211009177" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
@@ -3318,23 +3323,28 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="26.099706744868037">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="56.546489563567363">
             <LayoutGroup Id="ReceptionDesk" RelativeSize="100" Direction="Vertical">
-              <LayoutGroup Id="Autobd567611-e72b-45bc-b5d8-604e47ed1290" ShowCaption="False" Caption="Autobd567611-e72b-45bc-b5d8-604e47ed1290(4)" Direction="Horizontal" Index="0" RelativeSize="77.464788732394368" IsNewNode="True">
-                <LayoutGroup Id="ReceptionDesk_col1" ShowCaption="False" Index="0" RelativeSize="49.8502994011976" IsNewNode="True">
+              <LayoutGroup Id="Autobd567611-e72b-45bc-b5d8-604e47ed1290" ShowCaption="False" Caption="Autobd567611-e72b-45bc-b5d8-604e47ed1290(4)" Direction="Horizontal" Index="0" RelativeSize="41.984732824427482" IsNewNode="True">
+                <LayoutGroup Id="ReceptionDesk_col1" ShowCaption="False" Index="0" RelativeSize="49.430894308943088" IsNewNode="True">
                   <LayoutItem Id="Section" ViewItem="Section" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
                   <LayoutItem Id="room" ViewItem="room" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
                   <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
                   <LayoutItem Id="enterID" ViewItem="enterID" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutGroup Id="ReceptionDesk_col2" ShowCaption="False" Index="1" RelativeSize="50.1497005988024" IsNewNode="True">
+                <LayoutGroup Id="ReceptionDesk_col2" ShowCaption="False" Index="1" RelativeSize="50.569105691056912" IsNewNode="True">
                   <LayoutItem Id="patient" ViewItem="patient" Index="0" RelativeSize="29.09090909090909" IsNewNode="True" />
                   <LayoutItem Id="transferFrom" ViewItem="transferFrom" Index="1" RelativeSize="21.818181818181817" IsNewNode="True" />
                   <LayoutItem Id="dateEnter" ViewItem="dateEnter" Index="2" RelativeSize="21.818181818181817" IsNewNode="True" />
                   <LayoutItem Id="dateLeave" ViewItem="dateLeave" Index="3" RelativeSize="27.272727272727273" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
-              <LayoutItem Id="total" ViewItem="total" Index="1" RelativeSize="22.535211267605632" IsNewNode="True" />
+              <LayoutItem Id="ReasonForDischarge" ViewItem="ReasonForDischarge" Index="1" RelativeSize="9.16030534351145" IsNewNode="True" />
+              <LayoutItem Id="ServiceRate" ViewItem="ServiceRate" Index="2" RelativeSize="9.16030534351145" IsNewNode="True" />
+              <LayoutItem Id="total" ViewItem="total" Index="3" RelativeSize="9.16030534351145" IsNewNode="True" />
+              <LayoutItem Id="ServiceFee" ViewItem="ServiceFee" Index="4" RelativeSize="9.16030534351145" IsNewNode="True" />
+              <LayoutItem Id="Discount" ViewItem="Discount" Index="5" RelativeSize="9.16030534351145" IsNewNode="True" />
+              <LayoutItem Id="medication" ViewItem="medication" Index="6" RelativeSize="12.213740458015268" IsNewNode="True" />
               <LayoutGroup Id="ReceptionDesk_col1" RelativeSize="49.925261584454411" Removed="True">
                 <LayoutItem Id="room" ViewItem="room" Index="1" RelativeSize="17.647058823529413" IsNewNode="True" />
                 <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="17.647058823529413" IsNewNode="True" />
@@ -3357,16 +3367,26 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" RelativeSize="16.568914956011731">
+          <LayoutGroup Id="SizeableEditors" RelativeSize="17.267552182163186">
             <LayoutItem Id="note" RelativeSize="100" CaptionLocation="Top" />
           </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="26.185958254269451">
+            <LayoutGroup Id="Admissions" TextAlignMode="AlignWithChildren" RelativeSize="100">
+              <LayoutItem Id="Admissions" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="PaymentsCollection" TextAlignMode="AlignWithChildren" RelativeSize="100">
+              <LayoutItem Id="PaymentsCollection" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
     <ListView Id="ReceptionDesk_ListView" Caption="إستقبال القسم الداخلى" IsFooterVisible="True" IsGroupPanelVisible="True">
       <Columns>
         <ColumnInfo Id="currentStay" Index="-1" Caption="الإقامة الحالية" />
+        <ColumnInfo Id="Discount" Index="-1" />
         <ColumnInfo Id="enterID" Caption="أدخل الكود" />
+        <ColumnInfo Id="journalEntry" Index="-1" />
         <ColumnInfo Id="note" Index="-1" />
         <ColumnInfo Id="transferFrom" Index="-1" Caption="تحويل من" />
         <ColumnInfo Id="patient" Index="0" Caption="مريض">
@@ -3380,7 +3400,7 @@
         <ColumnInfo Id="dateLeave" Index="4" Caption="تاريخ الخروج" />
         <ColumnInfo Id="room" Index="5" Caption="الغرفة" />
         <ColumnInfo Id="bed" Index="6" Caption="السرير" />
-        <ColumnInfo Id="total">
+        <ColumnInfo Id="total" Index="7">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -4225,6 +4245,15 @@
         <ColumnInfo Id="date" Index="2" />
       </Columns>
     </ListView>
+    <ListView Id="TestDetails_LookupListView">
+      <Columns>
+        <ColumnInfo Id="admission" Index="-1" />
+        <ColumnInfo Id="Test" Index="-1" />
+        <ColumnInfo Id="service" Index="0" />
+        <ColumnInfo Id="date" Index="1" />
+        <ColumnInfo Id="price" Index="2" />
+      </Columns>
+    </ListView>
     <DetailView Id="Transfer_DetailView" Caption="تحويل">
       <Items>
         <PropertyEditor Id="fromRoom" Caption="من غرفة" />
@@ -4392,6 +4421,11 @@
         <ColumnInfo Id="Patient" Width="156" />
       </Columns>
     </ListView>
+    <ListView Id="Xrays_LookupListView">
+      <Columns>
+        <ColumnInfo Id="journal" Index="-1" />
+      </Columns>
+    </ListView>
     <ListView Id="Xrays_XraysDetailsCollection_ListView" IsFooterVisible="True" AllowUnlink="False" AllowLink="False" AllowNew="True">
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
@@ -4404,6 +4438,14 @@
         </ColumnInfo>
       </Columns>
     </ListView>
-    <ListView Id="XraysDetails_LookupListView" ShowFindPanel="False" />
+    <ListView Id="XraysDetails_LookupListView" ShowFindPanel="False">
+      <Columns>
+        <ColumnInfo Id="admission" Index="-1" />
+        <ColumnInfo Id="Xrays" Index="-1" />
+        <ColumnInfo Id="service" Index="0" />
+        <ColumnInfo Id="date" Index="1" />
+        <ColumnInfo Id="price" Index="2" />
+      </Columns>
+    </ListView>
   </Views>
 </Application>

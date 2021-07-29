@@ -25,7 +25,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     }
     public enum ServiceTypes
     {
-        Tests, Endoscopy, Xrays, Oxygen, Other
+        Tests, Endoscopy, Xrays, Oxygen, Other, Blood, Deceased
     }
 
 }

@@ -18,6 +18,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnChanged(propertyName, oldValue, newValue);
             if (propertyName == nameof(service) && newValue != null)
             {
+                Console.WriteLine(this.admission.Patient.Nationality);
+                Console.WriteLine("#############################");
                 this.price = ((Service)newValue).Price;
             }
         }

@@ -98,6 +98,48 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return ftotal; }
             set { SetPropertyValue<decimal>(nameof(total), ref ftotal, value); }
         }
+        decimal fDiscount;
+        public decimal Discount
+        {
+            get { return fDiscount; }
+            set { SetPropertyValue<decimal>(nameof(Discount), ref fDiscount, value); }
+        }
+        bool fIsDiscounted;
+        public bool IsDiscounted
+        {
+            get { return fIsDiscounted; }
+            set { SetPropertyValue<bool>(nameof(IsDiscounted), ref fIsDiscounted, value); }
+        }
+        double fServiceRate;
+        public double ServiceRate
+        {
+            get { return fServiceRate; }
+            set { SetPropertyValue<double>(nameof(ServiceRate), ref fServiceRate, value); }
+        }
+        decimal fmedication;
+        public decimal medication
+        {
+            get { return fmedication; }
+            set { SetPropertyValue<decimal>(nameof(medication), ref fmedication, value); }
+        }
+        decimal fServiceFee;
+        public decimal ServiceFee
+        {
+            get { return fServiceFee; }
+            set { SetPropertyValue<decimal>(nameof(ServiceFee), ref fServiceFee, value); }
+        }
+        decimal famount;
+        public decimal amount
+        {
+            get { return famount; }
+            set { SetPropertyValue<decimal>(nameof(amount), ref famount, value); }
+        }
+        bool fDeceasedPackageApplyed;
+        public bool DeceasedPackageApplyed
+        {
+            get { return fDeceasedPackageApplyed; }
+            set { SetPropertyValue<bool>(nameof(DeceasedPackageApplyed), ref fDeceasedPackageApplyed, value); }
+        }
         [Association(@"AdmissionReferencesReceptionDesk"), Aggregated]
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }
         [Association(@"PaymentsReferencesReceptionDesk"), Aggregated]

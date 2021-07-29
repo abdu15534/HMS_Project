@@ -51,6 +51,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<decimal>(nameof(debit), ref fdebit, value); }
         }
         string fstatement;
+        [Size(SizeAttribute.Unlimited)]
         public string statement
         {
             get { return fstatement; }

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.TemporaryLeave" Caption="خروج مؤقت">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="admission" Caption="الاقامات" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="description" Caption="الوصف" />
+        <Member Name="id" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Admission">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="TemporaryLeaves" Caption="خروج مؤقت" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="Admission_TemporaryLeaves_ListView" Caption="خروج مؤقت">
+      <Columns Id="Columns">
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <DetailView Id="TemporaryLeave_DetailView" Caption="خروج مؤقت">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسي">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="TemporaryLeave" Caption="خروج مؤقت" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="TemporaryLeave_ListView" Caption="خروج مؤقت">
+      <Columns Id="Columns">
+        <ColumnInfo Id="description" Caption="الوصف" />
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <ListView Id="TemporaryLeave_LookupListView" Caption="خروج مؤقت">
+      <Columns Id="Columns">
+        <ColumnInfo Id="admission" Caption="الاقامات" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Admission_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="TemporaryLeaves" Caption="خروج مؤقت" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

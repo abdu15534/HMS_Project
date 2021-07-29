@@ -156,12 +156,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if (ignoreFirstDay)
             {
-                totalDays = (_totalDays - 1) - TemporaryLeaves.Count;
+                totalDays = (_totalDays - 1);
             }
 
             else
             {
-                totalDays = _totalDays - TemporaryLeaves.Count;
+                totalDays = _totalDays;
             }
         }
 

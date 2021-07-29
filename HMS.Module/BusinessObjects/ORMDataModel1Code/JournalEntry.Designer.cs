@@ -32,6 +32,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }
         }
         string fstatement;
+        [Size(SizeAttribute.Unlimited)]
         public string statement
         {
             get { return fstatement; }

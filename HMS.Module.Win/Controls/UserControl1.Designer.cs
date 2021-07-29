@@ -33,6 +33,7 @@ namespace HMS.Module.Win.Controls
             this.bandedGridView1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).BeginInit();
             this.SuspendLayout();
@@ -69,16 +70,25 @@ namespace HMS.Module.Win.Controls
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.VisibleIndex = 1;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(375, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.gridControl1);
             this.Name = "UserControl1";
             this.Size = new System.Drawing.Size(511, 342);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bandedGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -88,5 +98,6 @@ namespace HMS.Module.Win.Controls
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView bandedGridView1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
