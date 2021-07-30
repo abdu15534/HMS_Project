@@ -31,7 +31,6 @@
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.pcApplicationName = new DevExpress.XtraEditors.PanelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelSubtitle = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.progressBarControl = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             ((System.ComponentModel.ISupportInitialize)(this.pcApplicationName)).BeginInit();
@@ -55,7 +54,6 @@
             this.pcApplicationName.Appearance.Options.UseBackColor = true;
             this.pcApplicationName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pcApplicationName.Controls.Add(this.pictureBox1);
-            this.pcApplicationName.Controls.Add(this.labelSubtitle);
             this.pcApplicationName.Dock = System.Windows.Forms.DockStyle.Top;
             this.pcApplicationName.Location = new System.Drawing.Point(1, 1);
             this.pcApplicationName.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -72,18 +70,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // labelSubtitle
-            // 
-            this.labelSubtitle.Appearance.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubtitle.Appearance.ForeColor = System.Drawing.Color.DimGray;
-            this.labelSubtitle.Appearance.Options.UseFont = true;
-            this.labelSubtitle.Appearance.Options.UseForeColor = true;
-            this.labelSubtitle.Location = new System.Drawing.Point(97, 187);
-            this.labelSubtitle.Name = "labelSubtitle";
-            this.labelSubtitle.Size = new System.Drawing.Size(302, 25);
-            this.labelSubtitle.TabIndex = 1;
-            this.labelSubtitle.Text = "Gastroenetology And Hepatology";
             // 
             // peImage
             // 
@@ -130,7 +116,6 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pcApplicationName)).EndInit();
             this.pcApplicationName.ResumeLayout(false);
-            this.pcApplicationName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
@@ -145,7 +130,6 @@
         private DevExpress.XtraEditors.LabelControl labelStatus;
         private DevExpress.XtraEditors.PictureEdit peImage;
         private DevExpress.XtraEditors.PanelControl pcApplicationName;
-        private DevExpress.XtraEditors.LabelControl labelSubtitle;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

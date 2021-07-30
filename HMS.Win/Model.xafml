@@ -1,12 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Logo="ExpressAppLogo" PreferredLanguage="(Default language)">
+<Application Logo="ExpressAppLogo" PreferredLanguage="ar">
   <ActionDesign>
     <Actions>
       <Action Id="BackUpDataBase" ImageName="Open2" />
+      <Action Id="CachReceipts" ImageName="Shopping_CashVoucher" />
+      <Action Id="CancelAction" ImageName="Cancel" />
       <Action Id="CheckOutAction" TargetObjectsCriteria="[IsDischarged] &lt;&gt; True" ConfirmationMessage="Check out this stay ?" ImageMode="UseActionImage" ImageName="Walking_32x32" />
+      <Action Id="Close" ImageName="Action_CloseAllWindows" />
       <Action Id="CurrentStay" ImageName="BO_Category" />
+      <Action Id="DetailedReport" ImageName="BO_Report" />
+      <Action Id="FullTextSearch" ImageName="EnableSearch" />
       <Action Id="OrderConfirmed" ImageName="BO_Order_Item" TargetObjectsCriteria="[isConfirmed] &lt;&gt; True And [OrderType] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.PurchasingOrder+OrderTypes,PurchasingOrder#" />
       <Action Id="OrderUnConfirmed" ImageName="BO_Quote" />
+      <Action Id="PatientLable" ImageName="Shopping_Barcode" />
+      <Action Id="PaymentReceipt" ImageName="Shopping_CashVoucher" />
+      <Action Id="PaymentVoucher" ImageName="Shopping_CashVoucher" />
       <Action Id="PostSalaryPayment" TargetObjectsCriteria="[post] = False And [SalaryDetailsCollection][].Count() &gt; 0" />
       <Action Id="RestoreDatabase" ImageName="Up" />
       <Action Id="SalaryPayment" TargetObjectsCriteria="[date] &lt;&gt; null And [SalaryDetailsCollection][].Count() = 0" Caption="تجهيز المرتبات" />
@@ -1007,9 +1015,9 @@
     <ListView Id="Account_Journals_ListView" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="objectKey" Index="-1" />
+        <ColumnInfo Id="statement" Width="67" />
         <ColumnInfo Id="type" Index="-1" />
         <ColumnInfo Id="date" Width="65" />
-        <ColumnInfo Id="statement" Width="67" />
         <ColumnInfo Id="post" Width="41" />
       </Columns>
     </ListView>
@@ -2163,19 +2171,19 @@
     <ListView Id="JournalDetails_ListView" AllowDelete="False" AllowEdit="False" AllowLink="True" AllowNew="False">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <ListView Id="JournalDetails_LookupListView">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <DetailView Id="JournalEntry_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False">
@@ -2191,7 +2199,6 @@
               <LayoutGroup Id="JournalEntry_col1" Index="0" RelativeSize="100">
                 <LayoutItem Id="ID" RelativeSize="36.363636363636367" />
                 <LayoutItem Id="date" RelativeSize="27.272727272727273" />
-                <LayoutItem Id="statement" RelativeSize="36.363636363636367" />
               </LayoutGroup>
               <LayoutGroup Id="JournalEntry_col2" Index="0" RelativeSize="49.981067777357062" Removed="True">
                 <LayoutItem Id="Item1" Index="0" RelativeSize="100" IsNewNode="True" />
@@ -2210,6 +2217,7 @@
     <ListView Id="JournalEntry_JournalDetailsCollection_ListView" IsFooterVisible="True" AllowDelete="False" AllowEdit="False" AllowNew="False">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن">
           <Summary>
@@ -2221,23 +2229,22 @@
             <ColumnSummaryItem Id="@961e5293-e715-4c34-9c35-b7daed582a1a" SummaryType="Sum" IsNewNode="True" />
           </Summary>
         </ColumnInfo>
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <ListView Id="JournalEntry_ListView" AllowLink="False" AllowNew="False" AllowDelete="False" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
         <ColumnInfo Id="objectKey" Index="-1" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="type" SortIndex="-1" SortOrder="None" Index="-1" />
         <ColumnInfo Id="date" Caption="تاريخ" SortIndex="0" SortOrder="Ascending" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <ListView Id="JournalEntry_LookupListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="statement" Caption="بيان" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
       </Columns>
     </ListView>
     <DetailView Id="KpiDefinition_DetailView">
@@ -2633,7 +2640,6 @@
         <ColumnInfo Id="Photo" Caption="صورة" />
         <ColumnInfo Id="FullName" Width="91" Caption="الإسم بالكامل" />
         <ColumnInfo Id="BloodType" Width="74" />
-        <ColumnInfo Id="Gender" Width="56" />
         <ColumnInfo Id="nationalID" Width="97" Index="3" Caption="بطاقة الرقم القومى" />
         <ColumnInfo Id="InStay" Width="56" Index="4" />
         <ColumnInfo Id="HasAppointment" Width="103" Index="5" />
@@ -2642,6 +2648,7 @@
             <ColumnSummaryItem Id="@760b7a33-36bc-4acc-9942-12707c093a64" SummaryType="Sum" IsNewNode="True" />
           </Summary>
         </ColumnInfo>
+        <ColumnInfo Id="Gender" Width="56" />
         <ColumnInfo Id="debtor" Width="65" Index="7">
           <Summary>
             <ColumnSummaryItem Id="@069b6b16-7282-4d5d-9d9b-b8503958f4b3" SummaryType="Sum" IsNewNode="True" />
@@ -3211,12 +3218,12 @@
         <ColumnInfo Id="chequeDate" Index="-1" />
         <ColumnInfo Id="chequeNumber" Index="-1" />
         <ColumnInfo Id="journal" Index="-1" />
+        <ColumnInfo Id="statement" Width="69" />
         <ColumnInfo Id="fromAccount" Width="148" />
         <ColumnInfo Id="intoAccount" Width="144" />
         <ColumnInfo Id="fromAccountBalance" Width="124" />
         <ColumnInfo Id="intoAccountBalance" Width="120" />
         <ColumnInfo Id="amount" Width="56" />
-        <ColumnInfo Id="statement" Width="69" />
         <ColumnInfo Id="date" Width="65" />
         <ColumnInfo Id="post" Index="7" Width="41" />
       </Columns>

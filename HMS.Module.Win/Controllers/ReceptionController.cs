@@ -110,7 +110,7 @@ namespace HMS.Module.Win.Controllers
 
         private void AdmissionReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.StayDetailReoprt report = new reports.StayDetailReoprt();
+            reports.StayDetailReport report = new reports.StayDetailReport();
 
             var curr = View.CurrentObject as ReceptionDesk;
             if (curr == null)
@@ -126,36 +126,36 @@ namespace HMS.Module.Win.Controllers
 
         private void DetailedReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            //reports.StayDetailReport report = new reports.StayDetailReport();
+            reports.StayDetailReport report = new reports.StayDetailReport();
 
-            //var curr = View.CurrentObject as ReceptionDesk;
-            
-            //if (curr == null)
-            //{
-            //    var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
-            //    report.Parameters["enterID"].Value = x;
-            //}
+            var curr = View.CurrentObject as ReceptionDesk;
 
-            //else
-            //{
-            //    report.Parameters["enterID"].Value = curr.enterID;
-            //    report.Parameters["patientName"].Value = curr.patient.FullName;
-            //    report.Parameters["enterDate"].Value = curr.dateEnter;
-            //    report.Parameters["leaveDate"].Value = curr.dateLeave;
-            //    if(!curr.isDischarged)
-            //        report.Parameters["leaveDate"].Value = "مازال في الاقامة";
-            //    report.Parameters["totalStay"].Value = curr.total;
-            //    report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه" , "قرش") + " فقط لاغير ";
-                
-            //    PermissionPolicyUser user;
-            //    if (SecuritySystem.CurrentUser != null)
-            //    {
-            //        user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
-            //        report.Parameters["user"].Value = user.UserName;
-            //    }
-            //}
+            if (curr == null)
+            {
+                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["enterID"].Value = x;
+            }
 
-            //report.ShowPreviewDialog();
+            else
+            {
+                report.Parameters["enterID"].Value = curr.enterID;
+                report.Parameters["patientName"].Value = curr.patient.FullName;
+                report.Parameters["enterDate"].Value = curr.dateEnter;
+                report.Parameters["leaveDate"].Value = curr.dateLeave;
+                if (!curr.isDischarged)
+                    report.Parameters["leaveDate"].Value = "مازال في الاقامة";
+                report.Parameters["totalStay"].Value = curr.total;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+
+                PermissionPolicyUser user;
+                if (SecuritySystem.CurrentUser != null)
+                {
+                    user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
+                    report.Parameters["user"].Value = user.UserName;
+                }
+            }
+
+            report.ShowPreviewDialog();
         }
 
         private void ReceptionJournalReport_Execute(object sender, SimpleActionExecuteEventArgs e)

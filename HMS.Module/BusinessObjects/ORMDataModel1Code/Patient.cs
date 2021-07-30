@@ -80,8 +80,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set => SetPropertyValue(nameof(Occubation), ref occubations, value);
         }
 
-        
-
 
         Genders gender;
         public Genders Gender
@@ -128,9 +126,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public enum Nationalitys
         {
             [Description("مصر")]
-            Egypt,
+            مصر,
             [Display(Name = "الأردن")]
-            Gordan,
+            الأردن,
             [Display(Name = "سوريا")]
             سوريا,
             [Display(Name = "السودان")]

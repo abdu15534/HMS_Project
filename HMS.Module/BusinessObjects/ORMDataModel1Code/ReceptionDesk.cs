@@ -131,7 +131,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             decimal totalWithoutDiscount;
             decimal sumation;
             this.medication = Admissions.Sum(p => p.medicationSum);
-            if (patient.Nationality == Patient.Nationalitys.Egypt)
+            if (patient.Nationality == Patient.Nationalitys.مصر)
             {
                 sumation = Admissions.Sum(p => p.stayTotalSum);
             }

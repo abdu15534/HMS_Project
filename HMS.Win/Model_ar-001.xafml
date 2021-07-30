@@ -1257,19 +1257,19 @@
     <ListView Id="JournalDetails_ListView">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <ListView Id="JournalDetails_LookupListView">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <DetailView Id="JournalEntry_DetailView">
@@ -1285,24 +1285,24 @@
     <ListView Id="JournalEntry_JournalDetailsCollection_ListView">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="statement" Caption="بيان" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
     <ListView Id="JournalEntry_ListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="statement" Caption="بيان" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
       </Columns>
     </ListView>
     <ListView Id="JournalEntry_LookupListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="statement" Caption="بيان" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
       </Columns>
     </ListView>
     <DetailView Id="KpiDefinition_DetailView">

@@ -168,6 +168,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.TotalsReport);
             this.Actions.Add(this.DiscoutAndService);
             this.Actions.Add(this.PatientLable);
+            this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
 

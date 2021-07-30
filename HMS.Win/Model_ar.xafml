@@ -2146,10 +2146,7 @@
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="JournalDetails" Caption="تفاصيل القيد">
-              <LayoutGroup Id="JournalDetails_col1" Caption="تفاصيل القيد1" />
-              <LayoutGroup Id="JournalDetails_col2" Caption="تفاصيل القيد2" />
-            </LayoutGroup>
+            <LayoutGroup Id="JournalDetails" Caption="تفاصيل القيد" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -2157,21 +2154,21 @@
     <ListView Id="JournalDetails_ListView" Caption="تفاصيل القيد">
       <Columns>
         <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
         <ColumnInfo Id="journal" Caption="القيد" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان القيد" />
       </Columns>
     </ListView>
     <ListView Id="JournalDetails_LookupListView" Caption="تفاصيل القيد">
       <Columns>
         <ColumnInfo Id="id" Caption="الكود" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
         <ColumnInfo Id="journal" Caption="القيد" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان القيد" />
       </Columns>
     </ListView>
     <DetailView Id="JournalEntry_DetailView" Caption="قيد">
@@ -2196,10 +2193,10 @@
       <Columns>
         <ColumnInfo Id="id" Caption="الكود" />
         <ColumnInfo Id="journal" Caption="القيد" />
+        <ColumnInfo Id="statement" Caption="بيان القيد" />
         <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="credit" Caption="دائن" />
         <ColumnInfo Id="debit" Caption="مدين" />
-        <ColumnInfo Id="statement" Caption="بيان القيد" />
       </Columns>
     </ListView>
     <ListView Id="JournalEntry_ListView" Caption="قيد">
