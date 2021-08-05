@@ -31,7 +31,6 @@ namespace HMS.Module.Win.Controllers
         {
             this.components = new System.ComponentModel.Container();
             this.EmergencyInvoice = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-            this.OUTPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // EmergencyInvoice
@@ -47,16 +46,6 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyInvoice.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.EmergencyInvoice.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EmergencyInvoice_Execute);
             // 
-            // OUTPatients
-            // 
-            this.OUTPatients.Caption = "Out Patients";
-            this.OUTPatients.ConfirmationMessage = null;
-            this.OUTPatients.Id = "OutPatients";
-            this.OUTPatients.ImageName = "Tasklist";
-            this.OUTPatients.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Admission);
-            this.OUTPatients.ToolTip = null;
-            this.OUTPatients.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.OUTPatients_Execute);
-            // 
             // EmergencyPatients
             // 
             this.EmergencyPatients.Caption = "Emergency Patients";
@@ -70,7 +59,6 @@ namespace HMS.Module.Win.Controllers
             // EmergencyViewController
             // 
             this.Actions.Add(this.EmergencyInvoice);
-            this.Actions.Add(this.OUTPatients);
             this.Actions.Add(this.EmergencyPatients);
 
         }
@@ -78,7 +66,6 @@ namespace HMS.Module.Win.Controllers
         #endregion
 
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyInvoice;
-        private DevExpress.ExpressApp.Actions.SimpleAction OUTPatients;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyPatients;
     }
 }

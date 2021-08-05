@@ -192,5 +192,22 @@ namespace HMS.Module.Win.Controllers
             report.Parameters["N2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.amount), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
+
+        private void Receipt_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.Estlam report = new reports.Estlam();
+
+            var curr = View.CurrentObject as receiptClientBond;
+            if (curr == null)
+            {
+                var x = System.Convert.ToString(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["ID"].Value = x;
+            }
+            else
+                report.Parameters["ID"].Value = ((receiptClientBond)View.CurrentObject).id;
+
+            report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.amount), "جنيه", "قرش") + " فقط لاغير ";
+            report.ShowPreviewDialog();
+        }
     }
 }

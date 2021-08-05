@@ -26,6 +26,19 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set => SetPropertyValue(nameof(Relative), ref relative, value);
         }
 
+        string phonenumber1;
+        public string PhoneNumber1
+        {
+            get => phonenumber1;
+            set => SetPropertyValue(nameof(PhoneNumber1), ref phonenumber1, value);
+        }
+
+        string phonenumber2;
+        public string PhoneNumber2
+        {
+            get => phonenumber2;
+            set => SetPropertyValue(nameof(PhoneNumber2), ref phonenumber2, value);
+        }
 
 
         public enum Relatives

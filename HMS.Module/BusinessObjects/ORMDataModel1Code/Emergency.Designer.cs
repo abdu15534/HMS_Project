@@ -109,6 +109,8 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
         [Association(@"PaymentsReferencesEmergency"), Aggregated]
         public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
+        [Association(@"EmergencyServiceDetailsReferencesEmergency"), Aggregated]
+        public XPCollection<EmergencyServiceDetails> EmergencyServiceDetailsCollection { get { return GetCollection<EmergencyServiceDetails>(nameof(EmergencyServiceDetailsCollection)); } }
     }
 
 }

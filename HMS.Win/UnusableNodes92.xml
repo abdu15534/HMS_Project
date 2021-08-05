@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Companion_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PhoneNumbers" Caption="أرقام الهاتف" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="ReceptionDesk_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="transferFrom" Index="-1" Caption="تحويل من" />
+      </Columns>
+    </ListView>
+    <ListView Id="ReceptionDesk_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="transferFrom" Caption="تحويل من" />
+      </Columns>
+    </ListView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Patient_ListView">
+            <Items Id="Items">
+              <Item Id="Physician_ListView" ViewId="Physician_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="transferFrom" Caption="تحويل من" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

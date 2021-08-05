@@ -26,6 +26,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(id), ref fid, value); }
         }
         string fName;
+        [DevExpress.Persistent.Validation.RuleRequiredField]
         public string Name
         {
             get { return fName; }
@@ -38,6 +39,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<string>(nameof(description), ref fdescription, value); }
         }
         Employee finCharge;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6"), DevExpress.Persistent.Validation.RuleRequiredField,]
         public Employee inCharge
         {
             get { return finCharge; }

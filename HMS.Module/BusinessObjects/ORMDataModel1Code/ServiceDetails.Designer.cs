@@ -60,7 +60,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }
         }
         Appointment fappointment;
-        [Association(@"ServiceDetailsReferencesAppointment")]
         public Appointment appointment
         {
             get { return fappointment; }

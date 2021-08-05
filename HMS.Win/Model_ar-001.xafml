@@ -365,7 +365,6 @@
         <Member Name="patient" Caption="مريض" />
         <Member Name="room" Caption="الغرفة" />
         <Member Name="Section" Caption="القسم" />
-        <Member Name="transferFrom" Caption="تحويل من" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Room">
@@ -903,13 +902,6 @@
         <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
         <PropertyEditor Id="Photo" Caption="صورة" />
       </Items>
-      <Layout>
-        <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="PhoneNumbers" Caption="أرقام الهاتف" />
-          </TabbedGroup>
-        </LayoutGroup>
-      </Layout>
     </DetailView>
     <ListView Id="Companion_ListView">
       <Columns>
@@ -1543,24 +1535,12 @@
     <DetailView Id="Patient_DetailView">
       <Items>
         <PropertyEditor Id="account" Caption="حساب" />
-        <PropertyEditor Id="Address1" Caption="العنوان 1" />
-        <PropertyEditor Id="Address2" Caption="العنوان 2" />
-        <PropertyEditor Id="Birthday" Caption="تاريخ الميلاد" />
-        <PropertyEditor Id="DisplayName" Caption="الإسم المعروض" />
-        <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
         <PropertyEditor Id="FullName" Caption="الإسم بالكامل" />
         <PropertyEditor Id="Gender" Caption="النوع" />
-        <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
-        <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
         <PropertyEditor Id="nationalID" Caption="الرقم القومى" />
-        <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
-        <PropertyEditor Id="Photo" Caption="صورة بطاقة الرقم القومى" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="PhoneNumbers" Caption="أرقام الهاتف" />
-          </TabbedGroup>
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="Auto349933a2-8e57-42f5-b83c-480f91841d2e" Caption="" />
           </LayoutGroup>
@@ -1584,17 +1564,9 @@
     </ListView>
     <ListView Id="Patient_ListView">
       <Columns>
-        <ColumnInfo Id="Address1" Caption="العنوان 1" />
-        <ColumnInfo Id="Address2" Caption="العنوان 2" />
-        <ColumnInfo Id="Birthday" Caption="تاريخ الميلاد" />
-        <ColumnInfo Id="DisplayName" Caption="الإسم المعروض" />
-        <ColumnInfo Id="FirstName" Caption="الإسم الأول" />
-        <ColumnInfo Id="LastName" Caption="الإسم الأخير" />
-        <ColumnInfo Id="MiddleName" Caption="الإسم الأوسط" />
-        <ColumnInfo Id="Photo" Caption="صورة" />
+        <ColumnInfo Id="account" Caption="حساب" />
         <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
         <ColumnInfo Id="nationalID" Caption="بطاقة الرقم القومى" />
-        <ColumnInfo Id="account" Caption="حساب" />
       </Columns>
     </ListView>
     <ListView Id="Patient_LookupListView">
@@ -1960,13 +1932,12 @@
       <Columns>
         <ColumnInfo Id="currentStay" Caption="الإقامة الحالية" />
         <ColumnInfo Id="enterID" Caption="أدخل الكود" />
-        <ColumnInfo Id="transferFrom" Caption="تحويل من" />
-        <ColumnInfo Id="patient" Caption="مريض" />
-        <ColumnInfo Id="Section" Caption="القسم" />
-        <ColumnInfo Id="dateEnter" Caption="تاريخ الدخول" />
         <ColumnInfo Id="isDischarged" Caption="خارج" />
-        <ColumnInfo Id="dateLeave" Caption="تاريخ الخروج" />
+        <ColumnInfo Id="Section" Caption="القسم" />
+        <ColumnInfo Id="patient" Caption="مريض" />
         <ColumnInfo Id="room" Caption="الغرفة" />
+        <ColumnInfo Id="dateEnter" Caption="تاريخ الدخول" />
+        <ColumnInfo Id="dateLeave" Caption="تاريخ الخروج" />
         <ColumnInfo Id="bed" Caption="السرير" />
       </Columns>
     </ListView>
@@ -1977,7 +1948,6 @@
         <ColumnInfo Id="dateEnter" Caption="تاريخ الدخول" />
         <ColumnInfo Id="dateLeave" Caption="تاريخ الخروج" />
         <ColumnInfo Id="patient" Caption="مريض" />
-        <ColumnInfo Id="transferFrom" Caption="تحويل من" />
         <ColumnInfo Id="room" Caption="الغرفة" />
         <ColumnInfo Id="bed" Caption="السرير" />
         <ColumnInfo Id="currentStay" Caption="الإقامة الحالية" />

@@ -3,9 +3,11 @@ using DevExpress.ExpressApp;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,26 +20,20 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            Patient result = Session.Query<Patient>().OrderByDescending(t => t.ID).FirstOrDefault();
-            if (result == null)
-            {
-                int idNum = 1;
-                this.ID = idNum;
-                String s = ID.ToString("D4");
-                MedicalID = DateTime.Now.Year.ToString() + s;
-            }
-            else
-            {
-                int newID = result.ID + 1;
-                this.ID = newID;
-                String s = ID.ToString("D4");
-                MedicalID = DateTime.Now.Year.ToString() + s;
-            }
+            //Patient result = Session.Query<Patient>().OrderByDescending(t => t.ID).FirstOrDefault();
+            
 
             account = new Account(Session);
 
             account.SubAccount = Session.FindObject<SubAccount>(new BinaryOperator("accountNumber", 10301 ));
        }
+
+        string fullName;
+        public string FullName
+        {
+            get => fullName;
+            set => SetPropertyValue(nameof(FullName), ref fullName, value);
+        }
 
         Blood bloodType;
         public Blood BloodType
@@ -57,7 +53,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             مسلم, مسيحى, أخرى
         }
-
+        
 
         string phonenumber1;
         public string PhoneNumber1
@@ -65,7 +61,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get => phonenumber1;
             set => SetPropertyValue(nameof(PhoneNumber1), ref phonenumber1, value);
         }
-
+        
         string phonenumber2;
         public string PhoneNumber2
         {
@@ -110,6 +106,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             ONegative
         }
 
+        [DevExpress.Xpo.Size(SizeAttribute.Unlimited), ValueConverter(typeof(ImageValueConverter))]
+        public Image ImageProperty
+        {
+            get { return GetPropertyValue<Image>("ImageProperty"); }
+            set { SetPropertyValue<Image>("ImageProperty", value); }
+        }
 
 
         public enum Genders
@@ -173,7 +175,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             base.OnSaving();
             if (this.Session.IsNewObject(this))
+            {
                 account.accountName = FullName;
+                object result = Session.Evaluate<Patient>(CriteriaOperator.Parse("Max(ID)"), null);
+                if (result == null)
+                {
+                    int idNum = this.ID + 1;
+                    //this.ID = idNum;
+                    String s = idNum.ToString("D4");
+                    MedicalID = DateTime.Now.Year.ToString() + s;
+                }
+                else
+                {
+                    int newID = Convert.ToInt32(result) + 1;
+                    this.ID = newID;
+                    String s = ID.ToString("D4");
+                    MedicalID = DateTime.Now.Year.ToString() + s;
+                }
+            }
         }
 
         protected override void OnSaved()

@@ -39,6 +39,7 @@ namespace HMS.Module.Win.Controllers
             this.ReceiptBondReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PaymentBondConfirm = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PaymentBondUnConfirm = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.Receipt = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // JournalReport
             // 
@@ -166,6 +167,18 @@ namespace HMS.Module.Win.Controllers
             this.PaymentBondUnConfirm.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.PaymentBondUnConfirm.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PaymentBondUnConfirm_Execute);
             // 
+            // Receipt
+            // 
+            this.Receipt.Caption = "الفاتورة";
+            this.Receipt.ConfirmationMessage = null;
+            this.Receipt.Id = "Receipt";
+            this.Receipt.ImageName = "BO_REPORT";
+            this.Receipt.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.receiptClientBond);
+            this.Receipt.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.Receipt.ToolTip = null;
+            this.Receipt.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Receipt.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.Receipt_Execute);
+            // 
             // AccountingController
             // 
             this.Actions.Add(this.JournalReport);
@@ -177,6 +190,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.ReceiptBondReport);
             this.Actions.Add(this.PaymentBondConfirm);
             this.Actions.Add(this.PaymentBondUnConfirm);
+            this.Actions.Add(this.Receipt);
 
         }
 
@@ -191,5 +205,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction JournalReport;
         private DevExpress.ExpressApp.Actions.SimpleAction PaymentBondConfirm;
         private DevExpress.ExpressApp.Actions.SimpleAction PaymentBondUnConfirm;
+        private DevExpress.ExpressApp.Actions.SimpleAction Receipt;
     }
 }

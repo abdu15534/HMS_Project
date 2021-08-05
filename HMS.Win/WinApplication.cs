@@ -1,6 +1,7 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Security.ClientServer;
+using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Win;
 using DevExpress.ExpressApp.Win.Utils;
 using DevExpress.ExpressApp.Xpo;
@@ -15,7 +16,7 @@ namespace HMS.Win
         {
             InitializeComponent();
             //LinkNewObjectToParentImmediately = true;
-            
+            NewObjectViewController.DefaultNewObjectActionItemListMode = NewObjectActionItemListMode.Default;
             securityStrategyComplex1.AllowAnonymousAccess = true;
             SplashScreen = new DXSplashScreen(typeof(XafSplashScreen), new DefaultOverlayFormOptions());
         }

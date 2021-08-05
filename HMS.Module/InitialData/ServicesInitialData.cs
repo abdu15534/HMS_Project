@@ -123,9 +123,6 @@ namespace HMS.Module.InitialData
             serviceCollection.Add(new ServicesInitialData() { name = "PSA  T&F", price = 450, serviceType = ServiceTypes.Tests });
             serviceCollection.Add(new ServicesInitialData() { name = "AFP", price = 150, serviceType = ServiceTypes.Tests });
 
-            serviceCollection.Add(new ServicesInitialData() { name = "كيس بلاستك", price = 250, serviceType = ServiceTypes.Deceased });
-            serviceCollection.Add(new ServicesInitialData() { name = "ملاية", price = 200, serviceType = ServiceTypes.Deceased });
-            serviceCollection.Add(new ServicesInitialData() { name = "جوانتي, 2 رباط , لفت", price = 50, serviceType = ServiceTypes.Deceased });
 
             return serviceCollection;
         }

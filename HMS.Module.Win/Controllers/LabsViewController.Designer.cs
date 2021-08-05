@@ -36,6 +36,9 @@ namespace HMS.Module.Win.Controllers
             this.XrayBacktrack = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EndscopeComplete = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EndscopeBacktrack = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.Recipt = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.ReciptXray = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.ReciptEndoscpy = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // TestComplete
             // 
@@ -115,6 +118,45 @@ namespace HMS.Module.Win.Controllers
             this.EndscopeBacktrack.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.EndscopeBacktrack.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EndscopeBacktrack_Execute);
             // 
+            // Recipt
+            // 
+            this.Recipt.Caption = "فاتورة دفع تحاليل";
+            this.Recipt.ConfirmationMessage = null;
+            this.Recipt.Id = "Recipt";
+            this.Recipt.ImageName = "BO_REPORT";
+            this.Recipt.TargetObjectsCriteria = "Paid = true";
+            this.Recipt.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Test);
+            this.Recipt.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.Recipt.ToolTip = null;
+            this.Recipt.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Recipt.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.Recipt_Execute);
+            // 
+            // ReciptXray
+            // 
+            this.ReciptXray.Caption = "فاتورة دفع اشعة";
+            this.ReciptXray.ConfirmationMessage = null;
+            this.ReciptXray.Id = "ReciptXray";
+            this.ReciptXray.ImageName = "BO_REPORT";
+            this.ReciptXray.TargetObjectsCriteria = "Paid = true";
+            this.ReciptXray.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Xrays);
+            this.ReciptXray.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ReciptXray.ToolTip = null;
+            this.ReciptXray.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ReciptXray.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ReciptXray_Execute);
+            // 
+            // ReciptEndoscpy
+            // 
+            this.ReciptEndoscpy.Caption = "فاتورة دفع مناظير";
+            this.ReciptEndoscpy.ConfirmationMessage = null;
+            this.ReciptEndoscpy.Id = "ReciptEndoscpy";
+            this.ReciptEndoscpy.ImageName = "BO_REPORT";
+            this.ReciptEndoscpy.TargetObjectsCriteria = "Paid = true";
+            this.ReciptEndoscpy.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Endscope);
+            this.ReciptEndoscpy.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ReciptEndoscpy.ToolTip = null;
+            this.ReciptEndoscpy.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ReciptEndoscpy.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ReciptEndoscpy_Execute);
+            // 
             // LabsViewController
             // 
             this.Actions.Add(this.TestComplete);
@@ -123,6 +165,9 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.XrayBacktrack);
             this.Actions.Add(this.EndscopeComplete);
             this.Actions.Add(this.EndscopeBacktrack);
+            this.Actions.Add(this.Recipt);
+            this.Actions.Add(this.ReciptXray);
+            this.Actions.Add(this.ReciptEndoscpy);
 
         }
 
@@ -134,5 +179,8 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction XrayBacktrack;
         private DevExpress.ExpressApp.Actions.SimpleAction EndscopeComplete;
         private DevExpress.ExpressApp.Actions.SimpleAction EndscopeBacktrack;
+        private DevExpress.ExpressApp.Actions.SimpleAction Recipt;
+        private DevExpress.ExpressApp.Actions.SimpleAction ReciptXray;
+        private DevExpress.ExpressApp.Actions.SimpleAction ReciptEndoscpy;
     }
 }

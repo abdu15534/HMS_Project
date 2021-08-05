@@ -1,6 +1,7 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
-using static XafDataModel.Module.BusinessObjects.test2.Spendings;
+using System;
+using System.Linq;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -8,19 +9,61 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Appointment
     {
         public Appointment(Session session) : base(session) { }
-        public override void AfterConstruction() 
+        public override void AfterConstruction()
         {
             base.AfterConstruction();
+            Appointment result = Session.Query<Appointment>().OrderByDescending(t => t.id).FirstOrDefault();
+            if (result == null)
+            {
+                int idNum = 1;
+                this.id = idNum;
+                
+            }
+            else
+            {
+                int newID = result.id + 1;
+                this.id = newID;
+               
+            }
             this.AllDay = false;
+            this.StartOn = DateTime.Now;
+            this.EndOn = DateTime.Now.AddHours(1);
+            
 
         }
 
-        
+        AppointmentStatus status;
+
+        public AppointmentStatus AptStatus
+        {
+            get => status;
+            set => SetPropertyValue(nameof(AptStatus), ref status, value);
+        }
+
+        public enum AppointmentStatus
+        {
+            NotSet, NoShow, Canceled, completed,
+        }
 
         protected override void OnSaving()
         {
             this.Subject = this.Patient.FullName;
-            this.Location = this.Doctor.FullName + "  د/ " + (this.clinc.inCharge!= null ? this.clinc.inCharge.FullName : " ");
+            this.Location = this.Doctor.FullName + "  د/ " + (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
+            switch (AptStatus)
+            {
+                case AppointmentStatus.Canceled:
+                    this.Label = 1;
+                    break;
+                case AppointmentStatus.completed:
+                    this.Label = 3;
+                    break;
+                case AppointmentStatus.NoShow:
+                    this.Label = 5;
+                    break;
+                default:
+                    break;
+            }
+            this.AllDay = false;
             base.OnSaving();
         }
     }

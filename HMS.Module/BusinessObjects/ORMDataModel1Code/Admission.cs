@@ -135,9 +135,26 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public void CalculateRoomServices()
         {
             DaysOfStay();
-            roomStaySum = this.roomStayCost * totalDays;
-            medicalCareSum = this.roomCareCost * totalDays;
-            MedicalSupervisionSum = this.SupervisionDetailsCollection.Sum(p => p.price);
+            if (this.Patient != null)
+            {
+                if (this.Patient.Nationality != Patient.Nationalitys.مصر)
+                {
+                    roomStaySum = this.roomStayCost * totalDays;
+                    medicalCareSum = this.roomCareCost * totalDays;
+                    MedicalSupervisionSum = this.roomSupervisionCost * totalDays;
+                    roomStaySum = roomStaySum * Convert.ToDecimal(1.5);
+                    medicalCareSum = medicalCareSum * Convert.ToDecimal(1.5);
+                    MedicalSupervisionSum = MedicalSupervisionSum * Convert.ToDecimal(1.5);
+                }
+                else
+                {
+                    roomStaySum = this.roomStayCost * totalDays;
+                    medicalCareSum = this.roomCareCost * totalDays;
+                    MedicalSupervisionSum = this.roomSupervisionCost * totalDays;
+                }
+            }
+            
+                //this.SupervisionDetailsCollection.Sum(p => p.price);
         }
 
         public void DaysOfStay()

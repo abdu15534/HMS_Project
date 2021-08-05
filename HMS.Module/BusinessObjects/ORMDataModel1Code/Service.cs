@@ -7,7 +7,7 @@ using System.ComponentModel;
 using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
-
+    [DefaultProperty("ID")]
     public partial class Service
     {
         public Service(Session session) : base(session) { }
@@ -25,7 +25,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     }
     public enum ServiceTypes
     {
-        Tests, Endoscopy, Xrays, Oxygen, Other, Blood, Deceased
+        Tests, Endoscopy, Xrays, Oxygen, Other, Blood, Emergency
     }
 
 }

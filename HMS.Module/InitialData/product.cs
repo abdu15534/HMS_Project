@@ -109,6 +109,10 @@ namespace HMS.Module
             productList.Add(new product() { Name = "كانيولا مقاس 20", purchasingPrice = 5, sellingPrice = 35 });
             productList.Add(new product() { Name = "كانيولا مقاس 22", purchasingPrice = 5, sellingPrice = 35 });
             productList.Add(new product() { Name = "كانيولا مقاس 24", purchasingPrice = 5, sellingPrice = 30 });
+            productList.Add(new product() { Name = "جوانتي, 2 رباط , لفت", purchasingPrice = 5, sellingPrice = 50 });
+            productList.Add(new product() { Name = "كيس بلاستك", purchasingPrice = 5, sellingPrice = 250 });
+            productList.Add(new product() { Name = "ملاية", purchasingPrice = 5, sellingPrice = 200 });
+            
             return productList;
         }
 

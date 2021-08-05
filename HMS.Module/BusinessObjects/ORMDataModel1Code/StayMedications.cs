@@ -5,6 +5,7 @@ using System;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
+    
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Bottom)]
     [DefaultClassOptions]
     //[RuleCriteria("'@This.quantity' < Medication.quantity AND '@This.quantity' >= 1")]

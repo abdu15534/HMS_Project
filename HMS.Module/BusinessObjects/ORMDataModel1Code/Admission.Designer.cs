@@ -53,6 +53,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<bed>(nameof(bed), ref fbed, value); }
         }
         Employee fdoctor;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6")]
         public Employee doctor
         {
             get { return fdoctor; }
@@ -208,12 +209,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return froomSupervisionCost; }
             set { SetPropertyValue<decimal>(nameof(roomSupervisionCost), ref froomSupervisionCost, value); }
-        }
-        decimal fDiscount;
-        public decimal Discount
-        {
-            get { return fDiscount; }
-            set { SetPropertyValue<decimal>(nameof(Discount), ref fDiscount, value); }
         }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }

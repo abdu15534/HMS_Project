@@ -404,11 +404,23 @@
     <Compile Include="Controllers\AccountingController.Designer.cs">
       <DependentUpon>AccountingController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AuthViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AuthViewController.Designer.cs">
+      <DependentUpon>AuthViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CasherViewController.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controllers\CasherViewController.Designer.cs">
       <DependentUpon>CasherViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ClinincController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ClinincController.Designer.cs">
+      <DependentUpon>ClinincController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\EmergencyViewController.cs">
       <SubType>Component</SubType>
@@ -547,6 +559,12 @@
     <Compile Include="reports\BuyingOrder.Designer.cs">
       <DependentUpon>BuyingOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\ClinicReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ClinicReport.Designer.cs">
+      <DependentUpon>ClinicReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\Consultation.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -595,6 +613,18 @@
     <Compile Include="reports\EmployeesWarnings.Designer.cs">
       <DependentUpon>EmployeesWarnings.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\EndoscpyPaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\EndoscpyPaymentReport.Designer.cs">
+      <DependentUpon>EndoscpyPaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\Estlam.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\Estlam.Designer.cs">
+      <DependentUpon>Estlam.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\ExpiredItems.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -618,6 +648,12 @@
     </Compile>
     <Compile Include="reports\JournalEntryReport.Designer.cs">
       <DependentUpon>JournalEntryReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\LabPaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\LabPaymentReport.Designer.cs">
+      <DependentUpon>LabPaymentReport.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Makhzan_Awel_Modda.cs">
       <SubType>Component</SubType>
@@ -788,6 +824,12 @@
     <Compile Include="reports\WarningsReport.Designer.cs">
       <DependentUpon>WarningsReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\XrayPaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XrayPaymentReport.Designer.cs">
+      <DependentUpon>XrayPaymentReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -841,6 +883,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\CasherViewController.resx">
       <DependentUpon>CasherViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ClinincController.resx">
+      <DependentUpon>ClinincController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\EmergencyViewController.resx">
       <DependentUpon>EmergencyViewController.cs</DependentUpon>
@@ -905,6 +950,9 @@
     <EmbeddedResource Include="reports\BuyingOrder.resx">
       <DependentUpon>BuyingOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\ClinicReport.resx">
+      <DependentUpon>ClinicReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\Consultation.resx">
       <DependentUpon>Consultation.cs</DependentUpon>
     </EmbeddedResource>
@@ -929,6 +977,12 @@
     <EmbeddedResource Include="reports\EmployeesWarnings.resx">
       <DependentUpon>EmployeesWarnings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\EndoscpyPaymentReport.resx">
+      <DependentUpon>EndoscpyPaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\Estlam.resx">
+      <DependentUpon>Estlam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\ExpiredItems.resx">
       <DependentUpon>ExpiredItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -940,6 +994,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\JournalEntryReport.resx">
       <DependentUpon>JournalEntryReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\LabPaymentReport.resx">
+      <DependentUpon>LabPaymentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\Makhzan_Awel_Modda.resx">
       <DependentUpon>Makhzan_Awel_Modda.cs</DependentUpon>
@@ -1024,6 +1081,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\WarningsReport.resx">
       <DependentUpon>WarningsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XrayPaymentReport.resx">
+      <DependentUpon>XrayPaymentReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\XtraReport1.resx">
       <DependentUpon>XtraReport1.cs</DependentUpon>

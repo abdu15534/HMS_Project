@@ -16,9 +16,10 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class Patient : DevExpress.Persistent.BaseImpl.Person
+    public partial class Patient : XPCustomObject
     {
         int fID;
+        [Key(true)]
         public int ID
         {
             get { return fID; }
@@ -33,7 +34,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<string>(nameof(MedicalID), ref fMedicalID, value); }
         }
         string fnationalID;
-        [Indexed(Name = @"Index1", Unique = true)]
+        [Indexed(@"MedicalID", Name = @"Index1", Unique = true)]
+        [DevExpress.Persistent.Validation.RuleRequiredField,]
         public string nationalID
         {
             get { return fnationalID; }
@@ -88,6 +90,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fInEmergency; }
             set { SetPropertyValue<bool>(nameof(InEmergency), ref fInEmergency, value); }
+        }
+        [DevExpress.Persistent.Base.ImmediatePostData]
+        [PersistentAlias("Iif([DateOfBrith] Is Null, 0, DateDiffYear([DateOfBrith], Today()))")]
+        public int Age
+        {
+            get { return (int)(EvaluateAlias(nameof(Age))); }
+        }
+        string fAddress;
+        public string Address
+        {
+            get { return fAddress; }
+            set { SetPropertyValue<string>(nameof(Address), ref fAddress, value); }
+        }
+        DateTime fDateOfBrith;
+        public DateTime DateOfBrith
+        {
+            get { return fDateOfBrith; }
+            set { SetPropertyValue<DateTime>(nameof(DateOfBrith), ref fDateOfBrith, value); }
         }
         [Association(@"StayReferencesPatient")]
         public XPCollection<Admission> Stays { get { return GetCollection<Admission>(nameof(Stays)); } }

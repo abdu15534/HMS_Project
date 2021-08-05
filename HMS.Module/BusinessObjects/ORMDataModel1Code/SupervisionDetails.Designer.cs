@@ -26,15 +26,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(id), ref fid, value); }
         }
         Employee fdoctor;
-        [DevExpress.Persistent.Validation.RuleRequiredField]
-		public Employee doctor
+        [DevExpress.Persistent.Validation.RuleRequiredField,
+DevExpress.Persistent.Base.DataSourceCriteria(" section= 6")]
+        public Employee doctor
         {
             get { return fdoctor; }
             set { SetPropertyValue<Employee>(nameof(doctor), ref fdoctor, value); }
         }
         DateTime fdate;
         [DevExpress.Persistent.Validation.RuleRequiredField]
-		public DateTime date
+        public DateTime date
         {
             get { return fdate; }
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }

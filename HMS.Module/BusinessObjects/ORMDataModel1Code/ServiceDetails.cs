@@ -16,7 +16,29 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if(propertyName == nameof(Service) && Service != null)
             {
-                price = Service.Price;
+                if (this.Stay != null)
+                {
+                    if (this.Stay.Patient.Nationality == Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).Price;
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+                    }
+                }
+                else if (this.emergency != null)
+                {
+                    if (this.emergency.Patient != null && this.emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).Price;
+                    }
+                }
             }
         }
     }

@@ -19,7 +19,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Service : XPBaseObject
     {
         int fID;
-        [Key(true)]
+        [Key]
         public int ID
         {
             get { return fID; }
@@ -43,6 +43,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fcategory; }
             set { SetPropertyValue<ServiceSecondCategory>(nameof(category), ref fcategory, value); }
+        }
+        string fEnglishName;
+        public string EnglishName
+        {
+            get { return fEnglishName; }
+            set { SetPropertyValue<string>(nameof(EnglishName), ref fEnglishName, value); }
         }
     }
 

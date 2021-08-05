@@ -7,7 +7,7 @@ using System.ComponentModel;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
     [DefaultClassOptions]
-    [DefaultProperty("product.name")]
+    [DefaultProperty("product.barCode")]
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Bottom)]
     public partial class StockProduct
     {
@@ -15,7 +15,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public override void AfterConstruction() 
         { 
             base.AfterConstruction(); 
-            
         }
 
 

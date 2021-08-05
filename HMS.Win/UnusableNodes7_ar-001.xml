@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Address1" Caption="العنوان 1" />
+        <PropertyEditor Id="Address2" Caption="العنوان 2" />
+        <PropertyEditor Id="Birthday" Caption="تاريخ الميلاد" />
+        <PropertyEditor Id="DisplayName" Caption="الإسم المعروض" />
+        <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
+        <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
+        <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
+        <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
+        <PropertyEditor Id="Photo" Caption="صورة بطاقة الرقم القومى" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PhoneNumbers" Caption="أرقام الهاتف" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Patient_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Address1" Caption="العنوان 1" />
+        <ColumnInfo Id="Address2" Caption="العنوان 2" />
+        <ColumnInfo Id="Birthday" Caption="تاريخ الميلاد" />
+        <ColumnInfo Id="DisplayName" Caption="الإسم المعروض" />
+        <ColumnInfo Id="LastName" Caption="الإسم الأخير" />
+        <ColumnInfo Id="MiddleName" Caption="الإسم الأوسط" />
+        <ColumnInfo Id="Photo" Caption="صورة" />
+        <ColumnInfo Id="FirstName" Caption="الإسم الأول" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

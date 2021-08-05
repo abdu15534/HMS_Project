@@ -3,6 +3,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System;
 
+
 namespace XafDataModel.Module.BusinessObjects.test2
 {
     [DefaultListViewOptions(MasterDetailMode.ListViewOnly, true, NewItemRowPosition.Bottom)]
@@ -51,7 +52,34 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
                 var medic = newValue as StockProduct;
                 if (medic != null)
-                    price = medic.product.sellingPrice / medic.product.unitAmount;
+                {
+                    if (this.Stay != null)
+                    {
+                        if (this.Stay.Patient.Nationality == Patient.Nationalitys.مصر)
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                        }
+                        else
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                            price = price * Convert.ToDecimal(1.5);
+                        }
+                    }
+                    else if (this.emergency != null)
+                    {
+                        if (this.emergency.Patient != null && this.emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                            price = price * Convert.ToDecimal(1.5);
+
+                        }
+                        else
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                        }
+                    }
+                    
+                }
             }
 
             if (supplyProduct != null && supplyProduct.product != null && supplyProduct.product.purchasingPrice != 0)

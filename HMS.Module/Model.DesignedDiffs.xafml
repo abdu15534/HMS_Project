@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application PreferredLanguage="(Default language)">
+<Application PreferredLanguage="ar">
   <NavigationItems>
     <Items>
       <Item Id="Default" IsNewNode="True" />

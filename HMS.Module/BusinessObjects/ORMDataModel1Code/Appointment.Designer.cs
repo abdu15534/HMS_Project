@@ -26,12 +26,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
         Patient fPatient;
         [Association(@"AppointmentReferencesPatient")]
+        [DevExpress.Persistent.Validation.RuleRequiredField,]
         public Patient Patient
         {
             get { return fPatient; }
             set { SetPropertyValue<Patient>(nameof(Patient), ref fPatient, value); }
         }
         Clinc fclinc;
+        [DevExpress.Persistent.Validation.RuleRequiredField,]
         public Clinc clinc
         {
             get { return fclinc; }
@@ -43,22 +45,41 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return famount; }
             set { SetPropertyValue<decimal>(nameof(amount), ref famount, value); }
         }
-        [PersistentAlias("Iif([ServiceDetailsCollection][].Sum([price]) Is Null, [amount], [ServiceDetailsCollection][].Sum([price]) + [amount])")]
-        public decimal total
-        {
-            get { return (decimal)(EvaluateAlias(nameof(total))); }
-        }
         Employee fDoctor;
         [Association(@"AppointmentReferencesEmployee")]
+        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6"), DevExpress.Persistent.Validation.RuleRequiredField]
         public Employee Doctor
         {
             get { return fDoctor; }
             set { SetPropertyValue<Employee>(nameof(Doctor), ref fDoctor, value); }
         }
-        [Association(@"ServiceDetailsReferencesAppointment"), Aggregated]
-        public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
+        [DevExpress.Persistent.Base.ImmediatePostData]
+        [PersistentAlias("Iif([Patient] Is Null, 0, DateDiffYear([Patient.Birthday], Today()))")]
+        public int PatientAge
+        {
+            get { return (int)(EvaluateAlias(nameof(PatientAge))); }
+        }
+        [PersistentAlias("Iif([ClinicServiceDetails][].Sum([price]) Is Null, [amount], [ClinicServiceDetails][].Sum([price]) + [amount])")]
+        public decimal total
+        {
+            get { return (decimal)(EvaluateAlias(nameof(total))); }
+        }
+        bool fPending;
+        public bool Pending
+        {
+            get { return fPending; }
+            set { SetPropertyValue<bool>(nameof(Pending), ref fPending, value); }
+        }
+        bool fComplete;
+        public bool Complete
+        {
+            get { return fComplete; }
+            set { SetPropertyValue<bool>(nameof(Complete), ref fComplete, value); }
+        }
         [Association(@"ClinicServiceDetailReferencesAppointment"), Aggregated]
         public XPCollection<ClinicServiceDetail> ClinicServiceDetails { get { return GetCollection<ClinicServiceDetail>(nameof(ClinicServiceDetails)); } }
+        [Association(@"PaymentsReferencesAppointment"), Aggregated]
+        public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
     }
 
 }

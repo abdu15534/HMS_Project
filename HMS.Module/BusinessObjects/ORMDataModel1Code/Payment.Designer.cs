@@ -66,6 +66,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Emergency>(nameof(Emergency), ref fEmergency, value); }
         }
         Appointment fAppointment;
+        [Association(@"PaymentsReferencesAppointment")]
         public Appointment Appointment
         {
             get { return fAppointment; }

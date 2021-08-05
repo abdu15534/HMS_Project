@@ -39,6 +39,7 @@ namespace HMS.Module.Win.Controllers
             this.TotalsReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.DiscoutAndService = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.FindAddmition = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -157,6 +158,20 @@ namespace HMS.Module.Win.Controllers
             this.PatientLable.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.PatientLable.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PatientLable_Execute);
             // 
+            // FindAddmition
+            // 
+            this.FindAddmition.Caption = "By MedicalID";
+            this.FindAddmition.ConfirmationMessage = null;
+            this.FindAddmition.Id = "FindAddmition";
+            this.FindAddmition.NullValuePrompt = null;
+            this.FindAddmition.ShortCaption = null;
+            this.FindAddmition.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.FindAddmition.TargetViewNesting = DevExpress.ExpressApp.Nesting.Root;
+            this.FindAddmition.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.FindAddmition.ToolTip = null;
+            this.FindAddmition.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.FindAddmition.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FindAddmitionByMedicalID_Execute);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -168,6 +183,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.TotalsReport);
             this.Actions.Add(this.DiscoutAndService);
             this.Actions.Add(this.PatientLable);
+            this.Actions.Add(this.FindAddmition);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -182,5 +198,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction TotalsReport;
         private DevExpress.ExpressApp.Actions.SimpleAction DiscoutAndService;
         private DevExpress.ExpressApp.Actions.SimpleAction PatientLable;
+        private DevExpress.ExpressApp.Actions.ParametrizedAction FindAddmition;
     }
 }

@@ -72,7 +72,7 @@ namespace HMS.Module.Win.Controllers
             IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Admission));
             Admission newAdmission = objectSpace.CreateObject<Admission>();
             newAdmission.reception = objectSpace.GetObjectByKey<ReceptionDesk>(reception.enterID);
-            newAdmission.Patient = objectSpace.GetObjectByKey<Patient>(reception.patient.Oid);
+            newAdmission.Patient = objectSpace.GetObjectByKey<Patient>(reception.patient.ID);
             newAdmission.transferFlag = true;
             newAdmission.transferDayCount = true;
             DetailView detailView = Application.CreateDetailView(objectSpace, newAdmission);
@@ -228,6 +228,20 @@ namespace HMS.Module.Win.Controllers
             var curr = View.CurrentObject as ReceptionDesk;
             report.Parameters["parameter1"].Value = curr.enterID;
             report.ShowPreviewDialog();
+        }
+
+        private void FindAddmitionByMedicalID_Execute(object sender, ParametrizedActionExecuteEventArgs e)
+        {
+            IObjectSpace objectSpace = Application.CreateObjectSpace(((ListView)View).ObjectTypeInfo.Type);
+            string paramValue = e.ParameterCurrentValue as string;
+            object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
+                CriteriaOperator.Parse(string.Format("Contains([patient.MedicalID], '{0}')", paramValue)));
+            if (obj != null)
+            {
+                DetailView detailView = Application.CreateDetailView(objectSpace, obj);
+                detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
+                e.ShowViewParameters.CreatedView = detailView;
+            }
         }
     }
 }

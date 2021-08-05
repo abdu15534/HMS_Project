@@ -51,12 +51,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fjournalEntry; }
             set { SetPropertyValue<JournalEntry>(nameof(journalEntry), ref fjournalEntry, value); }
         }
-        string ftransferFrom;
-        public string transferFrom
-        {
-            get { return ftransferFrom; }
-            set { SetPropertyValue<string>(nameof(transferFrom), ref ftransferFrom, value); }
-        }
         string fnote;
         [Size(SizeAttribute.Unlimited)]
         public string note

@@ -19,7 +19,6 @@
       <Action Id="PaymentBondConfirm" ToolTip="ترحيل" Caption="ترحيل" />
       <Action Id="PaymentBondUnConfirm" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
       <Action Id="PaymentInvoice" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
-      <Action Id="PaymentReceipt" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
       <Action Id="Post" ToolTip="ترحيل" ShortCaption="ترحيل" Caption="ترحيل" />
       <Action Id="PostSalaryDeduction" ToolTip="ترحيل" Caption="ترحيل" />
       <Action Id="PostSalaryPayment" ToolTip="ترحيل" Caption="ترحيل" />
@@ -177,13 +176,7 @@
         <Member Name="xraysSum" Caption="اجمالي الاشعة" />
       </OwnMembers>
     </Class>
-    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment" Caption="الميعاد">
-      <OwnMembers>
-        <Member Name="Patient" Caption="المريض" />
-        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
-        <Member Name="total" Caption="الاجمالي" />
-      </OwnMembers>
-    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment" Caption="الميعاد" />
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Bank" Caption="البنك">
       <OwnMembers>
         <Member Name="address" Caption="العنوان" />
@@ -212,7 +205,6 @@
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Companion" Caption="المرافق">
       <OwnMembers>
-        <Member Name="CompanionDetailsCollection" Caption="المرافق" />
         <Member Name="ID" Caption="الكود" />
       </OwnMembers>
     </Class>
@@ -804,7 +796,7 @@
       </Item>
       <Item Id="Pharmacy" Caption="الصيدلية">
         <Items>
-          <Item Id="Admission" Caption="الاقامات" />
+          <Item Id="ReceptionDesk" Caption="الاقامات" />
         </Items>
       </Item>
       <Item Id="Inventory &amp; products" Caption="المخازن و المنتجات">
@@ -1067,13 +1059,9 @@
       <Items>
         <PropertyEditor Id="IsPostponed" Caption="مؤجل" />
         <PropertyEditor Id="Oid" Caption="الكود" />
-        <PropertyEditor Id="Patient" Caption="المريض" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسية">
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="ServiceDetailsCollection" Caption="الخدمات" />
-          </TabbedGroup>
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="Appointment" Caption="الميعاد" />
           </LayoutGroup>
@@ -1084,7 +1072,6 @@
       <Columns>
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Oid" Caption="الكود" />
-        <ColumnInfo Id="Patient" Caption="المريض" />
       </Columns>
     </ListView>
     <ListView Id="Appointment_LookupListView" Caption="الميعاد" />
@@ -1248,17 +1235,8 @@
         <LayoutGroup Id="Main" Caption="الرئيسية" />
       </Layout>
     </DetailView>
-    <ListView Id="Companion_CompanionDetailsCollection_ListView" Caption="المرافق">
-      <Columns>
-        <ColumnInfo Id="Companion" Caption="المرافق" />
-        <ColumnInfo Id="Oid" Caption="الكود" />
-        <ColumnInfo Id="date" Caption="التاريخ" />
-        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
-      </Columns>
-    </ListView>
     <DetailView Id="Companion_DetailView" Caption="المرافق">
       <Items>
-        <PropertyEditor Id="CompanionDetailsCollection" Caption="المرافق" />
         <PropertyEditor Id="ID" Caption="الكود" />
         <PropertyEditor Id="Oid" Caption="الكود" />
       </Items>
@@ -1268,9 +1246,6 @@
             <LayoutGroup Id="Companion" Caption="الكود" />
             <LayoutGroup Id="Person" Caption="الشخص" />
           </LayoutGroup>
-          <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="CompanionDetailsCollection" Caption="المرافق" />
-          </TabbedGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -1532,9 +1507,9 @@
             <LayoutGroup Id="Person" Caption="الشخص" />
           </LayoutGroup>
           <TabbedGroup Id="Tabs">
-            <LayoutGroup Id="Salaries" Caption="المرتبات" />
-            <LayoutGroup Id="DeductionDetailsCollection" Caption="الخصومات" />
             <LayoutGroup Id="SalaryAdvances" Caption="سُلفة" />
+            <LayoutGroup Id="DeductionDetailsCollection" Caption="الخصومات" />
+            <LayoutGroup Id="Salaries" Caption="المرتبات" />
           </TabbedGroup>
         </LayoutGroup>
       </Layout>
@@ -2452,7 +2427,6 @@
       <Columns>
         <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
         <ColumnInfo Id="Oid" Caption="الكود" />
-        <ColumnInfo Id="Patient" Caption="المريض" />
       </Columns>
     </ListView>
     <DetailView Id="Patient_DetailView" Caption="المريض">
@@ -2462,7 +2436,6 @@
         <PropertyEditor Id="BloodType" Caption="فصيلة الدم" />
         <PropertyEditor Id="creditor" Caption="دائن" EditMask="C" />
         <PropertyEditor Id="debtor" Caption="مدين" EditMask="C" />
-        <PropertyEditor Id="Oid" Caption="الكود" />
         <PropertyEditor Id="Payments" Caption="الدفعات" />
       </Items>
       <Layout>
@@ -2496,11 +2469,10 @@
     </ListView>
     <ListView Id="Patient_ListView" Caption="المريض">
       <Columns>
-        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="account" Caption="حسابات" />
         <ColumnInfo Id="BloodType" Caption="فصيلة الدم" />
         <ColumnInfo Id="creditor" Caption="دائن" EditMask="C" />
         <ColumnInfo Id="debtor" Caption="مدين" EditMask="C" />
-        <ColumnInfo Id="account" Caption="حسابات" />
       </Columns>
     </ListView>
     <ListView Id="Patient_LookupListView" Caption="المريض" />
@@ -3018,7 +2990,6 @@
         <PropertyEditor Id="room.Status" Caption="قسم الحجز" />
         <PropertyEditor Id="Section" Caption="قسم الحجز" />
         <PropertyEditor Id="total" Caption=":تكلفة الاقامة" />
-        <PropertyEditor Id="transferFrom" Caption="تحويل من" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسي">
@@ -3610,8 +3581,8 @@
     <ListView Id="Service_ListView" Caption="خدمة ">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="Name" Caption="الاسم" />
         <ColumnInfo Id="ServiceType" Caption="نوع الخدمة" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
         <ColumnInfo Id="Price" Caption="السعر" EditMask="C" />
       </Columns>
     </ListView>

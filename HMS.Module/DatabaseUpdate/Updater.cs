@@ -581,6 +581,156 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
                 }
 
+                Clinc clinic1 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة القلب"));
+                Clinc clinic2 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة النسا والتوليد"));
+                Clinc clinic3 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة أمراض الذكورة"));
+                Clinc clinic4 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأمراض الجلدية"));
+                Clinc clinic5 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المسالك البولية"));
+                Clinc clinic6 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأنف والأذن"));
+                Clinc clinic7 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المخ والأعصاب"));
+                Clinc clinic8 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "قسم التخدير"));
+                Clinc clinic9 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأوعية الدموية"));
+                Clinc clinic10 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الرمد"));
+                Clinc clinic11 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأسنان"));
+
+            if (ObjectSpace.GetObjectsCount(typeof(ClinicService), null) == 0)
+            {
+
+                List<ClinicServiceInitialData> clincServices = new ClinicServiceInitialData().CardiacClinicServices();
+
+                foreach (var item in clincServices)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic1;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices2 = new ClinicServiceInitialData().OBGYNClinicServices();
+
+                foreach (var item in clincServices2)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic2;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices3 = new ClinicServiceInitialData().AndrologyClinicServices();
+
+                foreach (var item in clincServices3)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic3;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices4 = new ClinicServiceInitialData().DermatologyClinicServices();
+
+                foreach (var item in clincServices4)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic4;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices5 = new ClinicServiceInitialData().UrologyClinicServices();
+
+                foreach (var item in clincServices5)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic5;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices6 = new ClinicServiceInitialData().EarNoseAudiologyClinicServices();
+
+                foreach (var item in clincServices6)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic6;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices7 = new ClinicServiceInitialData().NeurologyClinicServices();
+
+                foreach (var item in clincServices7)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic7;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices8 = new ClinicServiceInitialData().AnesthesiologyClinicServices();
+
+                foreach (var item in clincServices8)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic8;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices9 = new ClinicServiceInitialData().VascularClinicServices();
+
+                foreach (var item in clincServices9)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic9;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices10 = new ClinicServiceInitialData().OphthalmicClinicServices();
+
+                foreach (var item in clincServices10)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic10;
+
+                }
+
+                List<ClinicServiceInitialData> clincServices11 = new ClinicServiceInitialData().DentalClinicServices();
+
+                foreach (var item in clincServices11)
+                {
+                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+                    clinicservice.ID = item.ClinicServicesID;
+                    clinicservice.Name = item.ClinicServicesName;
+                    clinicservice.Price = item.Price;
+                    clinicservice.Clinic = clinic11;
+
+                }
+
+                ObjectSpace.CommitChanges();
+            }
+
             if (ObjectSpace.GetObjectsCount(typeof(Room), null) == 0)
             {
                 List<RoomData> Rooms = new RoomData().RoomInitialData();
@@ -630,74 +780,61 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
             }
 
-            if (ObjectSpace.GetObjectsCount(typeof(Service) , null) == 0)
-                {
-                    List<ServicesInitialData> services = new ServicesInitialData().services();
 
-                    foreach(ServicesInitialData item in services)
-                    {
-                        var service = ObjectSpace.CreateObject<Service>();
-                        service.Name = item.name;
-                        service.Price = item.price;
-                        service.ServiceType = item.serviceType;
-                        
-                    }
-                    ObjectSpace.CommitChanges();
-                }
 
-            if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0)
-            {
-                var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+            //if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0)
+            //{
+            //    var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
-                var fakeSuppliers = new Faker<Supplier>("ar")
-                   .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
-                   .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-                   .RuleFor(o => o.LastName, f => f.Name.LastName())
-                   .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
-                   .RuleFor(o => o.Email, f => f.Internet.Email());
+            //    var fakeSuppliers = new Faker<Supplier>("ar")
+            //       .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
+            //       .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+            //       .RuleFor(o => o.LastName, f => f.Name.LastName())
+            //       .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
+            //       .RuleFor(o => o.Email, f => f.Internet.Email());
 
-                var suppliers = fakeSuppliers.Generate(40);
-                var Order = ObjectSpace.CreateObject<PurchasingOrder>();
-                Order.supplierAccount = supplier;
-                Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+            //    var suppliers = fakeSuppliers.Generate(40);
+            //    var Order = ObjectSpace.CreateObject<PurchasingOrder>();
+            //    Order.supplierAccount = supplier;
+            //    Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
-                List<product> supplies2 = new product().initialStockProductData();
-                List<product> medications2 = new product().initialPharmacyProductData();
+            //    List<product> supplies2 = new product().initialStockProductData();
+            //    List<product> medications2 = new product().initialPharmacyProductData();
 
-                int i = 0;
-                foreach (var item in medications2)
-                {
-                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                    Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].Name.ToString(), medications2[i].sellingPrice.ToString()));
-                    purchase.product = product;
-                    purchase.quantity = (Int32)new Random().Next(300, 500);
-                    purchase.price = product.purchasingPrice;
-                    i++;
-                    //purchasings.Add(purchase);
-                    Order.PurchasingOrderDetails.Add(purchase);
+            //    int i = 0;
+            //    foreach (var item in medications2)
+            //    {
+            //        PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+            //        Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].Name.ToString(), medications2[i].sellingPrice.ToString()));
+            //        purchase.product = product;
+            //        purchase.quantity = (Int32)new Random().Next(300, 500);
+            //        purchase.price = product.purchasingPrice;
+            //        i++;
+            //        //purchasings.Add(purchase);
+            //        Order.PurchasingOrderDetails.Add(purchase);
 
-                }
-                Order.OrderConfirm(true);
+            //    }
+            //    Order.OrderConfirm(true);
 
-                var Order2 = ObjectSpace.CreateObject<PurchasingOrder>();
-                Order2.supplierAccount = supplier;
-                Order2.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
-                Order2.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+            //    var Order2 = ObjectSpace.CreateObject<PurchasingOrder>();
+            //    Order2.supplierAccount = supplier;
+            //    Order2.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
+            //    Order2.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
-                int j = 0;
-                foreach (var item in supplies2)
-                {
-                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                    Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].Name.ToString(), supplies2[j].sellingPrice.ToString()));
-                    purchase.product = product;
-                    purchase.quantity = (Int32)new Random().Next(300, 500);
-                    purchase.price = product.purchasingPrice;
-                    j++;
-                    Order2.PurchasingOrderDetails.Add(purchase);
-                }
-                Order2.OrderConfirm(true);
+            //    int j = 0;
+            //    foreach (var item in supplies2)
+            //    {
+            //        PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+            //        Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].Name.ToString(), supplies2[j].sellingPrice.ToString()));
+            //        purchase.product = product;
+            //        purchase.quantity = (Int32)new Random().Next(300, 500);
+            //        purchase.price = product.purchasingPrice;
+            //        j++;
+            //        Order2.PurchasingOrderDetails.Add(purchase);
+            //    }
+            //    Order2.OrderConfirm(true);
 
-                ObjectSpace.CommitChanges();
+            //    ObjectSpace.CommitChanges();
 
                 //for (int z = 0; z < 90; z++)
                 //{
@@ -740,7 +877,7 @@ namespace HMS.Module.DatabaseUpdate
                 //    }
 
                 //}
-            }
+            //}
 
             //if (ObjectSpace.GetObjectsCount(typeof(Supplier) , null) == 0)
             //    {

@@ -302,6 +302,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicServiceDetail.Designer.cs">
       <DependentUpon>ClinicServiceDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.Designer.cs">
+      <DependentUpon>EmergencyServiceDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.Designer.cs">
       <DependentUpon>paymentSupplierBond.cs</DependentUpon>

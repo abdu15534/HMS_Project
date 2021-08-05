@@ -81,7 +81,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(SupervisionDetails),
             typeof(paymentSupplierBond),
             typeof(ClinicService),
-            typeof(ClinicServiceDetail)
+            typeof(ClinicServiceDetail),
+            typeof(EmergencyServiceDetails)
         };
         public static Type[] GetPersistentTypes()
         {

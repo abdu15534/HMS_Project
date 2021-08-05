@@ -19,7 +19,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class CompanionDetails : DevExpress.Persistent.BaseImpl.BaseObject
     {
         Companion fCompanion;
-        [Association(@"CompanionDetailsReferencesCompanion")]
         public Companion Companion
         {
             get { return fCompanion; }

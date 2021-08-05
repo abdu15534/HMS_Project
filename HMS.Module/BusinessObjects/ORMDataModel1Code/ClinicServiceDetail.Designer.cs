@@ -25,6 +25,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         ClinicService fClinicService;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" Clinic.Name='@this.Appointment.clinc.Name' ")]
         public ClinicService ClinicService
         {
             get { return fClinicService; }
@@ -42,6 +43,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fAppointment; }
             set { SetPropertyValue<Appointment>(nameof(Appointment), ref fAppointment, value); }
+        }
+        decimal fprice;
+        public decimal price
+        {
+            get { return fprice; }
+            set { SetPropertyValue<decimal>(nameof(price), ref fprice, value); }
         }
     }
 

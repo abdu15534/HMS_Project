@@ -9,6 +9,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,33 @@ namespace HMS.Module.Win.Controllers
             var endscope = View.CurrentObject as Endscope;
             endscope.Complete = false;
             endscope.Save();
+        }
+
+        private void Recipt_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.LabPaymentReport report = new reports.LabPaymentReport();
+
+            var curr = View.CurrentObject as Test;
+            report.Parameters["OrderID"].Value = curr.id;
+            report.ShowPreviewDialog();
+        }
+
+        private void ReciptXray_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.XrayPaymentReport report = new reports.XrayPaymentReport();
+
+            var curr = View.CurrentObject as Xrays;
+            report.Parameters["parameter1"].Value = curr.id;
+            report.ShowPreviewDialog();
+        }
+
+        private void ReciptEndoscpy_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.EndoscpyPaymentReport report = new reports.EndoscpyPaymentReport();
+
+            var curr = View.CurrentObject as Endscope;
+            report.Parameters["parameter1"].Value = curr.id;
+            report.ShowPreviewDialog();
         }
     }
 }
