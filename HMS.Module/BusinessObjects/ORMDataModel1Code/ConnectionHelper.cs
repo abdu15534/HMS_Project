@@ -80,9 +80,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(SalaryDeductionDetails),
             typeof(SupervisionDetails),
             typeof(paymentSupplierBond),
-            typeof(ClinicService),
             typeof(ClinicServiceDetail),
-            typeof(EmergencyServiceDetails)
+            typeof(EmergencyServiceDetails),
+            typeof(Consultant),
+            typeof(ConsultantDetails)
         };
         public static Type[] GetPersistentTypes()
         {
@@ -90,7 +91,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             Array.Copy(persistentTypes, copy, persistentTypes.Length);
             return copy;
         }
-        public static string ConnectionString { get { return System.Configuration.ConfigurationManager.ConnectionStrings[".SQLEXPRESStest2"].ConnectionString; } }
+        public static string ConnectionString { get { return System.Configuration.ConfigurationManager.ConnectionStrings["DESKTOP-TCE86V6HMS"].ConnectionString; } }
         public static void Connect(DevExpress.Xpo.DB.AutoCreateOption autoCreateOption, bool threadSafe = false)
         {
             if (threadSafe)

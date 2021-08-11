@@ -11,6 +11,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public Appointment(Session session) : base(session) { }
         public override void AfterConstruction()
         {
+            this.StartOn = DateTime.Now;
+            this.EndOn = DateTime.Now.AddHours(2);
             base.AfterConstruction();
             Appointment result = Session.Query<Appointment>().OrderByDescending(t => t.id).FirstOrDefault();
             if (result == null)
@@ -26,10 +28,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
                
             }
             this.AllDay = false;
-            this.StartOn = DateTime.Now;
-            this.EndOn = DateTime.Now.AddHours(1);
-            
-
         }
 
         AppointmentStatus status;
@@ -42,13 +40,19 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public enum AppointmentStatus
         {
-            NotSet, NoShow, Canceled, completed,
+            NotSet, InProgress, NoShow, Canceled, completed,
         }
 
         protected override void OnSaving()
         {
-            this.Subject = this.Patient.FullName;
-            this.Location = this.Doctor.FullName + "  د/ " + (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
+            if (this.Patient != null)
+            {
+                this.Subject = this.Patient.FullName;
+            }
+            if (this.Doctor != null && this.clinc != null)
+            {
+                this.Location = this.Doctor.FullName + "  د/ " + (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
+            }
             switch (AptStatus)
             {
                 case AppointmentStatus.Canceled:

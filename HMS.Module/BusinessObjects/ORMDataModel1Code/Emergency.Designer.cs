@@ -44,12 +44,6 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
             get { return fdate; }
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }
         }
-        decimal fsupervision;
-        public decimal supervision
-        {
-            get { return fsupervision; }
-            set { SetPropertyValue<decimal>(nameof(supervision), ref fsupervision, value); }
-        }
         Employee fdoctor;
         public Employee doctor
         {
@@ -101,6 +95,11 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
             get { return fPaid; }
             set { SetPropertyValue<bool>(nameof(Paid), ref fPaid, value); }
         }
+        [PersistentAlias("Iif([EmergencyServiceDetailsCollection][].Sum([Price]) Is Null, 0.0m, [EmergencyServiceDetailsCollection][].Sum([Price]))")]
+        public decimal EmergencyServicesSum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(EmergencyServicesSum))); }
+        }
         [Association(@"StayMedicationsReferencesEmergency"), Aggregated]
         public XPCollection<StayMedications> StayMedicationsCollection { get { return GetCollection<StayMedications>(nameof(StayMedicationsCollection)); } }
         [Association(@"StaySuppliesReferencesEmergency"), Aggregated]
@@ -111,6 +110,12 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
         [Association(@"EmergencyServiceDetailsReferencesEmergency"), Aggregated]
         public XPCollection<EmergencyServiceDetails> EmergencyServiceDetailsCollection { get { return GetCollection<EmergencyServiceDetails>(nameof(EmergencyServiceDetailsCollection)); } }
+        [Association(@"XraysDetailsReferencesEmergency"), Aggregated]
+        public XPCollection<XraysDetails> XraysDetailsCollection { get { return GetCollection<XraysDetails>(nameof(XraysDetailsCollection)); } }
+        [Association(@"TestDetailsReferencesEmergency"), Aggregated]
+        public XPCollection<TestDetails> TestDetailsCollection { get { return GetCollection<TestDetails>(nameof(TestDetailsCollection)); } }
+        [Association(@"EndscopeDetailsReferencesEmergency"), Aggregated]
+        public XPCollection<EndscopeDetails> EndscopeDetailsCollection { get { return GetCollection<EndscopeDetails>(nameof(EndscopeDetailsCollection)); } }
     }
 
 }

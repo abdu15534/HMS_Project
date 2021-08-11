@@ -227,7 +227,6 @@
         <Member Name="medicationSum" Caption="إجمالى الأدوية" />
         <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
         <Member Name="servicesSum" Caption="إجمالى الخدمات" />
-        <Member Name="supervision" Caption="الإشراف الطبى" />
         <Member Name="SuppliesCollection" Caption="المستلزمات الطبية" />
         <Member Name="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
         <Member Name="TotalSum" Caption="الإجمالى" />
@@ -769,10 +768,7 @@
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails+DeductionTypes" Value="انواع الخصومات">
         <LocalizationItem Name="PunitiveSanctions" Value="حسميات" />
       </LocalizationGroup>
-      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ServiceTypes" Value="نوع الخدمة">
-        <LocalizationItem Name="Tests" Value="التحاليل" />
-        <LocalizationItem Name="Xrays" Value="الاشعة" />
-      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ServiceTypes" Value="نوع الخدمة" />
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories">
         <LocalizationItem Name="appointment" Value="ميعاد" />
         <LocalizationItem Name="emergency" Value="الطوارئ" />
@@ -1436,7 +1432,6 @@
         <PropertyEditor Id="medicationSum" Caption="إجمالى الأدوية" />
         <PropertyEditor Id="ServiceDetailsCollection" Caption="الخدمات" />
         <PropertyEditor Id="servicesSum" Caption="إجمالى الخدمات" />
-        <PropertyEditor Id="supervision" Caption="الإشراف الطبى" />
         <PropertyEditor Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
         <PropertyEditor Id="TotalSum" Caption="الإجمالى" />
       </Items>
@@ -1449,7 +1444,6 @@
     <ListView Id="Emergency_ListView">
       <Columns>
         <ColumnInfo Id="doctor" Caption="الطبيب" />
-        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
         <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
@@ -1458,7 +1452,6 @@
     </ListView>
     <ListView Id="Emergency_LookupListView">
       <Columns>
-        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
         <ColumnInfo Id="doctor" Caption="الطبيب" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
         <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
@@ -2452,7 +2445,6 @@
     </DetailView>
     <ListView Id="Patient_Emergencies_ListView">
       <Columns>
-        <ColumnInfo Id="supervision" Caption="الإشراف الطبى" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
         <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />

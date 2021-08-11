@@ -47,14 +47,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
         Employee fDoctor;
         [Association(@"AppointmentReferencesEmployee")]
-        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6"), DevExpress.Persistent.Validation.RuleRequiredField]
+        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6 AND Clinic= '@This.clinc' "),
+DevExpress.Persistent.Validation.RuleRequiredField]
         public Employee Doctor
         {
             get { return fDoctor; }
             set { SetPropertyValue<Employee>(nameof(Doctor), ref fDoctor, value); }
         }
         [DevExpress.Persistent.Base.ImmediatePostData]
-        [PersistentAlias("Iif([Patient] Is Null, 0, DateDiffYear([Patient.Birthday], Today()))")]
+        [PersistentAlias("Iif([Patient] Is Null, 0, DateDiffYear([Patient.DateOfBrith], Today()))")]
         public int PatientAge
         {
             get { return (int)(EvaluateAlias(nameof(PatientAge))); }

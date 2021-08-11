@@ -16,34 +16,32 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class Clinc : XPBaseObject
+    public partial class Consultant : XPBaseObject
     {
-        int fid;
-        [Key]
-        public int id
+        int fID;
+        [Key(true)]
+        public int ID
         {
-            get { return fid; }
-            set { SetPropertyValue<int>(nameof(id), ref fid, value); }
+            get { return fID; }
+            set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         string fName;
-        [DevExpress.Persistent.Validation.RuleRequiredField]
         public string Name
         {
             get { return fName; }
             set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
         }
-        string fdescription;
-        public string description
+        string fSpecialty;
+        public string Specialty
         {
-            get { return fdescription; }
-            set { SetPropertyValue<string>(nameof(description), ref fdescription, value); }
+            get { return fSpecialty; }
+            set { SetPropertyValue<string>(nameof(Specialty), ref fSpecialty, value); }
         }
-        Employee finCharge;
-        [DevExpress.Persistent.Base.DataSourceCriteria(" section= 6"), DevExpress.Persistent.Validation.RuleRequiredField,]
-        public Employee inCharge
+        string fFrom;
+        public string From
         {
-            get { return finCharge; }
-            set { SetPropertyValue<Employee>(nameof(inCharge), ref finCharge, value); }
+            get { return fFrom; }
+            set { SetPropertyValue<string>(nameof(From), ref fFrom, value); }
         }
     }
 

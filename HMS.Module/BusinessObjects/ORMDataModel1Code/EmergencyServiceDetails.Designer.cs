@@ -20,7 +20,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class EmergencyServiceDetails : XPBaseObject
     {
         int fID;
-        [Key]
+        [Key(true)]
         public int ID
         {
             get { return fID; }
@@ -35,6 +35,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Emergency>(nameof(Emergency), ref fEmergency, value); }
         }
         Service fService;
+        [DevExpress.Persistent.Base.DataSourceCriteria("ServiceType = 1")]
         public Service Service
         {
             get { return fService; }

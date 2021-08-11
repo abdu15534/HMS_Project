@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace HMS.Module.Win.reports
 {
-    public partial class PatientLableReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class ICUtotals : DevExpress.XtraReports.UI.XtraReport
     {
-        public PatientLableReport()
+        public ICUtotals()
         {
             InitializeComponent();
         }

@@ -581,155 +581,155 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
                 }
 
-                Clinc clinic1 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة القلب"));
-                Clinc clinic2 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة النسا والتوليد"));
-                Clinc clinic3 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة أمراض الذكورة"));
-                Clinc clinic4 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأمراض الجلدية"));
-                Clinc clinic5 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المسالك البولية"));
-                Clinc clinic6 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأنف والأذن"));
-                Clinc clinic7 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المخ والأعصاب"));
-                Clinc clinic8 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "قسم التخدير"));
-                Clinc clinic9 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأوعية الدموية"));
-                Clinc clinic10 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الرمد"));
-                Clinc clinic11 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأسنان"));
+            //    Clinc clinic1 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة القلب"));
+            //    Clinc clinic2 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة النسا والتوليد"));
+            //    Clinc clinic3 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة أمراض الذكورة"));
+            //    Clinc clinic4 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأمراض الجلدية"));
+            //    Clinc clinic5 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المسالك البولية"));
+            //    Clinc clinic6 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأنف والأذن"));
+            //    Clinc clinic7 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة المخ والأعصاب"));
+            //    Clinc clinic8 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "قسم التخدير"));
+            //    Clinc clinic9 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأوعية الدموية"));
+            //    Clinc clinic10 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الرمد"));
+            //    Clinc clinic11 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة الأسنان"));
 
-            if (ObjectSpace.GetObjectsCount(typeof(ClinicService), null) == 0)
-            {
+            //if (ObjectSpace.GetObjectsCount(typeof(ClinicService), null) == 0)
+            //{
 
-                List<ClinicServiceInitialData> clincServices = new ClinicServiceInitialData().CardiacClinicServices();
+            //    List<ClinicServiceInitialData> clincServices = new ClinicServiceInitialData().CardiacClinicServices();
 
-                foreach (var item in clincServices)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic1;
+            //    foreach (var item in clincServices)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic1;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices2 = new ClinicServiceInitialData().OBGYNClinicServices();
+            //    List<ClinicServiceInitialData> clincServices2 = new ClinicServiceInitialData().OBGYNClinicServices();
 
-                foreach (var item in clincServices2)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic2;
+            //    foreach (var item in clincServices2)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic2;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices3 = new ClinicServiceInitialData().AndrologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices3 = new ClinicServiceInitialData().AndrologyClinicServices();
 
-                foreach (var item in clincServices3)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic3;
+            //    foreach (var item in clincServices3)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic3;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices4 = new ClinicServiceInitialData().DermatologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices4 = new ClinicServiceInitialData().DermatologyClinicServices();
 
-                foreach (var item in clincServices4)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic4;
+            //    foreach (var item in clincServices4)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic4;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices5 = new ClinicServiceInitialData().UrologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices5 = new ClinicServiceInitialData().UrologyClinicServices();
 
-                foreach (var item in clincServices5)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic5;
+            //    foreach (var item in clincServices5)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic5;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices6 = new ClinicServiceInitialData().EarNoseAudiologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices6 = new ClinicServiceInitialData().EarNoseAudiologyClinicServices();
 
-                foreach (var item in clincServices6)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic6;
+            //    foreach (var item in clincServices6)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic6;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices7 = new ClinicServiceInitialData().NeurologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices7 = new ClinicServiceInitialData().NeurologyClinicServices();
 
-                foreach (var item in clincServices7)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic7;
+            //    foreach (var item in clincServices7)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic7;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices8 = new ClinicServiceInitialData().AnesthesiologyClinicServices();
+            //    List<ClinicServiceInitialData> clincServices8 = new ClinicServiceInitialData().AnesthesiologyClinicServices();
 
-                foreach (var item in clincServices8)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic8;
+            //    foreach (var item in clincServices8)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic8;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices9 = new ClinicServiceInitialData().VascularClinicServices();
+            //    List<ClinicServiceInitialData> clincServices9 = new ClinicServiceInitialData().VascularClinicServices();
 
-                foreach (var item in clincServices9)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic9;
+            //    foreach (var item in clincServices9)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic9;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices10 = new ClinicServiceInitialData().OphthalmicClinicServices();
+            //    List<ClinicServiceInitialData> clincServices10 = new ClinicServiceInitialData().OphthalmicClinicServices();
 
-                foreach (var item in clincServices10)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic10;
+            //    foreach (var item in clincServices10)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic10;
 
-                }
+            //    }
 
-                List<ClinicServiceInitialData> clincServices11 = new ClinicServiceInitialData().DentalClinicServices();
+            //    List<ClinicServiceInitialData> clincServices11 = new ClinicServiceInitialData().DentalClinicServices();
 
-                foreach (var item in clincServices11)
-                {
-                    var clinicservice = ObjectSpace.CreateObject<ClinicService>();
-                    clinicservice.ID = item.ClinicServicesID;
-                    clinicservice.Name = item.ClinicServicesName;
-                    clinicservice.Price = item.Price;
-                    clinicservice.Clinic = clinic11;
+            //    foreach (var item in clincServices11)
+            //    {
+            //        var clinicservice = ObjectSpace.CreateObject<ClinicService>();
+            //        clinicservice.ID = item.ClinicServicesID;
+            //        clinicservice.Name = item.ClinicServicesName;
+            //        clinicservice.Price = item.Price;
+            //        clinicservice.Clinic = clinic11;
 
-                }
+            //    }
 
-                ObjectSpace.CommitChanges();
-            }
+            //    ObjectSpace.CommitChanges();
+            //}
 
             if (ObjectSpace.GetObjectsCount(typeof(Room), null) == 0)
             {
@@ -780,6 +780,20 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
             }
 
+            //if (ObjectSpace.GetObjectsCount(typeof(Service), null) == 0)
+            //{
+            //    List<ServicesInitialData> services = new ServicesInitialData().services();
+
+            //    foreach (ServicesInitialData item in services)
+            //    {
+            //        var service = ObjectSpace.CreateObject<Service>();
+            //        service.Name = item.name;
+            //        service.Price = item.price;
+            //        service.ServiceType = item.serviceType;
+
+            //    }
+            //    ObjectSpace.CommitChanges();
+            //}
 
 
             //if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0)
@@ -836,47 +850,47 @@ namespace HMS.Module.DatabaseUpdate
 
             //    ObjectSpace.CommitChanges();
 
-                //for (int z = 0; z < 90; z++)
-                //{
-                //    var OrderObj = ObjectSpace.CreateObject<PurchasingOrder>();
-                //    OrderObj.supplierAccount = suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)].account;
-                //    OrderObj.date = RandomDay();
-                //    OrderObj.OrderType = (PurchasingOrder.OrderTypes)new Random(Guid.NewGuid().GetHashCode()).Next(0, 9);
+            //for (int z = 0; z < 90; z++)
+            //{
+            //    var OrderObj = ObjectSpace.CreateObject<PurchasingOrder>();
+            //    OrderObj.supplierAccount = suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)].account;
+            //    OrderObj.date = RandomDay();
+            //    OrderObj.OrderType = (PurchasingOrder.OrderTypes)new Random(Guid.NewGuid().GetHashCode()).Next(0, 9);
 
-                //    //OrderObj.date = Faker<DateTime>().;
-                //    if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
-                //    {
-                //        OrderObj.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
-                //        for (int u = 0; u < 6; u++)
-                //        {
-                //            int randomSubly = new Random(Guid.NewGuid().GetHashCode()).Next(0, supplies2.Count);
-                //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[randomSubly].Name.ToString(), supplies2[randomSubly].sellingPrice.ToString()));
-                //            purchase.product = product;
-                //            purchase.quantity = (Int32)new Random().Next(10, 50);
-                //            purchase.price = product.purchasingPrice;
+            //    //OrderObj.date = Faker<DateTime>().;
+            //    if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
+            //    {
+            //        OrderObj.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
+            //        for (int u = 0; u < 6; u++)
+            //        {
+            //            int randomSubly = new Random(Guid.NewGuid().GetHashCode()).Next(0, supplies2.Count);
+            //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+            //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[randomSubly].Name.ToString(), supplies2[randomSubly].sellingPrice.ToString()));
+            //            purchase.product = product;
+            //            purchase.quantity = (Int32)new Random().Next(10, 50);
+            //            purchase.price = product.purchasingPrice;
 
-                //            OrderObj.PurchasingOrderDetails.Add(purchase);
-                //        }
-                //    }
-                //    else
-                //    {
+            //            OrderObj.PurchasingOrderDetails.Add(purchase);
+            //        }
+            //    }
+            //    else
+            //    {
 
-                //        for (int k = 0; k < 6; k++)
-                //        {
-                //            int randomMedication = new Random(Guid.NewGuid().GetHashCode()).Next(0, medications2.Count);
-                //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[randomMedication].Name.ToString(), medications2[randomMedication].sellingPrice.ToString()));
-                //            purchase.product = product;
-                //            purchase.quantity = (Int32)new Random().Next(40, 60);
-                //            purchase.price = product.purchasingPrice;
-                //            //purchasings.Add(purchase);
-                //            OrderObj.PurchasingOrderDetails.Add(purchase);
+            //        for (int k = 0; k < 6; k++)
+            //        {
+            //            int randomMedication = new Random(Guid.NewGuid().GetHashCode()).Next(0, medications2.Count);
+            //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+            //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[randomMedication].Name.ToString(), medications2[randomMedication].sellingPrice.ToString()));
+            //            purchase.product = product;
+            //            purchase.quantity = (Int32)new Random().Next(40, 60);
+            //            purchase.price = product.purchasingPrice;
+            //            //purchasings.Add(purchase);
+            //            OrderObj.PurchasingOrderDetails.Add(purchase);
 
-                //        }
-                //    }
+            //        }
+            //    }
 
-                //}
+            //}
             //}
 
             //if (ObjectSpace.GetObjectsCount(typeof(Supplier) , null) == 0)
@@ -1500,7 +1514,7 @@ namespace HMS.Module.DatabaseUpdate
                         {
                             int randomMedicQuantity = 1;
 
-                            var medic = ObjectSpace.CreateObject<StayMedications>();
+                            var medic = ObjectSpace.CreateObject<StayMedic>();
                             medic.Medication = medicicationCollection[i];
                             medic.quantity = (int)randomMedicQuantity;
                             medic.price = medicicationCollection[i].product.sellingPrice;
@@ -1692,6 +1706,14 @@ namespace HMS.Module.DatabaseUpdate
                 Cashier.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Cashier.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Cashier.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<StayMedications>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<StaySupplies>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<XraysDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Cashier.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
 
             }
             return Cashier;
@@ -1734,6 +1756,7 @@ namespace HMS.Module.DatabaseUpdate
                 Reception.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Reception.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Reception.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                
             }
             return Reception;
 
@@ -1815,6 +1838,13 @@ namespace HMS.Module.DatabaseUpdate
                 Pharmacy.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Pharmacy.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Pharmacy.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<StaySupplies>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<XraysDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
             }
             return Pharmacy;
 
@@ -1861,6 +1891,13 @@ namespace HMS.Module.DatabaseUpdate
                 Lab.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Lab.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Lab.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<StayMedications>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<StaySupplies>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<XraysDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
             }
             return Lab;
 
@@ -1905,6 +1942,13 @@ namespace HMS.Module.DatabaseUpdate
                 XRay.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 XRay.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 XRay.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<StayMedications>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<StaySupplies>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
             }
             return XRay;
 
@@ -1949,6 +1993,13 @@ namespace HMS.Module.DatabaseUpdate
                 Endoscopy.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Endoscopy.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Endoscopy.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<StayMedications>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<StaySupplies>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<XraysDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
             }
             return Endoscopy;
 
@@ -1990,6 +2041,13 @@ namespace HMS.Module.DatabaseUpdate
                 Inventory.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Inventory.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Inventory.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<StayMedications>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<ServiceDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<XraysDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
             }
             return Inventory;
 

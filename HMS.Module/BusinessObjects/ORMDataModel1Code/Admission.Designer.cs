@@ -210,6 +210,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return froomSupervisionCost; }
             set { SetPropertyValue<decimal>(nameof(roomSupervisionCost), ref froomSupervisionCost, value); }
         }
+        [PersistentAlias("Iif([ConsultantDetailsCollection][].Sum([Price]) Is Null, 0.0m, [ConsultantDetailsCollection][].Sum([Price]))")]
+        public decimal ConsolationSum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(ConsolationSum))); }
+        }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }
         [Association(@"StayMedicicationReferencesStay"), Aggregated]
@@ -226,6 +231,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<TestDetails> TestDetailsCollection { get { return GetCollection<TestDetails>(nameof(TestDetailsCollection)); } }
         [Association(@"XraysDetailsReferencesAdmission"), Aggregated]
         public XPCollection<XraysDetails> XraysDetailsCollection { get { return GetCollection<XraysDetails>(nameof(XraysDetailsCollection)); } }
+        [Association(@"ConsultantDetailsReferencesAdmission"), Aggregated]
+        public XPCollection<ConsultantDetails> ConsultantDetailsCollection { get { return GetCollection<ConsultantDetails>(nameof(ConsultantDetailsCollection)); } }
     }
 
 }

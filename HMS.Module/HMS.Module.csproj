@@ -302,6 +302,14 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicServiceDetail.Designer.cs">
       <DependentUpon>ClinicServiceDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Consultant.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Consultant.Designer.cs">
+      <DependentUpon>Consultant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConsultantDetails.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConsultantDetails.Designer.cs">
+      <DependentUpon>ConsultantDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.Designer.cs">
       <DependentUpon>EmergencyServiceDetails.cs</DependentUpon>
@@ -644,6 +652,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="BusinessObjects\ORMDataModel1.xpo">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -34,7 +34,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Admission>(nameof(admission), ref fadmission, value); }
         }
         Service fservice;
-        [DevExpress.Persistent.Base.DataSourceCriteria("ServiceType = 0")]
+        [DevExpress.Persistent.Base.DataSourceCriteria("ServiceType = 17")]
         public Service service
         {
             get { return fservice; }
@@ -58,6 +58,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fdate; }
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }
+        }
+        Emergency fEmergency;
+        [Association(@"TestDetailsReferencesEmergency")]
+        public Emergency Emergency
+        {
+            get { return fEmergency; }
+            set { SetPropertyValue<Emergency>(nameof(Emergency), ref fEmergency, value); }
         }
     }
 

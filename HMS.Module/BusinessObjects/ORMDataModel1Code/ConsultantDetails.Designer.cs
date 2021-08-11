@@ -16,21 +16,28 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class Service : XPBaseObject
+    [DevExpress.ExpressApp.DefaultListViewOptions(DevExpress.ExpressApp.MasterDetailMode.ListViewOnly, true, DevExpress.ExpressApp.NewItemRowPosition.Bottom)]
+    public partial class ConsultantDetails : XPBaseObject
     {
         int fID;
-        [Key]
+        [Key(true)]
         public int ID
         {
             get { return fID; }
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
-        string fName;
-        [Size(250)]
-        public string Name
+        Consultant fConsultant;
+        public Consultant Consultant
         {
-            get { return fName; }
-            set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
+            get { return fConsultant; }
+            set { SetPropertyValue<Consultant>(nameof(Consultant), ref fConsultant, value); }
+        }
+        Admission fAdmission;
+        [Association(@"ConsultantDetailsReferencesAdmission")]
+        public Admission Admission
+        {
+            get { return fAdmission; }
+            set { SetPropertyValue<Admission>(nameof(Admission), ref fAdmission, value); }
         }
         decimal fPrice;
         public decimal Price
@@ -38,18 +45,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fPrice; }
             set { SetPropertyValue<decimal>(nameof(Price), ref fPrice, value); }
         }
-        ServiceSecondCategory fcategory;
-        [Association(@"ServiceReferencesServiceSecondCategory")]
-        public ServiceSecondCategory category
+        DateTime fDate;
+        public DateTime Date
         {
-            get { return fcategory; }
-            set { SetPropertyValue<ServiceSecondCategory>(nameof(category), ref fcategory, value); }
-        }
-        string fEnglishName;
-        public string EnglishName
-        {
-            get { return fEnglishName; }
-            set { SetPropertyValue<string>(nameof(EnglishName), ref fEnglishName, value); }
+            get { return fDate; }
+            set { SetPropertyValue<DateTime>(nameof(Date), ref fDate, value); }
         }
     }
 

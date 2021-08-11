@@ -43,12 +43,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(hoursOfDay), ref fhoursOfDay, value); }
         }
         Section fsection;
+        [DevExpress.Persistent.Base.ImmediatePostData]
         public Section section
         {
             get { return fsection; }
             set { SetPropertyValue<Section>(nameof(section), ref fsection, value); }
         }
         Job fjob;
+        [DevExpress.Persistent.Base.ImmediatePostData]
         public Job job
         {
             get { return fjob; }
@@ -101,6 +103,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fotherDeductions; }
             set { SetPropertyValue<decimal>(nameof(otherDeductions), ref fotherDeductions, value); }
+        }
+        Clinc fClinic;
+        public Clinc Clinic
+        {
+            get { return fClinic; }
+            set { SetPropertyValue<Clinc>(nameof(Clinic), ref fClinic, value); }
         }
         [Association(@"AbsenceDetailsReferencesEmployee")]
         public XPCollection<AbsenceDetails> AbsenceDetailsCollection { get { return GetCollection<AbsenceDetails>(nameof(AbsenceDetailsCollection)); } }
