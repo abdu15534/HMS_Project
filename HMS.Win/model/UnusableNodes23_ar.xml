@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="total" Caption="الاجمالي" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Appointment_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Patient" Caption="المريض" />
+      </Items>
+    </DetailView>
+    <ListView Id="Appointment_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Patient" Caption="المريض" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Patient" Caption="المريض" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

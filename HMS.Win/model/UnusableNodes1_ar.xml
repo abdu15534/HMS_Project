@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Person" Caption="الشخص" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Patient_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

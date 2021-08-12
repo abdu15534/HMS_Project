@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="bond_ListView" Caption="سندات قبض خاصة بالعملاء" ObjectKey="" ImageName="BO_Invoice" ViewId="" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

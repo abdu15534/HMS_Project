@@ -49,7 +49,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaving()
         {
             base.OnSaving();
-            foreach (var item in PurchasingOrderDetails)
+            foreach (var item in PurchasingOrderDetails.ToList())
             {
                 if (item.amount == 0)
                     item.Delete();
@@ -130,7 +130,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 isConfirmed = false;
             }
 
-            foreach (PurchasingOrderDetail item in PurchasingOrderDetails)
+            foreach (PurchasingOrderDetail item in PurchasingOrderDetails.ToList())
             {
                 var stockProductList = Session.Query<StockProduct>().Where(p => p.Inventory == this.inventory).Where(p => p.product == item.product).ToList();
                 
@@ -164,12 +164,66 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     //select all product orders if isConfirmed
                     if(OrderType != OrderTypes.PositiveStockTalking && OrderType != OrderTypes.NegativeStockTalking)
                     {
-                        var numerator = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => p.price * Convert.ToDecimal(p.quantity));
+                        var numerator = 0m;
+                        var newMedicenPrice = 0m;
+                        if (this.inventory.InventoryType == Inventory.InventoryTypes.Pharmacy)
+                        {
+                            newMedicenPrice = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => p.price * Convert.ToDecimal(p.quantity));
+                            numerator = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => (p.price - (p.price * Convert.ToDecimal(Convert.ToDouble(p.Discount) / 100))) * Convert.ToDecimal(p.quantity));
+                        }
+                        else
+                        {
+                            numerator = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => p.price * Convert.ToDecimal(p.quantity));
+                        }
+                            
                         var denominator = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => Convert.ToDecimal(p.quantity));
                         if (denominator == 0)
                             stockProduct.product.purchasingPrice = 0;
                         else
                             stockProduct.product.purchasingPrice = numerator / denominator;
+                            if(this.inventory.InventoryType == Inventory.InventoryTypes.Stock)
+                            {
+                                if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(3);
+                                }
+                            else if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2.5);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.7);
+                                }
+                            else if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.5);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
+                            {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.35);
+                            }
+                            else
+                                {
+                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.3);
+                            }
+                        }
+                        else
+                        {
+                            if(denominator != 0m) 
+                            {
+                                stockProduct.product.sellingPrice = newMedicenPrice / denominator;
+                            }
+                            else
+                            {
+                                stockProduct.product.sellingPrice = newMedicenPrice;
+                            }
+                            
+                        }
                     }
                 }
                 else
@@ -187,6 +241,37 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             stockProduct.product.purchasingPrice = 0;
                         else
                             stockProduct.product.purchasingPrice = numerator / denominator;
+                        if (this.inventory.InventoryType == Inventory.InventoryTypes.Stock)
+                        {
+                            if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(3);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(2.5);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(2);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.7);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.5);
+                            }
+                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.35);
+                            }
+                            else
+                            {
+                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.3);
+                            }
+                        }
 
                     }
                 }

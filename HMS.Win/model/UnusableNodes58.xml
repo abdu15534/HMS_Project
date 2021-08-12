@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Admission_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136">
+              <LayoutItem Id="doctor.FullName" ViewItem="doctor.FullName" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Appointment_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Autobb5a234c-15c8-422d-881d-f37eb5750578">
+            <LayoutGroup Id="Event_col2">
+              <LayoutItem Id="Physician" ViewItem="Physician" />
+              <LayoutItem Id="date" ViewItem="date" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Patient_ListView">
+            <Items Id="Items">
+              <Item Id="Physician_ListView" ViewId="Physician_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

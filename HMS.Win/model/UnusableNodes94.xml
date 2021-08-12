@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Patient_ListView">
+            <Items Id="Items">
+              <Item Id="Physician_ListView" ViewId="Physician_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Address1" Caption="العنوان 1" />
+        <PropertyEditor Id="Address2" Caption="العنوان 2" />
+        <PropertyEditor Id="Birthday" Caption="تاريخ الميلاد" />
+        <PropertyEditor Id="DisplayName" Caption="الإسم المعروض" />
+        <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
+        <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
+        <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
+        <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
+        <PropertyEditor Id="Photo" Caption="صورة بطاقة الرقم القومى" />
+        <PropertyEditor Id="Address1.FullAddress" PropertyName="Address1.FullAddress" />
+      </Items>
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Auto349933a2-8e57-42f5-b83c-480f91841d2e">
+              <LayoutGroup Id="Autoda6756be-bbe8-4c94-98ae-658a9c865e80">
+                <LayoutGroup Id="Person_col1">
+                  <LayoutItem Id="Photo" ViewItem="Photo" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c">
+                <LayoutGroup Id="Auto0c68a9ff-f894-4891-b13a-f7df9ffb1cc7">
+                  <LayoutGroup Id="Autob23b5c56-54d8-4d3d-8d3b-fe2260f9838c">
+                    <LayoutGroup Id="Auto7ca46bca-c187-429d-a84a-262281505ec8">
+                      <LayoutItem Id="Address1" ViewItem="Address1" />
+                    </LayoutGroup>
+                  </LayoutGroup>
+                  <LayoutGroup Id="Autoefdf4f65-c45f-4b85-baba-847791768fb3">
+                    <LayoutItem Id="Birthday" ViewItem="Birthday" />
+                  </LayoutGroup>
+                  <LayoutItem Id="FirstName" ViewItem="FirstName" />
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PhoneNumbers" TextAlignMode="AlignWithChildren" RelativeSize="100" Caption="أرقام الهاتف" Index="3" Removed="True">
+              <LayoutItem Id="PhoneNumbers" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Admission_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="reception.patient.PhoneNumbers" PropertyName="reception.patient.PhoneNumbers" View="Party_PhoneNumbers_ListView" />
+      </Items>
+    </DetailView>
+    <ListView Id="Patient_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Address1" Caption="العنوان 1" />
+        <ColumnInfo Id="Address2" Caption="العنوان 2" />
+        <ColumnInfo Id="Birthday" Caption="تاريخ الميلاد" />
+        <ColumnInfo Id="DisplayName" Caption="الإسم المعروض" Index="-1" />
+        <ColumnInfo Id="LastName" Caption="الإسم الأخير" />
+        <ColumnInfo Id="MiddleName" Caption="الإسم الأوسط" />
+        <ColumnInfo Id="Photo" Caption="صورة" />
+        <ColumnInfo Id="FirstName" Caption="الإسم الأول" Index="1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="ReceptionDesk_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="patient.Address1.FullAddress" PropertyName="patient.Address1.FullAddress" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

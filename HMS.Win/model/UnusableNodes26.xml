@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Validation Id="Validation">
+    <Rules Id="Rules">
+      <RuleCriteria Id="@9b44b73e-2143-40ec-b949-6f21fd24e270" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" Criteria="[amount] &gt; 0.0m And [product] Is Not Null" Removed="True" />
+    </Rules>
+  </Validation>
+</Application>

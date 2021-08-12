@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="StayDetialInvoice" Caption="فاتورة مفصلة" />
+      <Action Id="StayInvoice" ShortCaption="الفاتورة" ToolTip="الفاتورة" Caption="الفاتورة" />
+    </Actions>
+  </ActionDesign>
+</Application>

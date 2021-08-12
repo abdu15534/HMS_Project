@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Localization Id="Localization">
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Bond+BondTypes">
+        <LocalizationItem Name="receipt" Value="سند قبض" />
+        <LocalizationItem Name="receive" Value="سند صرف" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
+</Application>

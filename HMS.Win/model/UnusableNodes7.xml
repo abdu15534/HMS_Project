@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="testEvent_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Subject" Width="69" />
+        <ColumnInfo Id="patient.FullName" PropertyName="patient.FullName" Index="1" Width="99" />
+        <ColumnInfo Id="id" Index="2" Width="28" />
+        <ColumnInfo Id="patient" Index="3" Width="54" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

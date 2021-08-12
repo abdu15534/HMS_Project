@@ -53,7 +53,7 @@ namespace HMS.Module.DatabaseUpdate
             //DashboardsModule.AddDashboardData<DashboardData>(
             //  ObjectSpace, "Inventory report", Resources.);
 
-            
+
             PermissionPolicyUser userAdmin = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Admin"));
             if (userAdmin == null)
             {
@@ -238,9 +238,9 @@ namespace HMS.Module.DatabaseUpdate
             XRay1.Roles.Add(XRayRole);
             XRay2.Roles.Add(XRayRole);
 
-            
 
-            
+
+
 
             // If a role with the Administrators name doesn't exist in the database, create this role
             PermissionPolicyRole adminRole = ObjectSpace.FindObject<PermissionPolicyRole>(new BinaryOperator("Name", "Administrators"));
@@ -429,12 +429,12 @@ namespace HMS.Module.DatabaseUpdate
 
             }
 
-                //Accounts
-                if (ObjectSpace.GetObjectsCount(typeof(MasterAccount), null) == 0)
+            //Accounts
+            if (ObjectSpace.GetObjectsCount(typeof(MasterAccount), null) == 0)
             {
                 List<InitialData.MasterAccount> masterAccounts = new InitialData.MasterAccount().InitialData();
 
-                foreach(InitialData.MasterAccount item in masterAccounts )
+                foreach (InitialData.MasterAccount item in masterAccounts)
                 {
                     var acc = ObjectSpace.CreateObject<MasterAccount>();
                     acc.accountNumber = item.accountNumber;
@@ -468,8 +468,8 @@ namespace HMS.Module.DatabaseUpdate
 
             }
 
-                Safe safe = ObjectSpace.FindObject<Safe>(new BinaryOperator("name", "Safe"));
-            if(safe == null)
+            Safe safe = ObjectSpace.FindObject<Safe>(new BinaryOperator("name", "Safe"));
+            if (safe == null)
             {
                 safe = ObjectSpace.CreateObject<Safe>();
                 safe.name = "Safe";
@@ -488,49 +488,49 @@ namespace HMS.Module.DatabaseUpdate
 
             ObjectSpace.CommitChanges();
 
-            if (ObjectSpace.GetObjectsCount(typeof(Product), null) == 0)
-            {
-                List<product> supplies = new product().initialStockProductData();
-                List<product> medications = new product().initialPharmacyProductData();
+            //if (ObjectSpace.GetObjectsCount(typeof(Product), null) == 0)
+            //{
+            //    List<product> supplies = new product().initialStockProductData();
+            //    List<product> medications = new product().initialPharmacyProductData();
 
-                foreach (var item in supplies)
-                {
-                    var product1 = ObjectSpace.CreateObject<Product>();
-                    product1.name = item.Name;
-                    product1.purchasingPrice = item.purchasingPrice;
-                    product1.sellingPrice = item.sellingPrice;
+            //    foreach (var item in supplies)
+            //    {
+            //        var product1 = ObjectSpace.CreateObject<Product>();
+            //        product1.name = item.Name;
+            //        product1.purchasingPrice = item.purchasingPrice;
+            //        product1.sellingPrice = item.sellingPrice;
 
-                    //Inventory stock = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Stock"));
+            //        //Inventory stock = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Stock"));
 
-                    //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
-                    //stockProduct.product = product1;
-                    //stockProduct.Inventory = stock;
-                    //stockProduct.firstUnitQuantity = (Int32)new Random(Guid.NewGuid().GetHashCode()).Next(300, 500);
-                }
+            //        //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
+            //        //stockProduct.product = product1;
+            //        //stockProduct.Inventory = stock;
+            //        //stockProduct.firstUnitQuantity = (Int32)new Random(Guid.NewGuid().GetHashCode()).Next(300, 500);
+            //    }
 
-                foreach (var item in medications)
-                {
-                    var product1 = ObjectSpace.CreateObject<Product>();
-                    product1.name = item.Name;
-                    product1.purchasingPrice = item.purchasingPrice;
-                    product1.sellingPrice = item.sellingPrice;
+            //    foreach (var item in medications)
+            //    {
+            //        var product1 = ObjectSpace.CreateObject<Product>();
+            //        product1.name = item.Name;
+            //        product1.purchasingPrice = item.purchasingPrice;
+            //        product1.sellingPrice = item.sellingPrice;
 
-                    //Inventory pharmacy = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Pharmacy"));
+            //        //Inventory pharmacy = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Pharmacy"));
 
-                    //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
-                    //stockProduct.product = product1;
-                    //stockProduct.Inventory = pharmacy;
-                    //stockProduct.firstUnitQuantity= (Int32)new Random().Next(300, 500);
-                }
-                ObjectSpace.CommitChanges();
-            }
+            //        //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
+            //        //stockProduct.product = product1;
+            //        //stockProduct.Inventory = pharmacy;
+            //        //stockProduct.firstUnitQuantity= (Int32)new Random().Next(300, 500);
+            //    }
+            //    ObjectSpace.CommitChanges();
+            //}
 
             //Generate Spendings fakeData
-            if(ObjectSpace.GetObjectsCount(typeof(SpendingsCategory) , null) == 0)
+            if (ObjectSpace.GetObjectsCount(typeof(SpendingsCategory), null) == 0)
             {
-                var categories = new List<string>{ "كهرباء", "مرتبات" , "مصاريف عيادات" , "هالك" };
+                var categories = new List<string> { "كهرباء", "مرتبات", "مصاريف عيادات", "هالك" };
 
-                foreach(string item in categories)
+                foreach (string item in categories)
                 {
                     var cat = ObjectSpace.CreateObject<SpendingsCategory>();
                     cat.name = item;
@@ -543,7 +543,7 @@ namespace HMS.Module.DatabaseUpdate
                     var electric = ObjectSpace.CreateObject<Spendings>();
                     electric.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "كهرباء"));
                     electric.date = DateTime.Now.AddMonths(-i);
-                    electric.amount = new Random(Guid.NewGuid().GetHashCode()).Next(7000 , 9000);
+                    electric.amount = new Random(Guid.NewGuid().GetHashCode()).Next(7000, 9000);
 
                     var salaries = ObjectSpace.CreateObject<Spendings>();
                     salaries.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "مرتبات"));
@@ -566,7 +566,22 @@ namespace HMS.Module.DatabaseUpdate
 
             }
 
-                if (ObjectSpace.GetObjectsCount(typeof(Clinc), null) == 0)
+            if (ObjectSpace.GetObjectsCount(typeof(Category), null) == 0)
+            {
+
+                List<CatagoryInitialData> catagories = new CatagoryInitialData().CatagoryData();
+
+                foreach (var item in catagories)
+                {
+                    var category = ObjectSpace.CreateObject<Category>();
+                    category.name = item.name;
+                    
+                }
+
+                ObjectSpace.CommitChanges();
+            }
+
+            if (ObjectSpace.GetObjectsCount(typeof(Clinc), null) == 0)
                 {
 
                     List<ClincData> clincs = new ClincData().ClinicInitialData();
@@ -780,583 +795,595 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
             }
 
-            //if (ObjectSpace.GetObjectsCount(typeof(Service), null) == 0)
-            //{
-            //    List<ServicesInitialData> services = new ServicesInitialData().services();
-
-            //    foreach (ServicesInitialData item in services)
-            //    {
-            //        var service = ObjectSpace.CreateObject<Service>();
-            //        service.Name = item.name;
-            //        service.Price = item.price;
-            //        service.ServiceType = item.serviceType;
-
-            //    }
-            //    ObjectSpace.CommitChanges();
-            //}
-
-
-            //if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0)
-            //{
-            //    var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
-
-            //    var fakeSuppliers = new Faker<Supplier>("ar")
-            //       .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
-            //       .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-            //       .RuleFor(o => o.LastName, f => f.Name.LastName())
-            //       .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
-            //       .RuleFor(o => o.Email, f => f.Internet.Email());
-
-            //    var suppliers = fakeSuppliers.Generate(40);
-            //    var Order = ObjectSpace.CreateObject<PurchasingOrder>();
-            //    Order.supplierAccount = supplier;
-            //    Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
-
-            //    List<product> supplies2 = new product().initialStockProductData();
-            //    List<product> medications2 = new product().initialPharmacyProductData();
-
-            //    int i = 0;
-            //    foreach (var item in medications2)
-            //    {
-            //        PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-            //        Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].Name.ToString(), medications2[i].sellingPrice.ToString()));
-            //        purchase.product = product;
-            //        purchase.quantity = (Int32)new Random().Next(300, 500);
-            //        purchase.price = product.purchasingPrice;
-            //        i++;
-            //        //purchasings.Add(purchase);
-            //        Order.PurchasingOrderDetails.Add(purchase);
-
-            //    }
-            //    Order.OrderConfirm(true);
-
-            //    var Order2 = ObjectSpace.CreateObject<PurchasingOrder>();
-            //    Order2.supplierAccount = supplier;
-            //    Order2.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
-            //    Order2.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
-
-            //    int j = 0;
-            //    foreach (var item in supplies2)
-            //    {
-            //        PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-            //        Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].Name.ToString(), supplies2[j].sellingPrice.ToString()));
-            //        purchase.product = product;
-            //        purchase.quantity = (Int32)new Random().Next(300, 500);
-            //        purchase.price = product.purchasingPrice;
-            //        j++;
-            //        Order2.PurchasingOrderDetails.Add(purchase);
-            //    }
-            //    Order2.OrderConfirm(true);
-
-            //    ObjectSpace.CommitChanges();
-
-            //for (int z = 0; z < 90; z++)
-            //{
-            //    var OrderObj = ObjectSpace.CreateObject<PurchasingOrder>();
-            //    OrderObj.supplierAccount = suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)].account;
-            //    OrderObj.date = RandomDay();
-            //    OrderObj.OrderType = (PurchasingOrder.OrderTypes)new Random(Guid.NewGuid().GetHashCode()).Next(0, 9);
-
-            //    //OrderObj.date = Faker<DateTime>().;
-            //    if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
-            //    {
-            //        OrderObj.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
-            //        for (int u = 0; u < 6; u++)
-            //        {
-            //            int randomSubly = new Random(Guid.NewGuid().GetHashCode()).Next(0, supplies2.Count);
-            //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-            //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[randomSubly].Name.ToString(), supplies2[randomSubly].sellingPrice.ToString()));
-            //            purchase.product = product;
-            //            purchase.quantity = (Int32)new Random().Next(10, 50);
-            //            purchase.price = product.purchasingPrice;
-
-            //            OrderObj.PurchasingOrderDetails.Add(purchase);
-            //        }
-            //    }
-            //    else
-            //    {
-
-            //        for (int k = 0; k < 6; k++)
-            //        {
-            //            int randomMedication = new Random(Guid.NewGuid().GetHashCode()).Next(0, medications2.Count);
-            //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-            //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[randomMedication].Name.ToString(), medications2[randomMedication].sellingPrice.ToString()));
-            //            purchase.product = product;
-            //            purchase.quantity = (Int32)new Random().Next(40, 60);
-            //            purchase.price = product.purchasingPrice;
-            //            //purchasings.Add(purchase);
-            //            OrderObj.PurchasingOrderDetails.Add(purchase);
-
-            //        }
-            //    }
-
-            //}
-            //}
-
-            //if (ObjectSpace.GetObjectsCount(typeof(Supplier) , null) == 0)
-            //    {
-
-            //        var fakeSuppliers = new Faker<Supplier>("ar")
-            //           .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
-            //           .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-            //           .RuleFor(o => o.LastName, f => f.Name.LastName())
-            //           .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
-            //           .RuleFor(o => o.Email, f => f.Internet.Email());
-
-
-            //    /*
-            //   #region fakeOrders
-            //    var fakeOrders = new Faker<PurchasingOrder>("ar")
-            //        .CustomInstantiator(f => new PurchasingOrder(((XPObjectSpace)ObjectSpace).Session))
-            //        .RuleFor(o => o.supplier, suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)])
-            //        .RuleFor(o => o.date, f => f.Date.Recent(365));
-
-            //    var orders = fakeOrders.Generate(20);
-            //    foreach (PurchasingOrder order in orders)
-            //    {
-            //        for (int i = 0; i < new Random(Guid.NewGuid().GetHashCode()).Next(10, 20); i++)
-            //        {
-
-            //        }
-            //    }
-            //    #endregion
-            //    */
-            //}
-
-
-            //if ((ObjectSpace.GetObjectsCount(typeof(ReceptionDesk), null) == 0) && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
-            //{
-
-            //    IList<Room> rooms = ObjectSpace.GetObjects<Room>();
-
-            //    var fakePatient = new Faker<Patient>("ar")
-            //            .CustomInstantiator(f => new Patient(((XPObjectSpace)ObjectSpace).Session))
-            //            .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-            //            .RuleFor(o => o.LastName, f => f.Name.LastName())
-            //            .RuleFor(o => o.Birthday, f => f.Date.Recent(100))
-            //            .RuleFor(o => o.BloodType, f => f.PickRandom<Blood>())
-            //            .RuleFor(o => o.Email, f => f.Internet.Email());
-            //    var entryIds = 0;
-            //    var fakeEntries = new Faker<ReceptionDesk>("ar")
-            //            .CustomInstantiator(f => new ReceptionDesk(((XPObjectSpace)ObjectSpace).Session))
-            //            .RuleFor(o => o.patient, f => fakePatient.Generate())
-            //            .RuleFor(o => o.enterID, f => entryIds++)
-            //            .RuleFor(o => o.room, f => rooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, rooms.Count)])
-            //            .RuleFor(o => o.dateEnter, f => f.Date.Recent(365))
-            //            .RuleFor(o => o.dateLeave, (f, usr) => usr.dateEnter.AddDays(f.Random.Int(2, 9)))
-            //            .RuleFor(o => o.bed, (f, rec) => ObjectSpace.FindObject<bed>(CriteriaOperator.Parse("[room] = ? AND [isAvailable] = true", rec.room)))
-            //            //.RuleFor(o => o.doctor, physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)])
-            //            .RuleFor(o => o.isDischarged, true);
-
-
-            //    var entries = fakeEntries.Generate(100);
-            //    //var patients = fakePatient.Generate(100);
-            //    var medicCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Pharmacy).ToList();
-            //    var supplyCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Stock).ToList();
-            //    var xRaySevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Xrays).ToList();
-            //    var endoscopySevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.telescope).ToList();
-            //    var testsSevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Tests).ToList();
-            //    var genralSevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Other || p.ServiceType == ServiceTypes.Oxygen || p.ServiceType == ServiceTypes.advisory).ToList();
-            //    var normalRooms = ObjectSpace.GetObjects<Room>().Where(p => p.Status == Admission.statusType.normal).ToList();
-            //    var icuRooms = ObjectSpace.GetObjects<bed>().Where(p => p.room.Status == Admission.statusType.ICU).ToList();
-            //    var covidRooms = ObjectSpace.GetObjects<bed>().Where(p => p.room.Status == Admission.statusType.covid).ToList();
-            //    var doctors = ObjectSpace.GetObjects<Employee>().Where(p => p.job.name == "طبيب").ToList();
-
-            //    foreach (ReceptionDesk item in entries)
-            //    {
-
-            //        var stayIds = 0;
-            //        var firstAdmisssion = item.currentStay;
-            //        firstAdmisssion.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
-
-            //        if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
-            //        {
-            //            item.patient.Gender = Genders.female;
-            //        }
-
-            //        int numOfMedics1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-            //        List<StockProduct> medicicationCollection1 = RandomProducts(medicCollection, numOfMedics1);
-
-            //        for (int j = 0; j < numOfMedics1; j++)
-            //        {
-            //            int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-            //            var medic = ObjectSpace.CreateObject<StayMedications>();
-            //            medic.Medication = medicicationCollection1[j];
-            //            medic.quantity = (int)randomMedicQuantity;
-            //            medic.price = medicicationCollection1[j].product.sellingPrice;
-            //            medic.Stay = firstAdmisssion;
-
-            //            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection1[j].Oid);
-            //            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
-            //        }
-
-            //        int numOfSupplies1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-            //        List<StockProduct> suppliesCollection1 = RandomProducts(supplyCollection, numOfSupplies1);
-
-            //        for (int j = 0; j < numOfSupplies1; j++)
-            //        {
-            //            int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-            //            var supply = ObjectSpace.CreateObject<StaySupplies>();
-            //            supply.supplyProduct = suppliesCollection1[j];
-            //            supply.quantity = (int)randomSupplyQuantity;
-            //            supply.price = suppliesCollection1[j].product.sellingPrice;
-            //            supply.Stay = firstAdmisssion;
-
-            //            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection1[j].Oid);
-            //            supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
-            //        }
-
-            //        int numOfXrayServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, xRaySevices.Count);
-            //        List<Service> admissionXrays1 = RandomServices(xRaySevices, numOfXrayServices1);
-
-            //        for (int j = 0; j < numOfXrayServices1; j++)
-            //        {
-            //            var services = ObjectSpace.GetObjects<Service>();
-
-            //            var serviceCollection = ObjectSpace.CreateObject<XraysDetails>();
-            //            serviceCollection.service = admissionXrays1[j];
-            //            serviceCollection.price = admissionXrays1[j].Price;
-            //            serviceCollection.admission = firstAdmisssion;
-            //        }
-
-            //        int numOfTestServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, testsSevices.Count);
-            //        List<Service> admissionTests1 = RandomServices(testsSevices, numOfTestServices1);
-
-            //        for (int j = 0; j < numOfTestServices1; j++)
-            //        {
-            //            var services = ObjectSpace.GetObjects<Service>();
-
-            //            var serviceCollection = ObjectSpace.CreateObject<TestDetails>();
-            //            serviceCollection.service = admissionTests1[j];
-            //            serviceCollection.price = admissionTests1[j].Price;
-            //            serviceCollection.admission = firstAdmisssion;
-            //        }
-
-            //        //int numOfEndoscopyServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, endoscopySevices.Count);
-            //        //List<Service> admissionEndoscopies = RandomServices(endoscopySevices, numOfEndoscopyServices);
-
-            //        //for (int j = 0; j < numOfEndoscopyServices; j++)
-            //        //{
-            //        //    var services = ObjectSpace.GetObjects<Service>();
-
-            //        //    var serviceCollection = ObjectSpace.CreateObject<EndscopeDetails>();
-            //        //    serviceCollection.service = admissionEndoscopies[j];
-            //        //    serviceCollection.price = admissionEndoscopies[j].Price;
-            //        //    serviceCollection.admission = admissionObject;
-            //        //}
-
-            //        int numOfGenralServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, genralSevices.Count);
-            //        List<Service> admissionGenralServices1 = RandomServices(genralSevices, numOfGenralServices1);
-
-            //        for (int j = 0; j < numOfGenralServices1; j++)
-            //        {
-            //            var services = ObjectSpace.GetObjects<Service>();
-
-            //            var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
-            //            serviceCollection.Service = admissionGenralServices1[j];
-            //            serviceCollection.price = admissionGenralServices1[j].Price;
-            //            serviceCollection.Stay = firstAdmisssion;
-            //        }
-
-
-            //        int transfreNumbers = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
-            //        bool isICU = true;
-            //        for (int i = 0; i < transfreNumbers; i++)
-            //        {
-            //            Admission admissionObject = ObjectSpace.CreateObject<Admission>();
-            //            admissionObject.Patient = item.patient;
-            //            admissionObject.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
-            //            admissionObject.admissionID = item.enterID + stayIds++;
-            //            admissionObject.StayStart = item.dateEnter.AddDays(new Random(Guid.NewGuid().GetHashCode()).Next(0, 4));
-            //            admissionObject.StayEnd = item.dateLeave.AddDays(new Random(Guid.NewGuid().GetHashCode()).Next(-2, 0));
-            //            if (!isICU)
-            //            //new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7 &&
-            //            {
-            //                admissionObject.Status = Admission.statusType.ICU;
-            //                admissionObject.bed = icuRooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, icuRooms.Count)];
-            //                admissionObject.Room = admissionObject.bed.room;
-            //                isICU = true;
-            //            }
-            //            else
-            //            {
-            //                admissionObject.Status = Admission.statusType.normal;
-            //                admissionObject.Room = normalRooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, normalRooms.Count)];
-            //                admissionObject.bed = admissionObject.Room.beds.First();
-            //                isICU = false;
-            //            }
-            //            admissionObject.reception = item;
-
-            //            admissionObject.IsDischarged = true;
-
-
-            //            int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-            //            List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
-
-            //            for (int j = 0; j < numOfMedics; j++)
-            //            {
-            //                int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-            //                var medic = ObjectSpace.CreateObject<StayMedications>();
-            //                medic.Medication = medicicationCollection[j];
-            //                medic.quantity = randomMedicQuantity;
-            //                medic.price = medicicationCollection[j].product.sellingPrice;
-            //                medic.Stay = admissionObject;
-
-            //                var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[j].Oid);
-            //                medicine.firstUnitQuantity -= randomMedicQuantity;
-            //            }
-
-            //            int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-            //            List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
-
-            //            for (int j = 0; j < numOfSupplies; j++)
-            //            {
-            //                int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-            //                var supply = ObjectSpace.CreateObject<StaySupplies>();
-            //                supply.supplyProduct = suppliesCollection[j];
-            //                supply.quantity = randomSupplyQuantity;
-            //                supply.price = suppliesCollection[j].product.sellingPrice;
-            //                supply.Stay = admissionObject;
-
-            //                var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[j].Oid);
-            //                supply1.firstUnitQuantity -= randomSupplyQuantity;
-            //            }
-
-            //            int numOfXrayServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, xRaySevices.Count);
-            //            List<Service> admissionXrays = RandomServices(xRaySevices, numOfXrayServices);
-
-            //            for (int j = 0; j < numOfXrayServices; j++)
-            //            {
-            //                var services = ObjectSpace.GetObjects<Service>();
-
-            //                var serviceCollection = ObjectSpace.CreateObject<XraysDetails>();
-            //                serviceCollection.service = admissionXrays[j];
-            //                serviceCollection.price = admissionXrays[j].Price;
-            //                serviceCollection.admission = admissionObject;
-            //            }
-
-            //            int numOfTestServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, testsSevices.Count);
-            //            List<Service> admissionTests = RandomServices(testsSevices, numOfTestServices);
-
-            //            for (int j = 0; j < numOfTestServices; j++)
-            //            {
-            //                var services = ObjectSpace.GetObjects<Service>();
-
-            //                var serviceCollection = ObjectSpace.CreateObject<TestDetails>();
-            //                serviceCollection.service = admissionTests[j];
-            //                serviceCollection.price = admissionTests[j].Price;
-            //                serviceCollection.admission = admissionObject;
-            //            }
-
-            //            //int numOfEndoscopyServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, endoscopySevices.Count);
-            //            //List<Service> admissionEndoscopies = RandomServices(endoscopySevices, numOfEndoscopyServices);
-
-            //            //for (int j = 0; j < numOfEndoscopyServices; j++)
-            //            //{
-            //            //    var services = ObjectSpace.GetObjects<Service>();
-
-            //            //    var serviceCollection = ObjectSpace.CreateObject<EndscopeDetails>();
-            //            //    serviceCollection.service = admissionEndoscopies[j];
-            //            //    serviceCollection.price = admissionEndoscopies[j].Price;
-            //            //    serviceCollection.admission = admissionObject;
-            //            //}
-
-            //            int numOfGenralServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, genralSevices.Count);
-            //            List<Service> admissionGenralServices = RandomServices(genralSevices, numOfGenralServices);
-
-            //            for (int j = 0; j < numOfGenralServices; j++)
-            //            {
-            //                var services = ObjectSpace.GetObjects<Service>();
-
-            //                var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
-            //                serviceCollection.Service = admissionGenralServices[j];
-            //                serviceCollection.price = admissionGenralServices[j].Price;
-            //                serviceCollection.Stay = admissionObject;
-            //            }
-
-            //        }
-
-
-            //        //        #region Companion
-
-            //        //        if (item.Room.Status == Room.statusType.normal)
-            //        //        {
-            //        //            var companoin1 = ObjectSpace.CreateObject<CompanionDetails>();
-            //        //            companoin1.Stay = item;
-            //        //            companoin1.price = 450;
-            //        //            companoin1.date = item.StayStart.Date;
-
-            //        //            var companoin2 = ObjectSpace.CreateObject<CompanionDetails>();
-            //        //            companoin2.Stay = item;
-            //        //            companoin2.price = 450;
-            //        //            companoin2.date = item.StayEnd.Date;
-            //        //        }
-            //        //        #endregion
-
-            //        //        #region services
-
-
-
-            //        //        #endregion
-
-            //        //        #region payments
-            //        //        var payment1 = ObjectSpace.CreateObject<Payments>();
-            //        //        payment1.amount = (item.stayTotalSum * 0.2m) - ((item.stayTotalSum * 0.2m) % 1000);
-            //        //        payment1.date = item.StayStart;
-            //        //        payment1.Patient = item.Patient;
-
-            //        //        var payment2 = ObjectSpace.CreateObject<Payments>();
-            //        //        payment2.amount = item.stayTotalSum - payment1.amount;
-            //        //        payment2.date = item.StayEnd;
-            //        //        payment2.Patient = item.Patient;
-
-            //        //        #endregion
-            //        ObjectSpace.CommitChanges();
-            //        var payerAccount = ObjectSpace.GetObjects<Account>().Where(p => p == item.patient.account).Single();
-            //        var recivingAccount = ObjectSpace.GetObjects<Account>().Where(p => p.accountName == "صندوق رئيسي").Single();
-            //        var payment = ObjectSpace.CreateObject<receiptClientBond>();
-            //        payment.fromAccount = payerAccount;
-            //        payment.amount = item.total;
-            //        payment.date = RandomDay();
-            //        payment.intoAccount = recivingAccount;
-
-            //        payment.OrderConfirm(true);
-
-
-            //    }
-
-
-            //    ObjectSpace.CommitChanges();
-
-            //    var patients = ObjectSpace.GetObjects<Patient>();
-            //    var fakeEmergency = new Faker<Emergency>("ar")
-            //        .CustomInstantiator(f => new Emergency(((XPObjectSpace)ObjectSpace).Session))
-            //        .RuleFor(o => o.supervision, 200)
-            //        .RuleFor(o => o.date, f => f.Date.Recent(365));
-
-            //    var emergencies = fakeEmergency.Generate(100);
-
-
-            //    foreach (Emergency emItem in emergencies)
-            //    {
-
-            //        #region Overal
-            //        emItem.Patient = patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)];
-            //        emItem.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
-            //        #endregion
-
-            //        #region Medic
-            //        int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
-            //        List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
-
-
-
-            //        for (int i = 0; i < numOfMedics; i++)
-            //        {
-            //            int randomMedicQuantity = 1;
-
-            //            var medic = ObjectSpace.CreateObject<StayMedications>();
-            //            medic.Medication = medicicationCollection[i];
-            //            medic.quantity = (int)randomMedicQuantity;
-            //            medic.price = medicicationCollection[i].product.sellingPrice;
-            //            medic.emergency = emItem;
-            //            medic.date = emItem.date;
-
-            //            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
-            //            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
-            //        }
-
-            //        #endregion
-
-            //        #region supplyProduct
-
-            //        int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
-            //        List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
-
-            //        for (int i = 0; i < numOfSupplies; i++)
-            //        {
-            //            int randomSupplyQuantity = 1;
-
-            //            var supply = ObjectSpace.CreateObject<StaySupplies>();
-            //            supply.supplyProduct = suppliesCollection[i];
-            //            supply.quantity = (int)randomSupplyQuantity;
-            //            supply.price = suppliesCollection[i].product.sellingPrice;
-            //            supply.emergency = emItem;
-            //            supply.date = emItem.date;
-
-            //            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
-            //            supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
-            //        }
-            //        #endregion
-
-            //        var services = ObjectSpace.GetObjects<Service>();
-
-            //        int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
-            //        var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
-            //        serviceCollection.Service = services[randomService];
-            //        serviceCollection.price = services[randomService].Price;
-            //        serviceCollection.emergency = emItem;
-
-            //        //        #region services
-
-            //        //        #endregion
-
-            //        //        #region payments
-            //        //        var payment1 = ObjectSpace.CreateObject<Payments>();
-            //        //        payment1.amount = (item.TotalSum * 0.2m) - ((item.TotalSum * 0.2m) % 1000);
-            //        //        payment1.date = item.date;
-            //        //        payment1.Patient = item.Patient;
-
-            //        //        var payment2 = ObjectSpace.CreateObject<Payments>();
-            //        //        payment2.amount = item.TotalSum - payment1.amount;
-            //        //        payment2.date = item.date;
-            //        //        payment2.Patient = item.Patient;
-
-            //        //        #endregion
-            //        //    }
-            //    }
-            //}
-            //}
-
-            //    if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
-            //    {
-            //        var patients = ObjectSpace.GetObjects<Patient>();
-            //        //var doctors = ObjectSpace.GetObjects<Physician>();
-            //        var clincs = ObjectSpace.GetObjects<Clinc>();
-            //        var fakeAppointments = new Faker<Appointment>("ar")
-            //            .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
-            //            .RuleFor(o => o.amount, 100)
-            //            .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
-            //            //.RuleFor(o => o.Physician, f => doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)])
-            //            .RuleFor(o => o.StartOn, f => f.Date.Recent(365))
-            //            .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
-            //            .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
-
-            //        var Appointments = fakeAppointments.Generate(10000);
-
-
-
-            //        //foreach (Appointment item in Appointments)
-            //        //{
-
-            //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
-            //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
-            //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
-            //        //    clinicService.Appointment = item;
-            //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
-
-            //        //    //var payment = ObjectSpace.CreateObject<Payments>();
-            //        //    //payment.Patient = item.Patient;
-            //        //    //payment.amount = item.amount;
-            //        //    //payment.date = item.StartOn;
-            //        //}
-
-            //    }
-
-            ObjectSpace.CommitChanges();
+            if (ObjectSpace.GetObjectsCount(typeof(Service), null) == 0)
+            {
+                List<ServicesInitialData> services = new ServicesInitialData().services();
+                int bloodid = 19000;
+                int otherid = 18000;
+                foreach (ServicesInitialData item in services)
+                {
+                    var service = ObjectSpace.CreateObject<Service>();
+                    if(item.serviceType == ServiceTypes.Other)
+                    {
+                        otherid += 1;
+                        service.ID = otherid;
+                    }
+                    else
+                    {
+                        bloodid += 1;
+                        service.ID = bloodid;
+                    }
+                    service.Name = item.name;
+                    service.Price = item.price;
+                    service.ServiceType = item.serviceType;
+
+                }
+                ObjectSpace.CommitChanges();
+            }
+
+
+            if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0 && ObjectSpace.GetObjectsCount(typeof(Product), null) != 0)
+            {
+                var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+
+                var fakeSuppliers = new Faker<Supplier>("ar")
+                   .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
+                   .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+                   .RuleFor(o => o.LastName, f => f.Name.LastName())
+                   .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
+                   .RuleFor(o => o.Email, f => f.Internet.Email());
+
+                var suppliers = fakeSuppliers.Generate(40);
+                var Order = ObjectSpace.CreateObject<PurchasingOrder>();
+                Order.supplierAccount = supplier;
+                Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+
+                List<Product> supplies2 = ObjectSpace.GetObjects<Product>().Where(o => o.id <= 131 ).ToList();
+                List<Product> medications2 = ObjectSpace.GetObjects<Product>().Where(o => o.id > 131).ToList();
+
+                int i = 0;
+                foreach (var item in medications2.ToList())
+                {
+                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                    Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].name.ToString(), medications2[i].sellingPrice.ToString()));
+                    purchase.product = product;
+                    purchase.quantity = (Int32)new Random().Next(300, 500);
+                    purchase.price = product.sellingPrice;
+                    purchase.Discount = (Int32)new Random().Next(5, 30);
+                    i++;
+                    //purchasings.Add(purchase);
+                    Order.PurchasingOrderDetails.Add(purchase);
+
+                }
+                Order.OrderConfirm(true);
+
+                var Order2 = ObjectSpace.CreateObject<PurchasingOrder>();
+                Order2.supplierAccount = supplier;
+                Order2.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
+                Order2.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+
+                int j = 0;
+                foreach (var item in supplies2.ToList())
+                {
+                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                    Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].sellingPrice.ToString()));
+                    purchase.product = product;
+                    purchase.quantity = (Int32)new Random().Next(300, 500);
+                    purchase.price = product.sellingPrice;
+                    j++;
+                    Order2.PurchasingOrderDetails.Add(purchase);
+                }
+                Order2.OrderConfirm(true);
+
+                ObjectSpace.CommitChanges();
+
+                //for (int z = 0; z < 90; z++)
+                //{
+                //    var OrderObj = ObjectSpace.CreateObject<PurchasingOrder>();
+                //    OrderObj.supplierAccount = suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)].account;
+                //    OrderObj.date = RandomDay();
+                //    OrderObj.OrderType = (PurchasingOrder.OrderTypes)new Random(Guid.NewGuid().GetHashCode()).Next(0, 9);
+
+                //    //OrderObj.date = Faker<DateTime>().;
+                //    if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
+                //    {
+                //        OrderObj.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
+                //        for (int u = 0; u < 6; u++)
+                //        {
+                //            int randomSubly = new Random(Guid.NewGuid().GetHashCode()).Next(0, supplies2.Count);
+                //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[randomSubly].Name.ToString(), supplies2[randomSubly].sellingPrice.ToString()));
+                //            purchase.product = product;
+                //            purchase.quantity = (Int32)new Random().Next(10, 50);
+                //            purchase.price = product.purchasingPrice;
+
+                //            OrderObj.PurchasingOrderDetails.Add(purchase);
+                //        }
+                //    }
+                //    else
+                //    {
+
+                //        for (int k = 0; k < 6; k++)
+                //        {
+                //            int randomMedication = new Random(Guid.NewGuid().GetHashCode()).Next(0, medications2.Count);
+                //            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                //            Product product = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[randomMedication].Name.ToString(), medications2[randomMedication].sellingPrice.ToString()));
+                //            purchase.product = product;
+                //            purchase.quantity = (Int32)new Random().Next(40, 60);
+                //            purchase.price = product.purchasingPrice;
+                //            //purchasings.Add(purchase);
+                //            OrderObj.PurchasingOrderDetails.Add(purchase);
+
+                //        }
+                //    }
+
+                //}
+                //}
+
+                //if (ObjectSpace.GetObjectsCount(typeof(Supplier) , null) == 0)
+                //    {
+
+                //        var fakeSuppliers = new Faker<Supplier>("ar")
+                //           .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
+                //           .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+                //           .RuleFor(o => o.LastName, f => f.Name.LastName())
+                //           .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
+                //           .RuleFor(o => o.Email, f => f.Internet.Email());
+
+
+                //    /*
+                //   #region fakeOrders
+                //    var fakeOrders = new Faker<PurchasingOrder>("ar")
+                //        .CustomInstantiator(f => new PurchasingOrder(((XPObjectSpace)ObjectSpace).Session))
+                //        .RuleFor(o => o.supplier, suppliers[new Random(Guid.NewGuid().GetHashCode()).Next(0, suppliers.Count)])
+                //        .RuleFor(o => o.date, f => f.Date.Recent(365));
+
+                //    var orders = fakeOrders.Generate(20);
+                //    foreach (PurchasingOrder order in orders)
+                //    {
+                //        for (int i = 0; i < new Random(Guid.NewGuid().GetHashCode()).Next(10, 20); i++)
+                //        {
+
+                //        }
+                //    }
+                //    #endregion
+                //    */
+                }
+
+
+                //if ((ObjectSpace.GetObjectsCount(typeof(ReceptionDesk), null) == 0) && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
+                //{
+
+                //    IList<Room> rooms = ObjectSpace.GetObjects<Room>();
+
+                //    var fakePatient = new Faker<Patient>("ar")
+                //            .CustomInstantiator(f => new Patient(((XPObjectSpace)ObjectSpace).Session))
+                //            .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+                //            .RuleFor(o => o.LastName, f => f.Name.LastName())
+                //            .RuleFor(o => o.Birthday, f => f.Date.Recent(100))
+                //            .RuleFor(o => o.BloodType, f => f.PickRandom<Blood>())
+                //            .RuleFor(o => o.Email, f => f.Internet.Email());
+                //    var entryIds = 0;
+                //    var fakeEntries = new Faker<ReceptionDesk>("ar")
+                //            .CustomInstantiator(f => new ReceptionDesk(((XPObjectSpace)ObjectSpace).Session))
+                //            .RuleFor(o => o.patient, f => fakePatient.Generate())
+                //            .RuleFor(o => o.enterID, f => entryIds++)
+                //            .RuleFor(o => o.room, f => rooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, rooms.Count)])
+                //            .RuleFor(o => o.dateEnter, f => f.Date.Recent(365))
+                //            .RuleFor(o => o.dateLeave, (f, usr) => usr.dateEnter.AddDays(f.Random.Int(2, 9)))
+                //            .RuleFor(o => o.bed, (f, rec) => ObjectSpace.FindObject<bed>(CriteriaOperator.Parse("[room] = ? AND [isAvailable] = true", rec.room)))
+                //            //.RuleFor(o => o.doctor, physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)])
+                //            .RuleFor(o => o.isDischarged, true);
+
+
+                //    var entries = fakeEntries.Generate(100);
+                //    //var patients = fakePatient.Generate(100);
+                //    var medicCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Pharmacy).ToList();
+                //    var supplyCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Stock).ToList();
+                //    var xRaySevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Xrays).ToList();
+                //    var endoscopySevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.telescope).ToList();
+                //    var testsSevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Tests).ToList();
+                //    var genralSevices = ObjectSpace.GetObjects<Service>().Where(p => p.ServiceType == ServiceTypes.Other || p.ServiceType == ServiceTypes.Oxygen || p.ServiceType == ServiceTypes.advisory).ToList();
+                //    var normalRooms = ObjectSpace.GetObjects<Room>().Where(p => p.Status == Admission.statusType.normal).ToList();
+                //    var icuRooms = ObjectSpace.GetObjects<bed>().Where(p => p.room.Status == Admission.statusType.ICU).ToList();
+                //    var covidRooms = ObjectSpace.GetObjects<bed>().Where(p => p.room.Status == Admission.statusType.covid).ToList();
+                //    var doctors = ObjectSpace.GetObjects<Employee>().Where(p => p.job.name == "طبيب").ToList();
+
+                //    foreach (ReceptionDesk item in entries)
+                //    {
+
+                //        var stayIds = 0;
+                //        var firstAdmisssion = item.currentStay;
+                //        firstAdmisssion.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
+
+                //        if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
+                //        {
+                //            item.patient.Gender = Genders.female;
+                //        }
+
+                //        int numOfMedics1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                //        List<StockProduct> medicicationCollection1 = RandomProducts(medicCollection, numOfMedics1);
+
+                //        for (int j = 0; j < numOfMedics1; j++)
+                //        {
+                //            int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+
+                //            var medic = ObjectSpace.CreateObject<StayMedications>();
+                //            medic.Medication = medicicationCollection1[j];
+                //            medic.quantity = (int)randomMedicQuantity;
+                //            medic.price = medicicationCollection1[j].product.sellingPrice;
+                //            medic.Stay = firstAdmisssion;
+
+                //            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection1[j].Oid);
+                //            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
+                //        }
+
+                //        int numOfSupplies1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                //        List<StockProduct> suppliesCollection1 = RandomProducts(supplyCollection, numOfSupplies1);
+
+                //        for (int j = 0; j < numOfSupplies1; j++)
+                //        {
+                //            int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+
+                //            var supply = ObjectSpace.CreateObject<StaySupplies>();
+                //            supply.supplyProduct = suppliesCollection1[j];
+                //            supply.quantity = (int)randomSupplyQuantity;
+                //            supply.price = suppliesCollection1[j].product.sellingPrice;
+                //            supply.Stay = firstAdmisssion;
+
+                //            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection1[j].Oid);
+                //            supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
+                //        }
+
+                //        int numOfXrayServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, xRaySevices.Count);
+                //        List<Service> admissionXrays1 = RandomServices(xRaySevices, numOfXrayServices1);
+
+                //        for (int j = 0; j < numOfXrayServices1; j++)
+                //        {
+                //            var services = ObjectSpace.GetObjects<Service>();
+
+                //            var serviceCollection = ObjectSpace.CreateObject<XraysDetails>();
+                //            serviceCollection.service = admissionXrays1[j];
+                //            serviceCollection.price = admissionXrays1[j].Price;
+                //            serviceCollection.admission = firstAdmisssion;
+                //        }
+
+                //        int numOfTestServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, testsSevices.Count);
+                //        List<Service> admissionTests1 = RandomServices(testsSevices, numOfTestServices1);
+
+                //        for (int j = 0; j < numOfTestServices1; j++)
+                //        {
+                //            var services = ObjectSpace.GetObjects<Service>();
+
+                //            var serviceCollection = ObjectSpace.CreateObject<TestDetails>();
+                //            serviceCollection.service = admissionTests1[j];
+                //            serviceCollection.price = admissionTests1[j].Price;
+                //            serviceCollection.admission = firstAdmisssion;
+                //        }
+
+                //        //int numOfEndoscopyServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, endoscopySevices.Count);
+                //        //List<Service> admissionEndoscopies = RandomServices(endoscopySevices, numOfEndoscopyServices);
+
+                //        //for (int j = 0; j < numOfEndoscopyServices; j++)
+                //        //{
+                //        //    var services = ObjectSpace.GetObjects<Service>();
+
+                //        //    var serviceCollection = ObjectSpace.CreateObject<EndscopeDetails>();
+                //        //    serviceCollection.service = admissionEndoscopies[j];
+                //        //    serviceCollection.price = admissionEndoscopies[j].Price;
+                //        //    serviceCollection.admission = admissionObject;
+                //        //}
+
+                //        int numOfGenralServices1 = new Random(Guid.NewGuid().GetHashCode()).Next(2, genralSevices.Count);
+                //        List<Service> admissionGenralServices1 = RandomServices(genralSevices, numOfGenralServices1);
+
+                //        for (int j = 0; j < numOfGenralServices1; j++)
+                //        {
+                //            var services = ObjectSpace.GetObjects<Service>();
+
+                //            var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
+                //            serviceCollection.Service = admissionGenralServices1[j];
+                //            serviceCollection.price = admissionGenralServices1[j].Price;
+                //            serviceCollection.Stay = firstAdmisssion;
+                //        }
+
+
+                //        int transfreNumbers = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
+                //        bool isICU = true;
+                //        for (int i = 0; i < transfreNumbers; i++)
+                //        {
+                //            Admission admissionObject = ObjectSpace.CreateObject<Admission>();
+                //            admissionObject.Patient = item.patient;
+                //            admissionObject.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
+                //            admissionObject.admissionID = item.enterID + stayIds++;
+                //            admissionObject.StayStart = item.dateEnter.AddDays(new Random(Guid.NewGuid().GetHashCode()).Next(0, 4));
+                //            admissionObject.StayEnd = item.dateLeave.AddDays(new Random(Guid.NewGuid().GetHashCode()).Next(-2, 0));
+                //            if (!isICU)
+                //            //new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7 &&
+                //            {
+                //                admissionObject.Status = Admission.statusType.ICU;
+                //                admissionObject.bed = icuRooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, icuRooms.Count)];
+                //                admissionObject.Room = admissionObject.bed.room;
+                //                isICU = true;
+                //            }
+                //            else
+                //            {
+                //                admissionObject.Status = Admission.statusType.normal;
+                //                admissionObject.Room = normalRooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, normalRooms.Count)];
+                //                admissionObject.bed = admissionObject.Room.beds.First();
+                //                isICU = false;
+                //            }
+                //            admissionObject.reception = item;
+
+                //            admissionObject.IsDischarged = true;
+
+
+                //            int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                //            List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
+
+                //            for (int j = 0; j < numOfMedics; j++)
+                //            {
+                //                int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+
+                //                var medic = ObjectSpace.CreateObject<StayMedications>();
+                //                medic.Medication = medicicationCollection[j];
+                //                medic.quantity = randomMedicQuantity;
+                //                medic.price = medicicationCollection[j].product.sellingPrice;
+                //                medic.Stay = admissionObject;
+
+                //                var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[j].Oid);
+                //                medicine.firstUnitQuantity -= randomMedicQuantity;
+                //            }
+
+                //            int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                //            List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
+
+                //            for (int j = 0; j < numOfSupplies; j++)
+                //            {
+                //                int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+
+                //                var supply = ObjectSpace.CreateObject<StaySupplies>();
+                //                supply.supplyProduct = suppliesCollection[j];
+                //                supply.quantity = randomSupplyQuantity;
+                //                supply.price = suppliesCollection[j].product.sellingPrice;
+                //                supply.Stay = admissionObject;
+
+                //                var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[j].Oid);
+                //                supply1.firstUnitQuantity -= randomSupplyQuantity;
+                //            }
+
+                //            int numOfXrayServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, xRaySevices.Count);
+                //            List<Service> admissionXrays = RandomServices(xRaySevices, numOfXrayServices);
+
+                //            for (int j = 0; j < numOfXrayServices; j++)
+                //            {
+                //                var services = ObjectSpace.GetObjects<Service>();
+
+                //                var serviceCollection = ObjectSpace.CreateObject<XraysDetails>();
+                //                serviceCollection.service = admissionXrays[j];
+                //                serviceCollection.price = admissionXrays[j].Price;
+                //                serviceCollection.admission = admissionObject;
+                //            }
+
+                //            int numOfTestServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, testsSevices.Count);
+                //            List<Service> admissionTests = RandomServices(testsSevices, numOfTestServices);
+
+                //            for (int j = 0; j < numOfTestServices; j++)
+                //            {
+                //                var services = ObjectSpace.GetObjects<Service>();
+
+                //                var serviceCollection = ObjectSpace.CreateObject<TestDetails>();
+                //                serviceCollection.service = admissionTests[j];
+                //                serviceCollection.price = admissionTests[j].Price;
+                //                serviceCollection.admission = admissionObject;
+                //            }
+
+                //            //int numOfEndoscopyServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, endoscopySevices.Count);
+                //            //List<Service> admissionEndoscopies = RandomServices(endoscopySevices, numOfEndoscopyServices);
+
+                //            //for (int j = 0; j < numOfEndoscopyServices; j++)
+                //            //{
+                //            //    var services = ObjectSpace.GetObjects<Service>();
+
+                //            //    var serviceCollection = ObjectSpace.CreateObject<EndscopeDetails>();
+                //            //    serviceCollection.service = admissionEndoscopies[j];
+                //            //    serviceCollection.price = admissionEndoscopies[j].Price;
+                //            //    serviceCollection.admission = admissionObject;
+                //            //}
+
+                //            int numOfGenralServices = new Random(Guid.NewGuid().GetHashCode()).Next(2, genralSevices.Count);
+                //            List<Service> admissionGenralServices = RandomServices(genralSevices, numOfGenralServices);
+
+                //            for (int j = 0; j < numOfGenralServices; j++)
+                //            {
+                //                var services = ObjectSpace.GetObjects<Service>();
+
+                //                var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
+                //                serviceCollection.Service = admissionGenralServices[j];
+                //                serviceCollection.price = admissionGenralServices[j].Price;
+                //                serviceCollection.Stay = admissionObject;
+                //            }
+
+                //        }
+
+
+                //        //        #region Companion
+
+                //        //        if (item.Room.Status == Room.statusType.normal)
+                //        //        {
+                //        //            var companoin1 = ObjectSpace.CreateObject<CompanionDetails>();
+                //        //            companoin1.Stay = item;
+                //        //            companoin1.price = 450;
+                //        //            companoin1.date = item.StayStart.Date;
+
+                //        //            var companoin2 = ObjectSpace.CreateObject<CompanionDetails>();
+                //        //            companoin2.Stay = item;
+                //        //            companoin2.price = 450;
+                //        //            companoin2.date = item.StayEnd.Date;
+                //        //        }
+                //        //        #endregion
+
+                //        //        #region services
+
+
+
+                //        //        #endregion
+
+                //        //        #region payments
+                //        //        var payment1 = ObjectSpace.CreateObject<Payments>();
+                //        //        payment1.amount = (item.stayTotalSum * 0.2m) - ((item.stayTotalSum * 0.2m) % 1000);
+                //        //        payment1.date = item.StayStart;
+                //        //        payment1.Patient = item.Patient;
+
+                //        //        var payment2 = ObjectSpace.CreateObject<Payments>();
+                //        //        payment2.amount = item.stayTotalSum - payment1.amount;
+                //        //        payment2.date = item.StayEnd;
+                //        //        payment2.Patient = item.Patient;
+
+                //        //        #endregion
+                //        ObjectSpace.CommitChanges();
+                //        var payerAccount = ObjectSpace.GetObjects<Account>().Where(p => p == item.patient.account).Single();
+                //        var recivingAccount = ObjectSpace.GetObjects<Account>().Where(p => p.accountName == "صندوق رئيسي").Single();
+                //        var payment = ObjectSpace.CreateObject<receiptClientBond>();
+                //        payment.fromAccount = payerAccount;
+                //        payment.amount = item.total;
+                //        payment.date = RandomDay();
+                //        payment.intoAccount = recivingAccount;
+
+                //        payment.OrderConfirm(true);
+
+
+                //    }
+
+
+                //    ObjectSpace.CommitChanges();
+
+                //    var patients = ObjectSpace.GetObjects<Patient>();
+                //    var fakeEmergency = new Faker<Emergency>("ar")
+                //        .CustomInstantiator(f => new Emergency(((XPObjectSpace)ObjectSpace).Session))
+                //        .RuleFor(o => o.supervision, 200)
+                //        .RuleFor(o => o.date, f => f.Date.Recent(365));
+
+                //    var emergencies = fakeEmergency.Generate(100);
+
+
+                //    foreach (Emergency emItem in emergencies)
+                //    {
+
+                //        #region Overal
+                //        emItem.Patient = patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)];
+                //        emItem.doctor = doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)];
+                //        #endregion
+
+                //        #region Medic
+                //        int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
+                //        List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
+
+
+
+                //        for (int i = 0; i < numOfMedics; i++)
+                //        {
+                //            int randomMedicQuantity = 1;
+
+                //            var medic = ObjectSpace.CreateObject<StayMedications>();
+                //            medic.Medication = medicicationCollection[i];
+                //            medic.quantity = (int)randomMedicQuantity;
+                //            medic.price = medicicationCollection[i].product.sellingPrice;
+                //            medic.emergency = emItem;
+                //            medic.date = emItem.date;
+
+                //            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
+                //            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
+                //        }
+
+                //        #endregion
+
+                //        #region supplyProduct
+
+                //        int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
+                //        List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
+
+                //        for (int i = 0; i < numOfSupplies; i++)
+                //        {
+                //            int randomSupplyQuantity = 1;
+
+                //            var supply = ObjectSpace.CreateObject<StaySupplies>();
+                //            supply.supplyProduct = suppliesCollection[i];
+                //            supply.quantity = (int)randomSupplyQuantity;
+                //            supply.price = suppliesCollection[i].product.sellingPrice;
+                //            supply.emergency = emItem;
+                //            supply.date = emItem.date;
+
+                //            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
+                //            supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
+                //        }
+                //        #endregion
+
+                //        var services = ObjectSpace.GetObjects<Service>();
+
+                //        int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
+                //        var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
+                //        serviceCollection.Service = services[randomService];
+                //        serviceCollection.price = services[randomService].Price;
+                //        serviceCollection.emergency = emItem;
+
+                //        //        #region services
+
+                //        //        #endregion
+
+                //        //        #region payments
+                //        //        var payment1 = ObjectSpace.CreateObject<Payments>();
+                //        //        payment1.amount = (item.TotalSum * 0.2m) - ((item.TotalSum * 0.2m) % 1000);
+                //        //        payment1.date = item.date;
+                //        //        payment1.Patient = item.Patient;
+
+                //        //        var payment2 = ObjectSpace.CreateObject<Payments>();
+                //        //        payment2.amount = item.TotalSum - payment1.amount;
+                //        //        payment2.date = item.date;
+                //        //        payment2.Patient = item.Patient;
+
+                //        //        #endregion
+                //        //    }
+                //    }
+                //}
+                //}
+
+                //    if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
+                //    {
+                //        var patients = ObjectSpace.GetObjects<Patient>();
+                //        //var doctors = ObjectSpace.GetObjects<Physician>();
+                //        var clincs = ObjectSpace.GetObjects<Clinc>();
+                //        var fakeAppointments = new Faker<Appointment>("ar")
+                //            .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
+                //            .RuleFor(o => o.amount, 100)
+                //            .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
+                //            //.RuleFor(o => o.Physician, f => doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)])
+                //            .RuleFor(o => o.StartOn, f => f.Date.Recent(365))
+                //            .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
+                //            .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
+
+                //        var Appointments = fakeAppointments.Generate(10000);
+
+
+
+                //        //foreach (Appointment item in Appointments)
+                //        //{
+
+                //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
+                //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
+                //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
+                //        //    clinicService.Appointment = item;
+                //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
+
+                //        //    //var payment = ObjectSpace.CreateObject<Payments>();
+                //        //    //payment.Patient = item.Patient;
+                //        //    //payment.amount = item.amount;
+                //        //    //payment.date = item.StartOn;
+                //        //}
+
+                //    }
+
+                ObjectSpace.CommitChanges();
 
                 //*** The following code generate stay fake data ***
                 /*

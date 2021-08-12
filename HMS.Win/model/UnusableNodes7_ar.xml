@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Category">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Product">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Category" Caption="الصنف" />
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+        <Member Name="PurchasingPrice" Caption="سعر الشراء" DisplayFormat="{0:C}" EditMask="C" />
+        <Member Name="SellingPrice" Caption="سعر البيع" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Category_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+    </DetailView>
+    <ListView Id="Category_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Category_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="Category_Products_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Category" Caption="الصنف" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="PurchasingPrice" EditMask="C" />
+        <ColumnInfo Id="SellingPrice" EditMask="C" />
+      </Columns>
+    </ListView>
+    <ListView Id="Inventory_StockProducts_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="unitsIn" Caption="اجمالي الوارد" />
+        <ColumnInfo Id="unitsOut" Caption="اجمالي الصادر" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Product_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Category" Caption="الصنف" />
+        <PropertyEditor Id="ID" Caption="الكود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+        <PropertyEditor Id="Oid" Caption="الكود" />
+        <PropertyEditor Id="PurchasingPrice" Caption="سعر الشراء" EditMask="C" />
+        <PropertyEditor Id="SellingPrice" EditMask="C" />
+      </Items>
+    </DetailView>
+    <ListView Id="Product_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+        <ColumnInfo Id="ID" Caption="الكود" />
+        <ColumnInfo Id="PurchasingPrice" EditMask="C" />
+        <ColumnInfo Id="SellingPrice" EditMask="C" />
+        <ColumnInfo Id="Category" Caption="الصنف" />
+      </Columns>
+    </ListView>
+    <ListView Id="Product_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

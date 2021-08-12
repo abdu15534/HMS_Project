@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="Issue">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Description" Caption="الوصف" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="NonPersistentObject_Owners_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
+        <ColumnInfo Id="companionSum" Caption="إجمالى تكلفة المرافق" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
+        <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
+        <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
+        <ColumnInfo Id="totalDays" Caption="عدد الايام" />
+        <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Issue_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Oid" Caption="الكود" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DetailView>
+    <ListView Id="Issue_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Description" Caption="الوصف" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Issue_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Oid" Caption="الكود" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

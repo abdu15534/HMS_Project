@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="ServiceDetailsCollection" Caption="الخدمات" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="PaymentReceipt" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
+    </Actions>
+  </ActionDesign>
+  <Views Id="Views">
+    <DetailView Id="Appointment_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="ServiceDetailsCollection" Caption="الخدمات" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

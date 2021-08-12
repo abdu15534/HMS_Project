@@ -1868,7 +1868,7 @@
         <PropertyEditor Id="date" Caption="تاريخ الزيارة" />
         <PropertyEditor Id="doctor" Caption="الطبيب المشرف" />
         <PropertyEditor Id="finalDiagnosis" Caption="التشخيص النهائى" />
-        <PropertyEditor Id="firstDiagnosis" Caption="التشخيص:" />
+        <PropertyEditor Id="firstDiagnosis" Caption="التشخيص" />
         <PropertyEditor Id="id" Caption="كود" />
         <PropertyEditor Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
         <PropertyEditor Id="Patient" Caption="المريض" />
@@ -1878,26 +1878,28 @@
         <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
-        <LayoutGroup Id="SimpleEditors" ShowCaption="False" Index="0" RelativeSize="55.163043478260867" IsNewNode="True">
-          <LayoutGroup Id="Emergency" ShowCaption="True" Direction="Horizontal" Index="0" RelativeSize="95.073891625615758" IsNewNode="True">
-            <LayoutGroup Id="Emergency_col2" ShowCaption="False" Index="0" RelativeSize="49.918699186991873" IsNewNode="True">
-              <LayoutItem Id="supervision" ViewItem="supervision" Index="0" RelativeSize="20" IsNewNode="True" />
-              <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="1" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="2" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="EmergencyServicesSum" ViewItem="EmergencyServicesSum" Index="3" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="4" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="TotalSum" ViewItem="TotalSum" Index="5" RelativeSize="20" IsNewNode="True" />
+        <LayoutGroup Id="SimpleEditors" ShowCaption="False" Index="0" RelativeSize="44.507575757575758" IsNewNode="True">
+          <LayoutGroup Id="Emergency" ShowCaption="True" Direction="Horizontal" Index="0" RelativeSize="72.765957446808514" IsNewNode="True">
+            <LayoutGroup Id="Emergency_col2" ShowCaption="False" Index="0" RelativeSize="49.889624724061811" IsNewNode="True">
+              <LayoutItem Id="supervision" ViewItem="supervision" Index="0" RelativeSize="7.2463768115942031" IsNewNode="True" />
+              <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="EmergencyServicesSum" ViewItem="EmergencyServicesSum" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="4" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="TotalSum" ViewItem="TotalSum" Index="5" RelativeSize="23.188405797101449" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutGroup Id="Emergency_col1" ShowCaption="False" Index="1" RelativeSize="50.081300813008127" IsNewNode="True">
-              <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="20" IsNewNode="True" />
-              <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="date" ViewItem="date" Index="2" RelativeSize="15" IsNewNode="True" />
-              <LayoutItem Id="doctor" ViewItem="doctor" Index="3" RelativeSize="50" IsNewNode="True" />
+            <LayoutGroup Id="Emergency_col1" ShowCaption="False" Index="1" RelativeSize="50.110375275938189" IsNewNode="True">
+              <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="23.188405797101449" IsNewNode="True" />
+              <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="date" ViewItem="date" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="doctor" ViewItem="doctor" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
+              <LayoutItem Id="ExamFees" ViewItem="ExamFees" Index="4" RelativeSize="24.637681159420289" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutItem Id="Item1" Index="1" RelativeSize="4.9261083743842367" IsNewNode="True" />
+          <LayoutItem Id="firstDiagnosis" ViewItem="firstDiagnosis" Index="1" RelativeSize="22.978723404255319" IsNewNode="True" />
+          <LayoutItem Id="Item1" Index="2" RelativeSize="4.25531914893617" IsNewNode="True" />
         </LayoutGroup>
-        <TabbedGroup Id="Tabs" Index="1" RelativeSize="44.836956521739133" IsNewNode="True">
+        <TabbedGroup Id="Tabs" Index="1" RelativeSize="55.492424242424242" IsNewNode="True">
           <LayoutGroup Id="StayMedicationsCollection" ShowCaption="True" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" Caption="الأدوية المستهلكة" IsNewNode="True">
             <LayoutItem Id="StayMedicationsCollection" TextAlignMode="AutoSize" ViewItem="StayMedicationsCollection" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
@@ -1912,6 +1914,15 @@
           </LayoutGroup>
           <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="4" TextAlignMode="AlignWithChildren" RelativeSize="100" Caption="Payments" IsNewNode="True">
             <LayoutItem Id="PaymentsCollection" ViewItem="PaymentsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="5" Caption="Tests" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+            <LayoutItem Id="TestDetailsCollection" ViewItem="TestDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="6" Caption="Xrays" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+            <LayoutItem Id="XraysDetailsCollection" ViewItem="XraysDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="7" Caption="Endoscopy" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+            <LayoutItem Id="EndscopeDetailsCollection" ViewItem="EndscopeDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
           </LayoutGroup>
         </TabbedGroup>
         <LayoutGroup Id="Main" Removed="True" />
@@ -3232,10 +3243,15 @@
     </DetailView>
     <ListView Id="Product_ListView" IsGroupPanelVisible="True" ShowFindPanel="True">
       <Columns>
-        <ColumnInfo Id="id" Caption="كود" />
-        <ColumnInfo Id="name" Caption="الإسم" />
-        <ColumnInfo Id="category" Caption="النوع" />
-        <ColumnInfo Id="purchasingUnit" Caption="وحدة الشراء" />
+        <ColumnInfo Id="id" Caption="كود" Index="0" />
+        <ColumnInfo Id="name" Caption="الإسم" Index="1" />
+        <ColumnInfo Id="purchasingPrice" Index="2" />
+        <ColumnInfo Id="sellingPrice" Index="3" />
+        <ColumnInfo Id="category" Caption="النوع" Index="4" />
+        <ColumnInfo Id="barCode" Index="5" />
+        <ColumnInfo Id="purchasingUnit" Caption="وحدة الشراء" Index="6" />
+        <ColumnInfo Id="sellUnit" Index="7" />
+        <ColumnInfo Id="unitAmount" Index="8" />
       </Columns>
     </ListView>
     <ListView Id="Product_LookupListView">
@@ -3358,8 +3374,8 @@
         </ColumnInfo>
         <ColumnInfo Id="quantity" SortIndex="0" SortOrder="Ascending" Width="80" />
         <ColumnInfo Id="product.purchasingUnit" PropertyName="product.purchasingUnit" Index="2" Width="523" Caption="وحدة الشراء" AllowClear="False" AllowEdit="False" IsNewNode="True" />
-        <ColumnInfo Id="price" Index="3" Width="248" />
-        <ColumnInfo Id="Discount" Index="4" />
+        <ColumnInfo Id="price" Index="3" Width="144" />
+        <ColumnInfo Id="Discount" Index="4" Width="159" />
         <ColumnInfo Id="amount" Index="5" Width="353" Caption="الكمية">
           <Summary>
             <ColumnSummaryItem Id="@8239105c-6ba9-4a9d-a001-5fa0c90f2e06" SummaryType="Sum" IsNewNode="True" />

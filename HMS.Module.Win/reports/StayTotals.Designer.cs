@@ -1199,7 +1199,8 @@ namespace HMS.Module.Win.reports
             this.Detail7,
             this.GroupFooter7});
             this.DetailReport6.DataSource = this.xpObjectSource8;
-            this.DetailReport6.FilterString = "[admission.reception.enterID] = ?parameter1";
+            this.DetailReport6.FilterString = "[admission.reception.enterID] = ?parameter1 And [service.ServiceType] = ##Enum#Xa" +
+    "fDataModel.Module.BusinessObjects.test2.ServiceTypes,الأشعة#";
             this.DetailReport6.Level = 7;
             this.DetailReport6.Name = "DetailReport6";
             // 
@@ -1929,8 +1930,6 @@ namespace HMS.Module.Win.reports
             this.Detail15,
             this.GroupFooter13});
             this.DetailReport14.DataSource = this.xpObjectSource7;
-            this.DetailReport14.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = \'Other\' Or [St" +
-    "ay.reception.enterID] = ?parameter1 And [Service.ServiceType] = \'Deceased\'";
             this.DetailReport14.Level = 11;
             this.DetailReport14.Name = "DetailReport14";
             // 
@@ -1999,7 +1998,6 @@ namespace HMS.Module.Win.reports
             this.Detail16,
             this.GroupFooter12});
             this.DetailReport15.DataSource = this.xpObjectSource7;
-            this.DetailReport15.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = \'Blood\'";
             this.DetailReport15.Level = 10;
             this.DetailReport15.Name = "DetailReport15";
             // 

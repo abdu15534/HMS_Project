@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Stay_StayMedicications_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="total">
+          <Summary Id="Summary">
+            <ColumnSummaryItem Id="@ae5b46ac-eb64-4703-9aa0-27a0eba1c74b" Index="1" />
+          </Summary>
+        </ColumnInfo>
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

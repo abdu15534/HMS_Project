@@ -683,5 +683,379 @@ namespace HMS.Module.Win.Controllers
 
             }
         }
+
+        private void AddPharmacy_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            bool czyPustyWiersz;
+            DataTable dt;
+
+            OpenFileDialog excel = new OpenFileDialog();
+            excel.Filter = "Dokument excel|*.xls;*.xlsx";
+            excel.Title = "أختر الملف الذي يحتوي على التحالي";
+            if (excel.ShowDialog() == DialogResult.OK)
+            {
+
+                try
+                {
+
+                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
+
+
+                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
+                    {
+                        #region Deserializacja Excel  
+                        var rows = workBook.Worksheet(2).RowsUsed();
+
+                        dt = new DataTable();
+
+                        bool isFirstRow = true;
+
+                        foreach (var row in rows)
+                        {
+                            //Console.WriteLine(row);
+                            czyPustyWiersz = row.IsEmpty();
+
+
+                            if (isFirstRow)
+                            {
+                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
+                                {
+                                    //Debug.WriteLine(cell.Value);
+                                    //Console.WriteLine(cell.Value);
+                                    //Console.WriteLine("##");
+                                    dt.Columns.Add(cell.Value.ToString());
+                                }
+
+                                isFirstRow = false;
+                            }
+                            else
+                            {
+                                bool czyDodany = false;
+
+                                int i = 0;
+                                foreach (IXLCell cell in row.Cells())
+                                {
+                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
+                                    //Console.WriteLine(cell.Value);
+                                    //Debug.WriteLine(cell.Value);
+                                    if (czyDodany == false)
+                                    {
+                                        dt.Rows.Add();
+                                        czyDodany = true;
+                                    }
+
+                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
+                                    i++;
+                                }
+
+                            }
+
+
+
+                        }
+                        #endregion
+                    }
+
+                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Debug.WriteLine(dt.Rows);
+                        Product product = ObjectSpace.CreateObject<Product>();
+                        //fzp.Ilosc = 1;
+                        string myString = "";
+
+
+                        if (row[5] != DBNull.Value)
+                        {
+                            myString = row[5].ToString();
+                            if (!string.IsNullOrEmpty(row[5].ToString()))
+                                product.sellingPrice = Convert.ToDecimal(row[5].ToString());
+                            //    try
+                            //    {
+                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
+                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
+                            //    }
+                            //    catch { fzp.Produkt = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
+                            //    }
+                            //    catch { fzp.Oddzial = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
+                            //    }
+                            //    catch { fzp.Dzial = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
+                            //    }
+                            //    catch { fzp.KomorkaKoszt = null; }
+                        }
+
+
+                        if (row[9] != DBNull.Value)
+                        {
+                            myString += " - " + row[9].ToString();
+                            //service.ServiceType = (ServiceTypes)17;
+                            //if (!string.IsNullOrEmpty(row[1].ToString()))
+                            //    fzp.NazwaProduktu = row[1].ToString();
+                        }
+
+
+                        if (row[10] != DBNull.Value)
+                        {
+                            myString += " - " + row[10].ToString();
+                            if (!string.IsNullOrEmpty(row[10].ToString()))
+                            {
+                                //service.Name = row[2].ToString();
+                            }
+
+                        }
+
+
+
+                        if (row[11] != DBNull.Value)
+                        {
+                            myString += " - " + row[11].ToString();
+                            if (!string.IsNullOrEmpty(row[11].ToString()))
+                            {
+                                product.name = row[11].ToString();
+                            }
+                        }
+
+                        if (row[12] != DBNull.Value)
+                        {
+                            myString += " - " + row[12].ToString();
+                            if (!string.IsNullOrEmpty(row[12].ToString()))
+                            {
+                                try 
+                                { 
+                                    product.id = Convert.ToInt32(row[12].ToString());
+                                }
+                                catch
+                                {
+                                    product.Delete();
+                                }
+                            }
+                        }
+
+                        Debug.WriteLine(myString);
+
+
+                        //    fzp.FakturaZakupu = fz;
+                        //    fzp.Save();
+                    }
+
+                    ObjectSpace.CommitChanges();
+                    ObjectSpace.Refresh();
+
+                    SplashScreenManager.CloseForm(false);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    SplashScreenManager.CloseForm(false);
+                    Tracing.Tracer.LogError(ex);
+                    MessageOptions mo = new MessageOptions();
+                    mo.Duration = 3000;
+                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
+                    mo.Type = InformationType.Error;
+                    mo.OkDelegate = () =>
+                    {
+                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
+                        //ErrorBox eb = new ErrorBox(ex.Message);
+                        //DetailView dv = Application.CreateDetailView(os, eb);
+
+                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
+                    };
+                    Application.ShowViewStrategy.ShowMessage(mo);
+                }
+
+            }
+        }
+
+        private void AddStock_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            bool czyPustyWiersz;
+            DataTable dt;
+
+            OpenFileDialog excel = new OpenFileDialog();
+            excel.Filter = "Dokument excel|*.xls;*.xlsx";
+            excel.Title = "أختر الملف الذي يحتوي على التحالي";
+            if (excel.ShowDialog() == DialogResult.OK)
+            {
+
+                try
+                {
+
+                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
+
+
+                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
+                    {
+                        #region Deserializacja Excel  
+                        var rows = workBook.Worksheet(1).RowsUsed();
+
+                        dt = new DataTable();
+
+                        bool isFirstRow = true;
+
+                        foreach (var row in rows)
+                        {
+                            //Console.WriteLine(row);
+                            czyPustyWiersz = row.IsEmpty();
+
+
+                            if (isFirstRow)
+                            {
+                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
+                                {
+                                    //Debug.WriteLine(cell.Value);
+                                    //Console.WriteLine(cell.Value);
+                                    //Console.WriteLine("##");
+                                    dt.Columns.Add(cell.Value.ToString());
+                                }
+
+                                isFirstRow = false;
+                            }
+                            else
+                            {
+                                bool czyDodany = false;
+
+                                int i = 0;
+                                foreach (IXLCell cell in row.Cells())
+                                {
+                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
+                                    //Console.WriteLine(cell.Value);
+                                    //Debug.WriteLine(cell.Value);
+                                    if (czyDodany == false)
+                                    {
+                                        dt.Rows.Add();
+                                        czyDodany = true;
+                                    }
+
+                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
+                                    i++;
+                                }
+
+                            }
+
+
+
+                        }
+                        #endregion
+                    }
+
+                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        //Debug.WriteLine(dt.Rows);
+                        Product product = ObjectSpace.CreateObject<Product>();
+                        //fzp.Ilosc = 1;
+                        string myString = "";
+
+
+                        if (row[0] != DBNull.Value)
+                        {
+                            myString = row[0].ToString();
+                            if (!string.IsNullOrEmpty(row[0].ToString()))
+                                product.id = Convert.ToInt32(row[0].ToString());
+                            //    try
+                            //    {
+                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
+                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
+                            //    }
+                            //    catch { fzp.Produkt = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
+                            //    }
+                            //    catch { fzp.Oddzial = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
+                            //    }
+                            //    catch { fzp.Dzial = null; }
+
+                            //    try
+                            //    {
+                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
+                            //    }
+                            //    catch { fzp.KomorkaKoszt = null; }
+                        }
+
+
+                        if (row[1] != DBNull.Value)
+                        {
+                            myString += " - " + row[1].ToString();
+                            //service.ServiceType = (ServiceTypes)17;
+                            if (!string.IsNullOrEmpty(row[1].ToString()))
+                                product.name = row[1].ToString();
+                        }
+
+
+                        if (row[2] != DBNull.Value)
+                        {
+                            myString += " - " + row[2].ToString();
+                            if (!string.IsNullOrEmpty(row[2].ToString()))
+                            {
+                                product.sellingPrice = Convert.ToDecimal(row[2].ToString());
+                            }
+
+                        }
+
+
+
+                        //if (row[3] != DBNull.Value)
+                        //{
+                        //    //myString += " - " + row[3].ToString();
+                        //    if (!string.IsNullOrEmpty(row[3].ToString()))
+                        //    {
+                        //        service.Price = Convert.ToDecimal(row[3].ToString());
+                        //    }
+                        //}
+
+                        Debug.WriteLine(myString);
+
+
+                        //    fzp.FakturaZakupu = fz;
+                        //    fzp.Save();
+                    }
+
+                    ObjectSpace.CommitChanges();
+                    ObjectSpace.Refresh();
+
+                    SplashScreenManager.CloseForm(false);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    SplashScreenManager.CloseForm(false);
+                    Tracing.Tracer.LogError(ex);
+                    MessageOptions mo = new MessageOptions();
+                    mo.Duration = 3000;
+                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
+                    mo.Type = InformationType.Error;
+                    mo.OkDelegate = () =>
+                    {
+                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
+                        //ErrorBox eb = new ErrorBox(ex.Message);
+                        //DetailView dv = Application.CreateDetailView(os, eb);
+
+                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
+                    };
+                    Application.ShowViewStrategy.ShowMessage(mo);
+                }
+
+            }
+        }
     }
 }

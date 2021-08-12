@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="Confirmed" ImageName="BO_Order" />
+      <Action Id="UnConfirmed" ImageName="BO_Quote" />
+    </Actions>
+  </ActionDesign>
+</Application>

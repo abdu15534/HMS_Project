@@ -617,6 +617,7 @@
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="editors\CustomUserControlViewItem.cs" />
     <Compile Include="InitialData\Accounts.cs" />
+    <Compile Include="InitialData\CatagoryInitialData.cs" />
     <Compile Include="InitialData\ClincData.cs" />
     <Compile Include="InitialData\ClinicServiceInitialData.cs" />
     <Compile Include="InitialData\PaymentData.cs" />

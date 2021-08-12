@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StockProduct">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="quantity" Caption="الكمية " />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="Inventory_StockProducts_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+      </Columns>
+    </ListView>
+    <DetailView Id="StockProduct_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="quantity" Caption="الكمية " />
+      </Items>
+    </DetailView>
+    <ListView Id="StockProduct_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+      </Columns>
+    </ListView>
+    <ListView Id="StockProduct_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

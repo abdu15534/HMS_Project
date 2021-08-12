@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Validation Id="Validation">
+    <Rules Id="Rules">
+      <RuleUniqueValue Id="DevExpress.Persistent.Validation.RuleUniqueValue_XafDataModel.Module.BusinessObjects.test2.StockProduct_product" Removed="True" />
+    </Rules>
+  </Validation>
+</Application>

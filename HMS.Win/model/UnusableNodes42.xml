@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="date" Caption="تاريخ" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Appointment_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="date" Caption="تاريخ" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Autobb5a234c-15c8-422d-881d-f37eb5750578">
+            <LayoutGroup Id="Event_col2">
+              <LayoutItem Id="date" ViewItem="date" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Appointment_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="date" Caption="تاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="bed_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="room" Caption="الغرفة" />
+        <ColumnInfo Id="isAvailable" SortIndex="0" SortOrder="Descending" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="date" Caption="تاريخ" />
+      </Columns>
+    </ListView>
+    <ListView Id="Physician_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="date" Caption="تاريخ" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

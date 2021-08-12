@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Companion_CompanionDetailsCollection_ListView" Caption="المرافق">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Companion" Caption="المرافق" />
+        <ColumnInfo Id="Oid" Caption="الكود" />
+        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Companion_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="CompanionDetailsCollection" Caption="المرافق" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+      <Items Id="Items">
+        <PropertyEditor Id="CompanionDetailsCollection" Caption="المرافق" />
+      </Items>
+    </DetailView>
+    <DetailView Id="ReceptionDesk_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="transferFrom" Caption="تحويل من" />
+      </Items>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Companion">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="CompanionDetailsCollection" Caption="المرافق" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

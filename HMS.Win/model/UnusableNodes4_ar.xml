@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Supplier">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="ID" Caption="الكود" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Supplier_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="ID" Caption="الكود" />
+      </Items>
+    </DetailView>
+    <ListView Id="Supplier_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ID" Caption="الكود" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

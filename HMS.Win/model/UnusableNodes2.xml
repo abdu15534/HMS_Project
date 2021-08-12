@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <ActionDesign Id="ActionDesign">
+    <Actions Id="Actions">
+      <Action Id="CheckOutAction" TargetObjectsCriteria="[IsDischarged] &lt;&gt; True And [Patient.creditor] &gt;= [Patient.debtor]" ConfirmationMessage="Check out this stay ?" ImageMode="UseActionImage" ImageName="Walking_32x32" />
+    </Actions>
+  </ActionDesign>
+</Application>

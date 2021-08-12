@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Stay_ListView" ViewId="Stay_ListView" />
+        </Items>
+      </Item>
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="bond_ListView" ViewId="bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="JournalEntry_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

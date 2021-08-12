@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Physician_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Description" Caption="الوصف" />
+        <ColumnInfo Id="IsPostponed" Caption="مؤجل" />
+        <ColumnInfo Id="Status" Caption="الحالة" />
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="clinc" Caption="العيادة" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Physician_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Address1" Caption="العنوان 1" />
+        <PropertyEditor Id="Address2" Caption="العنوان 2" />
+        <PropertyEditor Id="Birthday" Caption="تاريخ الميلاد" />
+        <PropertyEditor Id="DisplayName" Caption="الإسم المعروض" />
+        <PropertyEditor Id="FirstName" Caption="الإسم الأول" />
+        <PropertyEditor Id="FullName" Caption="الإسم بالكامل" />
+        <PropertyEditor Id="LastName" Caption="الإسم الأخير" />
+        <PropertyEditor Id="MiddleName" Caption="الإسم الأوسط" />
+        <PropertyEditor Id="PhoneNumbers" Caption="أرقام الهاتف" />
+        <PropertyEditor Id="Photo" Caption="صورة" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <TabbedGroup Id="Tabs">
+            <LayoutGroup Id="PhoneNumbers" Caption="أرقام الهاتف" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Physician_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Address1" Caption="العنوان 1" />
+        <ColumnInfo Id="Address2" Caption="العنوان 2" />
+        <ColumnInfo Id="Birthday" Caption="تاريخ الميلاد" />
+        <ColumnInfo Id="DisplayName" Caption="الإسم المعروض" />
+        <ColumnInfo Id="FirstName" Caption="الإسم الأول" />
+        <ColumnInfo Id="LastName" Caption="الإسم الأخير" />
+        <ColumnInfo Id="MiddleName" Caption="الإسم الأوسط" />
+        <ColumnInfo Id="Photo" Caption="صورة" />
+        <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
+      </Columns>
+    </ListView>
+    <ListView Id="Physician_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Admission_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="doctor.FullName" Caption="الطبيب المُشرف" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

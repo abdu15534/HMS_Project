@@ -79,7 +79,7 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         {
             get { return (decimal)(EvaluateAlias(nameof(suppliesSum))); }
         }
-        [PersistentAlias("[medicationSum] + [servicesSum] + [suppliesSum] + [supervision]")]
+        [PersistentAlias("[medicationSum] + [servicesSum] + [suppliesSum] + [EmergencyServicesSum] + [ExamFees] + [EndoscopySum] + [TestSum] + [XraySum]")]
         public decimal TotalSum
         {
             get { return (decimal)(EvaluateAlias(nameof(TotalSum))); }
@@ -99,6 +99,33 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         public decimal EmergencyServicesSum
         {
             get { return (decimal)(EvaluateAlias(nameof(EmergencyServicesSum))); }
+        }
+        decimal fExamFees;
+        public decimal ExamFees
+        {
+            get { return fExamFees; }
+            set { SetPropertyValue<decimal>(nameof(ExamFees), ref fExamFees, value); }
+        }
+        [PersistentAlias("Iif([EndscopeDetailsCollection][].Sum([price]) Is Null, 0.0m, [EndscopeDetailsCollection][].Sum([price]))")]
+        public decimal EndoscopySum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(EndoscopySum))); }
+        }
+        [PersistentAlias("Iif([TestDetailsCollection][].Sum([price]) Is Null, 0.0m, [TestDetailsCollection][].Sum([price]))")]
+        public decimal TestSum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(TestSum))); }
+        }
+        string fField1;
+        public string Field1
+        {
+            get { return fField1; }
+            set { SetPropertyValue<string>(nameof(Field1), ref fField1, value); }
+        }
+        [PersistentAlias("Iif([XraysDetailsCollection][].Sum([price]) Is Null, 0.0m, [XraysDetailsCollection][].Sum([price]))")]
+        public decimal XraySum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(XraySum))); }
         }
         [Association(@"StayMedicationsReferencesEmergency"), Aggregated]
         public XPCollection<StayMedications> StayMedicationsCollection { get { return GetCollection<StayMedications>(nameof(StayMedicationsCollection)); } }

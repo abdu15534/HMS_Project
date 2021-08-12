@@ -19,7 +19,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Product : XPBaseObject
     {
         int fid;
-        [Key(true)]
+        [Key]
         public int id
         {
             get { return fid; }

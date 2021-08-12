@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Transaction" Caption="التحويل" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="ID" Caption="كود المريض" />
+      </Items>
+    </DetailView>
+    <ListView Id="Patient_Appointments_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Transaction" Caption="التحويل" Index="-1" />
+        <ColumnInfo Id="TransactionsSecond" Index="-1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Appointment_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Transaction" Caption="التحويل" />
+      </Items>
+    </DetailView>
+    <ListView Id="Appointment_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ID" Width="32" Index="-1" />
+      </Columns>
+    </ListView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="In-Patient">
+        <Items Id="Items">
+          <Item Id="Patient_ListView">
+            <Items Id="Items">
+              <Item Id="Physician_ListView" ViewId="Physician_ListView" />
+            </Items>
+          </Item>
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

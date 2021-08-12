@@ -33,6 +33,8 @@ namespace HMS.Module.Win.Controllers
             this.AddDepartmentsServices = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AddXrayServices = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AddTests = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.AddStock = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.AddPharmacy = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // AddDepartmentsServices
             // 
@@ -67,11 +69,35 @@ namespace HMS.Module.Win.Controllers
             this.AddTests.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.AddTests.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AddTests_Execute);
             // 
+            // AddStock
+            // 
+            this.AddStock.Caption = "اظافة مستلزمات";
+            this.AddStock.ConfirmationMessage = null;
+            this.AddStock.Id = "AddStock";
+            this.AddStock.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
+            this.AddStock.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.AddStock.ToolTip = null;
+            this.AddStock.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.AddStock.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AddStock_Execute);
+            // 
+            // AddPharmacy
+            // 
+            this.AddPharmacy.Caption = "اظافة أدوية";
+            this.AddPharmacy.ConfirmationMessage = null;
+            this.AddPharmacy.Id = "AddPharmacy";
+            this.AddPharmacy.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
+            this.AddPharmacy.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.AddPharmacy.ToolTip = null;
+            this.AddPharmacy.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.AddPharmacy.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AddPharmacy_Execute);
+            // 
             // DataImportController
             // 
             this.Actions.Add(this.AddDepartmentsServices);
             this.Actions.Add(this.AddXrayServices);
             this.Actions.Add(this.AddTests);
+            this.Actions.Add(this.AddStock);
+            this.Actions.Add(this.AddPharmacy);
 
         }
 
@@ -80,5 +106,7 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction AddDepartmentsServices;
         private DevExpress.ExpressApp.Actions.SimpleAction AddXrayServices;
         private DevExpress.ExpressApp.Actions.SimpleAction AddTests;
+        private DevExpress.ExpressApp.Actions.SimpleAction AddStock;
+        private DevExpress.ExpressApp.Actions.SimpleAction AddPharmacy;
     }
 }

@@ -187,7 +187,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fMedicalSupervisionSum; }
             set { SetPropertyValue<decimal>(nameof(MedicalSupervisionSum), ref fMedicalSupervisionSum, value); }
         }
-        [PersistentAlias("[companionSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum]")]
+        [PersistentAlias("[companionSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum] + [ConsolationSum]")]
         public decimal stayTotalSum
         {
             get { return (decimal)(EvaluateAlias(nameof(stayTotalSum))); }

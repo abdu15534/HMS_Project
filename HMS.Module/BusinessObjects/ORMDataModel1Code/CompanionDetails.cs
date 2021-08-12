@@ -16,7 +16,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public CompanionDetails(Session session) : base(session)
         {
         }
-        public override void AfterConstruction() { base.AfterConstruction(); date = DateTime.Now.Date; }
+        public override void AfterConstruction() { base.AfterConstruction(); date = DateTime.Now.Date; price = 100; }
 
 
 
@@ -27,11 +27,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 if(this.Stay.Patient.Nationality != Patient.Nationalitys.مصر)
                 {
-                    price = 100 * Convert.ToDecimal(1.5);
+                    price = price * Convert.ToDecimal(1.5);
                 }
                 else
                 {
-                    price = 100;
+                    price = price;
                 }
             }
         }

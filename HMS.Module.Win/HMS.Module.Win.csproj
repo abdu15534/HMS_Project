@@ -445,6 +445,12 @@
     <Compile Include="Controllers\DataImportController.Designer.cs">
       <DependentUpon>DataImportController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\Departments.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\Departments.Designer.cs">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EmergencyViewController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -936,6 +942,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\DataImportController.resx">
       <DependentUpon>DataImportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Departments.resx">
+      <DependentUpon>Departments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\EmergencyViewController.resx">
       <DependentUpon>EmergencyViewController.cs</DependentUpon>

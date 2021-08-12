@@ -352,9 +352,14 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.DetailReport13 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail14 = new DevExpress.XtraReports.UI.DetailBand();
-            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.xrTable29 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow40 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell127 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell136 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell135 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell133 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell134 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ReportHeader9 = new DevExpress.XtraReports.UI.ReportHeaderBand();
-            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable28 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow39 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell128 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -362,16 +367,11 @@ namespace HMS.Module.Win.reports
             this.xrTableCell130 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell131 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell132 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrLabel20 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrTable29 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow40 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell127 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell133 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell134 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell135 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell136 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable11)).BeginInit();
@@ -409,9 +409,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -2081,7 +2081,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader2,
             this.GroupFooter6});
             this.DetailReport10.DataSource = this.Xrays;
-            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID";
+            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
+    "taModel.Module.BusinessObjects.test2.ServiceTypes,الأشعة#";
             this.DetailReport10.Level = 6;
             this.DetailReport10.Name = "DetailReport10";
             // 
@@ -2321,7 +2322,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader3,
             this.GroupFooter7});
             this.DetailReport11.DataSource = this.Test;
-            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID";
+            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
+    "taModel.Module.BusinessObjects.test2.ServiceTypes,تحاليل#";
             this.DetailReport11.Level = 7;
             this.DetailReport11.Name = "DetailReport11";
             // 
@@ -2560,7 +2562,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader4,
             this.GroupFooter8});
             this.DetailReport12.DataSource = this.Endscope;
-            this.DetailReport12.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'Endoscopy\'";
+            this.DetailReport12.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
+    "taModel.Module.BusinessObjects.test2.ServiceTypes,الجهاز_الهضمى_و_المناظير#";
             this.DetailReport12.Level = 8;
             this.DetailReport12.Name = "DetailReport12";
             // 
@@ -3797,7 +3800,6 @@ namespace HMS.Module.Win.reports
             this.ReportHeader7,
             this.ReportFooter6});
             this.DetailReport6.DataSource = this.services;
-            this.DetailReport6.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Blood\'";
             this.DetailReport6.Level = 10;
             this.DetailReport6.Name = "DetailReport6";
             // 
@@ -4038,8 +4040,6 @@ namespace HMS.Module.Win.reports
             this.ReportHeader8,
             this.ReportFooter7});
             this.DetailReport7.DataSource = this.services;
-            this.DetailReport7.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Other\' Or [Stay." +
-    "reception.enterID] = ?enterID And [Service.ServiceType] = \'Deceased\'";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 
@@ -4717,12 +4717,83 @@ namespace HMS.Module.Win.reports
             this.Detail14.HeightF = 25F;
             this.Detail14.Name = "Detail14";
             // 
-            // xpObjectSource2
+            // xrTable29
             // 
-            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
-    "1.0.7893.42138, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource2.Name = "xpObjectSource2";
+            this.xrTable29.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTable29.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTable29.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable29.Name = "xrTable29";
+            this.xrTable29.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
+            this.xrTable29.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow40});
+            this.xrTable29.SizeF = new System.Drawing.SizeF(800.9998F, 25F);
+            this.xrTable29.StylePriority.UseBorderColor = false;
+            this.xrTable29.StylePriority.UseBorders = false;
+            this.xrTable29.StylePriority.UsePadding = false;
+            // 
+            // xrTableRow40
+            // 
+            this.xrTableRow40.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell127,
+            this.xrTableCell136,
+            this.xrTableCell135,
+            this.xrTableCell133,
+            this.xrTableCell134});
+            this.xrTableRow40.Name = "xrTableRow40";
+            this.xrTableRow40.Weight = 11.5D;
+            // 
+            // xrTableCell127
+            // 
+            this.xrTableCell127.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Price]")});
+            this.xrTableCell127.Multiline = true;
+            this.xrTableCell127.Name = "xrTableCell127";
+            this.xrTableCell127.StylePriority.UseTextAlignment = false;
+            this.xrTableCell127.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell127.TextFormatString = "{0:n1}";
+            this.xrTableCell127.Weight = 0.3176562445643123D;
+            // 
+            // xrTableCell136
+            // 
+            this.xrTableCell136.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")});
+            this.xrTableCell136.Multiline = true;
+            this.xrTableCell136.Name = "xrTableCell136";
+            this.xrTableCell136.StylePriority.UseTextAlignment = false;
+            this.xrTableCell136.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell136.TextFormatString = "{0:dd/MM/yyyy}";
+            this.xrTableCell136.Weight = 0.30855393850801605D;
+            // 
+            // xrTableCell135
+            // 
+            this.xrTableCell135.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[From]")});
+            this.xrTableCell135.Multiline = true;
+            this.xrTableCell135.Name = "xrTableCell135";
+            this.xrTableCell135.StylePriority.UseTextAlignment = false;
+            this.xrTableCell135.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell135.Weight = 0.29624416311652074D;
+            // 
+            // xrTableCell133
+            // 
+            this.xrTableCell133.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Specialty]")});
+            this.xrTableCell133.Multiline = true;
+            this.xrTableCell133.Name = "xrTableCell133";
+            this.xrTableCell133.StylePriority.UseTextAlignment = false;
+            this.xrTableCell133.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell133.Weight = 0.28594523022507179D;
+            // 
+            // xrTableCell134
+            // 
+            this.xrTableCell134.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Name]")});
+            this.xrTableCell134.Multiline = true;
+            this.xrTableCell134.Name = "xrTableCell134";
+            this.xrTableCell134.StylePriority.UseTextAlignment = false;
+            this.xrTableCell134.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell134.Weight = 0.26948533160516985D;
             // 
             // ReportHeader9
             // 
@@ -4731,27 +4802,6 @@ namespace HMS.Module.Win.reports
             this.xrLabel20});
             this.ReportHeader9.HeightF = 52.64998F;
             this.ReportHeader9.Name = "ReportHeader9";
-            // 
-            // xrLabel20
-            // 
-            this.xrLabel20.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.xrLabel20.BorderColor = System.Drawing.Color.LightGray;
-            this.xrLabel20.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrLabel20.Multiline = true;
-            this.xrLabel20.Name = "xrLabel20";
-            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel20.SizeF = new System.Drawing.SizeF(801F, 27.65F);
-            this.xrLabel20.StylePriority.UseBackColor = false;
-            this.xrLabel20.StylePriority.UseBorderColor = false;
-            this.xrLabel20.StylePriority.UseBorders = false;
-            this.xrLabel20.StylePriority.UseFont = false;
-            this.xrLabel20.StylePriority.UseTextAlignment = false;
-            this.xrLabel20.Text = "مرور استشاري خارجي";
-            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable28
             // 
@@ -4873,6 +4923,27 @@ namespace HMS.Module.Win.reports
             this.xrTableCell132.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell132.Weight = 289.88415868255436D;
             // 
+            // xrLabel20
+            // 
+            this.xrLabel20.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.xrLabel20.BorderColor = System.Drawing.Color.LightGray;
+            this.xrLabel20.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel20.Multiline = true;
+            this.xrLabel20.Name = "xrLabel20";
+            this.xrLabel20.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel20.SizeF = new System.Drawing.SizeF(801F, 27.65F);
+            this.xrLabel20.StylePriority.UseBackColor = false;
+            this.xrLabel20.StylePriority.UseBorderColor = false;
+            this.xrLabel20.StylePriority.UseBorders = false;
+            this.xrLabel20.StylePriority.UseFont = false;
+            this.xrLabel20.StylePriority.UseTextAlignment = false;
+            this.xrLabel20.Text = "مرور استشاري خارجي";
+            this.xrLabel20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // GroupFooter2
             // 
             this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -4927,83 +4998,12 @@ namespace HMS.Module.Win.reports
             this.xrLabel31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel31.TextFormatString = "{0:n1}";
             // 
-            // xrTable29
+            // xpObjectSource2
             // 
-            this.xrTable29.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTable29.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable29.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrTable29.Name = "xrTable29";
-            this.xrTable29.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
-            this.xrTable29.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow40});
-            this.xrTable29.SizeF = new System.Drawing.SizeF(800.9998F, 25F);
-            this.xrTable29.StylePriority.UseBorderColor = false;
-            this.xrTable29.StylePriority.UseBorders = false;
-            this.xrTable29.StylePriority.UsePadding = false;
-            // 
-            // xrTableRow40
-            // 
-            this.xrTableRow40.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell127,
-            this.xrTableCell136,
-            this.xrTableCell135,
-            this.xrTableCell133,
-            this.xrTableCell134});
-            this.xrTableRow40.Name = "xrTableRow40";
-            this.xrTableRow40.Weight = 11.5D;
-            // 
-            // xrTableCell127
-            // 
-            this.xrTableCell127.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Price]")});
-            this.xrTableCell127.Multiline = true;
-            this.xrTableCell127.Name = "xrTableCell127";
-            this.xrTableCell127.StylePriority.UseTextAlignment = false;
-            this.xrTableCell127.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell127.TextFormatString = "{0:n1}";
-            this.xrTableCell127.Weight = 0.3176562445643123D;
-            // 
-            // xrTableCell133
-            // 
-            this.xrTableCell133.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Specialty]")});
-            this.xrTableCell133.Multiline = true;
-            this.xrTableCell133.Name = "xrTableCell133";
-            this.xrTableCell133.StylePriority.UseTextAlignment = false;
-            this.xrTableCell133.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell133.Weight = 0.28594523022507179D;
-            // 
-            // xrTableCell134
-            // 
-            this.xrTableCell134.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Name]")});
-            this.xrTableCell134.Multiline = true;
-            this.xrTableCell134.Name = "xrTableCell134";
-            this.xrTableCell134.StylePriority.UseTextAlignment = false;
-            this.xrTableCell134.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell134.Weight = 0.26948533160516985D;
-            // 
-            // xrTableCell135
-            // 
-            this.xrTableCell135.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[From]")});
-            this.xrTableCell135.Multiline = true;
-            this.xrTableCell135.Name = "xrTableCell135";
-            this.xrTableCell135.StylePriority.UseTextAlignment = false;
-            this.xrTableCell135.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell135.Weight = 0.29624416311652074D;
-            // 
-            // xrTableCell136
-            // 
-            this.xrTableCell136.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")});
-            this.xrTableCell136.Multiline = true;
-            this.xrTableCell136.Name = "xrTableCell136";
-            this.xrTableCell136.StylePriority.UseTextAlignment = false;
-            this.xrTableCell136.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell136.TextFormatString = "{0:dd/MM/yyyy}";
-            this.xrTableCell136.Weight = 0.30855393850801605D;
+            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
+    "1.0.7893.42138, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource2.Name = "xpObjectSource2";
             // 
             // StayDetailReport
             // 
@@ -5097,9 +5097,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

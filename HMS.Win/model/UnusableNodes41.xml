@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Validation Id="Validation">
+    <Rules Id="Rules">
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Admission_admissionID" Removed="True" />
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Admission_Patient" Removed="True" />
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Admission_Room" Removed="True" />
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Admission_StayStart" Removed="True" />
+    </Rules>
+  </Validation>
+</Application>
