@@ -29,6 +29,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             this.purchasingUnit = unit;
             this.sellUnit = unit;
         }
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (this.category != null)
+            {
+                if (this.category.name == "مستهلكات")
+                {
+                    this.barCode = this.id.ToString();
+                }
+            }
+        }
     }
 
 }

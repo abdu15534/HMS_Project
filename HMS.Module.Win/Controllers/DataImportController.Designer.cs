@@ -35,6 +35,7 @@ namespace HMS.Module.Win.Controllers
             this.AddTests = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AddStock = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AddPharmacy = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.PrintProductLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // AddDepartmentsServices
             // 
@@ -71,7 +72,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddStock
             // 
-            this.AddStock.Caption = "اظافة مستلزمات";
+            this.AddStock.Caption = "اظافة المستهلكات";
             this.AddStock.ConfirmationMessage = null;
             this.AddStock.Id = "AddStock";
             this.AddStock.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
@@ -91,6 +92,17 @@ namespace HMS.Module.Win.Controllers
             this.AddPharmacy.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.AddPharmacy.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AddPharmacy_Execute);
             // 
+            // PrintProductLable
+            // 
+            this.PrintProductLable.Caption = "طباعة ملصق";
+            this.PrintProductLable.ConfirmationMessage = null;
+            this.PrintProductLable.Id = "PrintProductLable";
+            this.PrintProductLable.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
+            this.PrintProductLable.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.PrintProductLable.ToolTip = null;
+            this.PrintProductLable.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.PrintProductLable.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PrintProductLable_Execute);
+            // 
             // DataImportController
             // 
             this.Actions.Add(this.AddDepartmentsServices);
@@ -98,6 +110,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.AddTests);
             this.Actions.Add(this.AddStock);
             this.Actions.Add(this.AddPharmacy);
+            this.Actions.Add(this.PrintProductLable);
 
         }
 
@@ -108,5 +121,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction AddTests;
         private DevExpress.ExpressApp.Actions.SimpleAction AddStock;
         private DevExpress.ExpressApp.Actions.SimpleAction AddPharmacy;
+        private DevExpress.ExpressApp.Actions.SimpleAction PrintProductLable;
     }
 }

@@ -1045,12 +1045,12 @@
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
+        <ColumnInfo Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
+        <ColumnInfo Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
         <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="Patient" Caption="المريض" />
         <ColumnInfo Id="date" Caption="تاريخ" />
-        <ColumnInfo Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
-        <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
-        <ColumnInfo Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
       </Columns>
     </ListView>
     <ListView Id="Emergency_LookupListView">
@@ -1075,8 +1075,8 @@
     <ListView Id="Emergency_StayMedicationsCollection_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
-        <ColumnInfo Id="profit" Caption="الربح" />
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="profit" Caption="الربح" />
       </Columns>
     </ListView>
     <ListView Id="Emergency_SuppliesCollection_ListView">

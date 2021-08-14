@@ -178,53 +178,62 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             
                         var denominator = Session.Query<PurchasingOrderDetail>().Where(o => o.product == stockProduct.product && (o.puchasingOrder.isConfirmed == true || o.puchasingOrder == this)).Sum(p => Convert.ToDecimal(p.quantity));
                         if (denominator == 0)
+                        {
                             stockProduct.product.purchasingPrice = 0;
-                        else
-                            stockProduct.product.purchasingPrice = numerator / denominator;
-                            if(this.inventory.InventoryType == Inventory.InventoryTypes.Stock)
-                            {
-                                if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(3);
-                                }
-                            else if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2.5);
-                                }
-                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2);
-                                }
-                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.7);
-                                }
-                            else if(stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.5);
-                            }
-                            else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
-                            {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.35);
-                            }
-                            else
-                                {
-                                stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.3);
-                            }
+                            Console.WriteLine("denominator == 0");
                         }
                         else
                         {
-                            if(denominator != 0m) 
+                            stockProduct.product.purchasingPrice = numerator / denominator;
+                            if (this.inventory.InventoryType == Inventory.InventoryTypes.Stock)
                             {
-                                stockProduct.product.sellingPrice = newMedicenPrice / denominator;
+                                Console.WriteLine("Inventory.InventoryTypes.Stock");
+                                if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(3);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2.5);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.7);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.5);
+                                }
+                                else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.35);
+                                }
+                                else
+                                {
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.3);
+                                }
                             }
                             else
                             {
-                                stockProduct.product.sellingPrice = newMedicenPrice;
+                                if (denominator != 0m)
+                                {
+                                    Console.WriteLine("denominator != 0m");
+                                    stockProduct.product.sellingPrice = newMedicenPrice / denominator;
+                                }
+                                else
+                                {
+                                    stockProduct.product.sellingPrice = newMedicenPrice;
+                                    Console.WriteLine("denominator != 0m");
+                                }
+
                             }
-                            
                         }
                     }
+                    Console.WriteLine(stockProduct.product.sellingPrice.ToString() + " purchaseing order");
                 }
                 else
                 {
@@ -245,31 +254,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         {
                             if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(3);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(3);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(2.5);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(2.5);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(2);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(2);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.7);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.7);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.5);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.5);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.35);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.35);
                             }
                             else
                             {
-                                stockProduct.product.purchasingPrice *= Convert.ToDecimal(1.3);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.3);
                             }
                         }
 

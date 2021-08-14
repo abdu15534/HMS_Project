@@ -847,6 +847,12 @@
     <Compile Include="reports\StayTotals2.Designer.cs">
       <DependentUpon>StayTotals2.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\StockProductLable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StockProductLable.Designer.cs">
+      <DependentUpon>StockProductLable.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\SupplierItems.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1137,6 +1143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\StayTotals2.resx">
       <DependentUpon>StayTotals2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StockProductLable.resx">
+      <DependentUpon>StockProductLable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\SupplierItems.resx">
       <DependentUpon>SupplierItems.cs</DependentUpon>

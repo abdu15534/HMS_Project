@@ -1930,6 +1930,8 @@ namespace HMS.Module.Win.reports
             this.Detail15,
             this.GroupFooter13});
             this.DetailReport14.DataSource = this.xpObjectSource7;
+            this.DetailReport14.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
+    "ypes,Other# And [Stay.reception.enterID] = ?parameter1";
             this.DetailReport14.Level = 11;
             this.DetailReport14.Name = "DetailReport14";
             // 
@@ -1998,6 +2000,8 @@ namespace HMS.Module.Win.reports
             this.Detail16,
             this.GroupFooter12});
             this.DetailReport15.DataSource = this.xpObjectSource7;
+            this.DetailReport15.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = ##Enum#XafData" +
+    "Model.Module.BusinessObjects.test2.ServiceTypes,Blood#";
             this.DetailReport15.Level = 10;
             this.DetailReport15.Name = "DetailReport15";
             // 

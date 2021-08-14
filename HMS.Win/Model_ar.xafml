@@ -1014,9 +1014,9 @@
     <ListView Id="Admission_StockDetailsCollection_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="الطوارئ" />
-        <ColumnInfo Id="supplyProduct" Caption="منتج" />
-        <ColumnInfo Id="supplyProduct.product.sellUnit" Caption="وحدة البيع" />
         <ColumnInfo Id="profit" Caption="الربح" />
+        <ColumnInfo Id="supplyProduct.product.sellUnit" Caption="وحدة البيع" />
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
       </Columns>
     </ListView>
     <ListView Id="Admission_SupervisionDetailsCollection_ListView">
@@ -1435,18 +1435,13 @@
         <PropertyEditor Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
         <PropertyEditor Id="TotalSum" Caption="الإجمالى" />
       </Items>
-      <Layout>
-        <LayoutGroup Id="SimpleEditors">
-          <LayoutGroup Id="Emergency" Caption="الطوارئ" />
-        </LayoutGroup>
-      </Layout>
     </DetailView>
     <ListView Id="Emergency_ListView">
       <Columns>
-        <ColumnInfo Id="doctor" Caption="الطبيب" />
-        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى الأدوية" />
+        <ColumnInfo Id="servicesSum" Caption="إجمالى الخدمات" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" />
+        <ColumnInfo Id="doctor" Caption="الطبيب" />
         <ColumnInfo Id="TotalSum" Caption="الإجمالى" />
       </Columns>
     </ListView>

@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using DevExpress.XtraRichEdit.Layout;
 using System.Diagnostics;
 using XafDataModel.Module.BusinessObjects.test2;
+using DevExpress.XtraReports.UI;
 
 namespace HMS.Module.Win.Controllers
 {
@@ -691,14 +692,14 @@ namespace HMS.Module.Win.Controllers
 
             OpenFileDialog excel = new OpenFileDialog();
             excel.Filter = "Dokument excel|*.xls;*.xlsx";
-            excel.Title = "أختر الملف الذي يحتوي على التحالي";
+            excel.Title = "أختر الملف الذي يحتوي على الأدوية";
             if (excel.ShowDialog() == DialogResult.OK)
             {
 
                 try
                 {
 
-                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
+                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الأدوية ...");
 
 
                     using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
@@ -843,6 +844,7 @@ namespace HMS.Module.Win.Controllers
                                 }
                             }
                         }
+                        product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "دواء"));
 
                         Debug.WriteLine(myString);
 
@@ -886,14 +888,14 @@ namespace HMS.Module.Win.Controllers
 
             OpenFileDialog excel = new OpenFileDialog();
             excel.Filter = "Dokument excel|*.xls;*.xlsx";
-            excel.Title = "أختر الملف الذي يحتوي على التحالي";
+            excel.Title = "أختر الملف الذي يحتوي على المستهلكات";
             if (excel.ShowDialog() == DialogResult.OK)
             {
 
                 try
                 {
 
-                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
+                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ المستهلكات ...");
 
 
                     using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
@@ -1007,12 +1009,12 @@ namespace HMS.Module.Win.Controllers
                             myString += " - " + row[2].ToString();
                             if (!string.IsNullOrEmpty(row[2].ToString()))
                             {
-                                product.sellingPrice = Convert.ToDecimal(row[2].ToString());
+                                product.purchasingPrice = Convert.ToDecimal(row[2].ToString());
                             }
 
                         }
 
-
+                        product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
 
                         //if (row[3] != DBNull.Value)
                         //{
@@ -1056,6 +1058,15 @@ namespace HMS.Module.Win.Controllers
                 }
 
             }
+        }
+
+        private void PrintProductLable_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.StockProductLable report = new reports.StockProductLable();
+
+            var curr = View.CurrentObject as Product;
+            report.Parameters["parameter1"].Value = curr.id;
+            report.ShowPreviewDialog();
         }
     }
 }

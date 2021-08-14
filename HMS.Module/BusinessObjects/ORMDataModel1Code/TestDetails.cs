@@ -41,6 +41,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         this.price = ((Service)newValue).Price;
                     }
                 }
+                else if (this.Emergency != null)
+                {
+                    if (this.Emergency.Patient != null && this.Emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).Price;
+                    }
+                }
             }
         }
     }

@@ -3800,6 +3800,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader7,
             this.ReportFooter6});
             this.DetailReport6.DataSource = this.services;
+            this.DetailReport6.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = ##Enum#XafDataMod" +
+    "el.Module.BusinessObjects.test2.ServiceTypes,Blood#";
             this.DetailReport6.Level = 10;
             this.DetailReport6.Name = "DetailReport6";
             // 
@@ -4040,6 +4042,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader8,
             this.ReportFooter7});
             this.DetailReport7.DataSource = this.services;
+            this.DetailReport7.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = ##Enum#XafDataMod" +
+    "el.Module.BusinessObjects.test2.ServiceTypes,Other#";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 

@@ -16,6 +16,7 @@
       <Action Id="PatientLable" ImageName="Shopping_Barcode" />
       <Action Id="PaymentVoucher" ImageName="Shopping_CashVoucher" />
       <Action Id="PostSalaryPayment" TargetObjectsCriteria="[post] = False And [SalaryDetailsCollection][].Count() &gt; 0" />
+      <Action Id="PrintProductLable" ImageName="Shopping_Barcode" />
       <Action Id="RestoreDatabase" ImageName="Up" />
       <Action Id="SalaryPayment" TargetObjectsCriteria="[date] &lt;&gt; null And [SalaryDetailsCollection][].Count() = 0" Caption="تجهيز المرتبات" />
       <Action Id="Transfer" ImageName="MovePivotTable" TargetObjectsCriteria="[isDischarged] = False" />
@@ -1222,6 +1223,7 @@
     </DetailView>
     <ListView Id="Admission_EndscopeDetailsCollection_ListView" IsFooterVisible="True">
       <Columns>
+        <ColumnInfo Id="Emergency" Index="-1" />
         <ColumnInfo Id="Endscope" Index="-1" />
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="79" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
@@ -1311,14 +1313,14 @@
       <Columns>
         <ColumnInfo Id="emergency" Index="-1" Caption="طوارئ" />
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" Index="-1" />
+        <ColumnInfo Id="profit" Width="56" Caption="الربح" Index="-1" />
         <ColumnInfo Id="Medication" Width="59" Index="0" SortIndex="-1" SortOrder="None" DataSourceCriteria="[Inventory.InventoryType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes,Pharmacy#" />
         <ColumnInfo Id="Medication.product.name" PropertyName="Medication.product.name" Index="1" Width="94" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="quantity" Width="73" Index="2" SortIndex="0" SortOrder="Descending" />
         <ColumnInfo Id="Medication.product.sellUnit" PropertyName="Medication.product.sellUnit" Index="3" Width="152" AllowClear="False" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Width="65" Index="4" />
         <ColumnInfo Id="price" Width="56" Index="5" />
-        <ColumnInfo Id="profit" Width="56" Caption="الربح" Index="6" />
-        <ColumnInfo Id="total" Width="56" Index="7">
+        <ColumnInfo Id="total" Width="56" Index="6">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1328,14 +1330,14 @@
     <ListView Id="Admission_StockDetailsCollection_ListView" Criteria="" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="emergency" Index="-1" Caption="طوارئ" />
+        <ColumnInfo Id="profit" Width="56" Index="-1" Caption="الربح" />
+        <ColumnInfo Id="supplyProduct.product.sellUnit" PropertyName="supplyProduct.product.sellUnit" Index="-1" Width="169" SortIndex="-1" SortOrder="None" AllowClear="False" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="supplyProduct" Width="83" Index="0" SortIndex="0" SortOrder="Ascending" />
         <ColumnInfo Id="supplyProduct.product.name" PropertyName="supplyProduct.product.name" Index="1" Width="99" AllowEdit="False" IsNewNode="True" />
-        <ColumnInfo Id="quantity" Width="60" Index="2" />
-        <ColumnInfo Id="supplyProduct.product.sellUnit" PropertyName="supplyProduct.product.sellUnit" Index="3" Width="169" SortIndex="-1" SortOrder="None" AllowClear="False" AllowEdit="False" IsNewNode="True" />
-        <ColumnInfo Id="date" Width="65" Index="4" />
-        <ColumnInfo Id="price" Width="56" Index="5" />
-        <ColumnInfo Id="profit" Width="56" Index="6" Caption="الربح" />
-        <ColumnInfo Id="total" Width="56" Index="7">
+        <ColumnInfo Id="quantity" Width="80" Index="2" />
+        <ColumnInfo Id="date" Width="65" Index="3" />
+        <ColumnInfo Id="price" Width="56" Index="4" />
+        <ColumnInfo Id="total" Width="56" Index="5">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1355,6 +1357,7 @@
     </ListView>
     <ListView Id="Admission_TestDetailsCollection_ListView" IsFooterVisible="True">
       <Columns>
+        <ColumnInfo Id="Emergency" Index="-1" />
         <ColumnInfo Id="Test" Index="-1" />
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="67" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
@@ -1368,6 +1371,7 @@
     </ListView>
     <ListView Id="Admission_XraysDetailsCollection_ListView" ShowFindPanel="False" IsFooterVisible="True">
       <Columns>
+        <ColumnInfo Id="Emergency" Index="-1" />
         <ColumnInfo Id="Xrays" Index="-1" />
         <ColumnInfo Id="service" Width="54" Index="0" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
@@ -1878,28 +1882,38 @@
         <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
-        <LayoutGroup Id="SimpleEditors" ShowCaption="False" Index="0" RelativeSize="44.507575757575758" IsNewNode="True">
-          <LayoutGroup Id="Emergency" ShowCaption="True" Direction="Horizontal" Index="0" RelativeSize="72.765957446808514" IsNewNode="True">
-            <LayoutGroup Id="Emergency_col2" ShowCaption="False" Index="0" RelativeSize="49.889624724061811" IsNewNode="True">
-              <LayoutItem Id="supervision" ViewItem="supervision" Index="0" RelativeSize="7.2463768115942031" IsNewNode="True" />
-              <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="EmergencyServicesSum" ViewItem="EmergencyServicesSum" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="4" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="TotalSum" ViewItem="TotalSum" Index="5" RelativeSize="23.188405797101449" IsNewNode="True" />
+        <TabbedGroup Id="Item7" CaptionLocation="Top" Index="0" RelativeSize="69.897959183673464" IsNewNode="True">
+          <LayoutGroup Id="SimpleEditors" ShowCaption="True" Index="0" RelativeSize="100" Caption="الرئيسية" IsNewNode="True">
+            <LayoutGroup Id="Emergency" ShowCaption="True" Direction="Horizontal" Index="0" RelativeSize="72.765957446808514" IsNewNode="True">
+              <LayoutGroup Id="Emergency_col2" ShowCaption="False" Index="0" RelativeSize="49.740034662045062" IsNewNode="True">
+                <LayoutItem Id="supervision" Index="0" RelativeSize="7.2463768115942031" IsNewNode="True" />
+                <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="EmergencyServicesSum" ViewItem="EmergencyServicesSum" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="4" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="TotalSum" ViewItem="TotalSum" Index="5" RelativeSize="23.188405797101449" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Emergency_col1" ShowCaption="False" Index="1" RelativeSize="50.259965337954938" IsNewNode="True">
+                <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="23.188405797101449" IsNewNode="True" />
+                <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="date" ViewItem="date" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="doctor" ViewItem="doctor" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
+                <LayoutItem Id="ExamFees" ViewItem="ExamFees" Index="4" RelativeSize="24.637681159420289" IsNewNode="True" />
+              </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Emergency_col1" ShowCaption="False" Index="1" RelativeSize="50.110375275938189" IsNewNode="True">
-              <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="23.188405797101449" IsNewNode="True" />
-              <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="date" ViewItem="date" Index="2" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="doctor" ViewItem="doctor" Index="3" RelativeSize="17.391304347826086" IsNewNode="True" />
-              <LayoutItem Id="ExamFees" ViewItem="ExamFees" Index="4" RelativeSize="24.637681159420289" IsNewNode="True" />
-            </LayoutGroup>
+            <LayoutItem Id="firstDiagnosis" ViewItem="firstDiagnosis" Index="1" RelativeSize="22.978723404255319" IsNewNode="True" />
+            <LayoutItem Id="Item1" Index="2" RelativeSize="4.25531914893617" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutItem Id="firstDiagnosis" ViewItem="firstDiagnosis" Index="1" RelativeSize="22.978723404255319" IsNewNode="True" />
-          <LayoutItem Id="Item1" Index="2" RelativeSize="4.25531914893617" IsNewNode="True" />
-        </LayoutGroup>
-        <TabbedGroup Id="Tabs" Index="1" RelativeSize="55.492424242424242" IsNewNode="True">
+          <LayoutGroup Id="Item8" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="تفاصيل" RelativeSize="100" IsNewNode="True">
+            <LayoutGroup Id="Autobc586ff5-dd9d-4bd1-8070-ca2d7418b73e" ShowCaption="False" Caption="Autobc586ff5-dd9d-4bd1-8070-ca2d7418b73e(20)" Direction="Horizontal" Index="0" RelativeSize="16.170212765957448" IsNewNode="True">
+              <LayoutItem Id="TestSum" ViewItem="TestSum" Index="0" RelativeSize="49.916527545909851" IsNewNode="True" />
+              <LayoutItem Id="EndoscopySum" ViewItem="EndoscopySum" Index="1" RelativeSize="50.083472454090149" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="XraySum" ViewItem="XraySum" Index="1" RelativeSize="10.212765957446809" IsNewNode="True" />
+            <LayoutItem Id="finalDiagnosis" ViewItem="finalDiagnosis" Index="2" RelativeSize="73.61702127659575" IsNewNode="True" />
+          </LayoutGroup>
+        </TabbedGroup>
+        <TabbedGroup Id="Tabs" Index="1" RelativeSize="30.102040816326532" IsNewNode="True">
           <LayoutGroup Id="StayMedicationsCollection" ShowCaption="True" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" Caption="الأدوية المستهلكة" IsNewNode="True">
             <LayoutItem Id="StayMedicationsCollection" TextAlignMode="AutoSize" ViewItem="StayMedicationsCollection" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
@@ -1912,17 +1926,17 @@
           <LayoutGroup Id="ServiceDetailsCollection" ShowCaption="True" TextAlignMode="AlignWithChildren" Index="3" RelativeSize="100" Caption="الخدمات الطبية" IsNewNode="True">
             <LayoutItem Id="ServiceDetailsCollection" TextAlignMode="AutoSize" ViewItem="ServiceDetailsCollection" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="4" TextAlignMode="AlignWithChildren" RelativeSize="100" Caption="Payments" IsNewNode="True">
-            <LayoutItem Id="PaymentsCollection" ViewItem="PaymentsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
-          </LayoutGroup>
-          <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="5" Caption="Tests" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="4" Caption="Tests" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
             <LayoutItem Id="TestDetailsCollection" ViewItem="TestDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="6" Caption="Xrays" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="Item5" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="5" Caption="Xrays" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
             <LayoutItem Id="XraysDetailsCollection" ViewItem="XraysDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="7" Caption="Endoscopy" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
+          <LayoutGroup Id="Item6" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="6" Caption="Endoscopy" TextAlignMode="AlignWithChildren" RelativeSize="100" IsNewNode="True">
             <LayoutItem Id="EndscopeDetailsCollection" ViewItem="EndscopeDetailsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="7" TextAlignMode="AlignWithChildren" RelativeSize="100" Caption="Payments" IsNewNode="True">
+            <LayoutItem Id="PaymentsCollection" ViewItem="PaymentsCollection" Index="0" RelativeSize="100" TextAlignMode="AutoSize" IsNewNode="True" />
           </LayoutGroup>
         </TabbedGroup>
         <LayoutGroup Id="Main" Removed="True" />
@@ -1945,21 +1959,28 @@
         <ColumnInfo Id="date" Index="3" />
       </Columns>
     </ListView>
-    <ListView Id="Emergency_ListView" IsFooterVisible="True">
+    <ListView Id="Emergency_ListView" IsFooterVisible="True" DataAccessMode="ServerView">
       <Columns>
         <ColumnInfo Id="amount" Index="-1" Caption="الكمية" />
+        <ColumnInfo Id="EmergencyServicesSum" Index="-1" />
+        <ColumnInfo Id="EndoscopySum" Index="-1" />
+        <ColumnInfo Id="ExamFees" Index="-1" />
+        <ColumnInfo Id="Field1" Index="-1" />
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="medicationSum" Width="95" Index="-1" Caption="إجمالى تكلفة الأدوية" />
+        <ColumnInfo Id="Paid" Index="-1" />
+        <ColumnInfo Id="servicesSum" Width="83" Index="-1" Caption="جمالى تكلفة الخدمات الطبية" />
+        <ColumnInfo Id="suppliesSum" Width="82" Index="-1" Caption="إجمالى تكلفة المستلزمات الطبية" />
+        <ColumnInfo Id="TestSum" Index="-1" />
         <ColumnInfo Id="Transaction" Width="77" Index="-1" Caption="التحويل" />
         <ColumnInfo Id="TransactionsSecond" SortIndex="0" SortOrder="Ascending" Index="-1" />
+        <ColumnInfo Id="XraySum" Index="-1" />
         <ColumnInfo Id="Patient" Width="69" Index="0" Caption="المريض" />
-        <ColumnInfo Id="doctor" Width="73" Index="1" />
+        <ColumnInfo Id="doctor" Width="119" Index="1" />
         <ColumnInfo Id="date" Width="65" Index="2" Caption="تاريخ" />
-        <ColumnInfo Id="servicesSum" Width="83" Index="4" Caption="جمالى تكلفة الخدمات الطبية" />
-        <ColumnInfo Id="medicationSum" Width="95" Index="5" Caption="إجمالى تكلفة الأدوية" />
-        <ColumnInfo Id="suppliesSum" Width="82" Index="6" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <ColumnInfo Id="TotalSum" Width="119" SortIndex="-1" SortOrder="None" Index="7">
+        <ColumnInfo Id="TotalSum" Width="119" SortIndex="-1" SortOrder="None" Index="3">
           <Summary>
             <ColumnSummaryItem Id="@639a4b50-ed58-4da8-80e6-1b1265722a0b" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -2007,6 +2028,8 @@
     <ListView Id="Emergency_StayMedicationsCollection_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" Index="-1" />
+        <ColumnInfo Id="profit" Caption="الربح" Index="-1" />
         <ColumnInfo Id="Stay" Index="-1" />
         <ColumnInfo Id="Medication" Index="0" />
         <ColumnInfo Id="Medication.product.name" PropertyName="Medication.product.name" Index="1" IsNewNode="True" />
@@ -2014,13 +2037,12 @@
         <ColumnInfo Id="date" Index="3" />
         <ColumnInfo Id="price" Index="4" />
         <ColumnInfo Id="total" Index="5" />
-        <ColumnInfo Id="profit" Caption="الربح" Index="6" />
-        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
       </Columns>
     </ListView>
     <ListView Id="Emergency_SuppliesCollection_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
+        <ColumnInfo Id="profit" Caption="الربح" Index="-1" />
         <ColumnInfo Id="Stay" Index="-1" />
         <ColumnInfo Id="supplyProduct" Index="0" />
         <ColumnInfo Id="supplyProduct.product.name" PropertyName="supplyProduct.product.name" Index="1" IsNewNode="True" />
@@ -2028,7 +2050,6 @@
         <ColumnInfo Id="date" Index="3" />
         <ColumnInfo Id="price" Index="4" />
         <ColumnInfo Id="total" Index="5" />
-        <ColumnInfo Id="profit" Caption="الربح" Index="6" />
       </Columns>
     </ListView>
     <ListView Id="Emergency_TestDetailsCollection_ListView">
@@ -4703,14 +4724,15 @@
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Emergency" Index="-1" />
-        <ColumnInfo Id="service" Index="0" Width="54" />
-        <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="222" IsNewNode="True" />
-        <ColumnInfo Id="price" Index="2" Width="107">
+        <ColumnInfo Id="service" Index="0" Width="0" />
+        <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="267" IsNewNode="True" />
+        <ColumnInfo Id="service.EnglishName" PropertyName="service.EnglishName" Index="2" Width="251" IsNewNode="True" />
+        <ColumnInfo Id="price" Index="3" Width="107">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
         </ColumnInfo>
-        <ColumnInfo Id="date" Index="3" Width="136" />
+        <ColumnInfo Id="date" Index="4" Width="136" />
       </Columns>
     </ListView>
     <ListView Id="XraysDetails_LookupListView" ShowFindPanel="False">

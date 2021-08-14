@@ -675,7 +675,7 @@
         </fields>
         <indexes>
           <xpObjectHasIndexes Id="d57a562e-53bc-4cad-99ba-956e043dc91b">
-            <index Id="306413f4-dd23-4c70-a2fc-9a60c759b9f6" name="Index1" unique="true">
+            <index Id="306413f4-dd23-4c70-a2fc-9a60c759b9f6" name="Index1">
               <fieldsInIndex>
                 <indexReferencesFields Id="1ef72d62-93cc-41c5-b801-0948f1d02b7c">
                   <fieldMoniker Id="cdaf886b-c700-4529-8722-9f19fabebe7b" />

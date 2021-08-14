@@ -26,7 +26,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         Admission fStay;
-        [Indexed(@"Medication", Name = @"Index1", Unique = true)]
+        [Indexed(@"Medication", Name = @"Index1")]
         [Association(@"StayMedicicationReferencesStay")]
         public Admission Stay
         {
