@@ -38,7 +38,6 @@ namespace HMS.Module.Win.reports
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -79,11 +78,17 @@ namespace HMS.Module.Win.reports
             this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.StartDate = new DevExpress.XtraReports.Parameters.RangeStartParameter();
+            this.EndDate = new DevExpress.XtraReports.Parameters.RangeEndParameter();
+            this.Date = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -141,18 +146,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Text = "كشف حسابات مرضى القسم الداخلى";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             this.xrTableCell2.Weight = 2.9597637771210623D;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // GroupHeader1
             // 
@@ -349,7 +342,7 @@ namespace HMS.Module.Win.reports
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.ReportFooter});
-            this.DetailReport.DataSource = this.xpObjectSource1;
+            this.DetailReport.DataSource = this.xpObjectSource2;
             this.DetailReport.FilterString = "[Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType," +
     "normal# And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate";
             this.DetailReport.Level = 0;
@@ -398,8 +391,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell12
             // 
             this.xrTableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([stayTotalSum]*(1+([reception].[ServiceRate]/100)))\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[stayTotalSum]*(1+([reception].[ServiceRate]/100))\n")});
             this.xrTableCell12.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell12.Multiline = true;
             this.xrTableCell12.Name = "xrTableCell12";
@@ -410,6 +402,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell12.StylePriority.UsePadding = false;
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell12.TextFormatString = "{0:n1}";
             this.xrTableCell12.Weight = 0.74326479865798833D;
             // 
             // xrTableCell13
@@ -426,6 +419,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell13.StylePriority.UsePadding = false;
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             this.xrTableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell13.TextFormatString = "{0:n1}";
             this.xrTableCell13.Weight = 0.74326479865798833D;
             // 
             // xrTableCell14
@@ -442,6 +436,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell14.StylePriority.UsePadding = false;
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell14.TextFormatString = "{0:n1}";
             this.xrTableCell14.Weight = 0.74326479865798833D;
             // 
             // xrTableCell15
@@ -458,6 +453,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell15.StylePriority.UsePadding = false;
             this.xrTableCell15.StylePriority.UseTextAlignment = false;
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell15.TextFormatString = "{0:n1}";
             this.xrTableCell15.Weight = 0.74326479865798833D;
             // 
             // xrTableCell16
@@ -474,6 +470,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell16.StylePriority.UsePadding = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell16.TextFormatString = "{0:n1}";
             this.xrTableCell16.Weight = 1.0277984017418058D;
             // 
             // xrTableCell17
@@ -490,6 +487,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell17.StylePriority.UsePadding = false;
             this.xrTableCell17.StylePriority.UseTextAlignment = false;
             this.xrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell17.TextFormatString = "{0:n1}";
             this.xrTableCell17.Weight = 1.1192687228467309D;
             // 
             // xrTableCell18
@@ -506,6 +504,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell18.StylePriority.UsePadding = false;
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell18.TextFormatString = "{0:n1}";
             this.xrTableCell18.Weight = 0.84568942325147467D;
             // 
             // xrTableCell19
@@ -522,6 +521,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell19.StylePriority.UsePadding = false;
             this.xrTableCell19.StylePriority.UseTextAlignment = false;
             this.xrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell19.TextFormatString = "{0:n1}";
             this.xrTableCell19.Weight = 0.70865555040583161D;
             // 
             // xrTableCell20
@@ -596,8 +596,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell22
             // 
             this.xrTableCell22.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([stayTotalSum]*(1+([reception].[ServiceRate]/100)))\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([stayTotalSum]*(1+([reception].[ServiceRate]/100)))\n")});
             this.xrTableCell22.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell22.Multiline = true;
             this.xrTableCell22.Name = "xrTableCell22";
@@ -608,13 +608,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell22.StylePriority.UsePadding = false;
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell22.TextFormatString = "{0:n1}";
             this.xrTableCell22.Weight = 0.87979372240835474D;
             // 
             // xrTableCell23
             // 
             this.xrTableCell23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([medicationSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([medicationSum])\n")});
             this.xrTableCell23.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell23.Multiline = true;
             this.xrTableCell23.Name = "xrTableCell23";
@@ -625,13 +626,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell23.StylePriority.UsePadding = false;
             this.xrTableCell23.StylePriority.UseTextAlignment = false;
             this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell23.TextFormatString = "{0:n1}";
             this.xrTableCell23.Weight = 0.87979390588414685D;
             // 
             // xrTableCell24
             // 
             this.xrTableCell24.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([suppliesSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([suppliesSum])\n")});
             this.xrTableCell24.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell24.Multiline = true;
             this.xrTableCell24.Name = "xrTableCell24";
@@ -642,13 +644,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell24.StylePriority.UsePadding = false;
             this.xrTableCell24.StylePriority.UseTextAlignment = false;
             this.xrTableCell24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell24.TextFormatString = "{0:n1}";
             this.xrTableCell24.Weight = 0.87979390588414685D;
             // 
             // xrTableCell25
             // 
             this.xrTableCell25.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([servicesSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([servicesSum])\n")});
             this.xrTableCell25.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell25.Multiline = true;
             this.xrTableCell25.Name = "xrTableCell25";
@@ -659,13 +662,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell25.StylePriority.UsePadding = false;
             this.xrTableCell25.StylePriority.UseTextAlignment = false;
             this.xrTableCell25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell25.TextFormatString = "{0:n1}";
             this.xrTableCell25.Weight = 0.87979353893256262D;
             // 
             // xrTableCell26
             // 
             this.xrTableCell26.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([xraysSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([xraysSum])\n")});
             this.xrTableCell26.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell26.Multiline = true;
             this.xrTableCell26.Name = "xrTableCell26";
@@ -676,13 +680,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell26.StylePriority.UsePadding = false;
             this.xrTableCell26.StylePriority.UseTextAlignment = false;
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell26.TextFormatString = "{0:n1}";
             this.xrTableCell26.Weight = 1.216592056136359D;
             // 
             // xrTableCell27
             // 
             this.xrTableCell27.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([endscopesSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([endscopesSum])\n")});
             this.xrTableCell27.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell27.Multiline = true;
             this.xrTableCell27.Name = "xrTableCell27";
@@ -693,13 +698,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell27.StylePriority.UsePadding = false;
             this.xrTableCell27.StylePriority.UseTextAlignment = false;
             this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell27.TextFormatString = "{0:n1}";
             this.xrTableCell27.Weight = 1.3248650902761354D;
             // 
             // xrTableCell30
             // 
             this.xrTableCell30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([testsSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([testsSum])\n")});
             this.xrTableCell30.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell30.Multiline = true;
             this.xrTableCell30.Name = "xrTableCell30";
@@ -710,13 +716,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell30.StylePriority.UsePadding = false;
             this.xrTableCell30.StylePriority.UseTextAlignment = false;
             this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell30.TextFormatString = "{0:n1}";
             this.xrTableCell30.Weight = 1.0010314255411985D;
             // 
             // xrTableCell28
             // 
             this.xrTableCell28.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] != 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  " +
-                    "True, False )].Sum([roomStaySum]+[medicalCareSum]+[MedicalSupervisionSum])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[][Iif([Status] = 0 And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate,  T" +
+                    "rue, False )].Sum([roomStaySum]+[medicalCareSum]+[MedicalSupervisionSum])\n")});
             this.xrTableCell28.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell28.Multiline = true;
             this.xrTableCell28.Name = "xrTableCell28";
@@ -727,6 +734,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell28.StylePriority.UsePadding = false;
             this.xrTableCell28.StylePriority.UseTextAlignment = false;
             this.xrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell28.TextFormatString = "{0:n1}";
             this.xrTableCell28.Weight = 0.83882781683197782D;
             // 
             // xrTableCell29
@@ -752,6 +760,42 @@ namespace HMS.Module.Win.reports
     ".3522, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource1.Name = "xpObjectSource1";
             // 
+            // xpObjectSource2
+            // 
+            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7894" +
+    ".24447, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource2.Name = "xpObjectSource2";
+            // 
+            // StartDate
+            // 
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ValueInfo = "2021-08-13";
+            // 
+            // EndDate
+            // 
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ValueInfo = "2021-08-13";
+            // 
+            // Date
+            // 
+            this.Date.Description = "Date";
+            this.Date.Name = "Date";
+            this.Date.Type = typeof(System.DateTime);
+            this.Date.ValueSourceSettings = new DevExpress.XtraReports.Parameters.RangeParametersSettings(this.StartDate, this.EndDate);
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
+            // 
             // InPatientsTotal
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -762,15 +806,19 @@ namespace HMS.Module.Win.reports
             this.GroupHeader1,
             this.DetailReport});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.xpObjectSource1});
+            this.xpObjectSource1,
+            this.xpObjectSource2});
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(9, 8, 12, 0);
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.Date});
             this.Version = "20.2";
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -825,5 +873,9 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell29;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell30;
         private DevExpress.Xpo.XPObjectSource xpObjectSource1;
+        private DevExpress.Xpo.XPObjectSource xpObjectSource2;
+        private DevExpress.XtraReports.Parameters.RangeStartParameter StartDate;
+        private DevExpress.XtraReports.Parameters.RangeEndParameter EndDate;
+        private DevExpress.XtraReports.Parameters.Parameter Date;
     }
 }

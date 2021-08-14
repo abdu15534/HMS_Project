@@ -54,5 +54,19 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void InPatients_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.InPatients report = new reports.InPatients();
+
+            report.ShowPreviewDialog();
+        }
+
+        private void InPatientsTotal_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.InPatientsTotal report = new reports.InPatientsTotal();
+
+            report.ShowPreviewDialog();
+        }
     }
 }

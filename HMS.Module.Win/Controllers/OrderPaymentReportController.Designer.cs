@@ -30,39 +30,12 @@ namespace HMS.Module.Win.Controllers
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.CachReceipts = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-            this.PaymentVoucher = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
-            // 
-            // CachReceipts
-            // 
-            this.CachReceipts.Caption = "Cach Receipts";
-            this.CachReceipts.ConfirmationMessage = null;
-            this.CachReceipts.Id = "CachReceipts";
-            this.CachReceipts.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Supplier);
-            this.CachReceipts.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
-            this.CachReceipts.ToolTip = null;
-            this.CachReceipts.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
-            // 
-            // PaymentVoucher
-            // 
-            this.PaymentVoucher.Caption = "Payment Voucher";
-            this.PaymentVoucher.ConfirmationMessage = null;
-            this.PaymentVoucher.Id = "PaymentVoucher";
-            this.PaymentVoucher.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.OrderExchange);
-            this.PaymentVoucher.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
-            this.PaymentVoucher.ToolTip = null;
-            this.PaymentVoucher.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             // 
             // OrderPaymentReportController
             // 
-            this.Actions.Add(this.CachReceipts);
-            this.Actions.Add(this.PaymentVoucher);
 
         }
 
         #endregion
-
-        private DevExpress.ExpressApp.Actions.SimpleAction CachReceipts;
-        private DevExpress.ExpressApp.Actions.SimpleAction PaymentVoucher;
     }
 }

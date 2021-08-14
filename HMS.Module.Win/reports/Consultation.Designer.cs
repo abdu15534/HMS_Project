@@ -61,6 +61,7 @@ namespace HMS.Module.Win.reports
             this.evenDetailStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.oddDetailStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.invoiceLabel = new DevExpress.XtraReports.UI.XRLabel();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
@@ -97,7 +98,6 @@ namespace HMS.Module.Win.reports
             this.customerNameRow = new DevExpress.XtraReports.UI.XRTableRow();
             this.customerName = new DevExpress.XtraReports.UI.XRTableCell();
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -276,6 +276,18 @@ namespace HMS.Module.Win.reports
             this.invoiceLabel});
             this.PageHeader.HeightF = 96.42857F;
             this.PageHeader.Name = "PageHeader";
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(490.0001F, 10.92858F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // invoiceLabel
             // 
@@ -706,18 +718,6 @@ namespace HMS.Module.Win.reports
             this.parameter1.Type = typeof(int);
             this.parameter1.ValueInfo = "0";
             this.parameter1.Visible = false;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(490.0001F, 10.92858F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // Consultation
             // 

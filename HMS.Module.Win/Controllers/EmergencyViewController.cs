@@ -74,14 +74,14 @@ namespace HMS.Module.Win.Controllers
         private void EmergencyPatients_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             reports.EmergencyPatients report = new reports.EmergencyPatients();
-            var curr = View.CurrentObject as Emergency;
-            if (curr == null)
-            {
-                var x = System.Convert.ToString(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
-                report.Parameters["parameter1"].Value = x;
-            }
-            else
-                report.Parameters["parameter1"].Value = ((Emergency)View.CurrentObject).id;
+
+            report.ShowPreviewDialog();
+
+        }
+
+        private void EmergencyTotals_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.EmergencyTotals report = new reports.EmergencyTotals();
 
             report.ShowPreviewDialog();
         }

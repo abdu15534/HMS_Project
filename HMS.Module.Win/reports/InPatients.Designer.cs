@@ -38,7 +38,6 @@ namespace HMS.Module.Win.reports
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
@@ -106,6 +105,10 @@ namespace HMS.Module.Win.reports
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.StartDate = new DevExpress.XtraReports.Parameters.RangeStartParameter();
+            this.EndDate = new DevExpress.XtraReports.Parameters.RangeEndParameter();
+            this.Date = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -141,7 +144,7 @@ namespace HMS.Module.Win.reports
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.invoiceInfoTable,
             this.xrPictureBox1});
-            this.PageHeader.HeightF = 85.49999F;
+            this.PageHeader.HeightF = 97.54761F;
             this.PageHeader.Name = "PageHeader";
             // 
             // invoiceInfoTable
@@ -177,18 +180,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             this.xrTableCell2.Weight = 2.9597637771210623D;
             // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
-            // 
             // GroupHeader1
             // 
             this.GroupHeader1.Expanded = false;
@@ -205,7 +196,7 @@ namespace HMS.Module.Win.reports
             this.DetailReport4});
             this.DetailReport.DataSource = this.xpObjectSource1;
             this.DetailReport.FilterString = "[Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType," +
-    "normal# And [StayStart] >= ?StartDate And [StayStart] <= ?EndDate";
+    "normal#";
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             // 
@@ -1069,6 +1060,35 @@ namespace HMS.Module.Win.reports
             this.xrLabel5.Text = "إجراءات طبية أخرى";
             this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // StartDate
+            // 
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ValueInfo = "2021-08-14";
+            // 
+            // EndDate
+            // 
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ValueInfo = "2021-08-14";
+            // 
+            // Date
+            // 
+            this.Date.Description = "Date";
+            this.Date.Name = "Date";
+            this.Date.Type = typeof(System.DateTime);
+            this.Date.ValueSourceSettings = new DevExpress.XtraReports.Parameters.RangeParametersSettings(this.StartDate, this.EndDate);
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
+            // 
             // InPatients
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1082,6 +1102,9 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource1});
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(1, 5, 7, 45);
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.Date});
+            this.ReportPrintOptions.DetailCountAtDesignTime = 12;
             this.Version = "20.2";
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
@@ -1105,7 +1128,6 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
-        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
         private DevExpress.XtraReports.UI.XRTable invoiceInfoTable;
         private DevExpress.XtraReports.UI.XRTableRow invoiceInfoTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
@@ -1176,5 +1198,9 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
+        private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
+        private DevExpress.XtraReports.Parameters.RangeStartParameter StartDate;
+        private DevExpress.XtraReports.Parameters.RangeEndParameter EndDate;
+        private DevExpress.XtraReports.Parameters.Parameter Date;
     }
 }

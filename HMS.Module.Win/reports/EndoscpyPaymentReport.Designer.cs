@@ -36,19 +36,12 @@ namespace HMS.Module.Win.reports
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
-            this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
-            this.Endoscopy = new DevExpress.Xpo.XPObjectSource(this.components);
-            this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
-            this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
-            this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -63,32 +56,39 @@ namespace HMS.Module.Win.reports
             this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow14 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTable8 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
+            this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow11 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell23 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTable8 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow14 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
+            this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow6 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
-            ((System.ComponentModel.ISupportInitialize)(this.Endoscopy)).BeginInit();
+            this.Endoscopy = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Endoscopy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -113,70 +113,6 @@ namespace HMS.Module.Win.reports
             this.xrBarCode1,
             this.xrPictureBox1});
             this.PageHeader.Name = "PageHeader";
-            // 
-            // GroupHeader1
-            // 
-            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable2,
-            this.xrTable6});
-            this.GroupHeader1.HeightF = 53.33329F;
-            this.GroupHeader1.Name = "GroupHeader1";
-            // 
-            // DetailReport
-            // 
-            this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail1,
-            this.GroupHeader2,
-            this.DetailReport1});
-            this.DetailReport.DataSource = this.Endoscopy;
-            this.DetailReport.Level = 0;
-            this.DetailReport.Name = "DetailReport";
-            // 
-            // Detail1
-            // 
-            this.Detail1.HeightF = 0F;
-            this.Detail1.Name = "Detail1";
-            // 
-            // Endoscopy
-            // 
-            this.Endoscopy.ConnectionStringName = "ConnectionString";
-            this.Endoscopy.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Endscope, HMS.Module, Version=1.0.7886." +
-    "17430, Culture=neutral, PublicKeyToken=null";
-            this.Endoscopy.Name = "Endoscopy";
-            // 
-            // parameter1
-            // 
-            this.parameter1.Description = "Parameter1";
-            this.parameter1.Name = "parameter1";
-            this.parameter1.Type = typeof(int);
-            this.parameter1.ValueInfo = "0";
-            this.parameter1.Visible = false;
-            // 
-            // GroupHeader2
-            // 
-            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable3,
-            this.xrTable8,
-            this.xrTable9,
-            this.xrTable7});
-            this.GroupHeader2.HeightF = 143.75F;
-            this.GroupHeader2.Name = "GroupHeader2";
-            // 
-            // DetailReport1
-            // 
-            this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail2});
-            this.DetailReport1.DataMember = "EndscopeDetailsCollection";
-            this.DetailReport1.DataSource = this.Endoscopy;
-            this.DetailReport1.Level = 0;
-            this.DetailReport1.Name = "DetailReport1";
-            // 
-            // Detail2
-            // 
-            this.Detail2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable1});
-            this.Detail2.HeightF = 26.66665F;
-            this.Detail2.Name = "Detail2";
             // 
             // xrTable4
             // 
@@ -240,6 +176,14 @@ namespace HMS.Module.Win.reports
             this.xrPictureBox1.StylePriority.UseBorderColor = false;
             this.xrPictureBox1.StylePriority.UseBorders = false;
             this.xrPictureBox1.StylePriority.UsePadding = false;
+            // 
+            // GroupHeader1
+            // 
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable2,
+            this.xrTable6});
+            this.GroupHeader1.HeightF = 53.33329F;
+            this.GroupHeader1.Name = "GroupHeader1";
             // 
             // xrTable2
             // 
@@ -467,129 +411,30 @@ namespace HMS.Module.Win.reports
             this.xrTableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell11.Weight = 2.4713482095931103D;
             // 
-            // xrTable7
+            // DetailReport
             // 
-            this.xrTable7.BorderColor = System.Drawing.Color.Transparent;
-            this.xrTable7.BorderWidth = 0F;
-            this.xrTable7.ForeColor = System.Drawing.Color.Black;
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(563.4608F, 0F);
-            this.xrTable7.Name = "xrTable7";
-            this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow1});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(239.5392F, 70.58926F);
-            this.xrTable7.StylePriority.UseBorderColor = false;
-            this.xrTable7.StylePriority.UseBorderWidth = false;
-            this.xrTable7.StylePriority.UseForeColor = false;
+            this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+            this.Detail1,
+            this.GroupHeader2,
+            this.DetailReport1});
+            this.DetailReport.DataSource = this.Endoscopy;
+            this.DetailReport.Level = 0;
+            this.DetailReport.Name = "DetailReport";
             // 
-            // xrTableRow1
+            // Detail1
             // 
-            this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell1});
-            this.xrTableRow1.Name = "xrTableRow1";
-            this.xrTableRow1.Weight = 1.0066972757107671D;
+            this.Detail1.HeightF = 0F;
+            this.Detail1.Name = "Detail1";
             // 
-            // xrTableCell1
+            // GroupHeader2
             // 
-            this.xrTableCell1.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrTableCell1.BorderWidth = 1F;
-            this.xrTableCell1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrTableCell1.Name = "xrTableCell1";
-            this.xrTableCell1.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
-            this.xrTableCell1.StylePriority.UseBackColor = false;
-            this.xrTableCell1.StylePriority.UseBorderColor = false;
-            this.xrTableCell1.StylePriority.UseBorders = false;
-            this.xrTableCell1.StylePriority.UseBorderWidth = false;
-            this.xrTableCell1.StylePriority.UseFont = false;
-            this.xrTableCell1.StylePriority.UseForeColor = false;
-            this.xrTableCell1.StylePriority.UseTextAlignment = false;
-            this.xrTableCell1.Text = "تم إستلام مبلغ وقدره";
-            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell1.Weight = 3.4821759536611987D;
-            // 
-            // xrTable9
-            // 
-            this.xrTable9.BorderColor = System.Drawing.Color.Transparent;
-            this.xrTable9.BorderWidth = 0F;
-            this.xrTable9.ForeColor = System.Drawing.Color.Black;
-            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(398.4064F, 0F);
-            this.xrTable9.Name = "xrTable9";
-            this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow14});
-            this.xrTable9.SizeF = new System.Drawing.SizeF(165.0545F, 70.58926F);
-            this.xrTable9.StylePriority.UseBorderColor = false;
-            this.xrTable9.StylePriority.UseBorderWidth = false;
-            this.xrTable9.StylePriority.UseForeColor = false;
-            // 
-            // xrTableRow14
-            // 
-            this.xrTableRow14.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell2});
-            this.xrTableRow14.Name = "xrTableRow14";
-            this.xrTableRow14.Weight = 1.0066972757107671D;
-            // 
-            // xrTableCell2
-            // 
-            this.xrTableCell2.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrTableCell2.BorderWidth = 1F;
-            this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
-            this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrTableCell2.Name = "xrTableCell2";
-            this.xrTableCell2.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
-            this.xrTableCell2.StylePriority.UseBackColor = false;
-            this.xrTableCell2.StylePriority.UseBorderColor = false;
-            this.xrTableCell2.StylePriority.UseBorders = false;
-            this.xrTableCell2.StylePriority.UseBorderWidth = false;
-            this.xrTableCell2.StylePriority.UseFont = false;
-            this.xrTableCell2.StylePriority.UseForeColor = false;
-            this.xrTableCell2.StylePriority.UseTextAlignment = false;
-            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell2.TextFormatString = "{0:0.00 ج.م}";
-            this.xrTableCell2.Weight = 3.4821759536611987D;
-            // 
-            // xrTable8
-            // 
-            this.xrTable8.BorderColor = System.Drawing.Color.Transparent;
-            this.xrTable8.BorderWidth = 0F;
-            this.xrTable8.ForeColor = System.Drawing.Color.Black;
-            this.xrTable8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
-            this.xrTable8.Name = "xrTable8";
-            this.xrTable8.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow7});
-            this.xrTable8.SizeF = new System.Drawing.SizeF(398.4064F, 70.58926F);
-            this.xrTable8.StylePriority.UseBorderColor = false;
-            this.xrTable8.StylePriority.UseBorderWidth = false;
-            this.xrTable8.StylePriority.UseForeColor = false;
-            // 
-            // xrTableRow7
-            // 
-            this.xrTableRow7.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell3});
-            this.xrTableRow7.Name = "xrTableRow7";
-            this.xrTableRow7.Weight = 1.0066972757107671D;
-            // 
-            // xrTableCell3
-            // 
-            this.xrTableCell3.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrTableCell3.BorderWidth = 1F;
-            this.xrTableCell3.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrTableCell3.Name = "xrTableCell3";
-            this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
-            this.xrTableCell3.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
-            this.xrTableCell3.StylePriority.UseBackColor = false;
-            this.xrTableCell3.StylePriority.UseBorderColor = false;
-            this.xrTableCell3.StylePriority.UseBorders = false;
-            this.xrTableCell3.StylePriority.UseBorderWidth = false;
-            this.xrTableCell3.StylePriority.UseFont = false;
-            this.xrTableCell3.StylePriority.UseForeColor = false;
-            this.xrTableCell3.StylePriority.UsePadding = false;
-            this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Text = "مقابل إجراء المناظير";
-            this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell3.Weight = 3.4821759536611987D;
+            this.GroupHeader2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable3,
+            this.xrTable8,
+            this.xrTable9,
+            this.xrTable7});
+            this.GroupHeader2.HeightF = 143.75F;
+            this.GroupHeader2.Name = "GroupHeader2";
             // 
             // xrTable3
             // 
@@ -649,6 +494,146 @@ namespace HMS.Module.Win.reports
             this.xrTableCell23.Text = "إسم التحليل";
             this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell23.Weight = 3.5046933354857286D;
+            // 
+            // xrTable8
+            // 
+            this.xrTable8.BorderColor = System.Drawing.Color.Transparent;
+            this.xrTable8.BorderWidth = 0F;
+            this.xrTable8.ForeColor = System.Drawing.Color.Black;
+            this.xrTable8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrTable8.Name = "xrTable8";
+            this.xrTable8.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow7});
+            this.xrTable8.SizeF = new System.Drawing.SizeF(398.4064F, 70.58926F);
+            this.xrTable8.StylePriority.UseBorderColor = false;
+            this.xrTable8.StylePriority.UseBorderWidth = false;
+            this.xrTable8.StylePriority.UseForeColor = false;
+            // 
+            // xrTableRow7
+            // 
+            this.xrTableRow7.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell3});
+            this.xrTableRow7.Name = "xrTableRow7";
+            this.xrTableRow7.Weight = 1.0066972757107671D;
+            // 
+            // xrTableCell3
+            // 
+            this.xrTableCell3.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell3.BorderWidth = 1F;
+            this.xrTableCell3.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell3.Name = "xrTableCell3";
+            this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrTableCell3.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
+            this.xrTableCell3.StylePriority.UseBackColor = false;
+            this.xrTableCell3.StylePriority.UseBorderColor = false;
+            this.xrTableCell3.StylePriority.UseBorders = false;
+            this.xrTableCell3.StylePriority.UseBorderWidth = false;
+            this.xrTableCell3.StylePriority.UseFont = false;
+            this.xrTableCell3.StylePriority.UseForeColor = false;
+            this.xrTableCell3.StylePriority.UsePadding = false;
+            this.xrTableCell3.StylePriority.UseTextAlignment = false;
+            this.xrTableCell3.Text = "مقابل إجراء المناظير";
+            this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell3.Weight = 3.4821759536611987D;
+            // 
+            // xrTable9
+            // 
+            this.xrTable9.BorderColor = System.Drawing.Color.Transparent;
+            this.xrTable9.BorderWidth = 0F;
+            this.xrTable9.ForeColor = System.Drawing.Color.Black;
+            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(398.4064F, 0F);
+            this.xrTable9.Name = "xrTable9";
+            this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow14});
+            this.xrTable9.SizeF = new System.Drawing.SizeF(165.0545F, 70.58926F);
+            this.xrTable9.StylePriority.UseBorderColor = false;
+            this.xrTable9.StylePriority.UseBorderWidth = false;
+            this.xrTable9.StylePriority.UseForeColor = false;
+            // 
+            // xrTableRow14
+            // 
+            this.xrTableRow14.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell2});
+            this.xrTableRow14.Name = "xrTableRow14";
+            this.xrTableRow14.Weight = 1.0066972757107671D;
+            // 
+            // xrTableCell2
+            // 
+            this.xrTableCell2.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell2.BorderWidth = 1F;
+            this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
+            this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
+            this.xrTableCell2.StylePriority.UseBackColor = false;
+            this.xrTableCell2.StylePriority.UseBorderColor = false;
+            this.xrTableCell2.StylePriority.UseBorders = false;
+            this.xrTableCell2.StylePriority.UseBorderWidth = false;
+            this.xrTableCell2.StylePriority.UseFont = false;
+            this.xrTableCell2.StylePriority.UseForeColor = false;
+            this.xrTableCell2.StylePriority.UseTextAlignment = false;
+            this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell2.TextFormatString = "{0:0.00 ج.م}";
+            this.xrTableCell2.Weight = 3.4821759536611987D;
+            // 
+            // xrTable7
+            // 
+            this.xrTable7.BorderColor = System.Drawing.Color.Transparent;
+            this.xrTable7.BorderWidth = 0F;
+            this.xrTable7.ForeColor = System.Drawing.Color.Black;
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(563.4608F, 0F);
+            this.xrTable7.Name = "xrTable7";
+            this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow1});
+            this.xrTable7.SizeF = new System.Drawing.SizeF(239.5392F, 70.58926F);
+            this.xrTable7.StylePriority.UseBorderColor = false;
+            this.xrTable7.StylePriority.UseBorderWidth = false;
+            this.xrTable7.StylePriority.UseForeColor = false;
+            // 
+            // xrTableRow1
+            // 
+            this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell1});
+            this.xrTableRow1.Name = "xrTableRow1";
+            this.xrTableRow1.Weight = 1.0066972757107671D;
+            // 
+            // xrTableCell1
+            // 
+            this.xrTableCell1.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrTableCell1.BorderWidth = 1F;
+            this.xrTableCell1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell1.Name = "xrTableCell1";
+            this.xrTableCell1.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
+            this.xrTableCell1.StylePriority.UseBackColor = false;
+            this.xrTableCell1.StylePriority.UseBorderColor = false;
+            this.xrTableCell1.StylePriority.UseBorders = false;
+            this.xrTableCell1.StylePriority.UseBorderWidth = false;
+            this.xrTableCell1.StylePriority.UseFont = false;
+            this.xrTableCell1.StylePriority.UseForeColor = false;
+            this.xrTableCell1.StylePriority.UseTextAlignment = false;
+            this.xrTableCell1.Text = "تم إستلام مبلغ وقدره";
+            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell1.Weight = 3.4821759536611987D;
+            // 
+            // DetailReport1
+            // 
+            this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
+            this.Detail2});
+            this.DetailReport1.DataMember = "EndscopeDetailsCollection";
+            this.DetailReport1.DataSource = this.Endoscopy;
+            this.DetailReport1.Level = 0;
+            this.DetailReport1.Name = "DetailReport1";
+            // 
+            // Detail2
+            // 
+            this.Detail2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable1});
+            this.Detail2.HeightF = 26.66665F;
+            this.Detail2.Name = "Detail2";
             // 
             // xrTable1
             // 
@@ -714,6 +699,21 @@ namespace HMS.Module.Win.reports
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell12.Weight = 3.5046955035449612D;
             // 
+            // Endoscopy
+            // 
+            this.Endoscopy.ConnectionStringName = "ConnectionString";
+            this.Endoscopy.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Endscope, HMS.Module, Version=1.0.7886." +
+    "17430, Culture=neutral, PublicKeyToken=null";
+            this.Endoscopy.Name = "Endoscopy";
+            // 
+            // parameter1
+            // 
+            this.parameter1.Description = "Parameter1";
+            this.parameter1.Name = "parameter1";
+            this.parameter1.Type = typeof(int);
+            this.parameter1.ValueInfo = "0";
+            this.parameter1.Visible = false;
+            // 
             // EndoscpyPaymentReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -732,15 +732,15 @@ namespace HMS.Module.Win.reports
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.parameter1});
             this.Version = "20.2";
-            ((System.ComponentModel.ISupportInitialize)(this.Endoscopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Endoscopy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

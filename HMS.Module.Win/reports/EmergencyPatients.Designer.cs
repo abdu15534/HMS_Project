@@ -111,8 +111,9 @@ namespace HMS.Module.Win.reports
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.StartDate = new DevExpress.XtraReports.Parameters.Parameter();
-            this.EndDate = new DevExpress.XtraReports.Parameters.Parameter();
+            this.StartDate = new DevExpress.XtraReports.Parameters.RangeStartParameter();
+            this.EndDate = new DevExpress.XtraReports.Parameters.RangeEndParameter();
+            this.Date = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -1120,17 +1121,20 @@ namespace HMS.Module.Win.reports
             // 
             // StartDate
             // 
-            this.StartDate.Description = "StartDate";
             this.StartDate.Name = "StartDate";
-            this.StartDate.Type = typeof(System.DateTime);
-            this.StartDate.ValueInfo = "2021-08-12";
+            this.StartDate.ValueInfo = "2021-08-14";
             // 
             // EndDate
             // 
-            this.EndDate.Description = "EndDate";
             this.EndDate.Name = "EndDate";
-            this.EndDate.Type = typeof(System.DateTime);
-            this.EndDate.ValueInfo = "2021-08-12";
+            this.EndDate.ValueInfo = "2021-08-14";
+            // 
+            // Date
+            // 
+            this.Date.Description = "Date";
+            this.Date.Name = "Date";
+            this.Date.Type = typeof(System.DateTime);
+            this.Date.ValueSourceSettings = new DevExpress.XtraReports.Parameters.RangeParametersSettings(this.StartDate, this.EndDate);
             // 
             // EmergencyPatients
             // 
@@ -1148,8 +1152,7 @@ namespace HMS.Module.Win.reports
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(1, 5, 12, 0);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.StartDate,
-            this.EndDate});
+            this.Date});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.baseControlStyle,
             this.evenDetailStyle,
@@ -1255,7 +1258,8 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell107;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell108;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
-        private DevExpress.XtraReports.Parameters.Parameter StartDate;
-        private DevExpress.XtraReports.Parameters.Parameter EndDate;
+        private DevExpress.XtraReports.Parameters.RangeStartParameter StartDate;
+        private DevExpress.XtraReports.Parameters.RangeEndParameter EndDate;
+        private DevExpress.XtraReports.Parameters.Parameter Date;
     }
 }

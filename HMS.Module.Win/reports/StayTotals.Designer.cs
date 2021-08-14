@@ -31,7 +31,6 @@ namespace HMS.Module.Win.reports
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraPrinting.BarCode.CodabarGenerator codabarGenerator1 = new DevExpress.XtraPrinting.BarCode.CodabarGenerator();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StayTotals));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
@@ -46,6 +45,7 @@ namespace HMS.Module.Win.reports
             DevExpress.XtraReports.UI.XRSummary xrSummary12 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary13 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary14 = new DevExpress.XtraReports.UI.XRSummary();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StayTotals));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -58,7 +58,6 @@ namespace HMS.Module.Win.reports
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow9 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -191,6 +190,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel28 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
             this.xpObjectSource13 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -323,18 +323,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Text = "فاتورة ";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell2.Weight = 3.4821759536611987D;
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 10.00001F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250.002F, 55.70833F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // xrTable1
             // 
@@ -1930,8 +1918,6 @@ namespace HMS.Module.Win.reports
             this.Detail15,
             this.GroupFooter13});
             this.DetailReport14.DataSource = this.xpObjectSource7;
-            this.DetailReport14.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
-    "ypes,Other# And [Stay.reception.enterID] = ?parameter1";
             this.DetailReport14.Level = 11;
             this.DetailReport14.Name = "DetailReport14";
             // 
@@ -2000,8 +1986,6 @@ namespace HMS.Module.Win.reports
             this.Detail16,
             this.GroupFooter12});
             this.DetailReport15.DataSource = this.xpObjectSource7;
-            this.DetailReport15.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = ##Enum#XafData" +
-    "Model.Module.BusinessObjects.test2.ServiceTypes,Blood#";
             this.DetailReport15.Level = 10;
             this.DetailReport15.Name = "DetailReport15";
             // 
@@ -2138,6 +2122,18 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource13.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
     "1.0.7893.42138, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource13.Name = "xpObjectSource13";
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 10.00001F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250.002F, 55.70833F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // StayTotals
             // 

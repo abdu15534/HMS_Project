@@ -32,6 +32,7 @@ namespace HMS.Module.Win.Controllers
             this.components = new System.ComponentModel.Container();
             this.EmergencyInvoice = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.EmergencyTotals = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // EmergencyInvoice
             // 
@@ -56,10 +57,22 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyPatients.ToolTip = null;
             this.EmergencyPatients.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EmergencyPatients_Execute);
             // 
+            // EmergencyTotals
+            // 
+            this.EmergencyTotals.Caption = "Emergency Totals";
+            this.EmergencyTotals.ConfirmationMessage = null;
+            this.EmergencyTotals.Id = "EmergencyTotals";
+            this.EmergencyTotals.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
+            this.EmergencyTotals.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.EmergencyTotals.ToolTip = null;
+            this.EmergencyTotals.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.EmergencyTotals.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EmergencyTotals_Execute);
+            // 
             // EmergencyViewController
             // 
             this.Actions.Add(this.EmergencyInvoice);
             this.Actions.Add(this.EmergencyPatients);
+            this.Actions.Add(this.EmergencyTotals);
 
         }
 
@@ -67,5 +80,6 @@ namespace HMS.Module.Win.Controllers
 
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyInvoice;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyPatients;
+        private DevExpress.ExpressApp.Actions.SimpleAction EmergencyTotals;
     }
 }

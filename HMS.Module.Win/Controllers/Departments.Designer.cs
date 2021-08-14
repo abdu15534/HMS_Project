@@ -32,6 +32,8 @@ namespace HMS.Module.Win.Controllers
             this.components = new System.ComponentModel.Container();
             this.ICUPatentsDetails = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.ICUtotals = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.InPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.InPatientsTotal = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // ICUPatentsDetails
             // 
@@ -55,10 +57,34 @@ namespace HMS.Module.Win.Controllers
             this.ICUtotals.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.ICUtotals.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ICUtotals_Execute);
             // 
+            // InPatients
+            // 
+            this.InPatients.Caption = "InPatients";
+            this.InPatients.ConfirmationMessage = null;
+            this.InPatients.Id = "InPatients";
+            this.InPatients.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.InPatients.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.InPatients.ToolTip = null;
+            this.InPatients.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.InPatients.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.InPatients_Execute);
+            // 
+            // InPatientsTotal
+            // 
+            this.InPatientsTotal.Caption = "In Patients Total";
+            this.InPatientsTotal.ConfirmationMessage = null;
+            this.InPatientsTotal.Id = "InPatientsTotal";
+            this.InPatientsTotal.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.InPatientsTotal.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.InPatientsTotal.ToolTip = null;
+            this.InPatientsTotal.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.InPatientsTotal.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.InPatientsTotal_Execute);
+            // 
             // Departments
             // 
             this.Actions.Add(this.ICUPatentsDetails);
             this.Actions.Add(this.ICUtotals);
+            this.Actions.Add(this.InPatients);
+            this.Actions.Add(this.InPatientsTotal);
 
         }
 
@@ -66,5 +92,7 @@ namespace HMS.Module.Win.Controllers
 
         private DevExpress.ExpressApp.Actions.SimpleAction ICUPatentsDetails;
         private DevExpress.ExpressApp.Actions.SimpleAction ICUtotals;
+        private DevExpress.ExpressApp.Actions.SimpleAction InPatients;
+        private DevExpress.ExpressApp.Actions.SimpleAction InPatientsTotal;
     }
 }

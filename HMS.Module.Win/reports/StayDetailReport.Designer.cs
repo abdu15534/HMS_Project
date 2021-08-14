@@ -448,21 +448,21 @@ namespace HMS.Module.Win.reports
             this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("InvoiceNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 173.0197F;
+            this.GroupHeader2.HeightF = 184.3173F;
             this.GroupHeader2.Name = "GroupHeader2";
             this.GroupHeader2.StyleName = "baseControlStyle";
             this.GroupHeader2.StylePriority.UseBackColor = false;
             // 
             // xrTable24
             // 
-            this.xrTable24.LocationFloat = new DevExpress.Utils.PointFloat(20.41689F, 0F);
+            this.xrTable24.LocationFloat = new DevExpress.Utils.PointFloat(10F, 0F);
             this.xrTable24.Name = "xrTable24";
             this.xrTable24.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow37,
             this.xrTableRow28,
             this.xrTableRow27,
             this.xrTableRow29});
-            this.xrTable24.SizeF = new System.Drawing.SizeF(368.9834F, 127.3967F);
+            this.xrTable24.SizeF = new System.Drawing.SizeF(379.4003F, 127.3967F);
             // 
             // xrTableRow37
             // 
@@ -479,7 +479,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell122.BorderWidth = 0F;
             this.xrTableCell122.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "LocalDateTimeNow()")});
-            this.xrTableCell122.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell122.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell122.Multiline = true;
             this.xrTableCell122.Name = "xrTableCell122";
             this.xrTableCell122.StylePriority.UseBackColor = false;
@@ -495,10 +495,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell123
             // 
+            this.xrTableCell123.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell123.BorderColor = System.Drawing.Color.White;
             this.xrTableCell123.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell123.BorderWidth = 0F;
-            this.xrTableCell123.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell123.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell123.Multiline = true;
             this.xrTableCell123.Name = "xrTableCell123";
             this.xrTableCell123.StylePriority.UseBackColor = false;
@@ -525,7 +526,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell102.BorderColor = System.Drawing.Color.White;
             this.xrTableCell102.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell102.BorderWidth = 0F;
-            this.xrTableCell102.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell102.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell102.Multiline = true;
             this.xrTableCell102.Name = "xrTableCell102";
             this.xrTableCell102.StylePriority.UseBackColor = false;
@@ -540,10 +541,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell121
             // 
+            this.xrTableCell121.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell121.BorderColor = System.Drawing.Color.White;
             this.xrTableCell121.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell121.BorderWidth = 0F;
-            this.xrTableCell121.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell121.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell121.Multiline = true;
             this.xrTableCell121.Name = "xrTableCell121";
             this.xrTableCell121.StylePriority.UseBackColor = false;
@@ -572,7 +574,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell99.BorderWidth = 0F;
             this.xrTableCell99.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[enterID]")});
-            this.xrTableCell99.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell99.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell99.Multiline = true;
             this.xrTableCell99.Name = "xrTableCell99";
             this.xrTableCell99.StylePriority.UseBackColor = false;
@@ -587,10 +589,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell100
             // 
+            this.xrTableCell100.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell100.BorderColor = System.Drawing.Color.White;
             this.xrTableCell100.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell100.BorderWidth = 0F;
-            this.xrTableCell100.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell100.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell100.Name = "xrTableCell100";
             this.xrTableCell100.StylePriority.UseBackColor = false;
             this.xrTableCell100.StylePriority.UseBorderColor = false;
@@ -618,7 +621,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell103.BorderWidth = 0F;
             this.xrTableCell103.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull([dateLeave]),\'مازال في المستشفى\' , [dateLeave])")});
-            this.xrTableCell103.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell103.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell103.Multiline = true;
             this.xrTableCell103.Name = "xrTableCell103";
             this.xrTableCell103.StylePriority.UseBackColor = false;
@@ -633,10 +636,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell104
             // 
+            this.xrTableCell104.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell104.BorderColor = System.Drawing.Color.White;
             this.xrTableCell104.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell104.BorderWidth = 0F;
-            this.xrTableCell104.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell104.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell104.Multiline = true;
             this.xrTableCell104.Name = "xrTableCell104";
             this.xrTableCell104.StylePriority.UseBackColor = false;
@@ -681,7 +685,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell32.BorderWidth = 0F;
             this.xrTableCell32.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[currentStay].[doctor].[FullName]")});
-            this.xrTableCell32.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell32.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell32.Multiline = true;
             this.xrTableCell32.Name = "xrTableCell32";
             this.xrTableCell32.StylePriority.UseBackColor = false;
@@ -697,10 +701,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell101
             // 
+            this.xrTableCell101.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell101.BorderColor = System.Drawing.Color.White;
             this.xrTableCell101.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell101.BorderWidth = 0F;
-            this.xrTableCell101.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell101.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell101.Multiline = true;
             this.xrTableCell101.Name = "xrTableCell101";
             this.xrTableCell101.StylePriority.UseBackColor = false;
@@ -729,7 +734,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell93.BorderWidth = 0F;
             this.xrTableCell93.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[patient].[FullName]")});
-            this.xrTableCell93.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell93.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell93.Multiline = true;
             this.xrTableCell93.Name = "xrTableCell93";
             this.xrTableCell93.StylePriority.UseBackColor = false;
@@ -744,10 +749,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell94
             // 
+            this.xrTableCell94.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell94.BorderColor = System.Drawing.Color.White;
             this.xrTableCell94.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell94.BorderWidth = 0F;
-            this.xrTableCell94.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell94.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell94.Name = "xrTableCell94";
             this.xrTableCell94.StylePriority.UseBackColor = false;
             this.xrTableCell94.StylePriority.UseBorderColor = false;
@@ -777,7 +783,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell95.BorderWidth = 0F;
             this.xrTableCell95.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[patient].[MedicalID]")});
-            this.xrTableCell95.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell95.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell95.Multiline = true;
             this.xrTableCell95.Name = "xrTableCell95";
             this.xrTableCell95.StylePriority.UseBackColor = false;
@@ -792,10 +798,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell96
             // 
+            this.xrTableCell96.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell96.BorderColor = System.Drawing.Color.White;
             this.xrTableCell96.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell96.BorderWidth = 0F;
-            this.xrTableCell96.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell96.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell96.Multiline = true;
             this.xrTableCell96.Name = "xrTableCell96";
             this.xrTableCell96.StylePriority.UseBackColor = false;
@@ -824,7 +831,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell97.BorderWidth = 0F;
             this.xrTableCell97.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[dateEnter]")});
-            this.xrTableCell97.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell97.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell97.Multiline = true;
             this.xrTableCell97.Name = "xrTableCell97";
             this.xrTableCell97.StylePriority.UseBackColor = false;
@@ -839,10 +846,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell98
             // 
+            this.xrTableCell98.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell98.BorderColor = System.Drawing.Color.White;
             this.xrTableCell98.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell98.BorderWidth = 0F;
-            this.xrTableCell98.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell98.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell98.Multiline = true;
             this.xrTableCell98.Name = "xrTableCell98";
             this.xrTableCell98.StylePriority.UseBackColor = false;
@@ -871,7 +879,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell125.BorderWidth = 0F;
             this.xrTableCell125.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TransferReason]")});
-            this.xrTableCell125.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell125.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.xrTableCell125.Multiline = true;
             this.xrTableCell125.Name = "xrTableCell125";
             this.xrTableCell125.StylePriority.UseBackColor = false;
@@ -886,10 +894,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTableCell126
             // 
+            this.xrTableCell126.BackColor = System.Drawing.Color.LightGray;
             this.xrTableCell126.BorderColor = System.Drawing.Color.White;
             this.xrTableCell126.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell126.BorderWidth = 0F;
-            this.xrTableCell126.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.xrTableCell126.Font = new System.Drawing.Font("Times New Roman", 10F);
             this.xrTableCell126.Multiline = true;
             this.xrTableCell126.Name = "xrTableCell126";
             this.xrTableCell126.StylePriority.UseBackColor = false;
@@ -910,7 +919,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel7.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel7.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 15.85714F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(296.3595F, 9.999992F);
             this.xrLabel7.Multiline = true;
             this.xrLabel7.Name = "xrLabel7";
@@ -951,7 +960,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel1.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -1017,8 +1026,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell20.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomStayCost]")});
+            this.xrTableCell20.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell20.Multiline = true;
             this.xrTableCell20.Name = "xrTableCell20";
+            this.xrTableCell20.StylePriority.UseFont = false;
             this.xrTableCell20.StylePriority.UseTextAlignment = false;
             this.xrTableCell20.Text = "xrTableCell20";
             this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1029,8 +1040,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell19.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays]")});
+            this.xrTableCell19.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell19.Multiline = true;
             this.xrTableCell19.Name = "xrTableCell19";
+            this.xrTableCell19.StylePriority.UseFont = false;
             this.xrTableCell19.StylePriority.UseTextAlignment = false;
             this.xrTableCell19.Text = "xrTableCell19";
             this.xrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1040,8 +1053,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell36.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell36.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell36.Multiline = true;
             this.xrTableCell36.Name = "xrTableCell36";
+            this.xrTableCell36.StylePriority.UseFont = false;
             this.xrTableCell36.StylePriority.UseTextAlignment = false;
             this.xrTableCell36.Text = "xrTableCell5";
             this.xrTableCell36.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1052,8 +1067,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell37.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomStayCost]")});
+            this.xrTableCell37.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell37.Multiline = true;
             this.xrTableCell37.Name = "xrTableCell37";
+            this.xrTableCell37.StylePriority.UseFont = false;
             this.xrTableCell37.StylePriority.UseTextAlignment = false;
             this.xrTableCell37.Text = "xrTableCell6";
             this.xrTableCell37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1064,8 +1081,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell38.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Room].[number]")});
+            this.xrTableCell38.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell38.Multiline = true;
             this.xrTableCell38.Name = "xrTableCell38";
+            this.xrTableCell38.StylePriority.UseFont = false;
             this.xrTableCell38.StylePriority.UseTextAlignment = false;
             this.xrTableCell38.Text = "xrTableCell8";
             this.xrTableCell38.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1077,8 +1096,10 @@ namespace HMS.Module.Win.reports
             this.xrTableCell74.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Status] = \'normal\' , \'قسم داخلي\' , Iif([Status] = \'ICU\' , \' رعاية مركزة\' , I" +
                     "if([Status] = \'covid\' , \'رعاية كوفيد\' , \'\')))\n\n")});
+            this.xrTableCell74.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell74.Multiline = true;
             this.xrTableCell74.Name = "xrTableCell74";
+            this.xrTableCell74.StylePriority.UseFont = false;
             this.xrTableCell74.StylePriority.UseTextAlignment = false;
             this.xrTableCell74.Text = "xrTableCell74";
             this.xrTableCell74.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1243,7 +1264,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel9.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel9.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel9.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel9.Multiline = true;
             this.xrLabel9.Name = "xrLabel9";
@@ -1274,12 +1295,12 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomStayCost])")});
-            this.xrLabel10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(1.333682F, 0F);
+            this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel10.Multiline = true;
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
-            this.xrLabel10.SizeF = new System.Drawing.SizeF(325.6665F, 29.20316F);
+            this.xrLabel10.SizeF = new System.Drawing.SizeF(327.0002F, 29.20316F);
             this.xrLabel10.StylePriority.UseBorderColor = false;
             this.xrLabel10.StylePriority.UseBorders = false;
             this.xrLabel10.StylePriority.UseFont = false;
@@ -1331,12 +1352,12 @@ namespace HMS.Module.Win.reports
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(1.000277F, 0F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(799.9998F, 25F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(801.0001F, 25F);
             this.xrTable2.StylePriority.UseBorderColor = false;
             this.xrTable2.StylePriority.UseBorders = false;
             this.xrTable2.StylePriority.UsePadding = false;
@@ -1356,20 +1377,24 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell5.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
+            this.xrTableCell5.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell5.Multiline = true;
             this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.StylePriority.UseFont = false;
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell5.TextFormatString = "{0:n1}";
-            this.xrTableCell5.Weight = 0.66339683098649682D;
+            this.xrTableCell5.Weight = 0.66645484759387541D;
             // 
             // xrTableCell6
             // 
             this.xrTableCell6.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell6.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell6.Multiline = true;
             this.xrTableCell6.Name = "xrTableCell6";
+            this.xrTableCell6.StylePriority.UseFont = false;
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "xrTableCell6";
             this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1380,8 +1405,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Medication].[product].[sellUnit].[unit]")});
+            this.xrTableCell7.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell7.Multiline = true;
             this.xrTableCell7.Name = "xrTableCell7";
+            this.xrTableCell7.StylePriority.UseFont = false;
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1391,8 +1418,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[quantity]")});
+            this.xrTableCell8.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell8.Multiline = true;
             this.xrTableCell8.Name = "xrTableCell8";
+            this.xrTableCell8.StylePriority.UseFont = false;
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "xrTableCell8";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1402,8 +1431,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell15.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Medication].[product].[name]")});
+            this.xrTableCell15.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell15.Multiline = true;
             this.xrTableCell15.Name = "xrTableCell15";
+            this.xrTableCell15.StylePriority.UseFont = false;
             this.xrTableCell15.StylePriority.UseTextAlignment = false;
             this.xrTableCell15.Text = "xrTableCell15";
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1607,7 +1638,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([total])")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
@@ -1658,12 +1689,12 @@ namespace HMS.Module.Win.reports
             this.xrTable4.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(1.000086F, 0F);
+            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow4});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(799.9998F, 25F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(800.9999F, 25F);
             this.xrTable4.StylePriority.UseBorderColor = false;
             this.xrTable4.StylePriority.UseBorders = false;
             this.xrTable4.StylePriority.UsePadding = false;
@@ -1683,8 +1714,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
+            this.xrTableCell13.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell13.Multiline = true;
             this.xrTableCell13.Name = "xrTableCell13";
+            this.xrTableCell13.StylePriority.UseFont = false;
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             this.xrTableCell13.Text = "xrTableCell5";
             this.xrTableCell13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1695,8 +1728,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell14.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell14.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell14.Multiline = true;
             this.xrTableCell14.Name = "xrTableCell14";
+            this.xrTableCell14.StylePriority.UseFont = false;
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
             this.xrTableCell14.Text = "xrTableCell6";
             this.xrTableCell14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1707,8 +1742,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell16.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[supplyProduct].[product].[sellUnit].[unit]")});
+            this.xrTableCell16.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell16.Multiline = true;
             this.xrTableCell16.Name = "xrTableCell16";
+            this.xrTableCell16.StylePriority.UseFont = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
             this.xrTableCell16.Text = "xrTableCell8";
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1718,8 +1755,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell71.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[quantity]")});
+            this.xrTableCell71.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell71.Multiline = true;
             this.xrTableCell71.Name = "xrTableCell71";
+            this.xrTableCell71.StylePriority.UseFont = false;
             this.xrTableCell71.StylePriority.UseTextAlignment = false;
             this.xrTableCell71.Text = "xrTableCell71";
             this.xrTableCell71.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1729,8 +1768,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell72.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[supplyProduct].[product].[name]")});
+            this.xrTableCell72.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell72.Multiline = true;
             this.xrTableCell72.Name = "xrTableCell72";
+            this.xrTableCell72.StylePriority.UseFont = false;
             this.xrTableCell72.StylePriority.UseTextAlignment = false;
             this.xrTableCell72.Text = "xrTableCell72";
             this.xrTableCell72.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -1919,7 +1960,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel3.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel3.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
@@ -1949,7 +1990,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([total])")});
-            this.xrLabel4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
@@ -2045,7 +2086,7 @@ namespace HMS.Module.Win.reports
             this.xrBarCode1,
             this.xrLabel7,
             this.xrPictureBox1});
-            this.PageHeader.HeightF = 101.25F;
+            this.PageHeader.HeightF = 96.84532F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrBarCode1
@@ -2121,8 +2162,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell54.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell54.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell54.Multiline = true;
             this.xrTableCell54.Name = "xrTableCell54";
+            this.xrTableCell54.StylePriority.UseFont = false;
             this.xrTableCell54.StylePriority.UseTextAlignment = false;
             this.xrTableCell54.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell54.TextFormatString = "{0:dd/MM/yy}";
@@ -2132,8 +2175,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell55.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell55.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell55.Multiline = true;
             this.xrTableCell55.Name = "xrTableCell55";
+            this.xrTableCell55.StylePriority.UseFont = false;
             this.xrTableCell55.StylePriority.UseTextAlignment = false;
             this.xrTableCell55.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell55.TextFormatString = "{0:n1}";
@@ -2143,8 +2188,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell56.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[service].[Name]")});
+            this.xrTableCell56.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell56.Multiline = true;
             this.xrTableCell56.Name = "xrTableCell56";
+            this.xrTableCell56.StylePriority.UseFont = false;
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
             this.xrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell56.Weight = 0.611425825783459D;
@@ -2242,7 +2289,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel22.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel22.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel22.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel22.Multiline = true;
             this.xrLabel22.Name = "xrLabel22";
@@ -2292,7 +2339,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
-            this.xrLabel23.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel23.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel23.Multiline = true;
             this.xrLabel23.Name = "xrLabel23";
@@ -2362,8 +2409,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell57.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell57.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell57.Multiline = true;
             this.xrTableCell57.Name = "xrTableCell57";
+            this.xrTableCell57.StylePriority.UseFont = false;
             this.xrTableCell57.StylePriority.UseTextAlignment = false;
             this.xrTableCell57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell57.Weight = 0.40160642570281119D;
@@ -2372,8 +2421,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell58.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell58.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell58.Multiline = true;
             this.xrTableCell58.Name = "xrTableCell58";
+            this.xrTableCell58.StylePriority.UseFont = false;
             this.xrTableCell58.StylePriority.UseTextAlignment = false;
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell58.TextFormatString = "{0:n1}";
@@ -2383,8 +2434,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell59.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[service].[Name]")});
+            this.xrTableCell59.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell59.Multiline = true;
             this.xrTableCell59.Name = "xrTableCell59";
+            this.xrTableCell59.StylePriority.UseFont = false;
             this.xrTableCell59.StylePriority.UseTextAlignment = false;
             this.xrTableCell59.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell59.Weight = 0.55542998572929259D;
@@ -2482,7 +2535,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel25.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel25.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel25.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(0.0002179827F, 0F);
             this.xrLabel25.Multiline = true;
             this.xrLabel25.Name = "xrLabel25";
@@ -2532,7 +2585,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel26.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
-            this.xrLabel26.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel26.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel26.Multiline = true;
             this.xrLabel26.Name = "xrLabel26";
@@ -2602,8 +2655,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell66.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell66.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell66.Multiline = true;
             this.xrTableCell66.Name = "xrTableCell66";
+            this.xrTableCell66.StylePriority.UseFont = false;
             this.xrTableCell66.StylePriority.UseTextAlignment = false;
             this.xrTableCell66.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell66.TextFormatString = "{0:dd/MM/yy}";
@@ -2613,8 +2668,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell67.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell67.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell67.Multiline = true;
             this.xrTableCell67.Name = "xrTableCell67";
+            this.xrTableCell67.StylePriority.UseFont = false;
             this.xrTableCell67.StylePriority.UseTextAlignment = false;
             this.xrTableCell67.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell67.TextFormatString = "{0:n1}";
@@ -2624,8 +2681,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell68.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[service].[Name]")});
+            this.xrTableCell68.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell68.Multiline = true;
             this.xrTableCell68.Name = "xrTableCell68";
+            this.xrTableCell68.StylePriority.UseFont = false;
             this.xrTableCell68.StylePriority.UseTextAlignment = false;
             this.xrTableCell68.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell68.Weight = 0.55543084462544123D;
@@ -2723,7 +2782,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel28.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel28.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel28.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel28.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel28.Multiline = true;
             this.xrLabel28.Name = "xrLabel28";
@@ -2891,8 +2950,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell26.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomSupervisionCost]")});
+            this.xrTableCell26.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell26.Multiline = true;
             this.xrTableCell26.Name = "xrTableCell26";
+            this.xrTableCell26.StylePriority.UseFont = false;
             this.xrTableCell26.StylePriority.UseTextAlignment = false;
             this.xrTableCell26.Text = "xrTableCell20";
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2903,8 +2964,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell27.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays]")});
+            this.xrTableCell27.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell27.Multiline = true;
             this.xrTableCell27.Name = "xrTableCell27";
+            this.xrTableCell27.StylePriority.UseFont = false;
             this.xrTableCell27.StylePriority.UseTextAlignment = false;
             this.xrTableCell27.Text = "xrTableCell19";
             this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2914,8 +2977,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell28.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell28.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell28.Multiline = true;
             this.xrTableCell28.Name = "xrTableCell28";
+            this.xrTableCell28.StylePriority.UseFont = false;
             this.xrTableCell28.StylePriority.UseTextAlignment = false;
             this.xrTableCell28.Text = "xrTableCell5";
             this.xrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2926,8 +2991,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell39.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomSupervisionCost]")});
+            this.xrTableCell39.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell39.Multiline = true;
             this.xrTableCell39.Name = "xrTableCell39";
+            this.xrTableCell39.StylePriority.UseFont = false;
             this.xrTableCell39.StylePriority.UseTextAlignment = false;
             this.xrTableCell39.Text = "xrTableCell6";
             this.xrTableCell39.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2938,8 +3005,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell40.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Room].[number]")});
+            this.xrTableCell40.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell40.Multiline = true;
             this.xrTableCell40.Name = "xrTableCell40";
+            this.xrTableCell40.StylePriority.UseFont = false;
             this.xrTableCell40.StylePriority.UseTextAlignment = false;
             this.xrTableCell40.Text = "xrTableCell8";
             this.xrTableCell40.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2951,8 +3020,10 @@ namespace HMS.Module.Win.reports
             this.xrTableCell76.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Status] = \'normal\' , \'قسم داخلي\' , Iif([Status] = \'ICU\' , \' رعاية مركزة\' , I" +
                     "if([Status] = \'covid\' , \'رعاية كوفيد\' , \'\')))\n\n")});
+            this.xrTableCell76.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell76.Multiline = true;
             this.xrTableCell76.Name = "xrTableCell76";
+            this.xrTableCell76.StylePriority.UseFont = false;
             this.xrTableCell76.StylePriority.UseTextAlignment = false;
             this.xrTableCell76.Text = "xrTableCell76";
             this.xrTableCell76.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -2968,11 +3039,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTable5
             // 
-            this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 27.64998F);
+            this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(1.333681F, 27.64995F);
             this.xrTable5.Name = "xrTable5";
             this.xrTable5.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow5});
-            this.xrTable5.SizeF = new System.Drawing.SizeF(800.9999F, 25F);
+            this.xrTable5.SizeF = new System.Drawing.SizeF(799.6662F, 25F);
             // 
             // xrTableRow5
             // 
@@ -3114,7 +3185,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel6.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel6.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
@@ -3166,7 +3237,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomSupervisionCost])\n")});
-            this.xrLabel13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.xrLabel13.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(1.333682F, 0F);
             this.xrLabel13.Multiline = true;
             this.xrLabel13.Name = "xrLabel13";
@@ -3233,8 +3304,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell46.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomCareCost]")});
+            this.xrTableCell46.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell46.Multiline = true;
             this.xrTableCell46.Name = "xrTableCell46";
+            this.xrTableCell46.StylePriority.UseFont = false;
             this.xrTableCell46.StylePriority.UseTextAlignment = false;
             this.xrTableCell46.Text = "xrTableCell20";
             this.xrTableCell46.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3245,8 +3318,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell47.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays]")});
+            this.xrTableCell47.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell47.Multiline = true;
             this.xrTableCell47.Name = "xrTableCell47";
+            this.xrTableCell47.StylePriority.UseFont = false;
             this.xrTableCell47.StylePriority.UseTextAlignment = false;
             this.xrTableCell47.Text = "xrTableCell19";
             this.xrTableCell47.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3256,8 +3331,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell48.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell48.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell48.Multiline = true;
             this.xrTableCell48.Name = "xrTableCell48";
+            this.xrTableCell48.StylePriority.UseFont = false;
             this.xrTableCell48.StylePriority.UseTextAlignment = false;
             this.xrTableCell48.Text = "xrTableCell5";
             this.xrTableCell48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3268,8 +3345,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell49.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomCareCost]")});
+            this.xrTableCell49.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell49.Multiline = true;
             this.xrTableCell49.Name = "xrTableCell49";
+            this.xrTableCell49.StylePriority.UseFont = false;
             this.xrTableCell49.StylePriority.UseTextAlignment = false;
             this.xrTableCell49.Text = "xrTableCell6";
             this.xrTableCell49.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3280,8 +3359,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell50.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Room].[number]")});
+            this.xrTableCell50.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell50.Multiline = true;
             this.xrTableCell50.Name = "xrTableCell50";
+            this.xrTableCell50.StylePriority.UseFont = false;
             this.xrTableCell50.StylePriority.UseTextAlignment = false;
             this.xrTableCell50.Text = "xrTableCell8";
             this.xrTableCell50.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3293,8 +3374,10 @@ namespace HMS.Module.Win.reports
             this.xrTableCell78.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Status] = \'normal\' , \'قسم داخلي\' , Iif([Status] = \'ICU\' , \' رعاية مركزة\' , I" +
                     "if([Status] = \'covid\' , \'رعاية كوفيد\' , \'\')))\n\n")});
+            this.xrTableCell78.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell78.Multiline = true;
             this.xrTableCell78.Name = "xrTableCell78";
+            this.xrTableCell78.StylePriority.UseFont = false;
             this.xrTableCell78.StylePriority.UseTextAlignment = false;
             this.xrTableCell78.Text = "xrTableCell78";
             this.xrTableCell78.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -3311,11 +3394,11 @@ namespace HMS.Module.Win.reports
             // 
             // xrTable7
             // 
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 27.65001F);
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(1.333687F, 27.65001F);
             this.xrTable7.Name = "xrTable7";
             this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow7});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(800.9999F, 25F);
+            this.xrTable7.SizeF = new System.Drawing.SizeF(799.6662F, 25F);
             // 
             // xrTableRow7
             // 
@@ -3347,7 +3430,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell41.StylePriority.UseTextAlignment = false;
             this.xrTableCell41.Text = "الاجمالي\r\n";
             this.xrTableCell41.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell41.Weight = 216.33335876464844D;
+            this.xrTableCell41.Weight = 213.68637886812573D;
             // 
             // xrTableCell42
             // 
@@ -3457,7 +3540,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel17.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel17.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel17.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel17.Multiline = true;
             this.xrLabel17.Name = "xrLabel17";
@@ -3510,12 +3593,12 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomCareCost])")});
-            this.xrLabel18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(1.333682F, 0F);
+            this.xrLabel18.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel18.Multiline = true;
             this.xrLabel18.Name = "xrLabel18";
             this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(325.6665F, 29.20316F);
+            this.xrLabel18.SizeF = new System.Drawing.SizeF(327.0002F, 29.20316F);
             this.xrLabel18.StylePriority.UseBorderColor = false;
             this.xrLabel18.StylePriority.UseBorders = false;
             this.xrLabel18.StylePriority.UseFont = false;
@@ -3592,8 +3675,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell82.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell82.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell82.Multiline = true;
             this.xrTableCell82.Name = "xrTableCell82";
+            this.xrTableCell82.StylePriority.UseFont = false;
             this.xrTableCell82.StylePriority.UseTextAlignment = false;
             this.xrTableCell82.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell82.TextFormatString = "{0:dd/MM/yy}";
@@ -3603,8 +3688,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell83.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell83.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell83.Multiline = true;
             this.xrTableCell83.Name = "xrTableCell83";
+            this.xrTableCell83.StylePriority.UseFont = false;
             this.xrTableCell83.StylePriority.UseTextAlignment = false;
             this.xrTableCell83.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell83.TextFormatString = "{0:n1}";
@@ -3614,8 +3701,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell84.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Companion].[FullName]")});
+            this.xrTableCell84.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell84.Multiline = true;
             this.xrTableCell84.Name = "xrTableCell84";
+            this.xrTableCell84.StylePriority.UseFont = false;
             this.xrTableCell84.StylePriority.UseTextAlignment = false;
             this.xrTableCell84.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell84.Weight = 0.55543016894786146D;
@@ -3713,7 +3802,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel39.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel39.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel39.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel39.Multiline = true;
             this.xrLabel39.Name = "xrLabel39";
@@ -3742,7 +3831,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel40.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
-            this.xrLabel40.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel40.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel40.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel40.Multiline = true;
             this.xrLabel40.Name = "xrLabel40";
@@ -3800,8 +3889,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader7,
             this.ReportFooter6});
             this.DetailReport6.DataSource = this.services;
-            this.DetailReport6.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = ##Enum#XafDataMod" +
-    "el.Module.BusinessObjects.test2.ServiceTypes,Blood#";
+            this.DetailReport6.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
+    "ypes,Blood#";
             this.DetailReport6.Level = 10;
             this.DetailReport6.Name = "DetailReport6";
             // 
@@ -3840,8 +3929,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell88.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell88.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell88.Multiline = true;
             this.xrTableCell88.Name = "xrTableCell88";
+            this.xrTableCell88.StylePriority.UseFont = false;
             this.xrTableCell88.StylePriority.UseTextAlignment = false;
             this.xrTableCell88.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell88.TextFormatString = "{0:dd/MM/yy}";
@@ -3851,8 +3942,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell89.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell89.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell89.Multiline = true;
             this.xrTableCell89.Name = "xrTableCell89";
+            this.xrTableCell89.StylePriority.UseFont = false;
             this.xrTableCell89.StylePriority.UseTextAlignment = false;
             this.xrTableCell89.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell89.TextFormatString = "{0:n1}";
@@ -3862,8 +3955,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell90.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Service].[Name]")});
+            this.xrTableCell90.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell90.Multiline = true;
             this.xrTableCell90.Name = "xrTableCell90";
+            this.xrTableCell90.StylePriority.UseFont = false;
             this.xrTableCell90.StylePriority.UseTextAlignment = false;
             this.xrTableCell90.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell90.Weight = 0.55543084462544123D;
@@ -3961,7 +4056,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel42.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel42.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel42.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel42.Multiline = true;
             this.xrLabel42.Name = "xrLabel42";
@@ -4011,7 +4106,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel43.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
-            this.xrLabel43.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel43.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel43.Multiline = true;
             this.xrLabel43.Name = "xrLabel43";
@@ -4042,8 +4137,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader8,
             this.ReportFooter7});
             this.DetailReport7.DataSource = this.services;
-            this.DetailReport7.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = ##Enum#XafDataMod" +
-    "el.Module.BusinessObjects.test2.ServiceTypes,Other#";
+            this.DetailReport7.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
+    "ypes,Other#";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 
@@ -4082,8 +4177,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell106.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell106.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell106.Multiline = true;
             this.xrTableCell106.Name = "xrTableCell106";
+            this.xrTableCell106.StylePriority.UseFont = false;
             this.xrTableCell106.StylePriority.UseTextAlignment = false;
             this.xrTableCell106.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell106.TextFormatString = "{0:dd/MM/yy}";
@@ -4093,8 +4190,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell107.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
+            this.xrTableCell107.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell107.Multiline = true;
             this.xrTableCell107.Name = "xrTableCell107";
+            this.xrTableCell107.StylePriority.UseFont = false;
             this.xrTableCell107.StylePriority.UseTextAlignment = false;
             this.xrTableCell107.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell107.TextFormatString = "{0:n1}";
@@ -4104,8 +4203,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell108.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Service].[Name]")});
+            this.xrTableCell108.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell108.Multiline = true;
             this.xrTableCell108.Name = "xrTableCell108";
+            this.xrTableCell108.StylePriority.UseFont = false;
             this.xrTableCell108.StylePriority.UseTextAlignment = false;
             this.xrTableCell108.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell108.Weight = 0.55543084462544123D;
@@ -4203,7 +4304,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel5.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel5.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel5.Multiline = true;
             this.xrLabel5.Name = "xrLabel5";
@@ -4253,7 +4354,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel8.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
-            this.xrLabel8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
@@ -4311,7 +4412,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell109.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amount]")});
-            this.xrTableCell109.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell109.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell109.Multiline = true;
             this.xrTableCell109.Name = "xrTableCell109";
             this.xrTableCell109.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 30, 0, 0, 100F);
@@ -4357,7 +4458,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell111.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ServiceFee]")});
-            this.xrTableCell111.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell111.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell111.Multiline = true;
             this.xrTableCell111.Name = "xrTableCell111";
             this.xrTableCell111.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 30, 0, 0, 100F);
@@ -4404,7 +4505,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell113.CanShrink = true;
             this.xrTableCell113.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Discount]==0,\'\' ,[Discount] )")});
-            this.xrTableCell113.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell113.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell113.Multiline = true;
             this.xrTableCell113.Name = "xrTableCell113";
             this.xrTableCell113.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 30, 0, 0, 100F);
@@ -4425,7 +4526,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell114.CanShrink = true;
             this.xrTableCell114.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Discount]==0, \'\',\'خصم\' )")});
-            this.xrTableCell114.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell114.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell114.Multiline = true;
             this.xrTableCell114.Name = "xrTableCell114";
             this.xrTableCell114.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 5, 0, 0, 100F);
@@ -4453,7 +4554,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell115.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?totalN2C")});
-            this.xrTableCell115.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell115.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell115.Multiline = true;
             this.xrTableCell115.Name = "xrTableCell115";
             this.xrTableCell115.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
@@ -4473,7 +4574,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell124.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
-            this.xrTableCell124.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell124.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell124.Multiline = true;
             this.xrTableCell124.Name = "xrTableCell124";
             this.xrTableCell124.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 30, 0, 0, 100F);
@@ -4553,8 +4654,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell29.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[date]")});
+            this.xrTableCell29.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell29.Multiline = true;
             this.xrTableCell29.Name = "xrTableCell29";
+            this.xrTableCell29.StylePriority.UseFont = false;
             this.xrTableCell29.StylePriority.UseTextAlignment = false;
             this.xrTableCell29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell29.TextFormatString = "{0:dd/MM/yy}";
@@ -4564,8 +4667,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amount]")});
+            this.xrTableCell30.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell30.Multiline = true;
             this.xrTableCell30.Name = "xrTableCell30";
+            this.xrTableCell30.StylePriority.UseFont = false;
             this.xrTableCell30.StylePriority.UseTextAlignment = false;
             this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell30.TextFormatString = "{0:n1}";
@@ -4575,8 +4680,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell31.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[paymentID]")});
+            this.xrTableCell31.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell31.Multiline = true;
             this.xrTableCell31.Name = "xrTableCell31";
+            this.xrTableCell31.StylePriority.UseFont = false;
             this.xrTableCell31.StylePriority.UseTextAlignment = false;
             this.xrTableCell31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell31.Weight = 0.44616094210115032D;
@@ -4751,8 +4858,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell127.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Price]")});
+            this.xrTableCell127.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell127.Multiline = true;
             this.xrTableCell127.Name = "xrTableCell127";
+            this.xrTableCell127.StylePriority.UseFont = false;
             this.xrTableCell127.StylePriority.UseTextAlignment = false;
             this.xrTableCell127.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell127.TextFormatString = "{0:n1}";
@@ -4762,8 +4871,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell136.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Date]")});
+            this.xrTableCell136.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell136.Multiline = true;
             this.xrTableCell136.Name = "xrTableCell136";
+            this.xrTableCell136.StylePriority.UseFont = false;
             this.xrTableCell136.StylePriority.UseTextAlignment = false;
             this.xrTableCell136.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell136.TextFormatString = "{0:dd/MM/yyyy}";
@@ -4773,8 +4884,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell135.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[From]")});
+            this.xrTableCell135.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell135.Multiline = true;
             this.xrTableCell135.Name = "xrTableCell135";
+            this.xrTableCell135.StylePriority.UseFont = false;
             this.xrTableCell135.StylePriority.UseTextAlignment = false;
             this.xrTableCell135.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell135.Weight = 0.29624416311652074D;
@@ -4783,8 +4896,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell133.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Specialty]")});
+            this.xrTableCell133.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell133.Multiline = true;
             this.xrTableCell133.Name = "xrTableCell133";
+            this.xrTableCell133.StylePriority.UseFont = false;
             this.xrTableCell133.StylePriority.UseTextAlignment = false;
             this.xrTableCell133.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell133.Weight = 0.28594523022507179D;
@@ -4793,8 +4908,10 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell134.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Name]")});
+            this.xrTableCell134.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell134.Multiline = true;
             this.xrTableCell134.Name = "xrTableCell134";
+            this.xrTableCell134.StylePriority.UseFont = false;
             this.xrTableCell134.StylePriority.UseTextAlignment = false;
             this.xrTableCell134.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell134.Weight = 0.26948533160516985D;
@@ -4934,7 +5051,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel20.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel20.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel20.Font = new System.Drawing.Font("Times New Roman", 14.7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel20.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel20.Multiline = true;
             this.xrLabel20.Name = "xrLabel20";
@@ -4986,7 +5103,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel31.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Price])")});
-            this.xrLabel31.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.xrLabel31.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(1.333682F, 0F);
             this.xrLabel31.Multiline = true;
             this.xrLabel31.Name = "xrLabel31";
@@ -5046,7 +5163,7 @@ namespace HMS.Module.Win.reports
             this.DataSource = this.reception;
             this.FilterString = "[enterID] = ?enterID";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(29, 9, 18, 22);
+            this.Margins = new System.Drawing.Printing.Margins(29, 2, 18, 22);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.enterID,
             this.patientName,

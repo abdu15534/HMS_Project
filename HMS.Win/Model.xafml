@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Logo="ExpressAppLogo" PreferredLanguage="(Default language)">
+<Application Logo="ExpressAppLogo" PreferredLanguage="ar">
   <ActionDesign>
     <Actions>
+      <Action Id="AddDepartmentsServices" ImageName="AddParameter" />
+      <Action Id="AddPharmacy" ImageName="AddParameter" />
+      <Action Id="AddStock" ImageName="AddParameter" />
+      <Action Id="AddTests" ImageName="AddParameter" />
       <Action Id="BackUpDataBase" ImageName="Open2" />
       <Action Id="CachReceipts" ImageName="Shopping_CashVoucher" />
       <Action Id="CancelAction" ImageName="Cancel" />
@@ -9,7 +13,13 @@
       <Action Id="Close" ImageName="Action_CloseAllWindows" />
       <Action Id="CurrentStay" ImageName="BO_Category" />
       <Action Id="DetailedReport" ImageName="BO_Report" />
+      <Action Id="DiscoutAndService" ImageName="ExpandCollapse" />
+      <Action Id="EmergencyTotals" ImageName="EmployeeTaskList" />
       <Action Id="FullTextSearch" ImageName="EnableSearch" />
+      <Action Id="ICUPatentsDetails" ImageName="EmployeeTaskList" />
+      <Action Id="ICUtotals" ImageName="EmployeeTaskList" />
+      <Action Id="InPatients" ImageName="EmployeeTaskList" />
+      <Action Id="InPatientsTotal" ImageName="EmployeeTaskList" />
       <Action Id="New" PaintStyle="Default" />
       <Action Id="OrderConfirmed" ImageName="BO_Order_Item" TargetObjectsCriteria="[isConfirmed] &lt;&gt; True And [OrderType] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.PurchasingOrder+OrderTypes,PurchasingOrder#" />
       <Action Id="OrderUnConfirmed" ImageName="BO_Quote" />
@@ -21,6 +31,7 @@
       <Action Id="SalaryPayment" TargetObjectsCriteria="[date] &lt;&gt; null And [SalaryDetailsCollection][].Count() = 0" Caption="تجهيز المرتبات" />
       <Action Id="Transfer" ImageName="MovePivotTable" TargetObjectsCriteria="[isDischarged] = False" />
       <Action Id="UnCheckOutAction" TargetObjectsCriteria="[IsDischarged] = True And [reception.isDischarged] = False" />
+      <Action Id="XrayServices" ImageName="AddParameter" />
     </Actions>
   </ActionDesign>
   <BOModel>

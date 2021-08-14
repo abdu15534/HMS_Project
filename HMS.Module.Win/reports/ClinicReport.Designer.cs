@@ -44,6 +44,7 @@ namespace HMS.Module.Win.reports
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
@@ -59,6 +60,7 @@ namespace HMS.Module.Win.reports
             this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.Appointment = new DevExpress.Xpo.XPObjectSource(this.components);
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.xpObjectSource5 = new DevExpress.Xpo.XPObjectSource(this.components);
@@ -91,14 +93,13 @@ namespace HMS.Module.Win.reports
             this.xrTableRow13 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
-            this.Appointment = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Appointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource3)).BeginInit();
@@ -111,7 +112,6 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Appointment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -224,6 +224,18 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Text = "إيصال إستلام نقدية";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell2.Weight = 3.4821759536611987D;
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(9.999339F, 10.00001F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 55.70833F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // DetailReport
             // 
@@ -413,6 +425,13 @@ namespace HMS.Module.Win.reports
             this.xrTableCell1.Text = "تم إستلام مبلغ وقدره";
             this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell1.Weight = 3.4821759536611987D;
+            // 
+            // Appointment
+            // 
+            this.Appointment.ConnectionStringName = "ConnectionString";
+            this.Appointment.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Appointment, HMS.Module, Version=1.0.78" +
+    "82.12008, Culture=neutral, PublicKeyToken=null";
+            this.Appointment.Name = "Appointment";
             // 
             // parameter1
             // 
@@ -827,25 +846,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell26.Weight = 2.4713482095931103D;
             // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(9.999339F, 10.00001F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 55.70833F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
-            // 
-            // Appointment
-            // 
-            this.Appointment.ConnectionStringName = "ConnectionString";
-            this.Appointment.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Appointment, HMS.Module, Version=1.0.78" +
-    "82.12008, Culture=neutral, PublicKeyToken=null";
-            this.Appointment.Name = "Appointment";
-            // 
             // ClinicReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -885,6 +885,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Appointment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource3)).EndInit();
@@ -897,7 +898,6 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Appointment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
