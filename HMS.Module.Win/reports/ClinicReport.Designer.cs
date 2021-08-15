@@ -242,8 +242,6 @@ namespace HMS.Module.Win.reports
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.GroupHeader1});
-            this.DetailReport.DataSource = this.Appointment;
-            this.DetailReport.FilterString = "[id] = ?parameter1";
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             // 
@@ -566,8 +564,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell5
             // 
             this.xrTableCell5.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell5.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell5.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell5.BorderWidth = 1F;
             this.xrTableCell5.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell5.Name = "xrTableCell5";
@@ -615,8 +614,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell18
             // 
             this.xrTableCell18.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell18.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell18.BorderWidth = 1F;
             this.xrTableCell18.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell18.Multiline = true;
@@ -665,8 +665,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell20
             // 
             this.xrTableCell20.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell20.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell20.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell20.BorderWidth = 1F;
             this.xrTableCell20.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell20.Multiline = true;
@@ -729,8 +730,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell7
             // 
             this.xrTableCell7.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell7.BorderWidth = 1F;
             this.xrTableCell7.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell7.Name = "xrTableCell7";
@@ -778,8 +780,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell9
             // 
             this.xrTableCell9.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell9.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell9.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell9.BorderWidth = 1F;
             this.xrTableCell9.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell9.Multiline = true;
@@ -829,8 +832,9 @@ namespace HMS.Module.Win.reports
             // xrTableCell26
             // 
             this.xrTableCell26.BorderColor = System.Drawing.Color.LightGray;
-            this.xrTableCell26.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell26.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell26.BorderWidth = 1F;
             this.xrTableCell26.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell26.Multiline = true;

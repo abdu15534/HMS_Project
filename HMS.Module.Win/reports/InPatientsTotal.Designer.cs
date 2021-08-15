@@ -38,6 +38,7 @@ namespace HMS.Module.Win.reports
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
             this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -77,18 +78,17 @@ namespace HMS.Module.Win.reports
             this.xrTableCell30 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell29 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.StartDate = new DevExpress.XtraReports.Parameters.RangeStartParameter();
             this.EndDate = new DevExpress.XtraReports.Parameters.RangeEndParameter();
             this.Date = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -146,6 +146,18 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Text = "كشف حسابات مرضى القسم الداخلى";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             this.xrTableCell2.Weight = 2.9597637771210623D;
+            // 
+            // xrPictureBox1
+            // 
+            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
+            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
+            this.xrPictureBox1.Name = "xrPictureBox1";
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
+            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
+            this.xrPictureBox1.StylePriority.UseBorderColor = false;
+            this.xrPictureBox1.StylePriority.UseBorders = false;
+            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // GroupHeader1
             // 
@@ -753,19 +765,19 @@ namespace HMS.Module.Win.reports
             this.xrTableCell29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell29.Weight = 2.1157257713478392D;
             // 
-            // xpObjectSource1
-            // 
-            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7894" +
-    ".3522, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource1.Name = "xpObjectSource1";
-            // 
             // xpObjectSource2
             // 
             this.xpObjectSource2.ConnectionStringName = "ConnectionString";
             this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7894" +
     ".24447, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource2.Name = "xpObjectSource2";
+            // 
+            // xpObjectSource1
+            // 
+            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Admission, HMS.Module, Version=1.0.7894" +
+    ".3522, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource1.Name = "xpObjectSource1";
             // 
             // StartDate
             // 
@@ -783,18 +795,6 @@ namespace HMS.Module.Win.reports
             this.Date.Name = "Date";
             this.Date.Type = typeof(System.DateTime);
             this.Date.ValueSourceSettings = new DevExpress.XtraReports.Parameters.RangeParametersSettings(this.StartDate, this.EndDate);
-            // 
-            // xrPictureBox1
-            // 
-            this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
-            this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(10.00018F, 9.999992F);
-            this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 75.5F);
-            this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
-            this.xrPictureBox1.StylePriority.UseBorderColor = false;
-            this.xrPictureBox1.StylePriority.UseBorders = false;
-            this.xrPictureBox1.StylePriority.UsePadding = false;
             // 
             // InPatientsTotal
             // 
@@ -817,8 +817,8 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

@@ -89,5 +89,15 @@ namespace HMS.Win.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap WhatsApp_Image_2021_08_12_at_3_24_25_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2021-08-12 at 3.24.25 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

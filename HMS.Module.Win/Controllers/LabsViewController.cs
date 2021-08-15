@@ -90,6 +90,7 @@ namespace HMS.Module.Win.Controllers
 
             var curr = View.CurrentObject as Test;
             report.Parameters["OrderID"].Value = curr.id;
+            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
 
@@ -99,6 +100,7 @@ namespace HMS.Module.Win.Controllers
 
             var curr = View.CurrentObject as Xrays;
             report.Parameters["parameter1"].Value = curr.id;
+            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
 
@@ -108,6 +110,7 @@ namespace HMS.Module.Win.Controllers
 
             var curr = View.CurrentObject as Endscope;
             report.Parameters["parameter1"].Value = curr.id;
+            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
     }

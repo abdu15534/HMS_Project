@@ -63,10 +63,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::HMS.Win.Properties.Resources.NewLogo1;
-            this.pictureBox1.Location = new System.Drawing.Point(74, 11);
+            this.pictureBox1.Image = global::HMS.Win.Properties.Resources.WhatsApp_Image_2021_08_12_at_3_24_25_PM;
+            this.pictureBox1.Location = new System.Drawing.Point(66, 11);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 162);
+            this.pictureBox1.Size = new System.Drawing.Size(371, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

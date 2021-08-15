@@ -18,7 +18,6 @@
       <Action Id="OrderUnConfirmed" ToolTip="إلغاء الترحيل" ShortCaption="إلغاء الترحيل" Caption="إلغاء الترحيل" />
       <Action Id="PaymentBondConfirm" ToolTip="ترحيل" Caption="ترحيل" />
       <Action Id="PaymentBondUnConfirm" ToolTip="الغاء الترحيل" Caption="الغاء الترحيل" />
-      <Action Id="PaymentInvoice" ToolTip="طباعة فاتورة" Caption="طباعة فاتورة" />
       <Action Id="Post" ToolTip="ترحيل" ShortCaption="ترحيل" Caption="ترحيل" />
       <Action Id="PostSalaryDeduction" ToolTip="ترحيل" Caption="ترحيل" />
       <Action Id="PostSalaryPayment" ToolTip="ترحيل" Caption="ترحيل" />
@@ -2478,20 +2477,20 @@
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائي" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئي" />
         <ColumnInfo Id="ignoreFirstDay" Caption="عدم احتساب يوم الدخول" />
+        <ColumnInfo Id="IsDischarged" Caption="منتهي" />
         <ColumnInfo Id="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
         <ColumnInfo Id="medicationSum" EditMask="C" Caption="إجمالى الأدوية" DisplayFormat="{0:C}" />
         <ColumnInfo Id="Patient" Caption="المريض" />
+        <ColumnInfo Id="reception" Caption="الاستقبال" />
         <ColumnInfo Id="servicesSum" Caption="اجمالي الخدمات" DisplayFormat="{0:C}" EditMask="C" />
+        <ColumnInfo Id="stayTotalSum" Caption="اجمالي تكلفة الاقامة" DisplayFormat="{0:C}" EditMask="C" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى المستهلكات الطبية" DisplayFormat="{0:C}" EditMask="C" />
         <ColumnInfo Id="testsSum" Caption="اجمالي التحاليل" />
         <ColumnInfo Id="xraysSum" Caption="اجمالي الاشعة" />
         <ColumnInfo Id="Room" Caption="الغرفة" />
         <ColumnInfo Id="doctor" Caption="الطبيب" />
         <ColumnInfo Id="StayEnd" Caption="تاريخ الإنتهاء" />
-        <ColumnInfo Id="reception" Caption="الاستقبال" />
-        <ColumnInfo Id="IsDischarged" Caption="منتهي" />
         <ColumnInfo Id="totalDays" Caption="عدد ايام الاقامة" />
-        <ColumnInfo Id="stayTotalSum" Caption="اجمالي تكلفة الاقامة" DisplayFormat="{0:C}" EditMask="C" />
       </Columns>
     </ListView>
     <DetailView Id="Payer_DetailView" Caption="المنفق">

@@ -31,6 +31,8 @@ namespace HMS.Module.Win.Controllers
         {
             this.components = new System.ComponentModel.Container();
             this.PaymentRecipt = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.OutPatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.FindAppointment = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             // 
             // PaymentRecipt
             // 
@@ -44,14 +46,42 @@ namespace HMS.Module.Win.Controllers
             this.PaymentRecipt.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.PaymentRecipt.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PaymentRecipt_Execute);
             // 
+            // OutPatientLable
+            // 
+            this.OutPatientLable.Caption = "ملصق المريض";
+            this.OutPatientLable.ConfirmationMessage = null;
+            this.OutPatientLable.Id = "OutPatientLable";
+            this.OutPatientLable.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.OutPatientLable.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.OutPatientLable.ToolTip = null;
+            this.OutPatientLable.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.OutPatientLable.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PatientLable_Execute);
+            // 
+            // FindAppointment
+            // 
+            this.FindAppointment.Caption = "بحث بالرقم الطبي";
+            this.FindAppointment.ConfirmationMessage = null;
+            this.FindAppointment.Id = "FindAppointment";
+            this.FindAppointment.NullValuePrompt = null;
+            this.FindAppointment.ShortCaption = null;
+            this.FindAppointment.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.FindAppointment.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.FindAppointment.ToolTip = null;
+            this.FindAppointment.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.FindAppointment.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FindAppointment_Execute);
+            // 
             // ClinincController
             // 
             this.Actions.Add(this.PaymentRecipt);
+            this.Actions.Add(this.OutPatientLable);
+            this.Actions.Add(this.FindAppointment);
 
         }
 
         #endregion
 
         private DevExpress.ExpressApp.Actions.SimpleAction PaymentRecipt;
+        private DevExpress.ExpressApp.Actions.SimpleAction OutPatientLable;
+        private DevExpress.ExpressApp.Actions.ParametrizedAction FindAppointment;
     }
 }

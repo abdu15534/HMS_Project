@@ -50,5 +50,28 @@ namespace HMS.Module.Win.Controllers
             report.Parameters["parameter1"].Value = curr.id;
             report.ShowPreviewDialog();
         }
+
+        private void PatientLable_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.OutPatintLable report = new reports.OutPatintLable();
+
+            var curr = View.CurrentObject as Appointment;
+            report.Parameters["parameter1"].Value = curr.id;
+            report.ShowPreviewDialog();
+        }
+
+        private void FindAppointment_Execute(object sender, ParametrizedActionExecuteEventArgs e)
+        {
+            IObjectSpace objectSpace = Application.CreateObjectSpace(((ListView)View).ObjectTypeInfo.Type);
+            string paramValue = e.ParameterCurrentValue as string;
+            object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
+                CriteriaOperator.Parse(string.Format("Contains([Patient.MedicalID], '{0}')", paramValue)));
+            if (obj != null)
+            {
+                DetailView detailView = Application.CreateDetailView(objectSpace, obj);
+                detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
+                e.ShowViewParameters.CreatedView = detailView;
+            }
+        }
     }
 }

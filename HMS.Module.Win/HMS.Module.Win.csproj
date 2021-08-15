@@ -738,6 +738,12 @@
     <Compile Include="reports\OutPatients.Designer.cs">
       <DependentUpon>OutPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\OutPatintLable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\OutPatintLable.Designer.cs">
+      <DependentUpon>OutPatintLable.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\PatientLable.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1089,6 +1095,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\OutPatients.resx">
       <DependentUpon>OutPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\OutPatintLable.resx">
+      <DependentUpon>OutPatintLable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\PatientLable.resx">
       <DependentUpon>PatientLable.cs</DependentUpon>

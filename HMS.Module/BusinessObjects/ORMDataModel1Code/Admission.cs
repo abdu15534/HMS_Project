@@ -50,9 +50,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if (propertyName == nameof(Room))
             {
-                roomStayCost = Room.roomCost;
-                roomCareCost = Room.careCost;
-                roomSupervisionCost = Room.supervisionCost;
+                if (Room != null)
+                {
+                    roomStayCost = Room.roomCost;
+                    roomCareCost = Room.careCost;
+                    roomSupervisionCost = Room.supervisionCost;
+                }
             }
 
             if ((propertyName == nameof(StayStart) || propertyName == nameof(StayEnd)) && newValue != null)
@@ -91,9 +94,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
                     reception.currentStay.bed.isAvailable = true;
                     reception.currentStay.StayEnd = DateTime.Now;
-                    if (transferDayCount && DateTime.Now.TimeOfDay >= new TimeSpan(12, 0, 0))
+                    //TimeSpan control = TimeSpan.Parse("12:00:00");
+                    if (transferDayCount)
                     {
-                        reception.currentStay.StayEnd = DateTime.Now.Date + new TimeSpan(11, 59, 0);
+                        reception.currentStay.StayEnd = DateTime.Now.Date.AddHours(11).AddMinutes(59);
                     }
 
                     reception.currentStay.IsDischarged = true;
@@ -111,7 +115,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnDeleting();
             if (!transferFlag)
             {
-                //Patient.InStay = false;
+                Patient.InStay = false;
                 bed.isAvailable = true;
                 var supervisions = Session.Query<SupervisionDetails>().Where(p => p.admission == this);
                 foreach (var item in supervisions)

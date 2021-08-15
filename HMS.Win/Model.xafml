@@ -7,24 +7,20 @@
       <Action Id="AddStock" ImageName="AddParameter" />
       <Action Id="AddTests" ImageName="AddParameter" />
       <Action Id="BackUpDataBase" ImageName="Open2" />
-      <Action Id="CachReceipts" ImageName="Shopping_CashVoucher" />
       <Action Id="CancelAction" ImageName="Cancel" />
       <Action Id="CheckOutAction" TargetObjectsCriteria="[IsDischarged] &lt;&gt; True" ConfirmationMessage="Check out this stay ?" ImageMode="UseActionImage" ImageName="Walking_32x32" />
       <Action Id="Close" ImageName="Action_CloseAllWindows" />
       <Action Id="CurrentStay" ImageName="BO_Category" />
       <Action Id="DetailedReport" ImageName="BO_Report" />
       <Action Id="DiscoutAndService" ImageName="ExpandCollapse" />
-      <Action Id="EmergencyTotals" ImageName="EmployeeTaskList" />
       <Action Id="FullTextSearch" ImageName="EnableSearch" />
       <Action Id="ICUPatentsDetails" ImageName="EmployeeTaskList" />
       <Action Id="ICUtotals" ImageName="EmployeeTaskList" />
-      <Action Id="InPatients" ImageName="EmployeeTaskList" />
-      <Action Id="InPatientsTotal" ImageName="EmployeeTaskList" />
       <Action Id="New" PaintStyle="Default" />
       <Action Id="OrderConfirmed" ImageName="BO_Order_Item" TargetObjectsCriteria="[isConfirmed] &lt;&gt; True And [OrderType] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.PurchasingOrder+OrderTypes,PurchasingOrder#" />
       <Action Id="OrderUnConfirmed" ImageName="BO_Quote" />
+      <Action Id="OutPatientLable" ImageName="Shopping_Barcode" />
       <Action Id="PatientLable" ImageName="Shopping_Barcode" />
-      <Action Id="PaymentVoucher" ImageName="Shopping_CashVoucher" />
       <Action Id="PostSalaryPayment" TargetObjectsCriteria="[post] = False And [SalaryDetailsCollection][].Count() &gt; 0" />
       <Action Id="PrintProductLable" ImageName="Shopping_Barcode" />
       <Action Id="RestoreDatabase" ImageName="Up" />
@@ -1239,7 +1235,7 @@
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="79" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Index="2" Width="65" />
-        <ColumnInfo Id="price" Width="56" Index="3">
+        <ColumnInfo Id="price" Width="56" Index="3" AllowEdit="False">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1313,7 +1309,7 @@
         <ColumnInfo Id="Service" Index="0" SortIndex="0" SortOrder="Ascending" Width="68" />
         <ColumnInfo Id="Service.Name" PropertyName="Service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Width="65" Index="2" />
-        <ColumnInfo Id="price" Index="3" Width="56">
+        <ColumnInfo Id="price" Index="3" Width="56" AllowEdit="False">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1373,7 +1369,7 @@
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="67" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Index="2" Width="65" />
-        <ColumnInfo Id="price" Width="56" Index="3">
+        <ColumnInfo Id="price" Width="56" Index="3" AllowEdit="False">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1387,7 +1383,7 @@
         <ColumnInfo Id="service" Width="54" Index="0" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Width="65" Index="2" />
-        <ColumnInfo Id="price" Width="56" Index="3">
+        <ColumnInfo Id="price" Width="56" Index="3" AllowEdit="False">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
@@ -1486,7 +1482,7 @@
         <ColumnInfo Id="amount" Caption="الكمية" />
       </Columns>
     </ListView>
-    <ListView Id="Appointment_PaymentsCollection_ListView">
+    <ListView Id="Appointment_PaymentsCollection_ListView" AllowEdit="False" AllowNew="False">
       <Columns>
         <ColumnInfo Id="Emergency" Index="-1" />
         <ColumnInfo Id="journalEntry" Index="-1" />
@@ -2310,7 +2306,12 @@
         <ColumnInfo Id="Patient" Width="181" />
       </Columns>
     </ListView>
-    <ListView Id="EndscopeDetails_LookupListView" AllowDelete="True" AllowNew="True" AllowLink="True">
+    <ListView Id="EndscopeDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="price" AllowEdit="False" />
+      </Columns>
+    </ListView>
+    <ListView Id="EndscopeDetails_LookupListView" AllowDelete="True" AllowNew="False" AllowLink="True">
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Endscope" Index="-1" />
@@ -2869,7 +2870,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="Patient_Emergencies_ListView">
+    <ListView Id="Patient_Emergencies_ListView" AllowNew="False" AllowUnlink="False">
       <Columns>
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
@@ -2887,6 +2888,7 @@
         <ColumnInfo Id="TotalSum" Index="7" />
       </Columns>
     </ListView>
+    <ListView Id="Patient_Endscopes_ListView" AllowNew="False" AllowUnlink="False" />
     <ListView Id="Patient_ListView" IsFooterVisible="True" IsGroupPanelVisible="True">
       <Columns>
         <ColumnInfo Id="account" Caption="حساب" Index="-1" SortOrder="None" GroupIndex="-1" />
@@ -2943,22 +2945,26 @@
         </ColumnInfo>
       </Columns>
     </ListView>
-    <ListView Id="Patient_Stays_ListView" Caption="الحجز">
+    <ListView Id="Patient_Stays_ListView" Caption="الحجز" AllowNew="False" AllowUnlink="False">
       <Columns>
         <ColumnInfo Id="admissionID" Caption="كود الإقامة" />
         <ColumnInfo Id="amount" Caption="الكمية" Index="-1" />
         <ColumnInfo Id="companionSum" Index="-1" />
+        <ColumnInfo Id="ConsolationSum" Index="-1" />
         <ColumnInfo Id="date" Caption="تاريخ" Index="-1" />
         <ColumnInfo Id="endscopesSum" Index="-1" />
         <ColumnInfo Id="ignoreFirstDay" Index="-1" />
+        <ColumnInfo Id="IsDischarged" Index="-1" />
         <ColumnInfo Id="medicalCareSum" Index="-1" />
         <ColumnInfo Id="MedicalSupervisionSum" Index="-1" />
         <ColumnInfo Id="medicationSum" EditMask="C" Caption="إجمالى تكلفة الأدوية" Index="-1" />
+        <ColumnInfo Id="reception" Index="-1" />
         <ColumnInfo Id="roomCareCost" Index="-1" />
         <ColumnInfo Id="roomStayCost" Index="-1" />
         <ColumnInfo Id="roomStaySum" Index="-1" />
         <ColumnInfo Id="roomSupervisionCost" Index="-1" />
         <ColumnInfo Id="servicesSum" Index="-1" />
+        <ColumnInfo Id="stayTotalSum" Caption="إجمالى الإقامة" Index="-1" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" Index="-1" />
         <ColumnInfo Id="testsSum" Index="-1" />
         <ColumnInfo Id="transferDayCount" Index="-1" />
@@ -2967,12 +2973,11 @@
         <ColumnInfo Id="Status" Caption="الحالة" />
         <ColumnInfo Id="bed" Caption="السرير" />
         <ColumnInfo Id="StayStart" Caption="تاريخ بداية الإقامة" />
-        <ColumnInfo Id="reception" Index="6" />
-        <ColumnInfo Id="IsDischarged" Index="7" />
-        <ColumnInfo Id="totalDays" Index="8" />
-        <ColumnInfo Id="stayTotalSum" Caption="إجمالى الإقامة" Index="9" />
+        <ColumnInfo Id="totalDays" Index="6" />
       </Columns>
     </ListView>
+    <ListView Id="Patient_Tests_ListView" AllowNew="False" AllowUnlink="False" />
+    <ListView Id="Patient_XraysCollection_ListView" AllowUnlink="False" AllowNew="False" />
     <DetailView Id="Payer_DetailView">
       <Items>
         <PropertyEditor Id="Address1" Caption="العنوان 1" />
@@ -4085,6 +4090,7 @@
     <ListView Id="ServiceDetails_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
+        <ColumnInfo Id="price" AllowEdit="False" />
       </Columns>
     </ListView>
     <ListView Id="ServiceDetails_LookupListView">
@@ -4550,7 +4556,12 @@
         <ColumnInfo Id="date" Index="3" />
       </Columns>
     </ListView>
-    <ListView Id="TestDetails_LookupListView">
+    <ListView Id="TestDetails_ListView" MasterDetailMode="ListViewOnly">
+      <Columns>
+        <ColumnInfo Id="price" AllowEdit="False" />
+      </Columns>
+    </ListView>
+    <ListView Id="TestDetails_LookupListView" AllowNew="False">
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Test" Index="-1" />
@@ -4746,7 +4757,12 @@
         <ColumnInfo Id="date" Index="4" Width="136" />
       </Columns>
     </ListView>
-    <ListView Id="XraysDetails_LookupListView" ShowFindPanel="False">
+    <ListView Id="XraysDetails_ListView" AllowNew="True">
+      <Columns>
+        <ColumnInfo Id="price" AllowEdit="False" />
+      </Columns>
+    </ListView>
+    <ListView Id="XraysDetails_LookupListView" ShowFindPanel="False" AllowNew="False">
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Xrays" Index="-1" />

@@ -70,12 +70,12 @@ namespace HMS.Module.DatabaseUpdate
                 Manager1.SetPassword("941999");
             }
 
-            PermissionPolicyUser Manager2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "M_Sahar"));
+            PermissionPolicyUser Manager2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Dr_Haitham"));
             if (Manager2 == null)
             {
                 Manager2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
-                Manager2.UserName = "M_Sahar";
-                Manager2.SetPassword("msahar");
+                Manager2.UserName = "Dr_Haitham";
+                Manager2.SetPassword("564738");
             }
 
 
@@ -575,26 +575,26 @@ namespace HMS.Module.DatabaseUpdate
                 {
                     var category = ObjectSpace.CreateObject<Category>();
                     category.name = item.name;
-                    
+
                 }
 
                 ObjectSpace.CommitChanges();
             }
 
             if (ObjectSpace.GetObjectsCount(typeof(Clinc), null) == 0)
+            {
+
+                List<ClincData> clincs = new ClincData().ClinicInitialData();
+
+                foreach (var item in clincs)
                 {
-
-                    List<ClincData> clincs = new ClincData().ClinicInitialData();
-
-                    foreach (var item in clincs)
-                    {
-                        var clinic = ObjectSpace.CreateObject<Clinc>();
-                        clinic.id = item.ID;
-                        clinic.Name = item.name;
-                    }   
+                    var clinic = ObjectSpace.CreateObject<Clinc>();
+                    clinic.id = item.ID;
+                    clinic.Name = item.name;
+                }
 
                 ObjectSpace.CommitChanges();
-                }
+            }
 
             //    Clinc clinic1 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة القلب"));
             //    Clinc clinic2 = ObjectSpace.FindObject<Clinc>(CriteriaOperator.Parse("[Name] = ?", "عيادة النسا والتوليد"));
@@ -758,7 +758,7 @@ namespace HMS.Module.DatabaseUpdate
                     room.careCost = item.roomCare;
                     room.supervisionCost = item.roomSupervision;
                     room.Status = item.status;
-                    if (room.Status == Admission.statusType.ICU )
+                    if (room.Status == Admission.statusType.ICU)
                     {
                         for (int i = 0; i < 10; i++)
                         {
@@ -770,7 +770,7 @@ namespace HMS.Module.DatabaseUpdate
                         }
                         ObjectSpace.CommitChanges();
                     }
-                    if ( room.Status == Admission.statusType.covid)
+                    if (room.Status == Admission.statusType.covid)
                     {
                         for (int i = 0; i < 8; i++)
                         {
@@ -784,10 +784,10 @@ namespace HMS.Module.DatabaseUpdate
                     }
                     else if (room.Status == Admission.statusType.normal)
                     {
-                            var bed = ObjectSpace.CreateObject<bed>();
-                            bed.number = (1).ToString();
-                            bed.room = room;
-                            bed.isAvailable = true;
+                        var bed = ObjectSpace.CreateObject<bed>();
+                        bed.number = (1).ToString();
+                        bed.room = room;
+                        bed.isAvailable = true;
                         ObjectSpace.CommitChanges();
                     }
                 }
@@ -803,7 +803,7 @@ namespace HMS.Module.DatabaseUpdate
                 foreach (ServicesInitialData item in services)
                 {
                     var service = ObjectSpace.CreateObject<Service>();
-                    if(item.serviceType == ServiceTypes.Other)
+                    if (item.serviceType == ServiceTypes.Other)
                     {
                         otherid += 1;
                         service.ID = otherid;
@@ -847,7 +847,7 @@ namespace HMS.Module.DatabaseUpdate
                 {
                     PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
                     Product product = item;
-                        //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].name.ToString(), medications2[i].sellingPrice.ToString()));
+                    //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].name.ToString(), medications2[i].sellingPrice.ToString()));
                     purchase.product = product;
                     purchase.quantity = (Int32)new Random().Next(300, 500);
                     purchase.price = product.sellingPrice;
@@ -870,7 +870,7 @@ namespace HMS.Module.DatabaseUpdate
                 {
                     PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
                     Product product = item;
-                        //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].purchasingPrice.ToString()));
+                    //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].purchasingPrice.ToString()));
                     purchase.product = product;
                     purchase.quantity = (Int32)new Random().Next(300, 500);
                     purchase.price = product.purchasingPrice;
@@ -879,7 +879,7 @@ namespace HMS.Module.DatabaseUpdate
                     Console.WriteLine(purchase.price.ToString() + " updater");
                 }
                 //Order2.OrderConfirm(true);
-                
+
 
                 //for (int z = 0; z < 90; z++)
                 //{
@@ -952,7 +952,7 @@ namespace HMS.Module.DatabaseUpdate
                 //    }
                 //    #endregion
                 //    */
-                }
+            }
 
             ObjectSpace.CommitChanges();
             //if ((ObjectSpace.GetObjectsCount(typeof(ReceptionDesk), null) == 0) && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
@@ -1389,252 +1389,252 @@ namespace HMS.Module.DatabaseUpdate
 
             ObjectSpace.CommitChanges();
 
-                //*** The following code generate stay fake data ***
-                /*
-                if ((ObjectSpace.GetObjectsCount(typeof(Admission), null) == 0))
+            //*** The following code generate stay fake data ***
+            /*
+            if ((ObjectSpace.GetObjectsCount(typeof(Admission), null) == 0))
+            {
+                IList<Product> products = ObjectSpace.GetObjects<Product>();
+                IList<Room> rooms = ObjectSpace.GetObjects<Room>();
+                var physicains = ObjectSpace.GetObjects<Physician>();
+
+                var fakePatient = new Faker<Patient>("ar")
+                    .CustomInstantiator(f => new Patient(((XPObjectSpace)ObjectSpace).Session))
+                    .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+                    .RuleFor(o => o.LastName, f => f.Name.LastName())
+                    .RuleFor(o => o.Birthday, f => f.Date.Recent(100))
+                    .RuleFor(o => o.BloodType, f => f.PickRandom<Blood>())
+                    .RuleFor(o => o.Email, f => f.Internet.Email());
+
+                var stayIds = 0;
+                var fakeAdmissions = new Faker<Admission>("ar")
+                    .CustomInstantiator(f => new Admission(((XPObjectSpace)ObjectSpace).Session))
+                    .RuleFor(o => o.Patient, f => fakePatient.Generate())
+                    .RuleFor(o => o.admissionID, f => stayIds++)
+                    .RuleFor(o => o.Room, f => rooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, rooms.Count)])
+                    .RuleFor(o => o.StayStart, f => f.Date.Recent(365))
+                    .RuleFor(o => o.StayEnd, (f, usr) => usr.StayStart.AddDays(f.Random.Int(2, 9)))
+                    .RuleFor(o => o.doctor, physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)])
+                    .RuleFor(o => o.IsDischarged, true);
+
+
+                var admissions = fakeAdmissions.Generate(100);
+
+                var medicCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Pharmacy).ToList();
+                var supplyCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Stock).ToList();
+
+                foreach (Admission item in admissions)
                 {
-                    IList<Product> products = ObjectSpace.GetObjects<Product>();
-                    IList<Room> rooms = ObjectSpace.GetObjects<Room>();
-                    var physicains = ObjectSpace.GetObjects<Physician>();
+                    if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
+                        item.Patient.Gender = Genders.female;
 
-                    var fakePatient = new Faker<Patient>("ar")
-                        .CustomInstantiator(f => new Patient(((XPObjectSpace)ObjectSpace).Session))
-                        .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-                        .RuleFor(o => o.LastName, f => f.Name.LastName())
-                        .RuleFor(o => o.Birthday, f => f.Date.Recent(100))
-                        .RuleFor(o => o.BloodType, f => f.PickRandom<Blood>())
-                        .RuleFor(o => o.Email, f => f.Internet.Email());
+                    #region Overal
+                    if (item.Room.Status == Room.statusType.ICU)
+                        item.Status = Admission.InPatientSections.ICU;
 
-                    var stayIds = 0;
-                    var fakeAdmissions = new Faker<Admission>("ar")
-                        .CustomInstantiator(f => new Admission(((XPObjectSpace)ObjectSpace).Session))
-                        .RuleFor(o => o.Patient, f => fakePatient.Generate())
-                        .RuleFor(o => o.admissionID, f => stayIds++)
-                        .RuleFor(o => o.Room, f => rooms[new Random(Guid.NewGuid().GetHashCode()).Next(0, rooms.Count)])
-                        .RuleFor(o => o.StayStart, f => f.Date.Recent(365))
-                        .RuleFor(o => o.StayEnd, (f, usr) => usr.StayStart.AddDays(f.Random.Int(2, 9)))
-                        .RuleFor(o => o.doctor, physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)])
-                        .RuleFor(o => o.IsDischarged, true);
+                    #endregion
 
+                    #region Medic
+                    int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                    List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
 
-                    var admissions = fakeAdmissions.Generate(100);
-
-                    var medicCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Pharmacy).ToList();
-                    var supplyCollection = ObjectSpace.GetObjects<StockProduct>().Where(p => p.Inventory.InventoryType == Inventory.InventoryTypes.Stock).ToList();
-
-                    foreach (Admission item in admissions)
+                    for (int i = 0; i < numOfMedics; i++)
                     {
-                        if (new Random(Guid.NewGuid().GetHashCode()).NextDouble() > 0.7)
-                            item.Patient.Gender = Genders.female;
+                        int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
 
-                        #region Overal
-                        if (item.Room.Status == Room.statusType.ICU)
-                            item.Status = Admission.InPatientSections.ICU;
+                        var medic = ObjectSpace.CreateObject<StayMedications>();
+                        medic.Medication = medicicationCollection[i];
+                        medic.quantity = (int)randomMedicQuantity;
+                        medic.price = medicicationCollection[i].product.sellingPrice;
+                        medic.Stay = item;
 
-                        #endregion
-
-                        #region Medic
-                        int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-                        List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
-
-                        for (int i = 0; i < numOfMedics; i++)
-                        {
-                            int randomMedicQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-                            var medic = ObjectSpace.CreateObject<StayMedications>();
-                            medic.Medication = medicicationCollection[i];
-                            medic.quantity = (int)randomMedicQuantity;
-                            medic.price = medicicationCollection[i].product.sellingPrice;
-                            medic.Stay = item;
-
-                            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
-                            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
-                        }
-
-                        #endregion
-
-                        #region supplyProduct
-
-                        int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-                        List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
-
-                        for (int i = 0; i < numOfSupplies; i++)
-                        {
-                            int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
-
-                            var supply = ObjectSpace.CreateObject<StaySupplies>();
-                            supply.supplyProduct = suppliesCollection[i];
-                            supply.quantity = (int)randomSupplyQuantity;
-                            supply.price = suppliesCollection[i].product.sellingPrice;
-                            supply.Stay = item;
-
-                            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
-                            supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
-                        }
-                        #endregion
-
-                        var services = ObjectSpace.GetObjects<Service>();
-
-                        int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
-                        var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
-                        serviceCollection.Service = services[randomService];
-                        serviceCollection.price = services[randomService].Price;
-                        serviceCollection.Stay = item;
-
-                        #region Companion
-
-                        if (item.Room.Status == Room.statusType.normal)
-                        {
-                            var companoin1 = ObjectSpace.CreateObject<CompanionDetails>();
-                            companoin1.Stay = item;
-                            companoin1.price = 450;
-                            companoin1.date = item.StayStart.Date;
-
-                            var companoin2 = ObjectSpace.CreateObject<CompanionDetails>();
-                            companoin2.Stay = item;
-                            companoin2.price = 450;
-                            companoin2.date = item.StayEnd.Date;
-                        }
-                        #endregion
-
-                        #region services
-
-
-
-                        #endregion
-
-                        #region payments
-                        var payment1 = ObjectSpace.CreateObject<Payments>();
-                        payment1.amount = (item.stayTotalSum * 0.2m) - ((item.stayTotalSum * 0.2m) % 1000);
-                        payment1.date = item.StayStart;
-                        payment1.Patient = item.Patient;
-
-                        var payment2 = ObjectSpace.CreateObject<Payments>();
-                        payment2.amount = item.stayTotalSum - payment1.amount;
-                        payment2.date = item.StayEnd;
-                        payment2.Patient = item.Patient;
-
-                        #endregion
-
+                        var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
+                        medicine.firstUnitQuantity -= (int)randomMedicQuantity;
                     }
 
-                    ObjectSpace.CommitChanges();
+                    #endregion
 
-                    var patients = ObjectSpace.GetObjects<Patient>();
-                    var fakeEmergency = new Faker<Emergency>("ar")
-                        .CustomInstantiator(f => new Emergency(((XPObjectSpace)ObjectSpace).Session))
-                        .RuleFor(o => o.supervision, 200)
-                        .RuleFor(o => o.date, f => f.Date.Recent(365));
+                    #region supplyProduct
 
-                    var emergencies = fakeEmergency.Generate(100);
+                    int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
+                    List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
 
-
-                    foreach (Emergency item in emergencies)
+                    for (int i = 0; i < numOfSupplies; i++)
                     {
+                        int randomSupplyQuantity = new Random(Guid.NewGuid().GetHashCode()).Next(2, 6);
 
-                        #region Overal
-                        item.Patient = patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)];
-                        item.doctor = physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)];
-                        #endregion
+                        var supply = ObjectSpace.CreateObject<StaySupplies>();
+                        supply.supplyProduct = suppliesCollection[i];
+                        supply.quantity = (int)randomSupplyQuantity;
+                        supply.price = suppliesCollection[i].product.sellingPrice;
+                        supply.Stay = item;
 
-                        #region Medic
-                        int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
-                        List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
-
-                        for (int i = 0; i < numOfMedics; i++)
-                        {
-                            int randomMedicQuantity = 1;
-
-                            var medic = ObjectSpace.CreateObject<StayMedic>();
-                            medic.Medication = medicicationCollection[i];
-                            medic.quantity = (int)randomMedicQuantity;
-                            medic.price = medicicationCollection[i].product.sellingPrice;
-                            medic.emergency = item;
-                            medic.date = item.date;
-
-                            var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
-                            medicine.firstUnitQuantity -= (int)randomMedicQuantity;
-                        }
-
-                        #endregion
-
-                        #region supplyProduct
-
-                        int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
-                        List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
-
-                        for (int i = 0; i < numOfSupplies; i++)
-                        {
-                            int randomSupplyQuantity = 1;
-
-                            var supply = ObjectSpace.CreateObject<StaySupplies>();
-                            supply.supplyProduct = suppliesCollection[i];
-                            supply.quantity = (int)randomSupplyQuantity;
-                            supply.price = suppliesCollection[i].product.sellingPrice;
-                            supply.emergency = item;
-                            supply.date = item.date;
-
-                            var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
-                            supply1.firstUnitQuantity-= (int)randomSupplyQuantity;
-                        }
-                        #endregion
-
-                        var services = ObjectSpace.GetObjects<Service>();
-
-                        int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
-                        var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
-                        serviceCollection.Service = services[randomService];
-                        serviceCollection.price = services[randomService].Price;
-                        serviceCollection.emergency = item;
-
-                        #region services
-
-                        #endregion
-
-                        #region payments
-                        var payment1 = ObjectSpace.CreateObject<Payments>();
-                        payment1.amount = (item.TotalSum * 0.2m) - ((item.TotalSum * 0.2m) % 1000);
-                        payment1.date = item.date;
-                        payment1.Patient = item.Patient;
-
-                        var payment2 = ObjectSpace.CreateObject<Payments>();
-                        payment2.amount = item.TotalSum - payment1.amount;
-                        payment2.date = item.date;
-                        payment2.Patient = item.Patient;
-
-                        #endregion
+                        var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
+                        supply1.firstUnitQuantity -= (int)randomSupplyQuantity;
                     }
+                    #endregion
+
+                    var services = ObjectSpace.GetObjects<Service>();
+
+                    int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
+                    var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
+                    serviceCollection.Service = services[randomService];
+                    serviceCollection.price = services[randomService].Price;
+                    serviceCollection.Stay = item;
+
+                    #region Companion
+
+                    if (item.Room.Status == Room.statusType.normal)
+                    {
+                        var companoin1 = ObjectSpace.CreateObject<CompanionDetails>();
+                        companoin1.Stay = item;
+                        companoin1.price = 450;
+                        companoin1.date = item.StayStart.Date;
+
+                        var companoin2 = ObjectSpace.CreateObject<CompanionDetails>();
+                        companoin2.Stay = item;
+                        companoin2.price = 450;
+                        companoin2.date = item.StayEnd.Date;
+                    }
+                    #endregion
+
+                    #region services
+
+
+
+                    #endregion
+
+                    #region payments
+                    var payment1 = ObjectSpace.CreateObject<Payments>();
+                    payment1.amount = (item.stayTotalSum * 0.2m) - ((item.stayTotalSum * 0.2m) % 1000);
+                    payment1.date = item.StayStart;
+                    payment1.Patient = item.Patient;
+
+                    var payment2 = ObjectSpace.CreateObject<Payments>();
+                    payment2.amount = item.stayTotalSum - payment1.amount;
+                    payment2.date = item.StayEnd;
+                    payment2.Patient = item.Patient;
+
+                    #endregion
+
                 }
 
+                ObjectSpace.CommitChanges();
 
-                if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0)
+                var patients = ObjectSpace.GetObjects<Patient>();
+                var fakeEmergency = new Faker<Emergency>("ar")
+                    .CustomInstantiator(f => new Emergency(((XPObjectSpace)ObjectSpace).Session))
+                    .RuleFor(o => o.supervision, 200)
+                    .RuleFor(o => o.date, f => f.Date.Recent(365));
+
+                var emergencies = fakeEmergency.Generate(100);
+
+
+                foreach (Emergency item in emergencies)
                 {
-                    var patients = ObjectSpace.GetObjects<Patient>();
-                    var doctors = ObjectSpace.GetObjects<Physician>();
-                    var clincs = ObjectSpace.GetObjects<Clinc>();
-                    var fakeAppointments = new Faker<Appointment>("ar")
-                        .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
-                        .RuleFor(o => o.amount, 100)
-                        .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
-                        .RuleFor(o => o.Physician, f => doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)])
-                        .RuleFor(o => o.StartOn, f => f.Date.Recent(365))
-                        .RuleFor(o => o.dateStart, (f, p) => p.StartOn)
-                        .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
-                        .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
 
-                    var Appointments = fakeAppointments.Generate(100);
+                    #region Overal
+                    item.Patient = patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)];
+                    item.doctor = physicains[new Random(Guid.NewGuid().GetHashCode()).Next(0, physicains.Count)];
+                    #endregion
 
-                    foreach (Appointment item in Appointments)
+                    #region Medic
+                    int numOfMedics = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
+                    List<StockProduct> medicicationCollection = RandomProducts(medicCollection, numOfMedics);
+
+                    for (int i = 0; i < numOfMedics; i++)
                     {
-                        var payment = ObjectSpace.CreateObject<Payments>();
-                        payment.Patient = item.Patient;
-                        payment.amount = item.amount;
-                        payment.date = item.StartOn;
+                        int randomMedicQuantity = 1;
+
+                        var medic = ObjectSpace.CreateObject<StayMedic>();
+                        medic.Medication = medicicationCollection[i];
+                        medic.quantity = (int)randomMedicQuantity;
+                        medic.price = medicicationCollection[i].product.sellingPrice;
+                        medic.emergency = item;
+                        medic.date = item.date;
+
+                        var medicine = ObjectSpace.GetObjectByKey<StockProduct>(medicicationCollection[i].Oid);
+                        medicine.firstUnitQuantity -= (int)randomMedicQuantity;
                     }
 
+                    #endregion
+
+                    #region supplyProduct
+
+                    int numOfSupplies = new Random(Guid.NewGuid().GetHashCode()).Next(1, 2);
+                    List<StockProduct> suppliesCollection = RandomProducts(supplyCollection, numOfSupplies);
+
+                    for (int i = 0; i < numOfSupplies; i++)
+                    {
+                        int randomSupplyQuantity = 1;
+
+                        var supply = ObjectSpace.CreateObject<StaySupplies>();
+                        supply.supplyProduct = suppliesCollection[i];
+                        supply.quantity = (int)randomSupplyQuantity;
+                        supply.price = suppliesCollection[i].product.sellingPrice;
+                        supply.emergency = item;
+                        supply.date = item.date;
+
+                        var supply1 = ObjectSpace.GetObjectByKey<StockProduct>(suppliesCollection[i].Oid);
+                        supply1.firstUnitQuantity-= (int)randomSupplyQuantity;
+                    }
+                    #endregion
+
+                    var services = ObjectSpace.GetObjects<Service>();
+
+                    int randomService = new Random(Guid.NewGuid().GetHashCode()).Next(0, services.Count);
+                    var serviceCollection = ObjectSpace.CreateObject<ServiceDetails>();
+                    serviceCollection.Service = services[randomService];
+                    serviceCollection.price = services[randomService].Price;
+                    serviceCollection.emergency = item;
+
+                    #region services
+
+                    #endregion
+
+                    #region payments
+                    var payment1 = ObjectSpace.CreateObject<Payments>();
+                    payment1.amount = (item.TotalSum * 0.2m) - ((item.TotalSum * 0.2m) % 1000);
+                    payment1.date = item.date;
+                    payment1.Patient = item.Patient;
+
+                    var payment2 = ObjectSpace.CreateObject<Payments>();
+                    payment2.amount = item.TotalSum - payment1.amount;
+                    payment2.date = item.date;
+                    payment2.Patient = item.Patient;
+
+                    #endregion
                 }
-                */
-                ObjectSpace.CommitChanges(); //This line persists created object(s).
+            }
+
+
+            if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0)
+            {
+                var patients = ObjectSpace.GetObjects<Patient>();
+                var doctors = ObjectSpace.GetObjects<Physician>();
+                var clincs = ObjectSpace.GetObjects<Clinc>();
+                var fakeAppointments = new Faker<Appointment>("ar")
+                    .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
+                    .RuleFor(o => o.amount, 100)
+                    .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
+                    .RuleFor(o => o.Physician, f => doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)])
+                    .RuleFor(o => o.StartOn, f => f.Date.Recent(365))
+                    .RuleFor(o => o.dateStart, (f, p) => p.StartOn)
+                    .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
+                    .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
+
+                var Appointments = fakeAppointments.Generate(100);
+
+                foreach (Appointment item in Appointments)
+                {
+                    var payment = ObjectSpace.CreateObject<Payments>();
+                    payment.Patient = item.Patient;
+                    payment.amount = item.amount;
+                    payment.date = item.StartOn;
+                }
+
+            }
+            */
+            ObjectSpace.CommitChanges(); //This line persists created object(s).
         }
         public override void UpdateDatabaseBeforeUpdateSchema()
         {
@@ -1787,7 +1787,7 @@ namespace HMS.Module.DatabaseUpdate
                 Reception.AddTypePermission<PermissionPolicyTypePermissionObject>("Delete;Create", SecurityPermissionState.Deny);
                 Reception.AddTypePermission<PermissionPolicyMemberPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
                 Reception.AddTypePermission<PermissionPolicyObjectPermissionsObject>("Delete;Create", SecurityPermissionState.Deny);
-                
+
             }
             return Reception;
 
@@ -1876,6 +1876,10 @@ namespace HMS.Module.DatabaseUpdate
                 Pharmacy.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Pharmacy.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Pharmacy.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Pharmacy.AddObjectPermission<Inventory>(SecurityOperations.Read, "[Name] = 'Stock'", SecurityPermissionState.Deny);
+                Pharmacy.AddObjectPermission<Product>(SecurityOperations.Read, "[category.name] = 'مستهلكات'", SecurityPermissionState.Deny);
+                Pharmacy.AddObjectPermission<PurchasingOrder>(SecurityOperations.Read, "[inventory.Name] = 'Stock'", SecurityPermissionState.Deny);
+
             }
             return Pharmacy;
 
@@ -1929,6 +1933,7 @@ namespace HMS.Module.DatabaseUpdate
                 Lab.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Lab.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Lab.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Lab.AddObjectPermission<Service>(SecurityOperations.Read, "[ServiceType] <> 17", SecurityPermissionState.Deny);
             }
             return Lab;
 
@@ -1980,6 +1985,7 @@ namespace HMS.Module.DatabaseUpdate
                 XRay.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 XRay.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 XRay.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                XRay.AddObjectPermission<Service>(SecurityOperations.Read, "[ServiceType] <> 16", SecurityPermissionState.Deny);
             }
             return XRay;
 
@@ -2031,6 +2037,7 @@ namespace HMS.Module.DatabaseUpdate
                 Endoscopy.AddTypePermission<TestDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Endoscopy.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Endoscopy.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Endoscopy.AddObjectPermission<Service>(SecurityOperations.Read, "[ServiceType] <> 3", SecurityPermissionState.Deny);
             }
             return Endoscopy;
 
@@ -2079,6 +2086,9 @@ namespace HMS.Module.DatabaseUpdate
                 Inventory.AddTypePermission<SupervisionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Inventory.AddTypePermission<EndscopeDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
                 Inventory.AddTypePermission<CompanionDetails>("Write;Delete;Create", SecurityPermissionState.Deny);
+                Inventory.AddObjectPermission<Inventory>(SecurityOperations.Read, "[Name] = 'Pharmacy'", SecurityPermissionState.Deny);
+                Inventory.AddObjectPermission<Product>(SecurityOperations.Read, "[category.name] <> 'مستهلكات'", SecurityPermissionState.Deny);
+                Inventory.AddObjectPermission<PurchasingOrder>(SecurityOperations.Read, "[inventory.Name] = 'Pharmacy'", SecurityPermissionState.Deny);
             }
             return Inventory;
 
@@ -2089,14 +2099,14 @@ namespace HMS.Module.DatabaseUpdate
         {
             List<StockProduct> products = new List<StockProduct>();
 
-            while(products.Count < number)
+            while (products.Count < number)
             {
-                int randomIndex = new Random(Guid.NewGuid().GetHashCode()).Next(0, collection.Count );
+                int randomIndex = new Random(Guid.NewGuid().GetHashCode()).Next(0, collection.Count);
                 if (!products.Contains(collection[randomIndex]))
                 {
                     products.Add(collection[randomIndex]);
                 }
-            }           
+            }
 
             return products;
         }

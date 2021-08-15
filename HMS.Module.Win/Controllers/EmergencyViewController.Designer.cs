@@ -54,7 +54,9 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyPatients.Id = "EmergencyPatients";
             this.EmergencyPatients.ImageName = "Tasklist";
             this.EmergencyPatients.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
+            this.EmergencyPatients.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.EmergencyPatients.ToolTip = null;
+            this.EmergencyPatients.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.EmergencyPatients.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EmergencyPatients_Execute);
             // 
             // EmergencyTotals
