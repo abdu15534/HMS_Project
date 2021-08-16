@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using XafDataModel.Module.BusinessObjects.test2;
+using System.Linq;
 
 namespace HMS.Module.Win.Controllers
 {
@@ -64,14 +65,27 @@ namespace HMS.Module.Win.Controllers
         {
             IObjectSpace objectSpace = Application.CreateObjectSpace(((ListView)View).ObjectTypeInfo.Type);
             string paramValue = e.ParameterCurrentValue as string;
-            object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
-                CriteriaOperator.Parse(string.Format("Contains([Patient.MedicalID], '{0}')", paramValue)));
-            if (obj != null)
+            try
             {
-                DetailView detailView = Application.CreateDetailView(objectSpace, obj);
-                detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
-                e.ShowViewParameters.CreatedView = detailView;
+                var latestAppointment = objectSpace.GetObjects<Appointment>().Where(p => p.Patient.MedicalID == paramValue).OrderByDescending(t => t.StartOn).ToList()[0];
+
+                if (latestAppointment != null)
+                {
+                    DetailView detailView = Application.CreateDetailView(objectSpace, latestAppointment);
+                    detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
+                    e.ShowViewParameters.CreatedView = detailView;
+                }
             }
+            catch
+            {
+
+            }
+                //, CriteriaOperator.Parse("Patient.MedicalID = ?"), paramValue);
+            Console.WriteLine("#####################################################################");
+            //Console.WriteLine(date);
+            //object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
+              //  CriteriaOperator.Parse(string.Format("Contains([Patient.MedicalID], '{0}')"+" And SartOn = ?", paramValue, date)));
+           
         }
     }
 }

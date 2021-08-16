@@ -8,6 +8,7 @@ using System.Reflection;
 using DevExpress.Persistent.Base;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.ExpressApp;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -44,7 +45,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         protected override void OnSaving()
         {
+            var user = SecuritySystem.CurrentUser.ToString();
             base.OnSaving();
+            if (this.Session.IsNewObject(this))
+            {
+                user = SecuritySystem.CurrentUser.ToString();
+
+                this.CreatedBy = user;
+            }
+
+            this.UpdatedBy = user;
+
             journal.type = this.GetType().ToString();
             journal.objectKey = this.id.ToString();
             

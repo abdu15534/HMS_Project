@@ -624,6 +624,12 @@
     <Compile Include="reports\DischargeDetails.Designer.cs">
       <DependentUpon>DischargeDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\EmergencyDetailedReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\EmergencyDetailedReport.Designer.cs">
+      <DependentUpon>EmergencyDetailedReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\EmergencyInvoice.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1038,6 +1044,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\DischargeDetails.resx">
       <DependentUpon>DischargeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\EmergencyDetailedReport.resx">
+      <DependentUpon>EmergencyDetailedReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\EmergencyInvoice.resx">
       <DependentUpon>EmergencyInvoice.cs</DependentUpon>

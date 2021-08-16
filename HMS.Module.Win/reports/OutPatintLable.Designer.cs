@@ -32,6 +32,7 @@ namespace HMS.Module.Win.reports
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraPrinting.BarCode.CodabarGenerator codabarGenerator1 = new DevExpress.XtraPrinting.BarCode.CodabarGenerator();
             this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.panel1 = new DevExpress.XtraReports.UI.XRPanel();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
@@ -44,7 +45,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -56,6 +56,14 @@ namespace HMS.Module.Win.reports
     "96.18542, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource1.Name = "xpObjectSource1";
             // 
+            // parameter1
+            // 
+            this.parameter1.Description = "Parameter1";
+            this.parameter1.Name = "parameter1";
+            this.parameter1.Type = typeof(int);
+            this.parameter1.ValueInfo = "0";
+            this.parameter1.Visible = false;
+            // 
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -63,10 +71,6 @@ namespace HMS.Module.Win.reports
             this.Detail.Dpi = 254F;
             this.Detail.HeightF = 250F;
             this.Detail.HierarchyPrintOptions.Indent = 50.8F;
-            this.Detail.MultiColumn.ColumnSpacing = 24.00002F;
-            this.Detail.MultiColumn.ColumnWidth = 381F;
-            this.Detail.MultiColumn.Layout = DevExpress.XtraPrinting.ColumnLayout.AcrossThenDown;
-            this.Detail.MultiColumn.Mode = DevExpress.XtraReports.UI.MultiColumnMode.UseColumnWidth;
             this.Detail.Name = "Detail";
             // 
             // panel1
@@ -80,7 +84,7 @@ namespace HMS.Module.Win.reports
             this.panel1.Dpi = 254F;
             this.panel1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.panel1.Name = "panel1";
-            this.panel1.SizeF = new System.Drawing.SizeF(380F, 250F);
+            this.panel1.SizeF = new System.Drawing.SizeF(381F, 250F);
             // 
             // xrTable4
             // 
@@ -143,13 +147,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell2.Dpi = 254F;
             this.xrTableCell2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[patient].[FullName]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Patient].[FullName]")});
             this.xrTableCell2.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.StylePriority.UseBorders = false;
             this.xrTableCell2.StylePriority.UseFont = false;
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
+            this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell2.Weight = 2.1401013565063476D;
             // 
@@ -166,7 +171,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell3.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell3.Dpi = 254F;
             this.xrTableCell3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "DateDiffYear([Patient].[DateOfBrith], LocalDateTimeThisMonth())")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Patient].[DateOfBrith]")});
             this.xrTableCell3.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell3.Multiline = true;
             this.xrTableCell3.Name = "xrTableCell3";
@@ -174,6 +179,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell3.TextFormatString = "{0:dd/MM/yyyy}";
             this.xrTableCell3.Weight = 2.1401013565063476D;
             // 
             // TopMargin
@@ -185,16 +191,8 @@ namespace HMS.Module.Win.reports
             // BottomMargin
             // 
             this.BottomMargin.Dpi = 254F;
-            this.BottomMargin.HeightF = 1.354165F;
+            this.BottomMargin.HeightF = 0F;
             this.BottomMargin.Name = "BottomMargin";
-            // 
-            // parameter1
-            // 
-            this.parameter1.Description = "Parameter1";
-            this.parameter1.Name = "parameter1";
-            this.parameter1.Type = typeof(int);
-            this.parameter1.ValueInfo = "0";
-            this.parameter1.Visible = false;
             // 
             // OutPatintLable
             // 
@@ -208,13 +206,13 @@ namespace HMS.Module.Win.reports
             this.Dpi = 254F;
             this.FilterString = "[id] = ?parameter1";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 0, 1);
-            this.PageHeight = 286;
-            this.PageWidth = 889;
+            this.Margins = new System.Drawing.Printing.Margins(0, 1, 0, 0);
+            this.PageHeight = 287;
+            this.PageWidth = 419;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperName = "Custom";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.parameter1});
-            this.ReportPrintOptions.DetailCountOnEmptyDataSource = 2;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 25F;
             this.Version = "20.2";
@@ -227,6 +225,7 @@ namespace HMS.Module.Win.reports
         #endregion
 
         private DevExpress.Xpo.XPObjectSource xpObjectSource1;
+        private DevExpress.XtraReports.Parameters.Parameter parameter1;
         private DevExpress.XtraReports.UI.DetailBand Detail;
         private DevExpress.XtraReports.UI.XRPanel panel1;
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
@@ -239,6 +238,5 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
-        private DevExpress.XtraReports.Parameters.Parameter parameter1;
     }
 }

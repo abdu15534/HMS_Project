@@ -39,7 +39,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddDepartmentsServices
             // 
-            this.AddDepartmentsServices.Caption = "اظافة خدمات الاقسام";
+            this.AddDepartmentsServices.Caption = "اضافة خدمات الاقسام";
             this.AddDepartmentsServices.ConfirmationMessage = null;
             this.AddDepartmentsServices.Id = "AddDepartmentsServices";
             this.AddDepartmentsServices.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Service);
@@ -50,7 +50,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddXrayServices
             // 
-            this.AddXrayServices.Caption = "اظافة خدمات الاشعة";
+            this.AddXrayServices.Caption = "اضافة خدمات الاشعة";
             this.AddXrayServices.ConfirmationMessage = null;
             this.AddXrayServices.Id = "XrayServices";
             this.AddXrayServices.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Service);
@@ -61,7 +61,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddTests
             // 
-            this.AddTests.Caption = "اظافة التحاليل";
+            this.AddTests.Caption = "اضافة التحاليل";
             this.AddTests.ConfirmationMessage = null;
             this.AddTests.Id = "AddTests";
             this.AddTests.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Service);
@@ -72,7 +72,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddStock
             // 
-            this.AddStock.Caption = "اظافة المستهلكات";
+            this.AddStock.Caption = "اضافة المستهلكات";
             this.AddStock.ConfirmationMessage = null;
             this.AddStock.Id = "AddStock";
             this.AddStock.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
@@ -83,7 +83,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // AddPharmacy
             // 
-            this.AddPharmacy.Caption = "اظافة أدوية";
+            this.AddPharmacy.Caption = "اضافة أدوية";
             this.AddPharmacy.ConfirmationMessage = null;
             this.AddPharmacy.Id = "AddPharmacy";
             this.AddPharmacy.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);

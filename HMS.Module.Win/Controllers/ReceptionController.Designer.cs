@@ -40,6 +40,7 @@ namespace HMS.Module.Win.Controllers
             this.DiscoutAndService = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.FindAddmition = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
+            this.FintdPatient = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -149,7 +150,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // PatientLable
             // 
-            this.PatientLable.Caption = "Patient Lable";
+            this.PatientLable.Caption = "ملصق المريض";
             this.PatientLable.ConfirmationMessage = null;
             this.PatientLable.Id = "PatientLable";
             this.PatientLable.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
@@ -160,17 +161,29 @@ namespace HMS.Module.Win.Controllers
             // 
             // FindAddmition
             // 
-            this.FindAddmition.Caption = "By MedicalID";
+            this.FindAddmition.Caption = "بحث بالرقم الطبي";
             this.FindAddmition.ConfirmationMessage = null;
             this.FindAddmition.Id = "FindAddmition";
             this.FindAddmition.NullValuePrompt = null;
             this.FindAddmition.ShortCaption = null;
             this.FindAddmition.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
-            this.FindAddmition.TargetViewNesting = DevExpress.ExpressApp.Nesting.Root;
             this.FindAddmition.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.FindAddmition.ToolTip = null;
             this.FindAddmition.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.FindAddmition.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FindAddmitionByMedicalID_Execute);
+            // 
+            // FintdPatient
+            // 
+            this.FintdPatient.Caption = "بحث بالرقم الطبي";
+            this.FintdPatient.ConfirmationMessage = null;
+            this.FintdPatient.Id = "FintdPatient";
+            this.FintdPatient.NullValuePrompt = null;
+            this.FintdPatient.ShortCaption = null;
+            this.FintdPatient.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Patient);
+            this.FintdPatient.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.FintdPatient.ToolTip = null;
+            this.FintdPatient.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.FintdPatient.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FintdPatient_Execute);
             // 
             // ReceptionController
             // 
@@ -184,6 +197,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.DiscoutAndService);
             this.Actions.Add(this.PatientLable);
             this.Actions.Add(this.FindAddmition);
+            this.Actions.Add(this.FintdPatient);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -199,5 +213,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction DiscoutAndService;
         private DevExpress.ExpressApp.Actions.SimpleAction PatientLable;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FindAddmition;
+        private DevExpress.ExpressApp.Actions.ParametrizedAction FintdPatient;
     }
 }

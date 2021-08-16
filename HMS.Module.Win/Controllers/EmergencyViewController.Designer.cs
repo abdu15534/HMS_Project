@@ -33,13 +33,13 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyInvoice = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyTotals = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.EmergencyDetailedReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // EmergencyInvoice
             // 
             this.EmergencyInvoice.Caption = "Emergency Invoice";
-            this.EmergencyInvoice.ConfirmationMessage = null;
             this.EmergencyInvoice.Id = "EmergencyInvoice";
-            this.EmergencyInvoice.ImageName = "BO_Invoice";
+            this.EmergencyInvoice.ImageName = "BO_REPORT";
             this.EmergencyInvoice.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.EmergencyInvoice.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
             this.EmergencyInvoice.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
@@ -64,17 +64,31 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyTotals.Caption = "Emergency Totals";
             this.EmergencyTotals.ConfirmationMessage = null;
             this.EmergencyTotals.Id = "EmergencyTotals";
+            this.EmergencyTotals.ImageName = "";
             this.EmergencyTotals.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
             this.EmergencyTotals.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
             this.EmergencyTotals.ToolTip = null;
             this.EmergencyTotals.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.EmergencyTotals.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EmergencyTotals_Execute);
             // 
+            // EmergencyDetailedReport
+            // 
+            this.EmergencyDetailedReport.Caption = "الفاتورة التفصيلية";
+            this.EmergencyDetailedReport.ConfirmationMessage = null;
+            this.EmergencyDetailedReport.Id = "EmergencyDetailedReport";
+            this.EmergencyDetailedReport.ImageName = "BO_REPORT";
+            this.EmergencyDetailedReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
+            this.EmergencyDetailedReport.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.EmergencyDetailedReport.ToolTip = null;
+            this.EmergencyDetailedReport.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.EmergencyDetailedReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.DetailedReport_Execute);
+            // 
             // EmergencyViewController
             // 
             this.Actions.Add(this.EmergencyInvoice);
             this.Actions.Add(this.EmergencyPatients);
             this.Actions.Add(this.EmergencyTotals);
+            this.Actions.Add(this.EmergencyDetailedReport);
 
         }
 
@@ -83,5 +97,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyInvoice;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyPatients;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyTotals;
+        private DevExpress.ExpressApp.Actions.SimpleAction EmergencyDetailedReport;
     }
 }

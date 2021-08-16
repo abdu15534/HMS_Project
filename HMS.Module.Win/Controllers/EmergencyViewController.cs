@@ -85,5 +85,22 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void DetailedReport_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.EmergencyDetailedReport report = new reports.EmergencyDetailedReport();
+            var curr = View.CurrentObject as Emergency;
+            if (curr == null)
+            {
+                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["parameter1"].Value = curr.id;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.TotalSum), "جنيه", "قرش") + " فقط لاغير ";
+            }
+            else
+                report.Parameters["parameter1"].Value = ((Emergency)View.CurrentObject).id;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.TotalSum), "جنيه", "قرش") + " فقط لاغير ";
+
+            report.ShowPreviewDialog();
+        }
     }
 }

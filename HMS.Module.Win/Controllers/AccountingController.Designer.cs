@@ -173,6 +173,7 @@ namespace HMS.Module.Win.Controllers
             this.Receipt.ConfirmationMessage = null;
             this.Receipt.Id = "Receipt";
             this.Receipt.ImageName = "BO_REPORT";
+            this.Receipt.TargetObjectsCriteria = "post == true";
             this.Receipt.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.receiptClientBond);
             this.Receipt.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.Receipt.ToolTip = null;

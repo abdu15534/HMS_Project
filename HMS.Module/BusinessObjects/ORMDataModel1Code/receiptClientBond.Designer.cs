@@ -100,6 +100,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fjournal; }
             set { SetPropertyValue<JournalEntry>(nameof(journal), ref fjournal, value); }
         }
+        string fCreatedBy;
+        public string CreatedBy
+        {
+            get { return fCreatedBy; }
+            set { SetPropertyValue<string>(nameof(CreatedBy), ref fCreatedBy, value); }
+        }
+        string fUpdatedBy;
+        public string UpdatedBy
+        {
+            get { return fUpdatedBy; }
+            set { SetPropertyValue<string>(nameof(UpdatedBy), ref fUpdatedBy, value); }
+        }
     }
 
 }

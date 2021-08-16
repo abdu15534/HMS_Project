@@ -243,5 +243,10 @@ namespace HMS.Module.Win.Controllers
                 e.ShowViewParameters.CreatedView = detailView;
             }
         }
+
+        private void FintdPatient_Execute(object sender, ParametrizedActionExecuteEventArgs e)
+        {
+            
+        }
     }
 }

@@ -144,7 +144,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell10.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell10.Dpi = 254F;
             this.xrTableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "DateDiffYear([patient].[Birthday], LocalDateTimeThisMonth())")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "DateDiffYear([patient].[DateOfBrith], LocalDateTimeThisMonth())")});
             this.xrTableCell10.Font = new System.Drawing.Font("Arial", 7F, System.Drawing.FontStyle.Bold);
             this.xrTableCell10.Multiline = true;
             this.xrTableCell10.Name = "xrTableCell10";
@@ -252,9 +252,10 @@ namespace HMS.Module.Win.reports
             this.FilterString = "[enterID] = ?parameter1";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(0, 100, 0, 0);
-            this.PageHeight = 286;
-            this.PageWidth = 889;
+            this.PageHeight = 287;
+            this.PageWidth = 599;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
+            this.PaperName = "Custom";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.parameter1});
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;

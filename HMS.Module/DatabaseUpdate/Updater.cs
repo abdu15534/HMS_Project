@@ -427,6 +427,21 @@ namespace HMS.Module.DatabaseUpdate
                 var unit5 = ObjectSpace.CreateObject<ProductUnit>();
                 unit5.unit = "دستة";
 
+                var unit6 = ObjectSpace.CreateObject<ProductUnit>();
+                unit6.unit = "زجاجة";
+
+                var unit7 = ObjectSpace.CreateObject<ProductUnit>();
+                unit7.unit = "انبوبة";
+
+                var unit8 = ObjectSpace.CreateObject<ProductUnit>();
+                unit8.unit = "حقنة";
+
+                var unit9 = ObjectSpace.CreateObject<ProductUnit>();
+                unit9.unit = "أمبول";
+
+                var unit10 = ObjectSpace.CreateObject<ProductUnit>();
+                unit10.unit = "وحدة";
+
             }
 
             //Accounts
@@ -826,14 +841,14 @@ namespace HMS.Module.DatabaseUpdate
             {
                 var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
-                var fakeSuppliers = new Faker<Supplier>("ar")
-                   .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
-                   .RuleFor(o => o.FirstName, f => f.Name.FirstName())
-                   .RuleFor(o => o.LastName, f => f.Name.LastName())
-                   .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
-                   .RuleFor(o => o.Email, f => f.Internet.Email());
+                //var fakeSuppliers = new Faker<Supplier>("ar")
+                //   .CustomInstantiator(f => new Supplier(((XPObjectSpace)ObjectSpace).Session))
+                //   .RuleFor(o => o.FirstName, f => f.Name.FirstName())
+                //   .RuleFor(o => o.LastName, f => f.Name.LastName())
+                //   .RuleFor(o => o.Birthday, f => f.Date.Recent(350))
+                //   .RuleFor(o => o.Email, f => f.Internet.Email());
 
-                var suppliers = fakeSuppliers.Generate(40);
+                //var suppliers = fakeSuppliers.Generate(40);
                 var Order = ObjectSpace.CreateObject<PurchasingOrder>();
                 Order.supplierAccount = supplier;
                 Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Pharmacy"));
