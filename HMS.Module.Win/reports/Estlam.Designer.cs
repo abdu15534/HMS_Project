@@ -74,6 +74,8 @@ namespace HMS.Module.Win.reports
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.ID = new DevExpress.XtraReports.Parameters.Parameter();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -107,7 +109,7 @@ namespace HMS.Module.Win.reports
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 0F;
+            this.BottomMargin.HeightF = 34.01839F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -533,18 +535,22 @@ namespace HMS.Module.Win.reports
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel4});
-            this.ReportFooter.HeightF = 41.66666F;
+            this.xrLabel4,
+            this.xrLabel5,
+            this.xrLabel3});
+            this.ReportFooter.HeightF = 91.99511F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(303.0953F, 0F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(303.0953F, 41.66667F);
             this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
             this.xrLabel4.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
             this.xrLabel4.SizeF = new System.Drawing.SizeF(394.9047F, 41.66666F);
             this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.StylePriority.UsePadding = false;
             this.xrLabel4.Text = "التوقيع:";
             // 
             // ReportHeader
@@ -567,6 +573,30 @@ namespace HMS.Module.Win.reports
             this.ID.ValueInfo = "0";
             this.ID.Visible = false;
             // 
+            // xrLabel3
+            // 
+            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Italic);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(303.0953F, 0F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel3.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(394.9047F, 41.66666F);
+            this.xrLabel3.StylePriority.UseFont = false;
+            this.xrLabel3.StylePriority.UsePadding = false;
+            this.xrLabel3.Text = "تعتمد الفاتورة بعد الختم والتوقيع.";
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel5.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(303.0953F, 83.33334F);
+            this.xrLabel5.StylePriority.UseFont = false;
+            this.xrLabel5.StylePriority.UsePadding = false;
+            this.xrLabel5.Text = "الختم:";
+            // 
             // Estlam
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -582,7 +612,7 @@ namespace HMS.Module.Win.reports
             this.DataSource = this.xpObjectSource1;
             this.FilterString = "[id] = ?ID";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(97, 40, 21, 0);
+            this.Margins = new System.Drawing.Printing.Margins(97, 40, 21, 34);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.totalN2C,
             this.ID});
@@ -649,5 +679,7 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.Xpo.XPObjectSource xpObjectSource1;
         private DevExpress.XtraReports.Parameters.Parameter ID;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
     }
 }

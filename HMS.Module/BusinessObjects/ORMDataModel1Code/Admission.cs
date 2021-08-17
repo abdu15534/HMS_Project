@@ -164,12 +164,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public void DaysOfStay()
         {
             int _totalDays = 0;
-            if (StayStart.TimeOfDay < new TimeSpan(12, 0, 0))
+            if (StayStart.TimeOfDay < new TimeSpan(14, 0, 0))
             {
                 _totalDays = Convert.ToInt32(Math.Ceiling(((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(12)).TotalDays)) + 1;
             }
 
-            if (StayStart.TimeOfDay >= new TimeSpan(12, 0, 0))
+            if (StayStart.TimeOfDay >= new TimeSpan(14, 0, 0))
             {
                 _totalDays = Convert.ToInt32(Math.Ceiling(((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(12)).TotalDays));
             }

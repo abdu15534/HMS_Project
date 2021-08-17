@@ -38,7 +38,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set => SetPropertyValue(nameof(ReasonForDischarge), ref reasonForDischarge, value);
         }
 
-        public enum transferTypes { HospitalPatient, SpecialCase, Contract }
+        public enum transferTypes { مريض_مستشفى, حالة_خاصة, تعاقد }
 
         transferTypes transferReason;
 

@@ -93,6 +93,10 @@ namespace HMS.Module.Win.reports
             this.xrTableRow13 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -171,7 +175,7 @@ namespace HMS.Module.Win.reports
             this.xrBarCode1,
             this.xrTable4,
             this.xrPictureBox1});
-            this.PageHeader.HeightF = 65.70834F;
+            this.PageHeader.HeightF = 65.70835F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrBarCode1
@@ -179,10 +183,10 @@ namespace HMS.Module.Win.reports
             this.xrBarCode1.AutoModule = true;
             this.xrBarCode1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Patient].[MedicalID]")});
-            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(584.7756F, 10.00001F);
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(393.703F, 10.00001F);
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xrBarCode1.SizeF = new System.Drawing.SizeF(220.2243F, 55.70833F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(144.297F, 55.70832F);
             this.xrBarCode1.StylePriority.UseTextAlignment = false;
             codabarGenerator1.WideNarrowRatio = 2F;
             this.xrBarCode1.Symbology = codabarGenerator1;
@@ -192,11 +196,11 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTable4.BorderColor = System.Drawing.Color.Transparent;
             this.xrTable4.BorderWidth = 0F;
-            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(295.4754F, 10.00001F);
+            this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(168.3668F, 10.00002F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(236.563F, 55.70833F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(201.1463F, 55.70833F);
             this.xrTable4.StylePriority.UseBorderColor = false;
             this.xrTable4.StylePriority.UseBorderWidth = false;
             // 
@@ -231,7 +235,7 @@ namespace HMS.Module.Win.reports
             this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
             this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(9.999339F, 10.00001F);
             this.xrPictureBox1.Name = "xrPictureBox1";
-            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(250F, 55.70833F);
+            this.xrPictureBox1.SizeF = new System.Drawing.SizeF(139.5833F, 55.70832F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             this.xrPictureBox1.StylePriority.UseBorderColor = false;
             this.xrPictureBox1.StylePriority.UseBorders = false;
@@ -266,7 +270,7 @@ namespace HMS.Module.Win.reports
             this.xrTable10.BorderColor = System.Drawing.Color.Transparent;
             this.xrTable10.BorderWidth = 0F;
             this.xrTable10.ForeColor = System.Drawing.Color.Black;
-            this.xrTable10.LocationFloat = new DevExpress.Utils.PointFloat(117.4408F, 9.999992F);
+            this.xrTable10.LocationFloat = new DevExpress.Utils.PointFloat(9.999339F, 10.00004F);
             this.xrTable10.Name = "xrTable10";
             this.xrTable10.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow15});
@@ -307,11 +311,11 @@ namespace HMS.Module.Win.reports
             this.xrTable9.BorderColor = System.Drawing.Color.Transparent;
             this.xrTable9.BorderWidth = 0F;
             this.xrTable9.ForeColor = System.Drawing.Color.Black;
-            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(393.703F, 10.00001F);
+            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(233.9901F, 10.00001F);
             this.xrTable9.Name = "xrTable9";
             this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow14});
-            this.xrTable9.SizeF = new System.Drawing.SizeF(171.7576F, 70.58926F);
+            this.xrTable9.SizeF = new System.Drawing.SizeF(196.1299F, 70.58926F);
             this.xrTable9.StylePriority.UseBorderColor = false;
             this.xrTable9.StylePriority.UseBorderWidth = false;
             this.xrTable9.StylePriority.UseForeColor = false;
@@ -349,11 +353,11 @@ namespace HMS.Module.Win.reports
             this.xrTable8.BorderColor = System.Drawing.Color.Transparent;
             this.xrTable8.BorderWidth = 0F;
             this.xrTable8.ForeColor = System.Drawing.Color.Black;
-            this.xrTable8.LocationFloat = new DevExpress.Utils.PointFloat(233.9901F, 10.00001F);
+            this.xrTable8.LocationFloat = new DevExpress.Utils.PointFloat(126.5486F, 10.00004F);
             this.xrTable8.Name = "xrTable8";
             this.xrTable8.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow7});
-            this.xrTable8.SizeF = new System.Drawing.SizeF(159.7129F, 70.58926F);
+            this.xrTable8.SizeF = new System.Drawing.SizeF(107.4415F, 70.58926F);
             this.xrTable8.StylePriority.UseBorderColor = false;
             this.xrTable8.StylePriority.UseBorderWidth = false;
             this.xrTable8.StylePriority.UseForeColor = false;
@@ -389,11 +393,11 @@ namespace HMS.Module.Win.reports
             this.xrTable7.BorderColor = System.Drawing.Color.Transparent;
             this.xrTable7.BorderWidth = 0F;
             this.xrTable7.ForeColor = System.Drawing.Color.Black;
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(565.4606F, 10.00003F);
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(430.12F, 10.00004F);
             this.xrTable7.Name = "xrTable7";
             this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(239.5392F, 70.58926F);
+            this.xrTable7.SizeF = new System.Drawing.SizeF(107.88F, 70.58926F);
             this.xrTable7.StylePriority.UseBorderColor = false;
             this.xrTable7.StylePriority.UseBorderWidth = false;
             this.xrTable7.StylePriority.UseForeColor = false;
@@ -514,7 +518,7 @@ namespace HMS.Module.Win.reports
             this.GroupHeader4.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable1,
             this.xrTable6});
-            this.GroupHeader4.HeightF = 89.99993F;
+            this.GroupHeader4.HeightF = 89.99995F;
             this.GroupHeader4.Name = "GroupHeader4";
             // 
             // xrTable1
@@ -522,13 +526,13 @@ namespace HMS.Module.Win.reports
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(10.00071F, 9.999992F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(10.00071F, 10.00001F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow3,
             this.xrTableRow9,
             this.xrTableRow12});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(394.9291F, 79.99994F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(223.9894F, 79.99994F);
             this.xrTable1.StylePriority.UseBorders = false;
             // 
             // xrTableRow3
@@ -688,13 +692,13 @@ namespace HMS.Module.Win.reports
             this.xrTable6.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(404.9297F, 9.999992F);
+            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(233.9901F, 10.00001F);
             this.xrTable6.Name = "xrTable6";
             this.xrTable6.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow4,
             this.xrTableRow5,
             this.xrTableRow13});
-            this.xrTable6.SizeF = new System.Drawing.SizeF(400.0702F, 79.99994F);
+            this.xrTable6.SizeF = new System.Drawing.SizeF(304.0099F, 79.99994F);
             this.xrTable6.StylePriority.UseBorders = false;
             // 
             // xrTableRow4
@@ -850,6 +854,53 @@ namespace HMS.Module.Win.reports
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell26.Weight = 2.4713482095931103D;
             // 
+            // PageFooter
+            // 
+            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel5,
+            this.xrLabel3,
+            this.xrLabel4});
+            this.PageFooter.HeightF = 124.3275F;
+            this.PageFooter.Name = "PageFooter";
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(9.999339F, 10.00001F);
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel5.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(298.2609F, 83.33334F);
+            this.xrLabel5.StylePriority.UseFont = false;
+            this.xrLabel5.StylePriority.UsePadding = false;
+            this.xrLabel5.Text = "الختم:";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "\'تعتمد الفاتورة بعد الختم والتوقيع.\'")});
+            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 15.23F, System.Drawing.FontStyle.Italic);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(308.2602F, 10.00001F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel3.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(225.8635F, 41.66666F);
+            this.xrLabel3.StylePriority.UseFont = false;
+            this.xrLabel3.StylePriority.UsePadding = false;
+            this.xrLabel3.Text = "تعتمد الفاتورة بعد الختم والتوقيع.";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 16F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(308.2603F, 51.66667F);
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
+            this.xrLabel4.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(225.8634F, 41.66666F);
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.StylePriority.UsePadding = false;
+            this.xrLabel4.Text = "التوقيع:";
+            // 
             // ClinicReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -858,7 +909,8 @@ namespace HMS.Module.Win.reports
             this.BottomMargin,
             this.PageHeader,
             this.DetailReport,
-            this.GroupHeader4});
+            this.GroupHeader4,
+            this.PageFooter});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.xpObjectSource1,
             this.xpObjectSource2,
@@ -876,6 +928,9 @@ namespace HMS.Module.Win.reports
             this.FilterString = "[id] = ?parameter1";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(21, 14, 21, 0);
+            this.PageHeight = 827;
+            this.PageWidth = 583;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A5;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.parameter1});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
@@ -969,5 +1024,9 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell21;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell26;
         private DevExpress.Xpo.XPObjectSource Appointment;
+        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel5;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel3;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel4;
     }
 }

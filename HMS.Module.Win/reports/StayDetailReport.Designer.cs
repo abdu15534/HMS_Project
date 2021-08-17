@@ -1025,7 +1025,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell20
             // 
             this.xrTableCell20.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomStayCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, ([totalDays] *  [roomStayCost]\n) * ToDecimal(1." +
+                    "5),[totalDays] *  [roomStayCost])\n")});
             this.xrTableCell20.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell20.Multiline = true;
             this.xrTableCell20.Name = "xrTableCell20";
@@ -1066,7 +1067,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell37
             // 
             this.xrTableCell37.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomStayCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, [roomStayCost] * ToDecimal(1.5),[roomStayCost] " +
+                    ")")});
             this.xrTableCell37.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell37.Multiline = true;
             this.xrTableCell37.Name = "xrTableCell37";
@@ -1294,7 +1296,8 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomStayCost])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, sumSum([totalDays] * [roomStayCost]) * ToDecima" +
+                    "l(1.5),sumSum([totalDays] * [roomStayCost]))")});
             this.xrLabel10.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel10.Multiline = true;
@@ -2122,8 +2125,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader2,
             this.GroupFooter6});
             this.DetailReport10.DataSource = this.Xrays;
-            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
-    "taModel.Module.BusinessObjects.test2.ServiceTypes,الأشعة#";
+            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'الأشعة\'";
             this.DetailReport10.Level = 6;
             this.DetailReport10.Name = "DetailReport10";
             // 
@@ -2369,8 +2371,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader3,
             this.GroupFooter7});
             this.DetailReport11.DataSource = this.Test;
-            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
-    "taModel.Module.BusinessObjects.test2.ServiceTypes,تحاليل#";
+            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'تحاليل\'";
             this.DetailReport11.Level = 7;
             this.DetailReport11.Name = "DetailReport11";
             // 
@@ -2615,8 +2616,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader4,
             this.GroupFooter8});
             this.DetailReport12.DataSource = this.Endscope;
-            this.DetailReport12.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = ##Enum#XafDa" +
-    "taModel.Module.BusinessObjects.test2.ServiceTypes,الجهاز_الهضمى_و_المناظير#";
+            this.DetailReport12.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'الجهاز_الهض" +
+    "مى_و_المناظير\'";
             this.DetailReport12.Level = 8;
             this.DetailReport12.Name = "DetailReport12";
             // 
@@ -2949,7 +2950,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell26
             // 
             this.xrTableCell26.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomSupervisionCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, ([totalDays] * [roomSupervisionCost]\n) * ToDeci" +
+                    "mal(1.5),[totalDays] * [roomSupervisionCost])\n")});
             this.xrTableCell26.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell26.Multiline = true;
             this.xrTableCell26.Name = "xrTableCell26";
@@ -2990,7 +2992,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell39
             // 
             this.xrTableCell39.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomSupervisionCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, [roomSupervisionCost] * ToDecimal(1.5),[roomSup" +
+                    "ervisionCost])")});
             this.xrTableCell39.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell39.Multiline = true;
             this.xrTableCell39.Name = "xrTableCell39";
@@ -3236,7 +3239,8 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomSupervisionCost])\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, sumSum([totalDays] * [roomSupervisionCost]) * T" +
+                    "oDecimal(1.5),sumSum([totalDays] * [roomSupervisionCost]))")});
             this.xrLabel13.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(1.333682F, 0F);
             this.xrLabel13.Multiline = true;
@@ -3303,7 +3307,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell46
             // 
             this.xrTableCell46.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalDays] * [roomCareCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, ([totalDays] * [roomCareCost]\n) * ToDecimal(1.5" +
+                    "),[totalDays] * [roomCareCost])\n")});
             this.xrTableCell46.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell46.Multiline = true;
             this.xrTableCell46.Name = "xrTableCell46";
@@ -3344,7 +3349,8 @@ namespace HMS.Module.Win.reports
             // xrTableCell49
             // 
             this.xrTableCell49.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[roomCareCost]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0,[roomCareCost] * ToDecimal(1.5), [roomCareCost])" +
+                    "")});
             this.xrTableCell49.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell49.Multiline = true;
             this.xrTableCell49.Name = "xrTableCell49";
@@ -3592,7 +3598,8 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel18.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([totalDays] * [roomCareCost])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, sumSum([totalDays] * [roomCareCost]) * ToDecima" +
+                    "l(1.5),sumSum([totalDays] * [roomCareCost]))\n")});
             this.xrLabel18.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel18.Multiline = true;
@@ -3889,8 +3896,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader7,
             this.ReportFooter6});
             this.DetailReport6.DataSource = this.services;
-            this.DetailReport6.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
-    "ypes,Blood#";
+            this.DetailReport6.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Blood\'";
             this.DetailReport6.Level = 10;
             this.DetailReport6.Name = "DetailReport6";
             // 
@@ -4137,8 +4143,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader8,
             this.ReportFooter7});
             this.DetailReport7.DataSource = this.services;
-            this.DetailReport7.FilterString = "[Service.ServiceType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ServiceT" +
-    "ypes,Other#";
+            this.DetailReport7.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Other\'";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 
@@ -4818,6 +4823,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader9,
             this.GroupFooter2});
             this.DetailReport13.DataSource = this.xpObjectSource2;
+            this.DetailReport13.FilterString = "[Admission.reception.enterID] = ?enterID";
             this.DetailReport13.Level = 2;
             this.DetailReport13.Name = "DetailReport13";
             // 
@@ -5163,7 +5169,7 @@ namespace HMS.Module.Win.reports
             this.DataSource = this.reception;
             this.FilterString = "[enterID] = ?enterID";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(29, 2, 18, 22);
+            this.Margins = new System.Drawing.Printing.Margins(29, 3, 18, 22);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.enterID,
             this.patientName,
