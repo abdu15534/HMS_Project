@@ -722,6 +722,7 @@ namespace HMS.Module.Win.reports
             this.Detail2});
             this.DetailReport1.DataMember = "TestDetailsCollection";
             this.DetailReport1.DataSource = this.Test;
+            this.DetailReport1.FilterString = "[Test.id] = ?OrderID";
             this.DetailReport1.Level = 0;
             this.DetailReport1.Name = "DetailReport1";
             // 
@@ -759,6 +760,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell4.BorderWidth = 1F;
+            this.xrTableCell4.CanShrink = true;
             this.xrTableCell4.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[price]")});
             this.xrTableCell4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -782,6 +784,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell12.BorderWidth = 1F;
+            this.xrTableCell12.CanShrink = true;
             this.xrTableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[service].[Name]")});
             this.xrTableCell12.Font = new System.Drawing.Font("Times New Roman", 13F);
