@@ -74,7 +74,7 @@ namespace HMS.Module.Win.Controllers
             newAdmission.reception = objectSpace.GetObjectByKey<ReceptionDesk>(reception.enterID);
             newAdmission.Patient = objectSpace.GetObjectByKey<Patient>(reception.patient.ID);
             newAdmission.transferFlag = true;
-            newAdmission.transferDayCount = true;
+            newAdmission.transferDayCount = false;
             DetailView detailView = Application.CreateDetailView(objectSpace, newAdmission);
             
             detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit;
@@ -247,6 +247,48 @@ namespace HMS.Module.Win.Controllers
         private void FintdPatient_Execute(object sender, ParametrizedActionExecuteEventArgs e)
         {
             
+        }
+
+        private void ApplyPackage_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = e.CurrentObject as ReceptionDesk;
+
+            var medications = ObjectSpace.GetObjects<StayMedications>().Where(o => o.Stay != null && o.Stay.reception == curr);
+            var supplies = ObjectSpace.GetObjects<StaySupplies>().Where(o => o.Stay != null && o.Stay.reception == curr);
+            var tests = ObjectSpace.GetObjects<TestDetails>().Where(o => o.admission != null && o.admission.reception == curr);
+            var xrays = ObjectSpace.GetObjects<XraysDetails>().Where(o => o.admission != null && o.admission.reception == curr);
+            var endoscpy = ObjectSpace.GetObjects<EndscopeDetails>().Where(o => o.admission != null && o.admission.reception == curr);
+            var servies = ObjectSpace.GetObjects<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == curr);
+            foreach (StayMedications item in medications)
+            {
+                Console.WriteLine(item.Medication.product.name);
+                item.price = 1000m;
+                //var i = curr.PackageDetails[0];
+                item.Package = null;
+                ObjectSpace.CommitChanges();
+            }
+            foreach (StaySupplies item in supplies)
+            {
+                Console.WriteLine(item.supplyProduct.product.name);
+            }
+            foreach (TestDetails item in tests)
+            {
+                Console.WriteLine(item.service.Name);
+            }
+            foreach (XraysDetails item in xrays)
+            {
+                Console.WriteLine(item.service.Name);
+            }
+            foreach (EndscopeDetails item in endoscpy)
+            {
+                Console.WriteLine(item.service.Name);
+            }
+            foreach (ServiceDetails item in servies)
+            {
+                Console.WriteLine(item.Service.Name);
+            }
+
+            var addmitions = curr.Admissions;
         }
     }
 }

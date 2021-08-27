@@ -66,6 +66,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fEmergency; }
             set { SetPropertyValue<Emergency>(nameof(Emergency), ref fEmergency, value); }
         }
+        Package fPackage;
+        public Package Package
+        {
+            get { return fPackage; }
+            set { SetPropertyValue<Package>(nameof(Package), ref fPackage, value); }
+        }
     }
 
 }

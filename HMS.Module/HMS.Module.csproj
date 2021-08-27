@@ -314,6 +314,14 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.Designer.cs">
       <DependentUpon>EmergencyServiceDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Package.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Package.Designer.cs">
+      <DependentUpon>Package.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PackageDetail.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PackageDetail.Designer.cs">
+      <DependentUpon>PackageDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.Designer.cs">
       <DependentUpon>paymentSupplierBond.cs</DependentUpon>
@@ -509,6 +517,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Supplier.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SuppliesSettings.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SuppliesSettings.Designer.cs">
+      <DependentUpon>SuppliesSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.Designer.cs">

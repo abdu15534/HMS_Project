@@ -41,6 +41,7 @@ namespace HMS.Module.Win.Controllers
             this.PatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.FindAddmition = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             this.FintdPatient = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
+            this.ApplyPackage = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -185,6 +186,18 @@ namespace HMS.Module.Win.Controllers
             this.FintdPatient.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.FintdPatient.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FintdPatient_Execute);
             // 
+            // ApplyPackage
+            // 
+            this.ApplyPackage.Caption = "Apply Package";
+            this.ApplyPackage.ConfirmationMessage = null;
+            this.ApplyPackage.Id = "ApplyPackage";
+            this.ApplyPackage.ImageName = "";
+            this.ApplyPackage.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.ApplyPackage.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ApplyPackage.ToolTip = null;
+            this.ApplyPackage.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ApplyPackage.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ApplyPackage_Execute);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -198,6 +211,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.PatientLable);
             this.Actions.Add(this.FindAddmition);
             this.Actions.Add(this.FintdPatient);
+            this.Actions.Add(this.ApplyPackage);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -214,5 +228,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction PatientLable;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FindAddmition;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FintdPatient;
+        private DevExpress.ExpressApp.Actions.SimpleAction ApplyPackage;
     }
 }

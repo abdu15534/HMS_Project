@@ -1,0 +1,23 @@
+/* 
+   Attention! The SQL commands below change the database structure and may corrupt any existing data.
+   We recommend you create a database backup before running this script.
+*/
+
+alter table "dbo"."CompanionDetails" add "GCRecord" int NULL;
+alter table "dbo"."JournalDetails" add "OID" int NOT NULL IDENTITY NOT FOR REPLICATION;
+alter table "dbo"."JournalDetails" drop constraint "PK_JournalDetails";
+alter table "dbo"."JournalDetails" add "idTemporary300a2ba4-c017-4d27-b1e3-e7ac190be78d" int NULL;
+update "dbo"."JournalDetails" set "idTemporary300a2ba4-c017-4d27-b1e3-e7ac190be78d"="id";
+alter table "dbo"."JournalDetails" drop column "id";
+EXEC sp_rename '"dbo"."JournalDetails".idTemporary300a2ba4-c017-4d27-b1e3-e7ac190be78d', 'id', 'COLUMN';
+alter table "dbo"."JournalDetails" add "GCRecord" int NULL;
+drop index "iGCRecord_Package" on "dbo"."Package";
+drop index "iAdmission_PackageDetail" on "dbo"."PackageDetail";
+alter table "dbo"."PackageDetail" drop constraint "FK_PackageDetail_Admission";
+drop index "iGCRecord_PackageDetail" on "dbo"."PackageDetail";
+drop index "iPayer_Payments" on "dbo"."Payments";
+alter table "dbo"."Payments" drop constraint "FK_Payments_Payer";
+alter table "dbo"."JournalDetails" alter column "OID" int NOT NULL;
+alter table "dbo"."JournalDetails" add constraint "PK_JournalDetails" primary key ("OID");
+create  index "iGCRecord_CompanionDetails" on "dbo"."CompanionDetails"("GCRecord");
+create  index "iGCRecord_JournalDetails" on "dbo"."JournalDetails"("GCRecord")

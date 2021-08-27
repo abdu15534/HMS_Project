@@ -502,6 +502,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ExpressApp.ico" />
+    <None Include="UnusableNodes110.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes109.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes108.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes107.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UnusableNodes106.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="UnusableNodes31_ar.xml">
       <DependentUpon>Model.xafml</DependentUpon>
       <SubType>Designer</SubType>

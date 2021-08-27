@@ -261,6 +261,21 @@ namespace HMS.Module.DatabaseUpdate
             //adminRole.IsAdministrative = true;
             userAdmin.Roles.Add(adminRole);
 
+
+            if (ObjectSpace.GetObjectsCount(typeof(SuppliesSettings), null) == 0)
+            {
+                var setting = ObjectSpace.CreateObject<SuppliesSettings>();
+                setting.FromNotTo5 = 3;
+                setting.From6To10 = 2.5;
+                setting.From11To20 = 2;
+                setting.From21To30 = 1.7;
+                setting.From31To40 = 1.5;
+                setting.From41To50 = 1.35;
+                setting.From50ToAll = 1.3;
+
+            }
+            ObjectSpace.CommitChanges();
+
             //Emploees Sections
             if (ObjectSpace.GetObjectsCount(typeof(Section), null) == 0)
             {
