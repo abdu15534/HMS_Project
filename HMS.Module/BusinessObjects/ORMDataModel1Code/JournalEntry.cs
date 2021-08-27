@@ -24,6 +24,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                         if (item.credit > 0)
                             item.account.credit += item.credit;
+                        
+                        
 
                         else
                             item.account.debit += item.debit;
@@ -38,10 +40,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                         if (item.credit > 0)
                             item.account.credit -= item.credit;
+                       
 
                         else
                             item.account.debit -= item.debit;
-                    }
+
+                }
                 
                 this.post = false;
             }

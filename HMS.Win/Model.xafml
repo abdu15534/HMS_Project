@@ -203,6 +203,10 @@
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Account" Caption="حساب">
+      <AppearanceRules>
+        <AppearanceRule Id="@AccountNegativeRemainder" BackColor="0, 192, 192" Context="ListView" Criteria="[Remainder] &lt; 0.0m" Enabled="True" TargetItems="Remainder, credit, debit" Visibility="Show" IsNewNode="True" />
+        <AppearanceRule Id="@AccountRemainder" Criteria="[Remainder] = 0.0" BackColor="128, 255, 128" Enabled="True" Visibility="Show" Context="ListView" TargetItems="Remainder" IsNewNode="True" />
+      </AppearanceRules>
       <OwnMembers>
         <Member Name="accountName" Caption="إسم الحساب" AllowEdit="False" />
         <Member Name="accountNumber" EditMask="D" DisplayFormat="{0:D}" Caption="رقم الحساب" AllowEdit="False" />
@@ -464,6 +468,9 @@
       <AppearanceRules>
         <AppearanceRule Id="@5a6f0cfb-d31c-4e52-afab-152563ed1e06" TargetItems="*" Enabled="False" Criteria="[post] = True" IsNewNode="True" />
         <AppearanceRule Id="@8ce45d9a-a7e7-4117-871b-cf85e02452f5" TargetItems="chequeNumber ,chequeBank , chequeDate " Enabled="False" IsNewNode="True" />
+        <AppearanceRule Id="@NegativeRemainder" BackColor="128, 255, 255" TargetItems="Remainder" Criteria="[Remainder] &lt; 0.0" Visibility="Show" Enabled="True" Context="ListView" IsNewNode="True" />
+        <AppearanceRule Id="@PositiveRemainder" Criteria="[Remainder] &gt; 0.0" TargetItems="Remainder" BackColor="255, 128, 128" Visibility="Show" Enabled="True" Context="ListView" IsNewNode="True" />
+        <AppearanceRule Id="@Remainder" BackColor="128, 255, 128" Criteria="[Remainder] = 0.0" TargetItems="Remainder" Visibility="Show" Enabled="True" Context="ListView" IsNewNode="True" />
       </AppearanceRules>
       <OwnMembers>
         <Member Name="CreatedBy" AllowEdit="False" />
@@ -479,7 +486,8 @@
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk" Caption="إستقبال القسم الداخلى">
       <AppearanceRules>
-        <AppearanceRule Id="@55ede0fd-d37b-4635-8e30-8cbd68c4830d" Criteria="[isDischarged] = True" TargetItems="*" Enabled="False" IsNewNode="True" />
+        <AppearanceRule Id="DeathCase" TargetItems="amount, Admissions, bed, currentStay, dateEnter, dateLeave, DeceasedPackageApplyed, Discount, enterID, isDischarged, isDiscounted, journalEntry, medication, note, patient, PaymentsCollection, ReasonForDischarge, room, Section, ServiceFee, ServiceRate, total, TransferReason " Criteria="[ReasonForDischarge] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,وفاة#" BackColor="IndianRed" Enabled="True" AppearanceItemType="ViewItem" Context="ListView" FontStyle="Strikeout" Visibility="Show" IsNewNode="True" />
+        <AppearanceRule Id="Discharged" Criteria="[isDischarged] = True" TargetItems="amount, Admissions, bed, currentStay, dateEnter, dateLeave, DeceasedPackageApplyed, Discount, enterID, isDischarged, isDiscounted, journalEntry, medication, note, patient, PaymentsCollection, ReasonForDischarge, room, Section, ServiceFee, ServiceRate, total, TransferReason " Enabled="False" FontStyle="Strikeout" IsNewNode="True" />
         <AppearanceRule Id="Discount" Criteria="[IsDiscounted] = False" TargetItems="Discount, ServiceRate" Visibility="Hide" IsNewNode="True" />
         <AppearanceRule Id="leaveDate" TargetItems="dateLeave" Visibility="Hide" Criteria="[isDischarged] = False" IsNewNode="True" />
         <AppearanceRule Id="ReceptionDisabledInfo" TargetItems="bed , dateEnter , room , Section , patient" Enabled="False" Criteria="[Admissions][].Count() &gt; 0" IsNewNode="True" />

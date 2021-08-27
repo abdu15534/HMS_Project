@@ -49,6 +49,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fdebit; }
             set { SetPropertyValue<decimal>(nameof(debit), ref fdebit, value); }
         }
+        [PersistentAlias("[debit] - [credit]")]
+        public decimal Remainder
+        {
+            get { return (decimal)(EvaluateAlias(nameof(Remainder))); }
+        }
     }
 
 }

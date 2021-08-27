@@ -14,7 +14,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         
         public MasterAccount(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction(); credit = 0; debit = 0; }
+        public override void AfterConstruction() { base.AfterConstruction(); credit = 0; debit = 0;}
 
         AccountClassifications accountClassification;
 

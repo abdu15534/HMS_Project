@@ -77,6 +77,14 @@ DevExpress.Persistent.Validation.RuleRequiredField]
             get { return fComplete; }
             set { SetPropertyValue<bool>(nameof(Complete), ref fComplete, value); }
         }
+        int fTicketNumber;
+        [ColumnDefaultValue(0)]
+        [DevExpress.Xpo.DisplayName(@"Ticket Number")]
+        public int TicketNumber
+        {
+            get { return fTicketNumber; }
+            set { SetPropertyValue<int>(nameof(TicketNumber), ref fTicketNumber, value); }
+        }
         [Association(@"ClinicServiceDetailReferencesAppointment"), Aggregated]
         public XPCollection<ClinicServiceDetail> ClinicServiceDetails { get { return GetCollection<ClinicServiceDetail>(nameof(ClinicServiceDetails)); } }
         [Association(@"PaymentsReferencesAppointment"), Aggregated]

@@ -27,7 +27,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get => Session.Query<JournalEntry>().Where(p => p.JournalDetailsCollection.Any(x => x.account == this)).ToList();
         }
-        
 
         protected override void OnSaving()
         {

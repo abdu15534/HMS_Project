@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XafDataModel.Module.BusinessObjects.test2;
+using static XafDataModel.Module.BusinessObjects.test2.Service;
 
 namespace HMS.Module.InitialData
 {

@@ -691,6 +691,12 @@
     <Compile Include="reports\InPatients.Designer.cs">
       <DependentUpon>InPatients.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\InPatientsFinance.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\InPatientsFinance.Designer.cs">
+      <DependentUpon>InPatientsFinance.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\InPatientsTotal.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1078,6 +1084,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\InPatients.resx">
       <DependentUpon>InPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\InPatientsFinance.resx">
+      <DependentUpon>InPatientsFinance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\InPatientsTotal.resx">
       <DependentUpon>InPatientsTotal.cs</DependentUpon>

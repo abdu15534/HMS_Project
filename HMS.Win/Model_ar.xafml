@@ -767,7 +767,6 @@
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails+DeductionTypes" Value="انواع الخصومات">
         <LocalizationItem Name="PunitiveSanctions" Value="حسميات" />
       </LocalizationGroup>
-      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ServiceTypes" Value="نوع الخدمة" />
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories">
         <LocalizationItem Name="appointment" Value="ميعاد" />
         <LocalizationItem Name="emergency" Value="الطوارئ" />

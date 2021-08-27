@@ -11,7 +11,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class SubAccount
     {
         public SubAccount(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction(); credit = 0; debit = 0; }
+        public override void AfterConstruction() { base.AfterConstruction(); credit = 0; debit = 0;}
     }
 
 }

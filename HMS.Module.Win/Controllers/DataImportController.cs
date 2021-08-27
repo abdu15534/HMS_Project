@@ -26,6 +26,7 @@ using DevExpress.XtraRichEdit.Layout;
 using System.Diagnostics;
 using XafDataModel.Module.BusinessObjects.test2;
 using DevExpress.XtraReports.UI;
+using static XafDataModel.Module.BusinessObjects.test2.Service;
 
 namespace HMS.Module.Win.Controllers
 {

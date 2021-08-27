@@ -61,6 +61,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get => phonenumber1;
             set => SetPropertyValue(nameof(PhoneNumber1), ref phonenumber1, value);
         }
+
+
+
+
+       
         
         string phonenumber2;
         public string PhoneNumber2
@@ -125,6 +130,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get => nationality;
             set => SetPropertyValue(nameof(Nationality), ref nationality, value);
         }
+
         public enum Nationalitys
         {
             [Description("مصر")]
@@ -173,6 +179,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         protected override void OnSaving()
         {
+
             base.OnSaving();
             if (this.Session.IsNewObject(this))
             {
@@ -193,7 +200,27 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     MedicalID = DateTime.Now.Year.ToString() + s;
                 }
             }
+            if (phonenumber1.Length != 11)
+            //    throw new ArgumentException("برجاء إدخال رقم هاتف صحيح!", nameof(phonenumber1));
+            {
+                MessageBox.Show("برجاء إدخال رقم هاتف صحيح!.", "رقم الهاتف غير صحيح", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (nationalID.Length != 14)
+            {
+                MessageBox.Show("برجاء التأكد من الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (ImageProperty == null)
+            {
+                MessageBox.Show("برجاء التأكد من إدخال صورة الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
         }
+
+    
 
         protected override void OnSaved()
         { 

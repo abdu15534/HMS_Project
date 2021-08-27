@@ -163,6 +163,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             totalWithoutDiscount = sumation + this.ServiceFee;
 
+
+
             this.total = totalWithoutDiscount - Discount;
             this.total = this.total + medication;
         }

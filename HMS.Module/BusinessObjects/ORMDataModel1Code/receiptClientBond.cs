@@ -166,7 +166,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 clientPayments.journalEntry = this.journal;
                 journal.Post(false);
                 post = true;
+
+
             }
+
+
 
             else
             {
