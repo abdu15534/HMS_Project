@@ -154,6 +154,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         add = true;
                 }
 
+                SuppliesSettings factorsObj = Session.Query<SuppliesSettings>().First();
 
                 if(add)
                 {
@@ -190,31 +191,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
                                 Console.WriteLine("Inventory.InventoryTypes.Stock");
                                 if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(3);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.FromNotTo5);
                                 }
                                 else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2.5);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From6To10);
                                 }
                                 else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(2);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From11To20);
                                 }
                                 else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.7);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From21To30);
                                 }
                                 else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.5);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From31To40);
                                 }
                                 else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.35);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From41To50);
                                 }
                                 else
                                 {
-                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(1.3);
+                                    stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.From50ToAll);
                                 }
                             }
                             else
@@ -254,31 +255,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         {
                             if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(5))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(3);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.FromNotTo5);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(6) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(10))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(2.5);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From6To10);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(11) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(20))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(2);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From11To20);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(21) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(30))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.7);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From21To30);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(31) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(40))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.5);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From31To40);
                             }
                             else if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(41) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(50))
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.35);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From41To50);
                             }
                             else
                             {
-                                stockProduct.product.sellingPrice *= Convert.ToDecimal(1.3);
+                                stockProduct.product.sellingPrice *= Convert.ToDecimal(factorsObj.From50ToAll);
                             }
                         }
 

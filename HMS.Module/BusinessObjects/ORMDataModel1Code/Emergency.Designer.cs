@@ -116,12 +116,6 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         {
             get { return (decimal)(EvaluateAlias(nameof(TestSum))); }
         }
-        string fField1;
-        public string Field1
-        {
-            get { return fField1; }
-            set { SetPropertyValue<string>(nameof(Field1), ref fField1, value); }
-        }
         [PersistentAlias("Iif([XraysDetailsCollection][].Sum([price]) Is Null, 0.0m, [XraysDetailsCollection][].Sum([price]))")]
         public decimal XraySum
         {

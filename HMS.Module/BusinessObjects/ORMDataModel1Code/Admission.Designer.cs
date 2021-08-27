@@ -117,7 +117,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fIsDischarged; }
             set { SetPropertyValue<bool>(nameof(IsDischarged), ref fIsDischarged, value); }
         }
-        [PersistentAlias("Iif([StayMedicications][].Sum([total]) Is Null, 0.0m, [StayMedicications][].Sum([total]))")]
+        [PersistentAlias("Iif([StayMedicications][Package == null].Sum([total]) Is Null Or [StayMedicications][].Sum([total]) Is Null, 0.0m, [StayMedicications][Package == null].Sum([total]))")]
         public decimal medicationSum
         {
             get { return (decimal)(EvaluateAlias(nameof(medicationSum))); }

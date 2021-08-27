@@ -34,10 +34,13 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyTotals = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.EmergencyDetailedReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.Close = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.EnableEdit = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // EmergencyInvoice
             // 
             this.EmergencyInvoice.Caption = "Emergency Invoice";
+            this.EmergencyInvoice.ConfirmationMessage = null;
             this.EmergencyInvoice.Id = "EmergencyInvoice";
             this.EmergencyInvoice.ImageName = "BO_REPORT";
             this.EmergencyInvoice.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
@@ -83,12 +86,38 @@ namespace HMS.Module.Win.Controllers
             this.EmergencyDetailedReport.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.EmergencyDetailedReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.DetailedReport_Execute);
             // 
+            // Close
+            // 
+            this.Close.Caption = "إغلاق الملف";
+            this.Close.ConfirmationMessage = null;
+            this.Close.Id = "01769008-40c4-42aa-8893-993b100e2a09";
+            this.Close.TargetObjectsCriteria = "Paid == false";
+            this.Close.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
+            this.Close.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.Close.ToolTip = null;
+            this.Close.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.Close.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.Close_Execute);
+            // 
+            // EnableEdit
+            // 
+            this.EnableEdit.Caption = "تعديل";
+            this.EnableEdit.ConfirmationMessage = null;
+            this.EnableEdit.Id = "EnableEdit";
+            this.EnableEdit.TargetObjectsCriteria = "Paid == true";
+            this.EnableEdit.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Emergency);
+            this.EnableEdit.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.EnableEdit.ToolTip = null;
+            this.EnableEdit.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.EnableEdit.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.EnableEdit_Execute);
+            // 
             // EmergencyViewController
             // 
             this.Actions.Add(this.EmergencyInvoice);
             this.Actions.Add(this.EmergencyPatients);
             this.Actions.Add(this.EmergencyTotals);
             this.Actions.Add(this.EmergencyDetailedReport);
+            this.Actions.Add(this.Close);
+            this.Actions.Add(this.EnableEdit);
 
         }
 
@@ -98,5 +127,7 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyPatients;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyTotals;
         private DevExpress.ExpressApp.Actions.SimpleAction EmergencyDetailedReport;
+        private DevExpress.ExpressApp.Actions.SimpleAction Close;
+        private DevExpress.ExpressApp.Actions.SimpleAction EnableEdit;
     }
 }

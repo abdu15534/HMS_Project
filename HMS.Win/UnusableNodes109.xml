@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="In-Patient">
+        <Node Id="Patient@5b8a2918-cc5d-4d54-af89-b111f1abe9e5" UnusableNodeName="Patient" IsNewNode="True">
+          <Node Id="@066febef-4b5a-4cf8-855f-9bf8abc9a685" UnusableNodeName="Item" ViewId="Room_ListView" IsNewNode="True" />
+          <Node Id="@6f1bf30b-6b5f-41d9-b160-2da1c44a11b2" UnusableNodeName="Item" ViewId="Patient_ListView" IsNewNode="True" />
+          <Node Id="Emergency" UnusableNodeName="Item" ViewId="Emergency_ListView" IsNewNode="True" />
+          <Node Id="Package" UnusableNodeName="Item" ViewId="Package_ListView" IsNewNode="True" />
+          <Node Id="PackageDetail" UnusableNodeName="Item" ViewId="PackageDetail_ListView" IsNewNode="True" />
+          <Node Id="ReceptionDesk" UnusableNodeName="Item" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
+        </Node>
+      </Item>
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

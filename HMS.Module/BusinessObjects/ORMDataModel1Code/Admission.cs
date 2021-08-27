@@ -65,6 +65,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
         protected override void OnSaving()
         {
+            CalculateRoomServices();
             if (Room == null || bed == null)
                 throw new ArgumentException("يجب اختيار الغرفة و السرير!", nameof(Room));
 
@@ -106,7 +107,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 bed.isAvailable = false;
                 //Patient.InStay = true;
             }
-            CalculateRoomServices();
+            
             transferFlag = false;
         }
 

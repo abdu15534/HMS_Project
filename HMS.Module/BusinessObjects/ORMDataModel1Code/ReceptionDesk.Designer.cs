@@ -138,6 +138,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }
         [Association(@"PaymentsReferencesReceptionDesk"), Aggregated]
         public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
+        [Association(@"PackageDetailReferencesReceptionDesk"), Aggregated]
+        public XPCollection<PackageDetail> PackageDetails { get { return GetCollection<PackageDetail>(nameof(PackageDetails)); } }
     }
 
 }

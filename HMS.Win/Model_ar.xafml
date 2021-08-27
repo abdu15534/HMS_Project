@@ -783,12 +783,7 @@
   </Localization>
   <NavigationItems>
     <Items>
-      <Item Id="In-Patient" Caption="المستشفي">
-        <Items>
-          <Item Id="StandardFormWithCustomUserControl" Caption="الرئيسي" />
-          <Item Id="Emergency_ListView" Caption="الطوارئ" />
-        </Items>
-      </Item>
+      <Item Id="In-Patient" Caption="المستشفي" />
       <Item Id="Pharmacy" Caption="الصيدلية">
         <Items>
           <Item Id="ReceptionDesk" Caption="الاقامات" />
@@ -806,9 +801,9 @@
       </Item>
       <Item Id="Purchasing Department" Caption="المشتريات">
         <Items>
-          <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="سند صرف موردين" />
-          <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="فواتير الشراء" />
           <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="المورد" />
+          <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="فواتير الشراء" />
+          <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="سند صرف موردين" />
         </Items>
       </Item>
       <Item Id="HRDepartment" Caption="الموارد البشرية">

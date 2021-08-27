@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Logo="ExpressAppLogo" PreferredLanguage="ar">
+<Application Logo="ExpressAppLogo" PreferredLanguage="(Default language)">
   <ActionDesign>
     <Actions>
       <Action Id="AddDepartmentsServices" ImageName="AddParameter" />
@@ -316,6 +316,9 @@
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Emergency">
+      <AppearanceRules>
+        <AppearanceRule Id="@a17bdd95-3262-43e5-bbe4-47531a846303" TargetItems="*" Criteria="[Paid] = True" Enabled="False" IsNewNode="True" />
+      </AppearanceRules>
       <OwnMembers>
         <Member Name="amount" Caption="الكمية" />
         <Member Name="date" Caption="تاريخ" />
@@ -479,6 +482,7 @@
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk" Caption="إستقبال القسم الداخلى">
       <AppearanceRules>
+        <AppearanceRule Id="@21ed0fee-95d4-4e43-95d0-d1a75d59ad85" TargetItems="Section, patient, transferReason, room, dateEnter, dateLeave, bed, ServiceRate, ServiceFee, medication, total" Criteria="[ReasonForDischarge] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,في_المستشفى# And [isDischarged] = False" BackColor="255, 255, 192" IsNewNode="True" />
         <AppearanceRule Id="@55ede0fd-d37b-4635-8e30-8cbd68c4830d" Criteria="[isDischarged] = True" TargetItems="*" Enabled="False" IsNewNode="True" />
         <AppearanceRule Id="Discount" Criteria="[IsDiscounted] = False" TargetItems="Discount, ServiceRate" Visibility="Hide" IsNewNode="True" />
         <AppearanceRule Id="leaveDate" TargetItems="dateLeave" Visibility="Hide" Criteria="[isDischarged] = False" IsNewNode="True" />
@@ -552,6 +556,11 @@
         <Member Name="post" AllowEdit="False" />
         <Member Name="SalaryDetailsCollection" AllowEdit="True" />
         <Member Name="statement" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service">
+      <OwnMembers>
+        <Member Name="ID" AllowEdit="False" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails">
@@ -715,21 +724,16 @@
     <ModelEditorControl CurrentAspect="ar" SplitterPosition="0.5" SearchControlVisible="0" ShowCategories="True" GroupSettings="Actions=False;Views=True;BOModel=True;Rules=True" FocusedObject="NavigationItems\Items\HRDepartment\Items\Section_ListView" />
     <SearchControl SearchSplitterPosition="257" SchemaVisible="1" />
   </ModelEditorSettings>
-  <NavigationItems NavigationStyle="NavBar" ShowImages="True" DefaultChildItemsDisplayStyle="LargeIcons" GenerateRelatedReportsGroup="True" GenerateRelatedAnalysisGroup="True" GenerateRelatedViewVariantsGroup="True" RootGroupsStyle="Standard" StartupNavigationItem="ReceptionDesk_ListView">
+  <NavigationItems NavigationStyle="NavBar" ShowImages="True" DefaultChildItemsDisplayStyle="LargeIcons" GenerateRelatedReportsGroup="True" GenerateRelatedAnalysisGroup="True" GenerateRelatedViewVariantsGroup="True" RootGroupsStyle="Standard" StartupNavigationItem="@be97a172-6f04-4ad9-925b-c104682c72a8">
     <Items>
       <Item Id="In-Patient" Index="0" Caption="In-Patient" ImageName="BO_Address" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="StandardFormWithCustomUserControl" Index="0" ViewId="StandardFormWithCustomUserControl" Caption="الصفحة الرئيسية" IsNewNode="True" />
-          <Item Id="ReceptionDesk_ListView" ObjectKey="" ImageName="BO_Contact" Index="1" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
-          <Item Id="Patient_ListView" ObjectKey="" ImageName="BO_Resume_32x32" Index="2" ViewId="Patient_ListView" Caption="ملفات المرضي" IsNewNode="True">
-            <Items IsNewNode="True">
-              <Item Id="Employee_ListView" ObjectKey="" ViewId="Employee_ListView" IsNewNode="True" />
-              <Item Id="Physician_ListView" ObjectKey="" ViewId="Physician_ListView" IsNewNode="True" />
-            </Items>
-          </Item>
-          <Item Id="Admission_ListView" ObjectKey="" ImageName="BO_Resume" Index="3" ViewId="Admission_ListView" Caption="اقامات القسم الداخلي" Visible="False" IsNewNode="True" />
-          <Item Id="Room_ListView" ObjectKey="" ImageName="DayView_32x32" Index="4" ViewId="Room_ListView" Caption="الغرف" IsNewNode="True" />
-          <Item Id="Emergency_ListView" ObjectKey="" Index="5" ImageName="ModelEditor_RequiredProperty" ViewId="Emergency_ListView" Caption="قسم الطوارئ" IsNewNode="True" />
+          <Item Id="@48f349c2-be1f-4bff-8a6e-1b93c9b61e58" ViewId="Patient_ListView" IsNewNode="True" />
+          <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" IsNewNode="True" />
+          <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" ViewId="Emergency_ListView" IsNewNode="True" />
+          <Item Id="@be97a172-6f04-4ad9-925b-c104682c72a8" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
+          <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" IsNewNode="True" />
+          <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Pharmacy" Caption="Pharmacy" Index="1" ImageName="AddParameter" IsNewNode="True">
@@ -758,9 +762,10 @@
       </Item>
       <Item Id="Purchasing Department" ImageName="BO_Sale" Index="4" IsNewNode="True">
         <Items IsNewNode="True">
+          <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="Supplier" ViewId="Supplier_ListView" Index="0" IsNewNode="True" />
+          <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="Purchasing Orders" ImageName="BO_Sale_Item" ViewId="PurchasingOrder_ListView" Index="2" IsNewNode="True" />
+          <Item Id="@67bb11cc-460a-4402-8b48-659d5fc12b30" ViewId="SuppliesSettings_DetailView" Index="3" IsNewNode="True" />
           <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="Exchange" ImageName="Business_Dollar" ViewId="OrderExchange_ListView" IsNewNode="True" />
-          <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="Purchasing Orders" ImageName="BO_Sale_Item" ViewId="PurchasingOrder_ListView" IsNewNode="True" />
-          <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="Supplier" ViewId="Supplier_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="HRDepartment" Index="5" ImageName="BO_Customer" Caption="HRDepartment" Visible="True" IsNewNode="True">
@@ -2002,7 +2007,6 @@
         <ColumnInfo Id="EmergencyServicesSum" Index="-1" />
         <ColumnInfo Id="EndoscopySum" Index="-1" />
         <ColumnInfo Id="ExamFees" Index="-1" />
-        <ColumnInfo Id="Field1" Index="-1" />
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
@@ -2745,6 +2749,7 @@
         <ColumnInfo Id="amount" Caption="الكمية" />
       </Columns>
     </ListView>
+    <ListView Id="PackageDetail_LookupListView" AllowNew="False" />
     <DetailView Id="Party_DetailView">
       <Items>
         <PropertyEditor Id="Address1" Caption="العنوان 1" />
@@ -3730,6 +3735,12 @@
           </Summary>
         </ColumnInfo>
       </Columns>
+      <Filters CurrentFilterId="@17605fb0-b973-4b8a-abb4-11bd0b825612">
+        <Filter Id="@0cf271fc-be19-4542-af1f-079cfa3b61b7" Caption="الاقامات المنتهية" Criteria="[isDischarged] = True" IsNewNode="True" />
+        <Filter Id="@17605fb0-b973-4b8a-abb4-11bd0b825612" Caption="الاقامات السارية" Criteria="[isDischarged] = False" IsNewNode="True" />
+        <Filter Id="@613b377f-1fac-4ef2-a9c7-3e227f592c16" Caption="طلبات خروج" Criteria="[ReasonForDischarge] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,في_المستشفى# And [isDischarged] = False" IsNewNode="True" />
+        <Filter Id="@ce4c833f-3fad-4244-a1ed-815d86042614" Caption="كل الإقامات" IsNewNode="True" />
+      </Filters>
     </ListView>
     <ListView Id="ReceptionDesk_LookupListView" Caption="إستقبال القسم الداخلى">
       <Columns>
@@ -4536,6 +4547,9 @@
         <ColumnInfo Id="purchasingServices" Caption="خدمات الشراء" />
       </Columns>
     </ListView>
+    <DetailView Id="SuppliesSettings_DetailView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="SuppliesSettings_ListView" AllowNew="False" AllowDelete="False" />
+    <ListView Id="SuppliesSettings_LookupListView" AllowNew="False" AllowDelete="False" />
     <DetailView Id="Test_DetailView">
       <Items>
         <PropertyEditor Id="Patient" PropertyName="Patient" IsNewNode="True" />

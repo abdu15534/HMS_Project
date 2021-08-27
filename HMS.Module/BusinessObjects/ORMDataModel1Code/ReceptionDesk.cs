@@ -9,6 +9,7 @@ using static XafDataModel.Module.BusinessObjects.test2.Admission;
 using System.Linq;
 using DevExpress.Persistent.Base;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -56,8 +57,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set => SetPropertyValue(nameof(Section), ref section, value);
         }
 
-        
-
 
         protected override void OnDeleting()
         {
@@ -72,6 +71,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             journalEntry.type = this.GetType().ToString();
             journalEntry.objectKey = this.enterID.ToString();
+            CalculateTotal();
+            
 
             base.OnSaving();
             if(this.patient.InStay ==false && this.isDischarged == false)
@@ -87,7 +88,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 deceassedService.Stay = this.currentStay;
                 deceassedService.supplyProduct = l;
                 deceassedService.quantity = 1;
-                deceassedService.Save();
+                //deceassedService.Save();
 
                 StockProduct l2 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='كيس بلاستك'"));
 
@@ -96,7 +97,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 deceassedService2.Stay = this.currentStay;
                 deceassedService2.supplyProduct = l2;
                 deceassedService2.quantity = 1;
-                deceassedService2.Save();
+                //deceassedService2.Save();
 
                 StockProduct l3 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='ملاية'"));
 
@@ -105,7 +106,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 deceassedService3.Stay = this.currentStay;
                 deceassedService3.supplyProduct = l3;
                 deceassedService3.quantity = 1;
-                deceassedService3.Save();
+                //deceassedService3.Save();
 
 
                 DeceasedPackageApplyed = true;
@@ -119,7 +120,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 currentStay.StayStart = DateTime.Now;
                 currentStay.reception = this;
             }
-            CalculateTotal();
+            
             if(!IsDeleted)
             {
                 if (journalEntry.JournalDetailsCollection.Count > 0)
@@ -143,7 +144,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             base.OnLoaded();
             CalculateTotal();
-            
+            //ICollection changedObjects = Session.GetObjectsToSave();
+            //int count = changedObjects.Count;
+
+            //foreach (Object i in changedObjects)
+            //{
+            //    Console.WriteLine(i.GetType());
+            //    Console.WriteLine(i.ToString());
+            //}
+
+            //Session.DropChanges();
         }
 
         public void CalculateTotal()
@@ -154,13 +164,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             this.medication = Admissions.Sum(p => p.medicationSum);
             
             sumation = Admissions.Sum(p => p.stayTotalSum);
-           
+            
             this.amount = sumation;
             this.ServiceFee = sumation * Convert.ToDecimal((this.ServiceRate / 100));
             
-            
-        
-
             totalWithoutDiscount = sumation + this.ServiceFee;
 
             this.total = totalWithoutDiscount - Discount;

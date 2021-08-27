@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="In-Patient">
+        <Node Id="Package@dd1a1156-eb04-474e-9f69-a719c9c1b613" UnusableNodeName="Package" IsNewNode="True">
+          <Node Id="StandardFormWithCustomUserControl" UnusableNodeName="Item" Index="0" ViewId="StandardFormWithCustomUserControl" Caption="الصفحة الرئيسية" IsNewNode="True" />
+          <Node Id="ReceptionDesk_ListView" UnusableNodeName="Item" ObjectKey="" ImageName="BO_Contact" Index="1" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
+          <Node Id="Patient_ListView" UnusableNodeName="Item" ObjectKey="" ImageName="BO_Resume_32x32" Index="2" ViewId="Patient_ListView" Caption="ملفات المرضي" IsNewNode="True">
+            <Node Id="Items@bb41cd37-9dcd-40e8-941c-9ee3e5ca9854" UnusableNodeName="Items" IsNewNode="True">
+              <Node Id="Employee_ListView" UnusableNodeName="Item" ObjectKey="" ViewId="Employee_ListView" IsNewNode="True" />
+              <Node Id="Physician_ListView" UnusableNodeName="Item" ObjectKey="" ViewId="Physician_ListView" IsNewNode="True" />
+            </Node>
+          </Node>
+          <Node Id="Admission_ListView" UnusableNodeName="Item" ObjectKey="" ImageName="BO_Resume" Index="3" ViewId="Admission_ListView" Caption="اقامات القسم الداخلي" Visible="False" IsNewNode="True" />
+          <Node Id="Room_ListView" UnusableNodeName="Item" ObjectKey="" ImageName="DayView_32x32" Index="4" ViewId="Room_ListView" Caption="الغرف" IsNewNode="True" />
+          <Node Id="Emergency_ListView" UnusableNodeName="Item" ObjectKey="" Index="5" ImageName="ModelEditor_RequiredProperty" ViewId="Emergency_ListView" Caption="قسم الطوارئ" IsNewNode="True" />
+          <Node Id="@3c06ac7e-4231-4b87-b62f-4268c57c8701" UnusableNodeName="Item" ViewId="Package_ListView" IsNewNode="True" />
+          <Node Id="Package Detail" UnusableNodeName="Item" ViewId="PackageDetail_ListView" IsNewNode="True" />
+        </Node>
+        <Node Id="Package@bea12648-eb78-4b2b-bdf6-46b689709be0" UnusableNodeName="Package">
+          <Node Id="StandardFormWithCustomUserControl" UnusableNodeName="Item" Caption="الرئيسي" />
+          <Node Id="Emergency_ListView" UnusableNodeName="Item" Caption="الطوارئ" />
+        </Node>
+      </Item>
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

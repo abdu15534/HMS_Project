@@ -102,5 +102,17 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void Close_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as Emergency;
+            curr.Paid = true;
+        }
+
+        private void EnableEdit_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as Emergency;
+            curr.Paid = false;
+        }
     }
 }
