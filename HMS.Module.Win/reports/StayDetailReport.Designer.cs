@@ -376,6 +376,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xpObjectSource4 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.Consultations = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable11)).BeginInit();
@@ -418,6 +419,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -4381,8 +4383,8 @@ namespace HMS.Module.Win.reports
             this.Detail8,
             this.ReportHeader8,
             this.ReportFooter7});
-            this.DetailReport7.DataSource = this.Admission;
-            this.DetailReport7.FilterString = "[reception.enterID] = ?enterID";
+            this.DetailReport7.DataSource = this.Consultations;
+            this.DetailReport7.FilterString = "[Admission.reception.enterID] = ?enterID";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 
@@ -4448,7 +4450,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell130
             // 
             this.xrTableCell130.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[From]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[From]")});
             this.xrTableCell130.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell130.Multiline = true;
             this.xrTableCell130.Name = "xrTableCell130";
@@ -4460,7 +4462,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell131
             // 
             this.xrTableCell131.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[Specialty]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Specialty]")});
             this.xrTableCell131.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell131.Multiline = true;
             this.xrTableCell131.Name = "xrTableCell131";
@@ -4472,7 +4474,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell132
             // 
             this.xrTableCell132.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[Name]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Name]")});
             this.xrTableCell132.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell132.Multiline = true;
             this.xrTableCell132.Name = "xrTableCell132";
@@ -4665,7 +4667,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel21.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel21.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([price])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Price])")});
             this.xrLabel21.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel21.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrLabel21.Multiline = true;
@@ -5231,6 +5233,13 @@ namespace HMS.Module.Win.reports
     "7907.27629, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource4.Name = "xpObjectSource4";
             // 
+            // Consultations
+            // 
+            this.Consultations.ConnectionStringName = "ConnectionString";
+            this.Consultations.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
+    "1.0.7910.37607, Culture=neutral, PublicKeyToken=null";
+            this.Consultations.Name = "Consultations";
+            // 
             // StayDetailReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -5267,7 +5276,8 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource1,
             this.xpObjectSource2,
             this.xpObjectSource3,
-            this.xpObjectSource4});
+            this.xpObjectSource4,
+            this.Consultations});
             this.DataSource = this.reception;
             this.FilterString = "[enterID] = ?enterID";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
@@ -5331,6 +5341,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -5669,5 +5680,6 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRLabel xrLabel32;
         private DevExpress.XtraReports.UI.XRLabel xrLabel33;
         private DevExpress.Xpo.XPObjectSource xpObjectSource4;
+        private DevExpress.Xpo.XPObjectSource Consultations;
     }
 }
