@@ -57,11 +57,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(amount))); }
         }
-        int fDiscount;
-        public int Discount
+        double fDiscount;
+        public double Discount
         {
             get { return fDiscount; }
-            set { SetPropertyValue<int>(nameof(Discount), ref fDiscount, value); }
+            set { SetPropertyValue<double>(nameof(Discount), ref fDiscount, value); }
         }
     }
 

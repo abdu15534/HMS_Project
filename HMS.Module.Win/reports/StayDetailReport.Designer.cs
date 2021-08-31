@@ -454,7 +454,7 @@ namespace HMS.Module.Win.reports
             this.GroupHeader2.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("InvoiceNumber", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             this.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail;
-            this.GroupHeader2.HeightF = 184.3173F;
+            this.GroupHeader2.HeightF = 169.472F;
             this.GroupHeader2.Name = "GroupHeader2";
             this.GroupHeader2.StyleName = "baseControlStyle";
             this.GroupHeader2.StylePriority.UseBackColor = false;
@@ -2616,7 +2616,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader3,
             this.GroupFooter7});
             this.DetailReport11.DataSource = this.Endscope;
-            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'تحاليل\'";
+            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'الجهاز_الهض" +
+    "مى_و_المناظير\'";
             this.DetailReport11.Level = 7;
             this.DetailReport11.Name = "DetailReport11";
             // 
@@ -3510,7 +3511,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader1,
             this.ReportFooter4});
             this.DetailReport4.DataSource = this.Medications;
-            this.DetailReport4.FilterString = "[reception.enterID] = ?enterID";
+            this.DetailReport4.FilterString = "[Stay.reception.enterID] = ?enterID";
             this.DetailReport4.Level = 3;
             this.DetailReport4.Name = "DetailReport4";
             // 
@@ -4380,8 +4381,8 @@ namespace HMS.Module.Win.reports
             this.Detail8,
             this.ReportHeader8,
             this.ReportFooter7});
-            this.DetailReport7.DataSource = this.services;
-            this.DetailReport7.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Other\'";
+            this.DetailReport7.DataSource = this.Admission;
+            this.DetailReport7.FilterString = "[reception.enterID] = ?enterID";
             this.DetailReport7.Level = 11;
             this.DetailReport7.Name = "DetailReport7";
             // 
@@ -4447,7 +4448,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell130
             // 
             this.xrTableCell130.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[From]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[From]")});
             this.xrTableCell130.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell130.Multiline = true;
             this.xrTableCell130.Name = "xrTableCell130";
@@ -4459,7 +4460,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell131
             // 
             this.xrTableCell131.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Specialty]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[Specialty]")});
             this.xrTableCell131.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell131.Multiline = true;
             this.xrTableCell131.Name = "xrTableCell131";
@@ -4471,7 +4472,7 @@ namespace HMS.Module.Win.reports
             // xrTableCell132
             // 
             this.xrTableCell132.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Consultant].[Name]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ConsultantDetailsCollection].[Consultant].[Name]")});
             this.xrTableCell132.Font = new System.Drawing.Font("Times New Roman", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell132.Multiline = true;
             this.xrTableCell132.Name = "xrTableCell132";
@@ -4953,6 +4954,7 @@ namespace HMS.Module.Win.reports
             this.GroupHeader1});
             this.DetailReport8.DataMember = "PaymentsCollection";
             this.DetailReport8.DataSource = this.reception;
+            this.DetailReport8.FilterString = "[ReceptionDesk.enterID] = ?enterID";
             this.DetailReport8.Level = 13;
             this.DetailReport8.Name = "DetailReport8";
             // 
@@ -5156,7 +5158,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader9,
             this.GroupFooter2});
             this.DetailReport13.DataSource = this.Admission;
-            this.DetailReport13.FilterString = "[Admission.reception.enterID] = ?enterID";
+            this.DetailReport13.FilterString = "[reception.enterID] = ?enterID";
             this.DetailReport13.Level = 2;
             this.DetailReport13.Name = "DetailReport13";
             // 
@@ -5201,7 +5203,7 @@ namespace HMS.Module.Win.reports
             // xrLabel32
             // 
             this.xrLabel32.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(582.1366F, 0F);
+            this.xrLabel32.LocationFloat = new DevExpress.Utils.PointFloat(582.1367F, 9.999974F);
             this.xrLabel32.Name = "xrLabel32";
             this.xrLabel32.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
             this.xrLabel32.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
@@ -5213,7 +5215,7 @@ namespace HMS.Module.Win.reports
             // xrLabel33
             // 
             this.xrLabel33.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(582.1366F, 63.88579F);
+            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 9.999974F);
             this.xrLabel33.Name = "xrLabel33";
             this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
             this.xrLabel33.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;

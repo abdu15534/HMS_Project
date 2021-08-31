@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using System.Linq;
 using XafDataModel.Module.BusinessObjects.test2;
 using static XafDataModel.Module.BusinessObjects.test2.Patient;
-using static XafDataModel.Module.BusinessObjects.test2.Service;
 using Account = XafDataModel.Module.BusinessObjects.test2.Account;
 using MasterAccount = XafDataModel.Module.BusinessObjects.test2.MasterAccount;
 
@@ -846,7 +845,7 @@ namespace HMS.Module.DatabaseUpdate
                     }
                     service.Name = item.name;
                     service.Price = item.price;
-                    service.ServiceType = item.serviceType;
+                    service.ServiceType = (Service.ServiceTypes)item.serviceType;
 
                 }
                 ObjectSpace.CommitChanges();

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application Logo="ExpressAppLogo" PreferredLanguage="(Default language)">
+<Application Logo="ExpressAppLogo" PreferredLanguage="ar">
   <ActionDesign>
     <Actions>
       <Action Id="AddDepartmentsServices" ImageName="AddParameter" />
@@ -489,9 +489,9 @@
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk" Caption="إستقبال القسم الداخلى">
       <AppearanceRules>
-        <AppearanceRule Id="@21ed0fee-95d4-4e43-95d0-d1a75d59ad85" TargetItems="Section, patient, transferReason, room, dateEnter, dateLeave, bed, ServiceRate, ServiceFee, medication, total" Criteria="[ReasonForDischarge] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,في_المستشفى# And [isDischarged] = False" BackColor="255, 255, 192" IsNewNode="True" />
+        <AppearanceRule Id="@21ed0fee-95d4-4e43-95d0-d1a75d59ad85" TargetItems="Section, patient, transferReason, room, dateEnter, dateLeave, bed, ServiceRate, ServiceFee, medication, total" Criteria="[ReasonForDischarge] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,في_المستشفى# And [isDischarged] = False And [ReasonForDischarge] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,وفاة#" BackColor="255, 255, 192" IsNewNode="True" />
         <AppearanceRule Id="@55ede0fd-d37b-4635-8e30-8cbd68c4830d" Criteria="[isDischarged] = True" TargetItems="*" Enabled="False" IsNewNode="True" />
-        <AppearanceRule Id="DeathCase" TargetItems="amount, Admissions, bed, currentStay, dateEnter, dateLeave, DeceasedPackageApplyed, Discount, enterID, isDischarged, isDiscounted, journalEntry, medication, note, patient, PaymentsCollection, ReasonForDischarge, room, Section, ServiceFee, ServiceRate, total, TransferReason " Criteria="[ReasonForDischarge] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,وفاة#" BackColor="IndianRed" Enabled="True" AppearanceItemType="ViewItem" Context="ListView" FontStyle="Strikeout" Visibility="Show" IsNewNode="True" />
+        <AppearanceRule Id="DeathCase" TargetItems="amount, Admissions, bed, currentStay, dateEnter, dateLeave, DeceasedPackageApplyed, Discount, enterID, isDischarged, isDiscounted, journalEntry, medication, note, patient, PaymentsCollection, ReasonForDischarge, room, Section, ServiceFee, ServiceRate, total, TransferReason " Criteria="[ReasonForDischarge] = ##Enum#XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes,وفاة#" BackColor="IndianRed" Enabled="True" AppearanceItemType="ViewItem" Context="ListView" FontStyle="Regular" Visibility="Show" IsNewNode="True" />
         <AppearanceRule Id="Discharged" Criteria="[isDischarged] = True" TargetItems="amount, Admissions, bed, currentStay, dateEnter, dateLeave, DeceasedPackageApplyed, Discount, enterID, isDischarged, isDiscounted, journalEntry, medication, note, patient, PaymentsCollection, ReasonForDischarge, room, Section, ServiceFee, ServiceRate, total, TransferReason " Enabled="False" FontStyle="Strikeout" IsNewNode="True" />
         <AppearanceRule Id="Discount" Criteria="[IsDiscounted] = False" TargetItems="Discount, ServiceRate" Visibility="Hide" IsNewNode="True" />
         <AppearanceRule Id="leaveDate" TargetItems="dateLeave" Visibility="Hide" Criteria="[isDischarged] = False" IsNewNode="True" />
@@ -722,6 +722,66 @@
       <LocalizationGroup Name="DevExpress.Persistent.Validation.ValidationResultType">
         <LocalizationItem Name="Warning" Value="إنذار" />
       </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Admission+statusType">
+        <LocalizationItem Name="covid" Value="رعاية عزل" />
+        <LocalizationItem Name="ICU" Value="العناية المركزة" />
+        <LocalizationItem Name="normal" Value="قسم داخلى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Appointment+AppointmentStatus">
+        <LocalizationItem Name="Canceled" Value="ملغى" />
+        <LocalizationItem Name="completed" Value="مكتمل" />
+        <LocalizationItem Name="InProgress" Value="بالكشف" />
+        <LocalizationItem Name="NoShow" Value="لم يحضر المريض" />
+        <LocalizationItem Name="NotSet" Value="لم يحدد" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Companion+Relatives">
+        <LocalizationItem Name="Child" Value="إبن \ إبنة المريض" />
+        <LocalizationItem Name="Other" Value="أخرى" />
+        <LocalizationItem Name="Parent" Value="والد \ والدة المريض" />
+        <LocalizationItem Name="Sibling" Value="أخ \ أخت المريض" />
+        <LocalizationItem Name="Spouse" Value="زوج \ زوجة المريض" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes">
+        <LocalizationItem Name="Other" Value="أخرى" />
+        <LocalizationItem Name="Pharmacy" Value="الصيدلية" />
+        <LocalizationItem Name="Stock" Value="المستهلكات الطبية" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Patient+Genders">
+        <LocalizationItem Name="female" Value="ذكر" />
+        <LocalizationItem Name="male" Value="أنثى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.receiptClientBond+PaymentType">
+        <LocalizationItem Name="Admission" Value="قسم داخلى \ طوارئ" />
+        <LocalizationItem Name="Appointment" Value="عيادات خارجية" />
+        <LocalizationItem Name="Emergency" Value="الطوارئ" />
+        <LocalizationItem Name="General" Value="أخرى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+dischargeTypes">
+        <LocalizationItem Name="حسب_الطلب" Value="حسب الطلب" />
+        <LocalizationItem Name="في_المستشفى" Value="في المستشفى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+transferTypes">
+        <LocalizationItem Name="حالة_خاصة" Value="حالة خاصة" />
+        <LocalizationItem Name="مريض_مستشفى" Value="مريض مستشفى" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Service+ServiceTypes">
+        <LocalizationItem Name="Blood" Value="نقل الدم ومشتقاته" />
+        <LocalizationItem Name="Other" Value="أخرى" />
+        <LocalizationItem Name="الانف_والأذن_والسمعيات" Value="الانف والأذن والسمعيات" />
+        <LocalizationItem Name="الجهاز_الهضمى_و_المناظير" Value="الجهاز الهضمى و المناظير" />
+        <LocalizationItem Name="المخ_والأعصاب" Value="المخ والأعصاب" />
+        <LocalizationItem Name="المسالك_البولية" Value="المسالك البولية" />
+        <LocalizationItem Name="النساء_والولادة" Value="النساء والولادة" />
+        <LocalizationItem Name="لم_يحدد" Value="لم يحدد" />
+      </LocalizationGroup>
+      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories">
+        <LocalizationItem Name="appointment" Value="عيادات خارجية" />
+        <LocalizationItem Name="emergency" Value="الطوارئ" />
+        <LocalizationItem Name="none" Value="لايوجد" />
+        <LocalizationItem Name="payment" Value="دفعة" />
+        <LocalizationItem Name="spending" Value="صرف" />
+        <LocalizationItem Name="stay" Value="إقامة" />
+      </LocalizationGroup>
     </LocalizationGroup>
     <LocalizationGroup Name="Texts">
       <LocalizationItem Name="Warning" Value="إنذار" />
@@ -737,18 +797,18 @@
     <Items>
       <Item Id="In-Patient" Index="0" Caption="In-Patient" ImageName="BO_Address" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="@48f349c2-be1f-4bff-8a6e-1b93c9b61e58" ViewId="Patient_ListView" IsNewNode="True" />
-          <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" IsNewNode="True" />
-          <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" ViewId="Emergency_ListView" IsNewNode="True" />
-          <Item Id="@be97a172-6f04-4ad9-925b-c104682c72a8" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
-          <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" IsNewNode="True" />
-          <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" IsNewNode="True" />
+          <Item Id="@be97a172-6f04-4ad9-925b-c104682c72a8" ViewId="ReceptionDesk_ListView" Index="0" ImageName="BO_Position" IsNewNode="True" />
+          <Item Id="@48f349c2-be1f-4bff-8a6e-1b93c9b61e58" ViewId="Patient_ListView" Index="1" ImageName="BO_MyDetails" IsNewNode="True" />
+          <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" Index="2" ImageName="Business_Diagram" IsNewNode="True" />
+          <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" ViewId="Emergency_ListView" Index="3" ImageName="Flag_of_the_Red_Cross" IsNewNode="True" />
+          <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" Visible="False" IsNewNode="True" />
+          <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" ImageName="BO_Product" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Pharmacy" Caption="Pharmacy" Index="1" ImageName="AddParameter" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="PharmacyPOS" Caption="PharmacyPOS" ViewId="Pharmacy_ListView" IsNewNode="True" />
-          <Item Id="ReceptionDesk" Caption="Reception Desk" ViewId="ReceptionDesk_ListView" IsNewNode="True" />
+          <Item Id="PharmacyPOS" Caption="PharmacyPOS" ViewId="Pharmacy_ListView" ImageName="TopDown" IsNewNode="True" />
+          <Item Id="ReceptionDesk" Caption="Reception Desk" ViewId="ReceptionDesk_ListView" ImageName="BO_Department" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Inventory &amp; products" Index="2" ImageName="BO_Order" IsNewNode="True">
@@ -766,14 +826,14 @@
           <Item Id="Endscope_ListView" ViewId="Endscope_ListView" ObjectKey="" ImageName="Electronics_TV" Index="2" IsNewNode="True" />
           <Item Id="Test_ListView" ViewId="Test_ListView" ObjectKey="" ImageName="ActionGroup_EasyTestRecorder" Index="3" IsNewNode="True" />
           <Item Id="Xrays_ListView" ViewId="Xrays_ListView" ObjectKey="" ImageName="ChartType_SwiftPlot" Index="4" IsNewNode="True" />
-          <Item Id="Services" Caption="الخدمات" ViewId="Service_ListView" Index="5" IsNewNode="True" />
+          <Item Id="Services" Caption="الخدمات" ViewId="Service_ListView" Index="5" ImageName="BO_Security_Permission_Model" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Purchasing Department" ImageName="BO_Sale" Index="4" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="Supplier" ViewId="Supplier_ListView" Index="0" IsNewNode="True" />
           <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="Purchasing Orders" ImageName="BO_Sale_Item" ViewId="PurchasingOrder_ListView" Index="2" IsNewNode="True" />
-          <Item Id="@67bb11cc-460a-4402-8b48-659d5fc12b30" ViewId="SuppliesSettings_DetailView" Index="3" IsNewNode="True" />
+          <Item Id="@67bb11cc-460a-4402-8b48-659d5fc12b30" ViewId="SuppliesSettings_DetailView" Index="3" ImageName="Prioritized" IsNewNode="True" />
           <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="Exchange" ImageName="Business_Dollar" ViewId="OrderExchange_ListView" IsNewNode="True" />
         </Items>
       </Item>
@@ -852,7 +912,7 @@
       </Item>
     </Items>
   </NavigationItems>
-  <Options UIType="SingleWindowSDI" FormStyle="Ribbon" DataAccessMode="InstantFeedbackView" DocumentManagerState="PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8RG9jdW1lbnRNYW5hZ2VyU3RhdGUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSI+DQogIDxEb2N1bWVudERlc2NyaXB0aW9ucz4NCiAgICA8RG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICAgIDxTZXJpYWxpemVkQ29udHJvbD5WaWV3SUQ9UmVjZXB0aW9uRGVza19MaXN0VmlldyZhbXA7T2JqZWN0S2V5PSZhbXA7U2Nyb2xsUG9zaXRpb249JmFtcDtPYmplY3RDbGFzc05hbWU9WGFmRGF0YU1vZGVsLk1vZHVsZS5CdXNpbmVzc09iamVjdHMudGVzdDIuUmVjZXB0aW9uRGVzazwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj7Ypdiz2KrZgtio2KfZhCDYp9mE2YLYs9mFINin2YTYr9in2K7ZhNmJPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmUwYWNjNGMzLTAyOGUtNGEzYy05OGFkLThiNmRmNmIzOTBhNzwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1QYXRpZW50X0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5QYXRpZW50PC9TZXJpYWxpemVkQ29udHJvbD4NCiAgICAgIDxJbWFnZU5hbWU+Qk9fUGVyc29uPC9JbWFnZU5hbWU+DQogICAgICA8Q2FwdGlvbj7Yp9mE2YXYsdmK2LY8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+MGZmODgzYTAtMGYyMC00N2Y5LWI4M2MtY2Y4MTk4MDI5ZmI5PC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogICAgPERvY3VtZW50RGVzY3JpcHRpb24+DQogICAgICA8U2VyaWFsaXplZENvbnRyb2w+Vmlld0lEPUVtcGxveWVlX0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5FbXBsb3llZTwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lPkJPX1BlcnNvbjwvSW1hZ2VOYW1lPg0KICAgICAgPENhcHRpb24+2KfZhNmF2YjYuNmBPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmZiZDU4OGFjLWM1ZGEtNDg3NS1iOTZmLTIzNzY3NDdmZjQ4MjwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1BZG1pc3Npb25fTGlzdFZpZXcmYW1wO09iamVjdEtleT0mYW1wO1Njcm9sbFBvc2l0aW9uPSZhbXA7T2JqZWN0Q2xhc3NOYW1lPVhhZkRhdGFNb2RlbC5Nb2R1bGUuQnVzaW5lc3NPYmplY3RzLnRlc3QyLkFkbWlzc2lvbjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj7Yp9mE2K3YrNiyPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmE3OGY1Mjg0LTQ4NTEtNGJlMS1hYjQ3LTcyMDAzZjQyNDg0YTwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1SZWNlcHRpb25EZXNrX0RldGFpbFZpZXcmYW1wO09iamVjdEtleT0xJmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5SZWNlcHRpb25EZXNrJmFtcDttb2RlPUVkaXQ8L1NlcmlhbGl6ZWRDb250cm9sPg0KICAgICAgPEltYWdlTmFtZSAvPg0KICAgICAgPENhcHRpb24+2KXYs9iq2YLYqNin2YQg2KfZhNmC2LPZhSDYp9mE2K/Yp9iu2YTZiTwvQ2FwdGlvbj4NCiAgICAgIDxDb250cm9sTmFtZT5lNmJiZGNmNi1lMWFiLTQ4MzgtOTRiZC1kYTliYWEzZjkzNWE8L0NvbnRyb2xOYW1lPg0KICAgIDwvRG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICA8RG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICAgIDxTZXJpYWxpemVkQ29udHJvbD5WaWV3SUQ9U2VjdGlvbl9MaXN0VmlldyZhbXA7T2JqZWN0S2V5PSZhbXA7U2Nyb2xsUG9zaXRpb249JmFtcDtPYmplY3RDbGFzc05hbWU9WGFmRGF0YU1vZGVsLk1vZHVsZS5CdXNpbmVzc09iamVjdHMudGVzdDIuU2VjdGlvbjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5TZWN0aW9uPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPjA2OGNkZGRiLWJlNmEtNDNiYy04OWZjLWU5MzFiM2I5MWJkOTwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1Kb2JfTGlzdFZpZXcmYW1wO09iamVjdEtleT0mYW1wO1Njcm9sbFBvc2l0aW9uPSZhbXA7T2JqZWN0Q2xhc3NOYW1lPVhhZkRhdGFNb2RlbC5Nb2R1bGUuQnVzaW5lc3NPYmplY3RzLnRlc3QyLkpvYjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5Kb2I8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+OTNiOGRjZTYtYTgzZi00NDVjLTk3OWMtMzg0ZTRmNWEwZjJkPC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogICAgPERvY3VtZW50RGVzY3JpcHRpb24+DQogICAgICA8U2VyaWFsaXplZENvbnRyb2w+Vmlld0lEPVNhbGFyeURvY3VtZW50X0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5TYWxhcnlEb2N1bWVudDwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5TYWxhcnkgRG9jdW1lbnQ8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+ZDU2OGRkMjAtNTllMi00MjliLWI4OGItM2NhYWUzOWVmNmI5PC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogIDwvRG9jdW1lbnREZXNjcmlwdGlvbnM+DQogIDxWaWV3TGF5b3V0Pk9nUUFBUElQb0hmeUFIZnlBYUIzOGdKMzhnT2hkL0lFQVBJQm9IZnlCZktsb0hmeUJuZnlCNkYzOGdnQThnQ2dkL0lKZC9JS29IZnlDM2Z5Q3FCMzhnenlBS0IzOGcxMzhncWdkL0lPZC9JS29IZnlEM2Z5RUtGMzhoRUE4Z0NoZC9JU0FQSUFvWGZ5RXdEeUFLRjM4aFR5RFBJTW9YZnlGUUR5REtCMzhoWjM4aGVnZC9JWW9LQjM4aG55QUtCMzhocDM4aHVnZC9JY29LRjM4aDBBOGdDZ2QvSWVvS0IzOGg5MzhpQ2dkL0loZC9JaW9IZnlJNkNnZC9Ja2QvSWxvSGZ5Sm5meUo2RjM4aWdBOGd5Z2QvSVdkL0lYb0hmeUdLQ2dkL0laOGdHZ2QvSWFkL0lib0hmeUhLQ2hkL0lkQVBJQW9IZnlIcUNnZC9JZmQvSWdvSGZ5SVhmeUlxQjM4aU9nb0hmeUpIZnlLYUIzOGlaMzhpZWhkL0lxQVBJTW9IZnlGbmZ5RjZCMzhoaWdvSGZ5R2ZJQ29IZnlHbmZ5RzZCMzhoeWdvWGZ5SFFEeUFLQjM4aDZnb0hmeUgzZnlLNkIzOGlGMzhpeWdkL0lqb0tCMzhpUjM4aTJnZC9JbWQvSW5vWGZ5TGdEeURLQjM4aFozOGhlZ2QvSVlvS0IzOGhueUE2QjM4aHAzOGh1Z2QvSWNvS0YzOGgwQThnQ2dkL0llb0tCMzhoOTM4aUNnZC9JaGQvSWlvSGZ5STZDZ2QvSWtkL0l2b0hmeUpuZnlKNkYzOGpBQThneWdkL0lXZC9JWG9IZnlHS0NnZC9JWjhnU2dkL0lhZC9JYm9IZnlIS0NoZC9JZEFQSUFvSGZ5SHFDZ2QvSWZkL0lnb0hmeUlYZnlJcUIzOGlPZ29IZnlKSGZ5TWFCMzhpWjM4aWVoZC9JeUFQSU1vSGZ5Rm5meUY2QjM4aGlnb0hmeUdmSUZvSGZ5R25meUc2QjM4aHlnb1hmeUhRRHlBS0IzOGg2Z29IZnlIM2Z5SzZCMzhpRjM4aXlnZC9Jam9LQjM4aVIzOGpPZ2QvSW1kL0lub1hmeU5BRHlES0IzOGhaMzhoZWdkL0lZb2FCMzhobnlCcUIzOGhwMzhodWdkL0ljb0tGMzhoMEE4Z0NnZC9JZW9LQjM4aDkzOGpXZ2QvSWhkL0lzb0hmeUk2R2dkL0lrZC9JMm9IZnlKbmZ5SjZGMzhqY0E4Z3lnZC9JV2QvSVhvSGZ5R0tDZ2QvSVo4Z2VnZC9JYWQvSWJvSGZ5SEtDaGQvSWRBUElBb0hmeUhxQ2dkL0lmZC9JZ29IZnlJWGZ5SXFCMzhpT2dvSGZ5SkhmeU9LQjM4aVozOGllaGQvSTVBUElNb0hmeUZuZnlGNkIzOGhpZ29IZnlHZklJb0hmeUduZnlHNkIzOGh5Z29YZnlIUUR5QUtCMzhoNmdvSGZ5SDNmeUs2QjM4aUYzOGl5Z2QvSWpvS0IzOGlSMzhqcWdkL0ltZC9Jbm9YZnlPd0R5Q0tCMzhqeUl4RUlsTlVSSGtFUzNPYm8zN0Y1VnJhQjM4ajEzOGo2Z2QvSS9BS0IzOGdaMzhnZWdkL0laOGdDaGQvSkFBUElDb0hmeVFhb0FBQUFBQUFEd1A2QjM4a0ozOGtPZ2QvSWtkL0pFb0hmeUpuZnlSYUYzOGtZQThnaWdkL0k4aUpSSlVJcHVoUjlBdGh0dzZtVFFMektnZC9JOWQvSkVvSGZ5UDNmeUY2QjM4Z1ozOGdlZ2QvSVo4Z0NoZC9KQUFQSUNvSGZ5UWFvQUFBQUFBQUR3UDZCMzhrSjM4a09nZC9Ja2QvSkhvSGZ5Sm5meVJhRjM4a2dBOGdXaGQvSWRBUElBb0hmeVFQVFdCcUIzOGhueUFLQjM4aVIzOGhlZ2QvSW1kL0pKOGtvT0kweGhlVzkxZEZabGNuTnBiMjRBRWlOTVlYbHZkWFJUWTJGc1pVWmhZM1J2Y2hWQU1TeFhhV1IwYUQweFFERXNTR1ZwWjJoMFBURVNSRzlqZFcxbGJuUlFjbTl3WlhKMGFXVnpDMDFoZUZSaFlsZHBaSFJvQzA5eWFXVnVkR0YwYVc5dUNraHZjbWw2YjI1MFlXd1hSRzlqZFcxbGJuUkhjbTkxY0ZCeWIzQmxjblJwWlhNVVJXNWhZbXhsUm5KbFpVeGhlVzkxZEUxdlpHVUhSR1ZtWVhWc2RCVkZibUZpYkdWVGRHbGphM2xUY0d4cGRIUmxjbk1aUTNWemRHOXRVbVZ6YVhwbFdtOXVaVlJvYVdOcmJtVnpjd1ZUZEhsc1pSbEdiRzloZEVSdlkzVnRaVzUwYzBGc2QyRjVjMDl1Vkc5d0dVWnNiMkYwYVc1blJHOWpkVzFsYm5SRGIyNTBZV2x1WlhJTlJHOWpkVzFsYm5SelNHOXpkQnBNYjJGa2FXNW5TVzVrYVdOaGRHOXlVSEp2Y0dWeWRHbGxjeHBFYjJOMWJXVnVkRk5sYkdWamRHOXlVSEp2Y0dWeWRHbGxjeGRYYVc1a2IzZHpSR2xoYkc5blVISnZjR1Z5ZEdsbGN3VkpkR1Z0Y3dWSmRHVnRNUXBRWVhKbGJuUk9ZVzFsRGtSdlkzVnRaVzUwUjNKdmRYQXdDa2x6VTJWc1pXTjBaV1FGU1c1a1pYZ0xWMmx1Wkc5M1UzUmhkR1VHVG05eWJXRnNCbEJwYm01bFpBcFFjbTl3WlhKMGFXVnpDa2x6Um14dllYUnBibWNJVEc5allYUnBiMjRNUURFc1dEMHdRREVzV1Qwd0JGTnBlbVVWUURFc1YybGtkR2c5TUVBeExFaGxhV2RvZEQwd0NFbHpRV04wYVhabEJFNWhiV1VrWlRCaFkyTTBZek10TURJNFpTMDBZVE5qTFRrNFlXUXRPR0kyWkdZMllqTTVNR0UzQ0ZSNWNHVk9ZVzFsQ0VSdlkzVnRaVzUwQlVsMFpXMHlKREJtWmpnNE0yRXdMVEJtTWpBdE5EZG1PUzFpT0ROakxXTm1PREU1T0RBeU9XWmlPUVZKZEdWdE14TkFOU3hZUFMweE56VXdRRFFzV1QwdE9EY3hHa0EwTEZkcFpIUm9QVEUzTlRCQU15eElaV2xuYUhROU9EY3hKR1ppWkRVNE9HRmpMV00xWkdFdE5EZzNOUzFpT1RabUxUSXpOelkzTkRkbVpqUTRNZ1ZKZEdWdE5DUmhOemhtTlRJNE5DMDBPRFV4TFRSaVpURXRZV0kwTnkwM01qQXdNMlkwTWpRNE5HRUZTWFJsYlRVa1pUWmlZbVJqWmpZdFpURmhZaTAwT0RNNExUazBZbVF0WkdFNVltRmhNMlk1TXpWaEJVbDBaVzAySkRBMk9HTmtaR1JpTFdKbE5tRXRORE5pWXkwNE9XWmpMV1U1TXpGaU0ySTVNV0prT1FWSmRHVnROdzFBTVN4WVBUQkFNaXhaUFRJNUpEa3pZamhrWTJVMkxXRTRNMll0TkRRMVl5MDVOemxqTFRNNE5HVTBaalZoTUdZeVpBVkpkR1Z0T0NSa05UWTRaR1F5TUMwMU9XVXlMVFF5T1dJdFlqZzRZaTB6WTJGaFpUTTVaV1kyWWprRlNYUmxiVGtTUkdWMFlXbHNVbWxpWW05dVJtOXliVll5QmtsMFpXMHhNQUpKWkFaUVlYSmxiblFFVW05dmRBZEZiR1Z0Wlc1MEJreGxibWQwYUFsVmJtbDBWbUZzZFdVSVZXNXBkRlI1Y0dVRVUzUmhjaEZFYjJOcmFXNW5RMjl1ZEdGcGJtVnlNQkJFYjJOcmFXNW5RMjl1ZEdGcGJtVnlCa2wwWlcweE1SRkViMk5yYVc1blEyOXVkR0ZwYm1WeU1RWkpkR1Z0TVRJTlJHOWpkVzFsYm5SSGNtOTFjQT09PC9WaWV3TGF5b3V0Pg0KPC9Eb2N1bWVudE1hbmFnZXJTdGF0ZT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA">
+  <Options UIType="SingleWindowSDI" FormStyle="Ribbon" DataAccessMode="InstantFeedbackView" DocumentManagerState="PD94bWwgdmVyc2lvbj0iMS4wIj8+DQo8RG9jdW1lbnRNYW5hZ2VyU3RhdGUgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSI+DQogIDxEb2N1bWVudERlc2NyaXB0aW9ucz4NCiAgICA8RG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICAgIDxTZXJpYWxpemVkQ29udHJvbD5WaWV3SUQ9UmVjZXB0aW9uRGVza19MaXN0VmlldyZhbXA7T2JqZWN0S2V5PSZhbXA7U2Nyb2xsUG9zaXRpb249JmFtcDtPYmplY3RDbGFzc05hbWU9WGFmRGF0YU1vZGVsLk1vZHVsZS5CdXNpbmVzc09iamVjdHMudGVzdDIuUmVjZXB0aW9uRGVzazwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj7Ypdiz2KrZgtio2KfZhCDYp9mE2YLYs9mFINin2YTYr9in2K7ZhNmJPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmUwYWNjNGMzLTAyOGUtNGEzYy05OGFkLThiNmRmNmIzOTBhNzwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1QYXRpZW50X0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5QYXRpZW50PC9TZXJpYWxpemVkQ29udHJvbD4NCiAgICAgIDxJbWFnZU5hbWU+Qk9fUGVyc29uPC9JbWFnZU5hbWU+DQogICAgICA8Q2FwdGlvbj7Yp9mE2YXYsdmK2LY8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+MGZmODgzYTAtMGYyMC00N2Y5LWI4M2MtY2Y4MTk4MDI5ZmI5PC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogICAgPERvY3VtZW50RGVzY3JpcHRpb24+DQogICAgICA8U2VyaWFsaXplZENvbnRyb2w+Vmlld0lEPUVtcGxveWVlX0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5FbXBsb3llZTwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lPkJPX1BlcnNvbjwvSW1hZ2VOYW1lPg0KICAgICAgPENhcHRpb24+2KfZhNmF2YjYuNmBPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmZiZDU4OGFjLWM1ZGEtNDg3NS1iOTZmLTIzNzY3NDdmZjQ4MjwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1BZG1pc3Npb25fTGlzdFZpZXcmYW1wO09iamVjdEtleT0mYW1wO1Njcm9sbFBvc2l0aW9uPSZhbXA7T2JqZWN0Q2xhc3NOYW1lPVhhZkRhdGFNb2RlbC5Nb2R1bGUuQnVzaW5lc3NPYmplY3RzLnRlc3QyLkFkbWlzc2lvbjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj7Yp9mE2K3YrNiyPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPmE3OGY1Mjg0LTQ4NTEtNGJlMS1hYjQ3LTcyMDAzZjQyNDg0YTwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1SZWNlcHRpb25EZXNrX0RldGFpbFZpZXcmYW1wO09iamVjdEtleT0xJmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5SZWNlcHRpb25EZXNrJmFtcDttb2RlPUVkaXQ8L1NlcmlhbGl6ZWRDb250cm9sPg0KICAgICAgPEltYWdlTmFtZSAvPg0KICAgICAgPENhcHRpb24+2KXYs9iq2YLYqNin2YQg2KfZhNmC2LPZhSDYp9mE2K/Yp9iu2YTZiTwvQ2FwdGlvbj4NCiAgICAgIDxDb250cm9sTmFtZT5lNmJiZGNmNi1lMWFiLTQ4MzgtOTRiZC1kYTliYWEzZjkzNWE8L0NvbnRyb2xOYW1lPg0KICAgIDwvRG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICA8RG9jdW1lbnREZXNjcmlwdGlvbj4NCiAgICAgIDxTZXJpYWxpemVkQ29udHJvbD5WaWV3SUQ9U2VjdGlvbl9MaXN0VmlldyZhbXA7T2JqZWN0S2V5PSZhbXA7U2Nyb2xsUG9zaXRpb249JmFtcDtPYmplY3RDbGFzc05hbWU9WGFmRGF0YU1vZGVsLk1vZHVsZS5CdXNpbmVzc09iamVjdHMudGVzdDIuU2VjdGlvbjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5TZWN0aW9uPC9DYXB0aW9uPg0KICAgICAgPENvbnRyb2xOYW1lPjA2OGNkZGRiLWJlNmEtNDNiYy04OWZjLWU5MzFiM2I5MWJkOTwvQ29udHJvbE5hbWU+DQogICAgPC9Eb2N1bWVudERlc2NyaXB0aW9uPg0KICAgIDxEb2N1bWVudERlc2NyaXB0aW9uPg0KICAgICAgPFNlcmlhbGl6ZWRDb250cm9sPlZpZXdJRD1Kb2JfTGlzdFZpZXcmYW1wO09iamVjdEtleT0mYW1wO1Njcm9sbFBvc2l0aW9uPSZhbXA7T2JqZWN0Q2xhc3NOYW1lPVhhZkRhdGFNb2RlbC5Nb2R1bGUuQnVzaW5lc3NPYmplY3RzLnRlc3QyLkpvYjwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5Kb2I8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+OTNiOGRjZTYtYTgzZi00NDVjLTk3OWMtMzg0ZTRmNWEwZjJkPC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogICAgPERvY3VtZW50RGVzY3JpcHRpb24+DQogICAgICA8U2VyaWFsaXplZENvbnRyb2w+Vmlld0lEPVNhbGFyeURvY3VtZW50X0xpc3RWaWV3JmFtcDtPYmplY3RLZXk9JmFtcDtTY3JvbGxQb3NpdGlvbj0mYW1wO09iamVjdENsYXNzTmFtZT1YYWZEYXRhTW9kZWwuTW9kdWxlLkJ1c2luZXNzT2JqZWN0cy50ZXN0Mi5TYWxhcnlEb2N1bWVudDwvU2VyaWFsaXplZENvbnRyb2w+DQogICAgICA8SW1hZ2VOYW1lIC8+DQogICAgICA8Q2FwdGlvbj5TYWxhcnkgRG9jdW1lbnQ8L0NhcHRpb24+DQogICAgICA8Q29udHJvbE5hbWU+ZDU2OGRkMjAtNTllMi00MjliLWI4OGItM2NhYWUzOWVmNmI5PC9Db250cm9sTmFtZT4NCiAgICA8L0RvY3VtZW50RGVzY3JpcHRpb24+DQogIDwvRG9jdW1lbnREZXNjcmlwdGlvbnM+DQogIDxWaWV3TGF5b3V0Pk9nUUFBUElQb0hmeUFIZnlBYUIzOGdKMzhnT2hkL0lFQVBJQm9IZnlCZktsb0hmeUJuZnlCNkYzOGdnQThnQ2dkL0lKZC9JS29IZnlDM2Z5Q3FCMzhnenlBS0IzOGcxMzhncWdkL0lPZC9JS29IZnlEM2Z5RUtGMzhoRUE4Z0NoZC9JU0FQSUFvWGZ5RXdEeUFLRjM4aFR5RFBJTW9YZnlGUUR5REtCMzhoWjM4aGVnZC9JWW9LQjM4aG55QUtCMzhocDM4aHVnZC9JY29LRjM4aDBBOGdDZ2QvSWVvS0IzOGg5MzhpQ2dkL0loZC9JaW9IZnlJNkNnZC9Ja2QvSWxvSGZ5Sm5meUo2RjM4aWdBOGd5Z2QvSVdkL0lYb0hmeUdLQ2dkL0laOGdHZ2QvSWFkL0lib0hmeUhLQ2hkL0lkQVBJQW9IZnlIcUNnZC9JZmQvSWdvSGZ5SVhmeUlxQjM4aU9nb0hmeUpIZnlLYUIzOGlaMzhpZWhkL0lxQVBJTW9IZnlGbmZ5RjZCMzhoaWdvSGZ5R2ZJQ29IZnlHbmZ5RzZCMzhoeWdvWGZ5SFFEeUFLQjM4aDZnb0hmeUgzZnlLNkIzOGlGMzhpeWdkL0lqb0tCMzhpUjM4aTJnZC9JbWQvSW5vWGZ5TGdEeURLQjM4aFozOGhlZ2QvSVlvS0IzOGhueUE2QjM4aHAzOGh1Z2QvSWNvS0YzOGgwQThnQ2dkL0llb0tCMzhoOTM4aUNnZC9JaGQvSWlvSGZ5STZDZ2QvSWtkL0l2b0hmeUpuZnlKNkYzOGpBQThneWdkL0lXZC9JWG9IZnlHS0NnZC9JWjhnU2dkL0lhZC9JYm9IZnlIS0NoZC9JZEFQSUFvSGZ5SHFDZ2QvSWZkL0lnb0hmeUlYZnlJcUIzOGlPZ29IZnlKSGZ5TWFCMzhpWjM4aWVoZC9JeUFQSU1vSGZ5Rm5meUY2QjM4aGlnb0hmeUdmSUZvSGZ5R25meUc2QjM4aHlnb1hmeUhRRHlBS0IzOGg2Z29IZnlIM2Z5SzZCMzhpRjM4aXlnZC9Jam9LQjM4aVIzOGpPZ2QvSW1kL0lub1hmeU5BRHlES0IzOGhaMzhoZWdkL0lZb2FCMzhobnlCcUIzOGhwMzhodWdkL0ljb0tGMzhoMEE4Z0NnZC9JZW9LQjM4aDkzOGpXZ2QvSWhkL0lzb0hmeUk2R2dkL0lrZC9JMm9IZnlKbmZ5SjZGMzhqY0E4Z3lnZC9JV2QvSVhvSGZ5R0tDZ2QvSVo4Z2VnZC9JYWQvSWJvSGZ5SEtDaGQvSWRBUElBb0hmeUhxQ2dkL0lmZC9JZ29IZnlJWGZ5SXFCMzhpT2dvSGZ5SkhmeU9LQjM4aVozOGllaGQvSTVBUElNb0hmeUZuZnlGNkIzOGhpZ29IZnlHZklJb0hmeUduZnlHNkIzOGh5Z29YZnlIUUR5QUtCMzhoNmdvSGZ5SDNmeUs2QjM4aUYzOGl5Z2QvSWpvS0IzOGlSMzhqcWdkL0ltZC9Jbm9YZnlPd0R5Q0tCMzhqeUl4RUlsTlVSSGtFUzNPYm8zN0Y1VnJhQjM4ajEzOGo2Z2QvSS9BS0IzOGdaMzhnZWdkL0laOGdDaGQvSkFBUElDb0hmeVFhb0FBQUFBQUFEd1A2QjM4a0ozOGtPZ2QvSWtkL0pFb0hmeUpuZnlSYUYzOGtZQThnaWdkL0k4aUpSSlVJcHVoUjlBdGh0dzZtVFFMektnZC9JOWQvSkVvSGZ5UDNmeUY2QjM4Z1ozOGdlZ2QvSVo4Z0NoZC9KQUFQSUNvSGZ5UWFvQUFBQUFBQUR3UDZCMzhrSjM4a09nZC9Ja2QvSkhvSGZ5Sm5meVJhRjM4a2dBOGdXaGQvSWRBUElBb0hmeVFQVFdCcUIzOGhueUFLQjM4aVIzOGhlZ2QvSW1kL0pKOGtvT0kweGhlVzkxZEZabGNuTnBiMjRBRWlOTVlYbHZkWFJUWTJGc1pVWmhZM1J2Y2hWQU1TeFhhV1IwYUQweFFERXNTR1ZwWjJoMFBURVNSRzlqZFcxbGJuUlFjbTl3WlhKMGFXVnpDMDFoZUZSaFlsZHBaSFJvQzA5eWFXVnVkR0YwYVc5dUNraHZjbWw2YjI1MFlXd1hSRzlqZFcxbGJuUkhjbTkxY0ZCeWIzQmxjblJwWlhNVVJXNWhZbXhsUm5KbFpVeGhlVzkxZEUxdlpHVUhSR1ZtWVhWc2RCVkZibUZpYkdWVGRHbGphM2xUY0d4cGRIUmxjbk1aUTNWemRHOXRVbVZ6YVhwbFdtOXVaVlJvYVdOcmJtVnpjd1ZUZEhsc1pSbEdiRzloZEVSdlkzVnRaVzUwYzBGc2QyRjVjMDl1Vkc5d0dVWnNiMkYwYVc1blJHOWpkVzFsYm5SRGIyNTBZV2x1WlhJTlJHOWpkVzFsYm5SelNHOXpkQnBNYjJGa2FXNW5TVzVrYVdOaGRHOXlVSEp2Y0dWeWRHbGxjeHBFYjJOMWJXVnVkRk5sYkdWamRHOXlVSEp2Y0dWeWRHbGxjeGRYYVc1a2IzZHpSR2xoYkc5blVISnZjR1Z5ZEdsbGN3VkpkR1Z0Y3dWSmRHVnRNUXBRWVhKbGJuUk9ZVzFsRGtSdlkzVnRaVzUwUjNKdmRYQXdDa2x6VTJWc1pXTjBaV1FGU1c1a1pYZ0xWMmx1Wkc5M1UzUmhkR1VHVG05eWJXRnNCbEJwYm01bFpBcFFjbTl3WlhKMGFXVnpDa2x6Um14dllYUnBibWNJVEc5allYUnBiMjRNUURFc1dEMHdRREVzV1Qwd0JGTnBlbVVWUURFc1YybGtkR2c5TUVBeExFaGxhV2RvZEQwd0NFbHpRV04wYVhabEJFNWhiV1VrWlRCaFkyTTBZek10TURJNFpTMDBZVE5qTFRrNFlXUXRPR0kyWkdZMllqTTVNR0UzQ0ZSNWNHVk9ZVzFsQ0VSdlkzVnRaVzUwQlVsMFpXMHlKREJtWmpnNE0yRXdMVEJtTWpBdE5EZG1PUzFpT0ROakxXTm1PREU1T0RBeU9XWmlPUVZKZEdWdE14TkFOU3hZUFMweE56VXdRRFFzV1QwdE9EY3hHa0EwTEZkcFpIUm9QVEUzTlRCQU15eElaV2xuYUhROU9EY3hKR1ppWkRVNE9HRmpMV00xWkdFdE5EZzNOUzFpT1RabUxUSXpOelkzTkRkbVpqUTRNZ1ZKZEdWdE5DUmhOemhtTlRJNE5DMDBPRFV4TFRSaVpURXRZV0kwTnkwM01qQXdNMlkwTWpRNE5HRUZTWFJsYlRVa1pUWmlZbVJqWmpZdFpURmhZaTAwT0RNNExUazBZbVF0WkdFNVltRmhNMlk1TXpWaEJVbDBaVzAySkRBMk9HTmtaR1JpTFdKbE5tRXRORE5pWXkwNE9XWmpMV1U1TXpGaU0ySTVNV0prT1FWSmRHVnROdzFBTVN4WVBUQkFNaXhaUFRJNUpEa3pZamhrWTJVMkxXRTRNMll0TkRRMVl5MDVOemxqTFRNNE5HVTBaalZoTUdZeVpBVkpkR1Z0T0NSa05UWTRaR1F5TUMwMU9XVXlMVFF5T1dJdFlqZzRZaTB6WTJGaFpUTTVaV1kyWWprRlNYUmxiVGtTUkdWMFlXbHNVbWxpWW05dVJtOXliVll5QmtsMFpXMHhNQUpKWkFaUVlYSmxiblFFVW05dmRBZEZiR1Z0Wlc1MEJreGxibWQwYUFsVmJtbDBWbUZzZFdVSVZXNXBkRlI1Y0dVRVUzUmhjaEZFYjJOcmFXNW5RMjl1ZEdGcGJtVnlNQkJFYjJOcmFXNW5RMjl1ZEdGcGJtVnlCa2wwWlcweE1SRkViMk5yYVc1blEyOXVkR0ZwYm1WeU1RWkpkR1Z0TVRJTlJHOWpkVzFsYm5SSGNtOTFjQT09PC9WaWV3TGF5b3V0Pg0KPC9Eb2N1bWVudE1hbmFnZXJTdGF0ZT4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" UseAsyncLoading="False">
     <PrintingSettings Margins="100, 100, 100, 100" PageHeaderFooter="&lt;XtraSerializer version=&quot;1.0&quot; application=&quot;XtraPrintingPageHeaderFooter&quot;&gt;&#xD;&#xA;  &lt;property name=&quot;Header&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;Content&quot; iskey=&quot;true&quot; value=&quot;0&quot; /&gt;&#xD;&#xA;    &lt;property name=&quot;LineAlignment&quot;&gt;Near&lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Font&quot;&gt;Tahoma, 8pt&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;  &lt;property name=&quot;Footer&quot; isnull=&quot;true&quot; iskey=&quot;true&quot;&gt;&#xD;&#xA;    &lt;property name=&quot;Content&quot; iskey=&quot;true&quot; value=&quot;0&quot; /&gt;&#xD;&#xA;    &lt;property name=&quot;LineAlignment&quot;&gt;Near&lt;/property&gt;&#xD;&#xA;    &lt;property name=&quot;Font&quot;&gt;Tahoma, 8pt&lt;/property&gt;&#xD;&#xA;  &lt;/property&gt;&#xD;&#xA;&lt;/XtraSerializer&gt;" />
   </Options>
   <SchemaModules>
@@ -1022,6 +1082,7 @@
       <RuleRequiredField Id="@8cdc104f-716e-4035-affe-08d593aa15b1" TargetContextIDs="Save" TargetType="XafDataModel.Module.BusinessObjects.test2.Employee" TargetPropertyName="section" IsNewNode="True" />
       <RuleCriteria Id="@95b4b964-7cac-4287-860d-96383f741744" TargetType="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails" Criteria="[totalDeduction] &gt; 0.0m And [DeductionType] Is Not Null And [payPerHour] &gt; 0.0m" TargetContextIDs="Save" CustomMessageTemplate="" IsNewNode="True" />
       <RuleCriteria Id="@9b44b73e-2143-40ec-b949-6f21fd24e270" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" Criteria="[amount] &gt; 0.0m" IsNewNode="True" />
+      <RuleRequiredField Id="@a15414c7-cb54-4776-9618-ded4b68aa617" TargetType="XafDataModel.Module.BusinessObjects.test2.Product" TargetPropertyName="category" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@b5127507-38a2-4fd6-8de1-b866e639ab09" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" TargetPropertyName="product" IsNewNode="True" />
       <RuleRequiredField Id="@bbc67994-a037-4f02-8f8a-f0c0dfeb8a2e" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="PhoneNumber2" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@cc48887f-1622-4c75-9960-48debc00e31f" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="DateOfBrith" TargetContextIDs="Save" IsNewNode="True" />
@@ -1276,6 +1337,7 @@
       <Columns>
         <ColumnInfo Id="Emergency" Index="-1" />
         <ColumnInfo Id="Endscope" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="79" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Index="2" Width="65" AllowEdit="True" />
@@ -1350,6 +1412,7 @@
       <Columns>
         <ColumnInfo Id="appointment" Index="-1" />
         <ColumnInfo Id="emergency" SortIndex="-1" SortOrder="None" Index="-1" Caption="طوارئ" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="Service" Index="0" SortIndex="0" SortOrder="Ascending" Width="68" />
         <ColumnInfo Id="Service.Name" PropertyName="Service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="date" Width="65" Index="2" AllowEdit="True" />
@@ -1363,6 +1426,7 @@
     <ListView Id="Admission_StayMedicications_ListView" Criteria="" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="emergency" Index="-1" Caption="طوارئ" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" Index="-1" />
         <ColumnInfo Id="profit" Width="56" Caption="الربح" Index="-1" />
         <ColumnInfo Id="Medication" Width="59" Index="0" SortIndex="-1" SortOrder="None" DataSourceCriteria="[Inventory.InventoryType] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Inventory+InventoryTypes,Pharmacy#" />
@@ -1381,6 +1445,7 @@
     <ListView Id="Admission_StockDetailsCollection_ListView" Criteria="" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="emergency" Index="-1" Caption="طوارئ" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="profit" Width="56" Index="-1" Caption="الربح" />
         <ColumnInfo Id="supplyProduct.product.sellUnit" PropertyName="supplyProduct.product.sellUnit" Index="-1" Width="169" SortIndex="-1" SortOrder="None" AllowClear="False" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="supplyProduct" Width="83" Index="0" SortIndex="0" SortOrder="Ascending" />
@@ -1409,6 +1474,7 @@
     <ListView Id="Admission_TestDetailsCollection_ListView" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="Emergency" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="Test" Index="-1" />
         <ColumnInfo Id="service" SortIndex="0" SortOrder="Ascending" Width="67" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
@@ -1423,6 +1489,7 @@
     <ListView Id="Admission_XraysDetailsCollection_ListView" ShowFindPanel="False" IsFooterVisible="True">
       <Columns>
         <ColumnInfo Id="Emergency" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="Xrays" Index="-1" />
         <ColumnInfo Id="service" Width="54" Index="0" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" AllowEdit="False" IsNewNode="True" />
@@ -2331,6 +2398,7 @@
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Emergency" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="service" Index="0" Width="62" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="191" IsNewNode="True" />
         <ColumnInfo Id="price" Index="2" Width="148">
@@ -3285,9 +3353,11 @@
     </ListView>
     <ListView Id="Pharmacy_StayMedicationsCollection_ListView">
       <Columns>
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="profit" Caption="الربح" Index="-1" />
         <ColumnInfo Id="emergency" Caption="طوارئ" />
-        <ColumnInfo Id="profit" Caption="الربح" />
+        <ColumnInfo Id="total" Index="6" />
       </Columns>
     </ListView>
     <DetailView Id="PhoneNumber_DetailView" Caption="رقم الهاتف" />
@@ -3320,7 +3390,7 @@
     </ListView>
     <DetailView Id="ProcessDataLockingInfoMergeDialog_DetailView" Caption="إنذار" />
     <DetailView Id="ProcessDataLockingInfoRefreshDialog_DetailView" Caption="إنذار" />
-    <DetailView Id="Product_DetailView">
+    <DetailView Id="Product_DetailView" AllowDelete="False">
       <Items>
         <PropertyEditor Id="category" Caption="النوع" />
         <PropertyEditor Id="id" Caption="كود" />
@@ -3328,7 +3398,7 @@
         <PropertyEditor Id="purchasingUnit" Caption="وحدة الشراء" />
       </Items>
     </DetailView>
-    <ListView Id="Product_ListView" IsGroupPanelVisible="True" ShowFindPanel="True">
+    <ListView Id="Product_ListView" IsGroupPanelVisible="True" ShowFindPanel="True" AllowDelete="False">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" Index="0" />
         <ColumnInfo Id="name" Caption="الإسم" Index="1" />
@@ -3341,12 +3411,13 @@
         <ColumnInfo Id="unitAmount" Index="8" />
       </Columns>
     </ListView>
-    <ListView Id="Product_LookupListView">
+    <ListView Id="Product_LookupListView" AllowDelete="False">
       <Columns>
         <ColumnInfo Id="name" Caption="الإسم" />
         <ColumnInfo Id="purchasingUnit" PropertyName="purchasingUnit" Index="1" Caption="وحدة الشراء" IsNewNode="True" />
       </Columns>
     </ListView>
+    <ListView Id="Product_Orders_ListView" AllowDelete="False" />
     <DetailView Id="ProductUnit_DetailView">
       <Items>
         <PropertyEditor Id="id" Caption="كود" />
@@ -3725,7 +3796,7 @@
         <ColumnInfo Id="note" Index="-1" />
         <ColumnInfo Id="ReasonForDischarge" Index="-1" />
         <ColumnInfo Id="Section" Index="0" Caption="القسم" SortIndex="-1" SortOrder="None" />
-        <ColumnInfo Id="patient" Index="1" Caption="مريض">
+        <ColumnInfo Id="patient" Index="1" Caption="مريض" Width="159">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Count" IsNewNode="True" />
           </Summary>
@@ -4605,6 +4676,7 @@
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Emergency" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="service" Index="0" Width="65" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="177" IsNewNode="True" />
         <ColumnInfo Id="price" Index="2" Width="135">
@@ -4805,6 +4877,7 @@
       <Columns>
         <ColumnInfo Id="admission" Index="-1" />
         <ColumnInfo Id="Emergency" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="service" Index="0" Width="0" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="267" IsNewNode="True" />
         <ColumnInfo Id="service.EnglishName" PropertyName="service.EnglishName" Index="2" Width="251" IsNewNode="True" />

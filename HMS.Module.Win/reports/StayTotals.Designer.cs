@@ -176,6 +176,7 @@ namespace HMS.Module.Win.reports
             this.Detail13 = new DevExpress.XtraReports.UI.DetailBand();
             this.GroupHeader4 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
+            this.xpObjectSource17 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.xpObjectSource14 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.xpObjectSource15 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.totalN2C = new DevExpress.XtraReports.Parameters.Parameter();
@@ -209,7 +210,6 @@ namespace HMS.Module.Win.reports
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xpObjectSource16 = new DevExpress.Xpo.XPObjectSource(this.components);
-            this.xpObjectSource17 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -228,11 +228,11 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -812,8 +812,9 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel23.CanShrink = true;
             this.xrLabel23.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([Patient].[Nationality] != 0, sumSum([totalDays] * [roomStayCost]) * ToDecima" +
-                    "l(1.5),sumSum([totalDays] * [roomStayCost]))")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(sumSum([totalDays] * [roomStayCost])),\'لا يوجد\',Iif([Patient].[Nationa" +
+                    "lity] != 0, sumSum([totalDays] * [roomStayCost]) * ToDecimal(1.5),sumSum([totalD" +
+                    "ays] * [roomStayCost])))")});
             this.xrLabel23.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(49.58081F, 0F);
             this.xrLabel23.Multiline = true;
@@ -1953,7 +1954,8 @@ namespace HMS.Module.Win.reports
             this.GroupHeader4,
             this.GroupFooter1});
             this.DetailReport12.DataMember = "PaymentsCollection";
-            this.DetailReport12.DataSource = this.xpObjectSource17;
+            this.DetailReport12.DataSource = this.xpObjectSource2;
+            this.DetailReport12.FilterString = "[enterID] = ?parameter1";
             this.DetailReport12.Level = 14;
             this.DetailReport12.Name = "DetailReport12";
             // 
@@ -1978,6 +1980,13 @@ namespace HMS.Module.Win.reports
             this.GroupFooter1.Expanded = false;
             this.GroupFooter1.HeightF = 29.2F;
             this.GroupFooter1.Name = "GroupFooter1";
+            // 
+            // xpObjectSource17
+            // 
+            this.xpObjectSource17.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource17.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ReceptionDesk, HMS.Module, Version=1.0." +
+    "7907.27629, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource17.Name = "xpObjectSource17";
             // 
             // xpObjectSource14
             // 
@@ -2229,7 +2238,7 @@ namespace HMS.Module.Win.reports
             this.Detail12,
             this.GroupFooter14});
             this.DetailReport11.DataSource = this.xpObjectSource1;
-            this.DetailReport11.FilterString = "[Status] = \'ICU\' Or [Status] = \'covid\'";
+            this.DetailReport11.FilterString = resources.GetString("DetailReport11.FilterString");
             this.DetailReport11.Level = 2;
             this.DetailReport11.Name = "DetailReport11";
             // 
@@ -2251,10 +2260,10 @@ namespace HMS.Module.Win.reports
             this.xrLabel30.BorderColor = System.Drawing.Color.LightGray;
             this.xrLabel30.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel30.CanShrink = true;
             this.xrLabel30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([patient].[Nationality] != 0, sumSum([totalDays] * [roomStayCost]) * ToDecima" +
-                    "l(1.5),sumSum([totalDays] * [roomStayCost]))")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(sumSum([totalDays] * [roomStayCost])),\'لا يوجد\',Iif([Patient].[Nationa" +
+                    "lity] != 0, sumSum([totalDays] * [roomStayCost]) * ToDecimal(1.5),sumSum([totalD" +
+                    "ays] * [roomStayCost]))\n)")});
             this.xrLabel30.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel30.LocationFloat = new DevExpress.Utils.PointFloat(49.58127F, 0F);
             this.xrLabel30.Multiline = true;
@@ -2279,7 +2288,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel31.CanShrink = true;
             this.xrLabel31.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([room].[roomCost]*[totalDays])), \'\',\'إقامة رعاية مركزة\' )\n")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([totalDays] * [roomStayCost]),0 ) == 0, \'\',\'إقامة رعاية مركزة\' )\n")});
             this.xrLabel31.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel31.LocationFloat = new DevExpress.Utils.PointFloat(423.5609F, 0F);
             this.xrLabel31.Multiline = true;
@@ -2299,7 +2308,8 @@ namespace HMS.Module.Win.reports
             this.Detail14,
             this.GroupFooter15});
             this.DetailReport13.DataSource = this.xpObjectSource1;
-            this.DetailReport13.FilterString = "[Status] = \'normal\'";
+            this.DetailReport13.FilterString = "[Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType," +
+    "normal# And [reception.enterID] = ?parameter1";
             this.DetailReport13.Level = 1;
             this.DetailReport13.Name = "DetailReport13";
             // 
@@ -2333,14 +2343,14 @@ namespace HMS.Module.Win.reports
             // xrLabel33
             // 
             this.xrLabel33.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(598.1365F, 73.88574F);
+            this.xrLabel33.LocationFloat = new DevExpress.Utils.PointFloat(9.999998F, 10.00004F);
             this.xrLabel33.Name = "xrLabel33";
             this.xrLabel33.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
             this.xrLabel33.RightToLeft = DevExpress.XtraReports.UI.RightToLeft.Yes;
             this.xrLabel33.SizeF = new System.Drawing.SizeF(225.8634F, 41.66666F);
             this.xrLabel33.StylePriority.UseFont = false;
             this.xrLabel33.StylePriority.UsePadding = false;
-            this.xrLabel33.Text = "توقيع المدير المالى:";
+            this.xrLabel33.Text = "المدير المالى:";
             // 
             // xrLabel32
             // 
@@ -2352,7 +2362,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel32.SizeF = new System.Drawing.SizeF(225.8634F, 41.66666F);
             this.xrLabel32.StylePriority.UseFont = false;
             this.xrLabel32.StylePriority.UsePadding = false;
-            this.xrLabel32.Text = "توقيع المحاسب:";
+            this.xrLabel32.Text = "المحاسب:";
             // 
             // xpObjectSource16
             // 
@@ -2360,13 +2370,6 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource16.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Payments, HMS.Module, Version=1.0.7907." +
     "27629, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource16.Name = "xpObjectSource16";
-            // 
-            // xpObjectSource17
-            // 
-            this.xpObjectSource17.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource17.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ReceptionDesk, HMS.Module, Version=1.0." +
-    "7907.27629, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource17.Name = "xpObjectSource17";
             // 
             // StayTotals
             // 
@@ -2445,11 +2448,11 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

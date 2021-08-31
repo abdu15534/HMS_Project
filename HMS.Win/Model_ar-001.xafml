@@ -1749,8 +1749,8 @@
     <ListView Id="Pharmacy_StayMedicationsCollection_ListView">
       <Columns>
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
-        <ColumnInfo Id="emergency" Caption="طوارئ" />
         <ColumnInfo Id="profit" Caption="الربح" />
+        <ColumnInfo Id="emergency" Caption="طوارئ" />
       </Columns>
     </ListView>
     <DetailView Id="PhoneNumber_DetailView" Caption="رقم الهاتف" />

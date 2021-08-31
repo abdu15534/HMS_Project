@@ -27,6 +27,7 @@ using System.Diagnostics;
 using XafDataModel.Module.BusinessObjects.test2;
 using DevExpress.XtraReports.UI;
 using static XafDataModel.Module.BusinessObjects.test2.Service;
+using ServiceTypes = XafDataModel.Module.BusinessObjects.test2.Service.ServiceTypes;
 
 namespace HMS.Module.Win.Controllers
 {
@@ -958,76 +959,84 @@ namespace HMS.Module.Win.Controllers
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        //Debug.WriteLine(dt.Rows);
-                        Product product = ObjectSpace.CreateObject<Product>();
-                        //fzp.Ilosc = 1;
-                        string myString = "";
-
-
-                        if (row[0] != DBNull.Value)
+                        try
                         {
-                            myString = row[0].ToString();
-                            if (!string.IsNullOrEmpty(row[0].ToString()))
-                                product.id = Convert.ToInt32(row[0].ToString());
-                            //    try
-                            //    {
-                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    }
-                            //    catch { fzp.Produkt = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    }
-                            //    catch { fzp.Oddzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    }
-                            //    catch { fzp.Dzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    }
-                            //    catch { fzp.KomorkaKoszt = null; }
-                        }
+                            //Debug.WriteLine(dt.Rows);
+                            Product product = ObjectSpace.CreateObject<Product>();
+                            //fzp.Ilosc = 1;
+                            string myString = "";
 
 
-                        if (row[1] != DBNull.Value)
-                        {
-                            myString += " - " + row[1].ToString();
-                            //service.ServiceType = (ServiceTypes)17;
-                            if (!string.IsNullOrEmpty(row[1].ToString()))
-                                product.name = row[1].ToString();
-                        }
+                            //if (row[0] != DBNull.Value)
+                            //{
+                            //    myString = row[0].ToString();
+                            //    if (!string.IsNullOrEmpty(row[0].ToString()))
+                            //        product.id = Convert.ToInt32(row[0].ToString());
+                            //    //    try
+                            //    //    {
+                            //    //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
+                            //    //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
+                            //    //    }
+                            //    //    catch { fzp.Produkt = null; }
+
+                            //    //    try
+                            //    //    {
+                            //    //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
+                            //    //    }
+                            //    //    catch { fzp.Oddzial = null; }
+
+                            //    //    try
+                            //    //    {
+                            //    //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
+                            //    //    }
+                            //    //    catch { fzp.Dzial = null; }
+
+                            //    //    try
+                            //    //    {
+                            //    //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
+                            //    //    }
+                            //    //    catch { fzp.KomorkaKoszt = null; }
+                            //}
 
 
-                        if (row[2] != DBNull.Value)
-                        {
-                            myString += " - " + row[2].ToString();
-                            if (!string.IsNullOrEmpty(row[2].ToString()))
+                            if (row[1] != DBNull.Value)
                             {
-                                product.purchasingPrice = Convert.ToDecimal(row[2].ToString());
+                                myString += " - " + row[1].ToString();
+                                //service.ServiceType = (ServiceTypes)17;
+                                if (!string.IsNullOrEmpty(row[1].ToString()))
+                                    product.name = row[1].ToString();
                             }
 
+
+                            if (row[2] != DBNull.Value)
+                            {
+                                myString += " - " + row[2].ToString();
+                                if (!string.IsNullOrEmpty(row[2].ToString()))
+                                {
+                                    product.purchasingPrice = Convert.ToDecimal(row[2].ToString());
+                                }
+
+                            }
+
+                            product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
+
+                            //if (row[3] != DBNull.Value)
+                            //{
+                            //    //myString += " - " + row[3].ToString();
+                            //    if (!string.IsNullOrEmpty(row[3].ToString()))
+                            //    {
+                            //        service.Price = Convert.ToDecimal(row[3].ToString());
+                            //    }
+                            //}
+
+                            Debug.WriteLine(myString);
+                            ObjectSpace.CommitChanges();
                         }
+                        catch
+                        {
 
-                        product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
-
-                        //if (row[3] != DBNull.Value)
-                        //{
-                        //    //myString += " - " + row[3].ToString();
-                        //    if (!string.IsNullOrEmpty(row[3].ToString()))
-                        //    {
-                        //        service.Price = Convert.ToDecimal(row[3].ToString());
-                        //    }
-                        //}
-
-                        Debug.WriteLine(myString);
-
+                        }
+                        
 
                         //    fzp.FakturaZakupu = fz;
                         //    fzp.Save();

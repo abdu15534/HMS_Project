@@ -114,8 +114,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         [DevExpress.Xpo.Size(SizeAttribute.Unlimited), ValueConverter(typeof(ImageValueConverter))]
         public Image ImageProperty
         {
-            get { return GetPropertyValue<Image>("ImageProperty"); }
-            set { SetPropertyValue<Image>("ImageProperty", value); }
+            get { return GetDelayedPropertyValue<Image>("ImageProperty"); }
+            set { SetDelayedPropertyValue<Image>("ImageProperty", value); }
         }
 
 
@@ -201,11 +201,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 }
             }
             if (phonenumber1.Length != 11)
-            //    throw new ArgumentException("برجاء إدخال رقم هاتف صحيح!", nameof(phonenumber1));
-            {
-                MessageBox.Show("برجاء إدخال رقم هاتف صحيح!.", "رقم الهاتف غير صحيح", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                throw new ArgumentException("برجاء إدخال رقم هاتف صحيح!", nameof(phonenumber1));
+            //{
+            //    MessageBox.Show("برجاء إدخال رقم هاتف صحيح!.", "رقم الهاتف غير صحيح", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
 
             if (nationalID.Length != 14)

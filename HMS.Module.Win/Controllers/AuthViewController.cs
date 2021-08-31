@@ -42,7 +42,7 @@ namespace HMS.Module.Win.Controllers
                 //detailView.AllowNew[keyCustomize] = false;
                 //detailView.AllowEdit[keyCustomize] = false;
                 //detailView.AllowDelete[keyCustomize] = false;
-                if (role.Name != "Administrators" && role.Name != "Manager")
+                if (role.Name != "Administrators" && role.Name != "Manager" && role.Name != "Finance")
                 {
                     var detailView = View;
                     detailView.AllowDelete[keyCustomize] = false; 
