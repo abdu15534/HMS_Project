@@ -33,6 +33,7 @@ namespace HMS.Module.Win.Controllers
             this.PaymentRecipt = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.OutPatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.FindAppointment = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
+            this.ClearTicket = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // PaymentRecipt
             // 
@@ -70,11 +71,23 @@ namespace HMS.Module.Win.Controllers
             this.FindAppointment.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.FindAppointment.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FindAppointment_Execute);
             // 
+            // ClearTicket
+            // 
+            this.ClearTicket.Caption = "Clear Ticket";
+            this.ClearTicket.ConfirmationMessage = null;
+            this.ClearTicket.Id = "ClearTicket";
+            this.ClearTicket.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.ClearTicket.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ClearTicket.ToolTip = null;
+            this.ClearTicket.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ClearTicket.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ClearTicket_Execute);
+            // 
             // ClinincController
             // 
             this.Actions.Add(this.PaymentRecipt);
             this.Actions.Add(this.OutPatientLable);
             this.Actions.Add(this.FindAppointment);
+            this.Actions.Add(this.ClearTicket);
 
         }
 
@@ -83,5 +96,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction PaymentRecipt;
         private DevExpress.ExpressApp.Actions.SimpleAction OutPatientLable;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FindAppointment;
+        private DevExpress.ExpressApp.Actions.SimpleAction ClearTicket;
     }
 }

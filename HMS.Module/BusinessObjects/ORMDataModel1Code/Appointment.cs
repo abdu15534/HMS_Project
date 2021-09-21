@@ -30,7 +30,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             this.AllDay = false;
         }
 
-        AppointmentStatus status;
+        
+            AppointmentStatus status;
 
         public AppointmentStatus AptStatus
         {

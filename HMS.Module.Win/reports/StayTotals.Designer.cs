@@ -1588,7 +1588,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell12.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.xrTableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amount]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amountC]")});
             this.xrTableCell12.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell12.Multiline = true;
             this.xrTableCell12.Name = "xrTableCell12";
@@ -1638,7 +1638,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell26.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.xrTableCell26.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ServiceFee]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ServiceFeeC]")});
             this.xrTableCell26.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell26.Multiline = true;
             this.xrTableCell26.Name = "xrTableCell26";
@@ -1742,7 +1742,7 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell30.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.xrTableCell30.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalC]")});
             this.xrTableCell30.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell30.Multiline = true;
             this.xrTableCell30.Name = "xrTableCell30";

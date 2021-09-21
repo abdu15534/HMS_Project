@@ -1381,43 +1381,48 @@ namespace HMS.Module.DatabaseUpdate
             //    }
             //}
             //}
+            //ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0
+            if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
+            {
+                var patients = ObjectSpace.GetObjects<Patient>();
+                var doctors = ObjectSpace.GetObjects<Employee>().Where(o => o.section.id == 6 && o.Clinic != null).ToList();
+                var clincs = new List<Clinc>();
+                foreach (var i in doctors)
+                {
+                    clincs.Add(i.Clinic);
+                }
+                //var clincs = ObjectSpace.GetObjects<Clinc>();
+                var fakeAppointments = new Faker<Appointment>("ar")
+                    .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
+                    .RuleFor(o => o.amount, 100)
+                    .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
+                    .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
+                    .RuleFor(o => o.Doctor, (f,p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
+                    .RuleFor(o => o.StartOn, f => f.Date.Recent(1))
+                    .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
 
-            //    if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
-            //    {
-            //        var patients = ObjectSpace.GetObjects<Patient>();
-            //        //var doctors = ObjectSpace.GetObjects<Physician>();
-            //        var clincs = ObjectSpace.GetObjects<Clinc>();
-            //        var fakeAppointments = new Faker<Appointment>("ar")
-            //            .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
-            //            .RuleFor(o => o.amount, 100)
-            //            .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
-            //            //.RuleFor(o => o.Physician, f => doctors[new Random(Guid.NewGuid().GetHashCode()).Next(0, doctors.Count)])
-            //            .RuleFor(o => o.StartOn, f => f.Date.Recent(365))
-            //            .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
-            //            .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
+                var Appointments = fakeAppointments.Generate(30);
 
-            //        var Appointments = fakeAppointments.Generate(10000);
+            }
 
+                //        //foreach (Appointment item in Appointments)
+                //        //{
 
+                //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
+                //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
+                //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
+                //        //    clinicService.Appointment = item;
+                //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
 
-            //        //foreach (Appointment item in Appointments)
-            //        //{
+                //        //    //var payment = ObjectSpace.CreateObject<Payments>();
+                //        //    //payment.Patient = item.Patient;
+                //        //    //payment.amount = item.amount;
+                //        //    //payment.date = item.StartOn;
+                //        //}
 
-            //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
-            //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
-            //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
-            //        //    clinicService.Appointment = item;
-            //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
+                //    }
 
-            //        //    //var payment = ObjectSpace.CreateObject<Payments>();
-            //        //    //payment.Patient = item.Patient;
-            //        //    //payment.amount = item.amount;
-            //        //    //payment.date = item.StartOn;
-            //        //}
-
-            //    }
-
-            ObjectSpace.CommitChanges();
+                ObjectSpace.CommitChanges();
 
             //*** The following code generate stay fake data ***
             /*

@@ -57,7 +57,25 @@ namespace HMS.Module.Win.Controllers
             reports.OutPatintLable report = new reports.OutPatintLable();
 
             var curr = View.CurrentObject as Appointment;
-            report.Parameters["parameter1"].Value = curr.id;
+            if (curr.TicketNumber == 0)
+            {
+                //p.clinc == curr.clinc &&
+                var latestApp = ObjectSpace.GetObjects<Appointment>().Where(p => p.clinc == curr.clinc && p.Doctor == curr.Doctor && p.StartOn.Date == DateTime.Now.Date).OrderByDescending(t => t.TicketNumber).ToList()[0];
+                if (latestApp != null)
+                {
+                    if (latestApp.TicketNumber < 1)
+                    {
+                        curr.TicketNumber = 1;
+                        ObjectSpace.CommitChanges();
+                    }
+                    else
+                    {
+                        curr.TicketNumber = latestApp.TicketNumber + 1;
+                        ObjectSpace.CommitChanges();
+                    }
+                }
+            }
+            report.Parameters["oid"].Value = curr.Oid;
             report.ShowPreviewDialog();
         }
 
@@ -86,6 +104,13 @@ namespace HMS.Module.Win.Controllers
             //object obj = objectSpace.FindObject(((ListView)View).ObjectTypeInfo.Type,
               //  CriteriaOperator.Parse(string.Format("Contains([Patient.MedicalID], '{0}')"+" And SartOn = ?", paramValue, date)));
            
+        }
+
+        private void ClearTicket_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as Appointment;
+            curr.TicketNumber = 0;
+            ObjectSpace.CommitChanges();
         }
     }
 }

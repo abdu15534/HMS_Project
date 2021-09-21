@@ -114,6 +114,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnDeleting()
         {
             base.OnDeleting();
+            Session.Delete(this.StayMedicications);
+            Session.Delete(this.StockDetailsCollection);
+            Session.Delete(this.ServiceDetailsCollection);
+            Session.Delete(this.CompanionDetailsCollection);
+            Session.Delete(this.TestDetailsCollection);
+            Session.Delete(this.XraysDetailsCollection);
+            Session.Delete(this.EndscopeDetailsCollection);
+            Session.Delete(this.SupervisionDetailsCollection);
+            Session.Delete(this.ConsultantDetailsCollection);
             if (!transferFlag)
             {
                 Patient.InStay = false;
@@ -167,12 +176,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             int _totalDays = 0;
             if (StayStart.TimeOfDay < new TimeSpan(14, 0, 0))
             {
-                _totalDays = Convert.ToInt32(Math.Ceiling(((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(12)).TotalDays)) + 1;
+                _totalDays = ((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(14)).Days;
             }
 
             if (StayStart.TimeOfDay >= new TimeSpan(14, 0, 0))
             {
-                _totalDays = Convert.ToInt32(Math.Ceiling(((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(12)).TotalDays));
+                _totalDays = ((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(14)).Days + 1;
             }
 
 

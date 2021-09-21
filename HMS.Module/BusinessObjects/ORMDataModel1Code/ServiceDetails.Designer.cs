@@ -27,7 +27,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         Admission fStay;
-        [Association(@"ServiceDetailsReferencesStay")]
+        [Association(@"ServiceDetailsReferencesAdmission")]
         public Admission Stay
         {
             get { return fStay; }

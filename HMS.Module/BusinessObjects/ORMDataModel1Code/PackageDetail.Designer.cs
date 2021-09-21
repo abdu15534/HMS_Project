@@ -45,6 +45,25 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fprice; }
             set { SetPropertyValue<decimal>(nameof(price), ref fprice, value); }
         }
+        decimal fNormalRoomTotal;
+        public decimal NormalRoomTotal
+        {
+            get { return fNormalRoomTotal; }
+            set { SetPropertyValue<decimal>(nameof(NormalRoomTotal), ref fNormalRoomTotal, value); }
+        }
+        decimal fICuRoomTotal;
+        public decimal ICuRoomTotal
+        {
+            get { return fICuRoomTotal; }
+            set { SetPropertyValue<decimal>(nameof(ICuRoomTotal), ref fICuRoomTotal, value); }
+        }
+        bool fApplyed;
+        [ColumnDefaultValue(false)]
+        public bool Applyed
+        {
+            get { return fApplyed; }
+            set { SetPropertyValue<bool>(nameof(Applyed), ref fApplyed, value); }
+        }
     }
 
 }

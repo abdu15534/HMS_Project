@@ -51,6 +51,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fClinicNumber; }
             set { SetPropertyValue<string>(nameof(ClinicNumber), ref fClinicNumber, value); }
         }
+        string fClinicLetter;
+        public string ClinicLetter
+        {
+            get { return fClinicLetter; }
+            set { SetPropertyValue<string>(nameof(ClinicLetter), ref fClinicLetter, value); }
+        }
     }
 
 }

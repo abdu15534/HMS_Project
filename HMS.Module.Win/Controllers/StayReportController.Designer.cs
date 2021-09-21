@@ -32,6 +32,8 @@ namespace HMS.Module.Win.Controllers
             this.components = new System.ComponentModel.Container();
             this.Checkout = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.UnCheckOutAction = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.ApplyPackage = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.DiscardPackage = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // Checkout
             // 
@@ -61,15 +63,41 @@ namespace HMS.Module.Win.Controllers
             this.UnCheckOutAction.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.UnCheckOutAction.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.UnCheckOutAction_Execute);
             // 
+            // ApplyPackage
+            // 
+            this.ApplyPackage.Caption = "Apply Package";
+            this.ApplyPackage.ConfirmationMessage = null;
+            this.ApplyPackage.Id = "ApplyPackage";
+            this.ApplyPackage.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.PackageDetail);
+            this.ApplyPackage.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ApplyPackage.ToolTip = null;
+            this.ApplyPackage.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ApplyPackage.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ApplyPackage_Execute);
+            // 
+            // DiscardPackage
+            // 
+            this.DiscardPackage.Caption = "Discard Package";
+            this.DiscardPackage.ConfirmationMessage = null;
+            this.DiscardPackage.Id = "DiscardPackage";
+            this.DiscardPackage.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.PackageDetail);
+            this.DiscardPackage.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.DiscardPackage.ToolTip = null;
+            this.DiscardPackage.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.DiscardPackage.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.DiscardPackage_Execute);
+            // 
             // StayReportController
             // 
             this.Actions.Add(this.Checkout);
             this.Actions.Add(this.UnCheckOutAction);
+            this.Actions.Add(this.ApplyPackage);
+            this.Actions.Add(this.DiscardPackage);
 
         }
 
         #endregion
         private DevExpress.ExpressApp.Actions.SimpleAction Checkout;
         private DevExpress.ExpressApp.Actions.SimpleAction UnCheckOutAction;
+        private DevExpress.ExpressApp.Actions.SimpleAction ApplyPackage;
+        private DevExpress.ExpressApp.Actions.SimpleAction DiscardPackage;
     }
 }

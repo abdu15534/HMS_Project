@@ -27,7 +27,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
         Admission fStay;
         [Indexed(@"Medication", Name = @"Index1")]
-        [Association(@"StayMedicicationReferencesStay")]
+        [Association(@"StayMedicationsReferencesAdmission")]
         public Admission Stay
         {
             get { return fStay; }

@@ -145,7 +145,7 @@ namespace HMS.Module.Win.Controllers
                 if (!curr.isDischarged)
                     report.Parameters["leaveDate"].Value = "مازال في الاقامة";
                 report.Parameters["totalStay"].Value = curr.total;
-                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
 
                 PermissionPolicyUser user;
                 if (SecuritySystem.CurrentUser != null)
@@ -191,7 +191,7 @@ namespace HMS.Module.Win.Controllers
             else
             {
                 report.Parameters["parameter1"].Value = curr.enterID;
-                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
                 //report.Parameters["patientName"].Value = curr.patient.FullName;
                 //report.Parameters["enterDate"].Value = curr.dateEnter;
                 //report.Parameters["leaveDate"].Value = curr.dateLeave;
@@ -249,46 +249,5 @@ namespace HMS.Module.Win.Controllers
             
         }
 
-        private void ApplyPackage_Execute(object sender, SimpleActionExecuteEventArgs e)
-        {
-            var curr = e.CurrentObject as ReceptionDesk;
-
-            var medications = ObjectSpace.GetObjects<StayMedications>().Where(o => o.Stay != null && o.Stay.reception == curr);
-            var supplies = ObjectSpace.GetObjects<StaySupplies>().Where(o => o.Stay != null && o.Stay.reception == curr);
-            var tests = ObjectSpace.GetObjects<TestDetails>().Where(o => o.admission != null && o.admission.reception == curr);
-            var xrays = ObjectSpace.GetObjects<XraysDetails>().Where(o => o.admission != null && o.admission.reception == curr);
-            var endoscpy = ObjectSpace.GetObjects<EndscopeDetails>().Where(o => o.admission != null && o.admission.reception == curr);
-            var servies = ObjectSpace.GetObjects<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == curr);
-            foreach (StayMedications item in medications)
-            {
-                Console.WriteLine(item.Medication.product.name);
-                item.price = 1000m;
-                //var i = curr.PackageDetails[0];
-                item.Package = null;
-                ObjectSpace.CommitChanges();
-            }
-            foreach (StaySupplies item in supplies)
-            {
-                Console.WriteLine(item.supplyProduct.product.name);
-            }
-            foreach (TestDetails item in tests)
-            {
-                Console.WriteLine(item.service.Name);
-            }
-            foreach (XraysDetails item in xrays)
-            {
-                Console.WriteLine(item.service.Name);
-            }
-            foreach (EndscopeDetails item in endoscpy)
-            {
-                Console.WriteLine(item.service.Name);
-            }
-            foreach (ServiceDetails item in servies)
-            {
-                Console.WriteLine(item.Service.Name);
-            }
-
-            var addmitions = curr.Admissions;
-        }
     }
 }

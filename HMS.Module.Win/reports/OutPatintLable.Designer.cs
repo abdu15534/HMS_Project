@@ -45,6 +45,9 @@ namespace HMS.Module.Win.reports
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.oid = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -94,9 +97,10 @@ namespace HMS.Module.Win.reports
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow4,
+            this.xrTableRow2,
             this.xrTableRow7,
             this.xrTableRow1});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(358.3073F, 229.6359F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(358.3073F, 228.3073F);
             // 
             // xrTableRow4
             // 
@@ -104,7 +108,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell9});
             this.xrTableRow4.Dpi = 254F;
             this.xrTableRow4.Name = "xrTableRow4";
-            this.xrTableRow4.Weight = 1.0124952610093643D;
+            this.xrTableRow4.Weight = 0.83039256204337963D;
             // 
             // xrTableCell9
             // 
@@ -124,11 +128,13 @@ namespace HMS.Module.Win.reports
             this.xrBarCode1.Dpi = 254F;
             this.xrBarCode1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Patient].[MedicalID]")});
-            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(45.90493F, 24.99998F);
+            this.xrBarCode1.Font = new System.Drawing.Font("Arial", 5.75F);
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(48.8125F, 10.59349F);
             this.xrBarCode1.Module = 5.08F;
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(25, 25, 0, 0, 254F);
-            this.xrBarCode1.SizeF = new System.Drawing.SizeF(263.8569F, 103.407F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(263.8569F, 97.90591F);
+            this.xrBarCode1.StylePriority.UseFont = false;
             this.xrBarCode1.StylePriority.UseTextAlignment = false;
             codabarGenerator1.WideNarrowRatio = 2F;
             this.xrBarCode1.Symbology = codabarGenerator1;
@@ -140,7 +146,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2});
             this.xrTableRow7.Dpi = 254F;
             this.xrTableRow7.Name = "xrTableRow7";
-            this.xrTableRow7.Weight = 0.3300994595552974D;
+            this.xrTableRow7.Weight = 0.28989731764557852D;
             // 
             // xrTableCell2
             // 
@@ -164,7 +170,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell3});
             this.xrTableRow1.Dpi = 254F;
             this.xrTableRow1.Name = "xrTableRow1";
-            this.xrTableRow1.Weight = 0.3300994595552974D;
+            this.xrTableRow1.Weight = 0.35073760783798047D;
             // 
             // xrTableCell3
             // 
@@ -194,6 +200,37 @@ namespace HMS.Module.Win.reports
             this.BottomMargin.HeightF = 0F;
             this.BottomMargin.Name = "BottomMargin";
             // 
+            // xrTableRow2
+            // 
+            this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell1});
+            this.xrTableRow2.Dpi = 254F;
+            this.xrTableRow2.Name = "xrTableRow2";
+            this.xrTableRow2.Weight = 0.27630626132281977D;
+            // 
+            // xrTableCell1
+            // 
+            this.xrTableCell1.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrTableCell1.Dpi = 254F;
+            this.xrTableCell1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat([clinc].[ClinicLetter], ToStr([TicketNumber]))")});
+            this.xrTableCell1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell1.Multiline = true;
+            this.xrTableCell1.Name = "xrTableCell1";
+            this.xrTableCell1.StylePriority.UseBorders = false;
+            this.xrTableCell1.StylePriority.UseFont = false;
+            this.xrTableCell1.StylePriority.UseTextAlignment = false;
+            this.xrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell1.Weight = 2.1401013565063476D;
+            // 
+            // oid
+            // 
+            this.oid.Description = "Parameter2";
+            this.oid.Name = "oid";
+            this.oid.Type = typeof(System.Guid);
+            this.oid.ValueInfo = "00000000-0000-0000-0000-000000000000";
+            this.oid.Visible = false;
+            // 
             // OutPatintLable
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -204,7 +241,7 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource1});
             this.DataSource = this.xpObjectSource1;
             this.Dpi = 254F;
-            this.FilterString = "[id] = ?parameter1";
+            this.FilterString = "[Oid] = ?oid";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(0, 1, 0, 0);
             this.PageHeight = 287;
@@ -212,7 +249,8 @@ namespace HMS.Module.Win.reports
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.PaperName = "Custom";
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.parameter1});
+            this.parameter1,
+            this.oid});
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.SnapGridSize = 25F;
             this.Version = "20.2";
@@ -238,5 +276,8 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
+        private DevExpress.XtraReports.Parameters.Parameter oid;
     }
 }

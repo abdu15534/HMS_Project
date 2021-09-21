@@ -32,7 +32,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Admission>(nameof(Stay), ref fStay, value); }
         }
         DateTime fdate;
-        [Indexed(@"Stay", Name = @"Index1", Unique = true)]
         public DateTime date
         {
             get { return fdate; }
@@ -43,6 +42,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fprice; }
             set { SetPropertyValue<decimal>(nameof(price), ref fprice, value); }
+        }
+        Package fPackage;
+        public Package Package
+        {
+            get { return fPackage; }
+            set { SetPropertyValue<Package>(nameof(Package), ref fPackage, value); }
         }
     }
 

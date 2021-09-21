@@ -61,6 +61,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnDeleting()
         {
             base.OnDeleting();
+            Session.Delete(this.Admissions);
+            Session.Delete(this.PaymentsCollection);
+            Session.Delete(this.PackageDetails);
             journalEntry.Post(true);
             this.journalEntry.Delete();
             this.patient.InStay = false;
@@ -143,7 +146,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnLoaded()
         {
             base.OnLoaded();
-            CalculateTotal();
+            //CalculateTotal();
             //ICollection changedObjects = Session.GetObjectsToSave();
             //int count = changedObjects.Count;
 
@@ -155,7 +158,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             //Session.DropChanges();
         }
-
+        
         public void CalculateTotal()
         {
             

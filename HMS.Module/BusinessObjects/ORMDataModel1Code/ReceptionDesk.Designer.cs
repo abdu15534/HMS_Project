@@ -134,12 +134,32 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fDeceasedPackageApplyed; }
             set { SetPropertyValue<bool>(nameof(DeceasedPackageApplyed), ref fDeceasedPackageApplyed, value); }
         }
-        [Association(@"AdmissionReferencesReceptionDesk"), Aggregated]
+        [PersistentAlias("[amountC] * ToDecimal([ServiceRate] / 100)")]
+        public decimal? ServiceFeeC
+        {
+            get { return (decimal?)(EvaluateAlias(nameof(ServiceFeeC))); }
+        }
+        [PersistentAlias("Iif([Admissions][].Sum([medicationSum]) Is Null, 0.0m, [Admissions][].Sum([medicationSum]))")]
+        public decimal medicationC
+        {
+            get { return (decimal)(EvaluateAlias(nameof(medicationC))); }
+        }
+        [PersistentAlias("Iif([Admissions][].Sum([stayTotalSum]) Is Null, 0.0m, [Admissions][].Sum([stayTotalSum]))")]
+        public decimal amountC
+        {
+            get { return (decimal)(EvaluateAlias(nameof(amountC))); }
+        }
+        [PersistentAlias("[amountC] - [Discount] + [medicationC] + [ServiceFeeC] + Iif([PackageDetails][[Applyed] = True].Sum([price]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([price]))")]
+        public decimal totalC
+        {
+            get { return (decimal)(EvaluateAlias(nameof(totalC))); }
+        }
+        [Association(@"AdmissionReferencesReceptionDesk")]
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }
-        [Association(@"PaymentsReferencesReceptionDesk"), Aggregated]
-        public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
-        [Association(@"PackageDetailReferencesReceptionDesk"), Aggregated]
+        [Association(@"PackageDetailReferencesReceptionDesk")]
         public XPCollection<PackageDetail> PackageDetails { get { return GetCollection<PackageDetail>(nameof(PackageDetails)); } }
+        [Association(@"PaymentsReferencesReceptionDesk")]
+        public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
     }
 
 }

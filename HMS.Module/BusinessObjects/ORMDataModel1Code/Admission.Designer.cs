@@ -117,37 +117,37 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fIsDischarged; }
             set { SetPropertyValue<bool>(nameof(IsDischarged), ref fIsDischarged, value); }
         }
-        [PersistentAlias("Iif([StayMedicications][Package == null].Sum([total]) Is Null Or [StayMedicications][].Sum([total]) Is Null, 0.0m, [StayMedicications][Package == null].Sum([total]))")]
+        [PersistentAlias("Iif([StayMedicications][[Package] = null].Sum([total]) Is Null Or [StayMedicications][].Sum([total]) Is Null, 0.0m, [StayMedicications][[Package] = null].Sum([total]))")]
         public decimal medicationSum
         {
             get { return (decimal)(EvaluateAlias(nameof(medicationSum))); }
         }
-        [PersistentAlias("Iif([StockDetailsCollection][].Sum([total]) Is Null, 0.0m, [StockDetailsCollection][].Sum([total]))")]
+        [PersistentAlias("Iif([StockDetailsCollection][[Package] = null].Sum([total]) Is Null Or [StockDetailsCollection][].Sum([total]) Is Null, 0.0m, [StockDetailsCollection][[Package] = null].Sum([total]))")]
         public decimal suppliesSum
         {
             get { return (decimal)(EvaluateAlias(nameof(suppliesSum))); }
         }
-        [PersistentAlias("Iif([ServiceDetailsCollection][].Sum([price]) Is Null, 0.0m, [ServiceDetailsCollection][].Sum([price]))")]
+        [PersistentAlias("Iif([ServiceDetailsCollection][[Package] = null].Sum([price]) Is Null Or [ServiceDetailsCollection][].Sum([price]) Is Null, 0.0m, [ServiceDetailsCollection][[Package] = null].Sum([price]))")]
         public decimal servicesSum
         {
             get { return (decimal)(EvaluateAlias(nameof(servicesSum))); }
         }
-        [PersistentAlias("Iif([CompanionDetailsCollection][].Sum([price]) Is Null, 0.0m, [CompanionDetailsCollection][].Sum([price]))")]
+        [PersistentAlias("Iif([CompanionDetailsCollection][[Package] = null].Sum([price]) Is Null Or [CompanionDetailsCollection][].Sum([price]) Is Null, 0.0m, [CompanionDetailsCollection][[Package] = null].Sum([price]))")]
         public decimal companionSum
         {
             get { return (decimal)(EvaluateAlias(nameof(companionSum))); }
         }
-        [PersistentAlias("Iif([EndscopeDetailsCollection][].Sum([price]) Is Null, 0.0m, [EndscopeDetailsCollection][].Sum([price]))")]
+        [PersistentAlias("Iif([EndscopeDetailsCollection][[Package] = null].Sum([price]) Is Null Or [EndscopeDetailsCollection][].Sum([price]) Is Null, 0.0m, [EndscopeDetailsCollection][[Package] = null].Sum([price]))")]
         public decimal endscopesSum
         {
             get { return (decimal)(EvaluateAlias(nameof(endscopesSum))); }
         }
-        [PersistentAlias("Iif([TestDetailsCollection][].Sum([price]) Is Null, 0.0m, [TestDetailsCollection][].Sum([price]))")]
+        [PersistentAlias("Iif([TestDetailsCollection][[Package] = null].Sum([price]) Is Null Or [TestDetailsCollection][].Sum([price]) Is Null, 0.0m, [TestDetailsCollection][[Package] = null].Sum([price]))")]
         public decimal testsSum
         {
             get { return (decimal)(EvaluateAlias(nameof(testsSum))); }
         }
-        [PersistentAlias("Iif([XraysDetailsCollection][].Sum([price]) Is Null, 0.0m, [XraysDetailsCollection][].Sum([price]))")]
+        [PersistentAlias("Iif([XraysDetailsCollection][[Package] = null].Sum([price]) Is Null Or [XraysDetailsCollection][].Sum([price]) Is Null, 0.0m, [XraysDetailsCollection][[Package] = null].Sum([price]))")]
         public decimal xraysSum
         {
             get { return (decimal)(EvaluateAlias(nameof(xraysSum))); }
@@ -210,29 +210,29 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return froomSupervisionCost; }
             set { SetPropertyValue<decimal>(nameof(roomSupervisionCost), ref froomSupervisionCost, value); }
         }
-        [PersistentAlias("Iif([ConsultantDetailsCollection][].Sum([Price]) Is Null, 0.0m, [ConsultantDetailsCollection][].Sum([Price]))")]
+        [PersistentAlias("Iif([ConsultantDetailsCollection][[Package] = null].Sum([Price]) Is Null Or [ConsultantDetailsCollection][].Sum([Price]) Is Null, 0.0m, [ConsultantDetailsCollection][[Package] = null].Sum([Price]))")]
         public decimal ConsolationSum
         {
             get { return (decimal)(EvaluateAlias(nameof(ConsolationSum))); }
         }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }
-        [Association(@"StayMedicicationReferencesStay"), Aggregated]
-        public XPCollection<StayMedications> StayMedicications { get { return GetCollection<StayMedications>(nameof(StayMedicications)); } }
-        [Association(@"StockDetailsReferencesStay"), Aggregated]
-        public XPCollection<StaySupplies> StockDetailsCollection { get { return GetCollection<StaySupplies>(nameof(StockDetailsCollection)); } }
-        [Association(@"ServiceDetailsReferencesStay"), Aggregated]
-        public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
-        [Association(@"EndscopeDetailsReferencesAdmission"), Aggregated]
-        public XPCollection<EndscopeDetails> EndscopeDetailsCollection { get { return GetCollection<EndscopeDetails>(nameof(EndscopeDetailsCollection)); } }
-        [Association(@"CompanionDetailsReferencesAdmission"), Aggregated]
-        public XPCollection<CompanionDetails> CompanionDetailsCollection { get { return GetCollection<CompanionDetails>(nameof(CompanionDetailsCollection)); } }
-        [Association(@"TestDetailsReferencesAdmission"), Aggregated]
+        [Association(@"TestDetailsReferencesAdmission")]
         public XPCollection<TestDetails> TestDetailsCollection { get { return GetCollection<TestDetails>(nameof(TestDetailsCollection)); } }
-        [Association(@"XraysDetailsReferencesAdmission"), Aggregated]
-        public XPCollection<XraysDetails> XraysDetailsCollection { get { return GetCollection<XraysDetails>(nameof(XraysDetailsCollection)); } }
-        [Association(@"ConsultantDetailsReferencesAdmission"), Aggregated]
+        [Association(@"ConsultantDetailsReferencesAdmission")]
         public XPCollection<ConsultantDetails> ConsultantDetailsCollection { get { return GetCollection<ConsultantDetails>(nameof(ConsultantDetailsCollection)); } }
+        [Association(@"CompanionDetailsReferencesAdmission")]
+        public XPCollection<CompanionDetails> CompanionDetailsCollection { get { return GetCollection<CompanionDetails>(nameof(CompanionDetailsCollection)); } }
+        [Association(@"XraysDetailsReferencesAdmission")]
+        public XPCollection<XraysDetails> XraysDetailsCollection { get { return GetCollection<XraysDetails>(nameof(XraysDetailsCollection)); } }
+        [Association(@"EndscopeDetailsReferencesAdmission")]
+        public XPCollection<EndscopeDetails> EndscopeDetailsCollection { get { return GetCollection<EndscopeDetails>(nameof(EndscopeDetailsCollection)); } }
+        [Association(@"ServiceDetailsReferencesAdmission")]
+        public XPCollection<ServiceDetails> ServiceDetailsCollection { get { return GetCollection<ServiceDetails>(nameof(ServiceDetailsCollection)); } }
+        [Association(@"StayMedicationsReferencesAdmission")]
+        public XPCollection<StayMedications> StayMedicications { get { return GetCollection<StayMedications>(nameof(StayMedicications)); } }
+        [Association(@"StaySuppliesReferencesAdmission")]
+        public XPCollection<StaySupplies> StockDetailsCollection { get { return GetCollection<StaySupplies>(nameof(StockDetailsCollection)); } }
     }
 
 }

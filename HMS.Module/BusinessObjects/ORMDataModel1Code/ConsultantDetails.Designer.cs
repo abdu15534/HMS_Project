@@ -51,6 +51,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fDate; }
             set { SetPropertyValue<DateTime>(nameof(Date), ref fDate, value); }
         }
+        Package fPackage;
+        public Package Package
+        {
+            get { return fPackage; }
+            set { SetPropertyValue<Package>(nameof(Package), ref fPackage, value); }
+        }
     }
 
 }

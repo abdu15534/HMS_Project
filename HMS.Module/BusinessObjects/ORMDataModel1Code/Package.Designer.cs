@@ -85,6 +85,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fPrice; }
             set { SetPropertyValue<decimal>(nameof(Price), ref fPrice, value); }
         }
+        decimal fConsolationLimit;
+        public decimal ConsolationLimit
+        {
+            get { return fConsolationLimit; }
+            set { SetPropertyValue<decimal>(nameof(ConsolationLimit), ref fConsolationLimit, value); }
+        }
     }
 
 }

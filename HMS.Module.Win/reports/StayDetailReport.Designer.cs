@@ -334,6 +334,7 @@ namespace HMS.Module.Win.reports
             this.ReportFooter7 = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrLabel31 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
+            this.Consultations = new DevExpress.Xpo.XPObjectSource(this.components);
             this.DetailReport9 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail10 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable26 = new DevExpress.XtraReports.UI.XRTable();
@@ -376,7 +377,6 @@ namespace HMS.Module.Win.reports
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel33 = new DevExpress.XtraReports.UI.XRLabel();
             this.xpObjectSource4 = new DevExpress.Xpo.XPObjectSource(this.components);
-            this.Consultations = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable11)).BeginInit();
@@ -412,6 +412,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.Companion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable27)).BeginInit();
@@ -419,7 +420,6 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -4684,6 +4684,13 @@ namespace HMS.Module.Win.reports
             this.xrLabel21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrLabel21.TextFormatString = "{0:n1}";
             // 
+            // Consultations
+            // 
+            this.Consultations.ConnectionStringName = "ConnectionString";
+            this.Consultations.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
+    "1.0.7910.37607, Culture=neutral, PublicKeyToken=null";
+            this.Consultations.Name = "Consultations";
+            // 
             // DetailReport9
             // 
             this.DetailReport9.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -4728,7 +4735,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell109.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amount]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amountC]")});
             this.xrTableCell109.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell109.Multiline = true;
             this.xrTableCell109.Name = "xrTableCell109";
@@ -4780,7 +4787,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell111.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ServiceFee]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ServiceFeeC]")});
             this.xrTableCell111.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell111.Multiline = true;
             this.xrTableCell111.Name = "xrTableCell111";
@@ -4911,7 +4918,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell124.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[total]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[totalC]")});
             this.xrTableCell124.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell124.Multiline = true;
             this.xrTableCell124.Name = "xrTableCell124";
@@ -5233,13 +5240,6 @@ namespace HMS.Module.Win.reports
     "7907.27629, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource4.Name = "xpObjectSource4";
             // 
-            // Consultations
-            // 
-            this.Consultations.ConnectionStringName = "ConnectionString";
-            this.Consultations.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ConsultantDetails, HMS.Module, Version=" +
-    "1.0.7910.37607, Culture=neutral, PublicKeyToken=null";
-            this.Consultations.Name = "Consultations";
-            // 
             // StayDetailReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -5334,6 +5334,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.Companion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable27)).EndInit();
@@ -5341,7 +5342,6 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Consultations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
