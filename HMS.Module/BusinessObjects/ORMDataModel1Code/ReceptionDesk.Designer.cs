@@ -144,7 +144,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(medicationC))); }
         }
-        [PersistentAlias("Iif([Admissions][].Sum([stayTotalSum]) Is Null, 0.0m, [Admissions][].Sum([stayTotalSum]))")]
+        [PersistentAlias("Iif([Admissions][].Sum([stayTotalSum]) Is Null, 0.0m, [Admissions][].Sum([stayTotalSum]) - Iif([PackageDetails][[Applyed] = True].Sum([NormalRoomTotal]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([NormalRoomTotal])))")]
         public decimal amountC
         {
             get { return (decimal)(EvaluateAlias(nameof(amountC))); }

@@ -29,6 +29,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 this.price = this.admission.roomSupervisionCost;
                 this.admission.CalculateRoomServices();
+
+
+                if (this.doctor == null)
+                    this.Delete();
             }
         }
 

@@ -56,6 +56,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
         }
 
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (!IsDeleted)
+                if (this.service == null)
+                    this.Delete();
+        }
     }
 
 }

@@ -1665,7 +1665,7 @@
             <persistentAlias Id="27814f1d-07fc-4467-a440-6127fbb8191b" name="medicationC" columnType="Decimal" virtualColumnType="Decimal" expression="Iif([Admissions][].Sum([medicationSum]) Is Null, 0.0m, [Admissions][].Sum([medicationSum]))" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="36f63300-e593-4c45-b0cc-c8c036a58fb0">
-            <persistentAlias Id="344f130e-7aa1-458f-ab44-31753b4ce56d" name="amountC" columnType="Decimal" virtualColumnType="Decimal" expression="Iif([Admissions][].Sum([stayTotalSum]) Is Null, 0.0m, [Admissions][].Sum([stayTotalSum]))" />
+            <persistentAlias Id="344f130e-7aa1-458f-ab44-31753b4ce56d" name="amountC" columnType="Decimal" virtualColumnType="Decimal" expression="Iif([Admissions][].Sum([stayTotalSum]) Is Null, 0.0m, [Admissions][].Sum([stayTotalSum]) - Iif([PackageDetails][[Applyed] = True].Sum([NormalRoomTotal]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([NormalRoomTotal])))" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="da4e79cb-fdc8-4799-9000-d85207e746e6">
             <persistentAlias Id="5fafb814-42e2-46bc-9262-8f70ebb740a0" name="totalC" columnType="Decimal" virtualColumnType="Decimal" expression="[amountC] - [Discount] + [medicationC] + [ServiceFeeC] + Iif([PackageDetails][[Applyed] = True].Sum([price]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([price]))" />

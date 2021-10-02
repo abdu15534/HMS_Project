@@ -1398,7 +1398,7 @@ namespace HMS.Module.DatabaseUpdate
                     .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
                     .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
                     .RuleFor(o => o.Doctor, (f,p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
-                    .RuleFor(o => o.StartOn, f => f.Date.Recent(1))
+                    .RuleFor(o => o.StartOn, f => f.Date.Between(DateTime.Today,DateTime.Today.AddHours(23)))
                     .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
 
                 var Appointments = fakeAppointments.Generate(30);

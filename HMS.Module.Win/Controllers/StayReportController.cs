@@ -149,6 +149,26 @@ namespace HMS.Module.Win.Controllers
             var companion = ObjectSpace.GetObjects<CompanionDetails>().Where(o => o.Stay != null && o.Stay.reception == receptionDesk);
 
             decimal totalmedication = 0;
+            int normalNumDays = 0;
+            decimal normalCost = 0.0m;
+            int icuNumDays = 0;
+            decimal icuCost = 0.0m;
+            foreach (var i in curr.Reciption.Admissions)
+            {
+                if(i.Status == Admission.statusType.normal)
+                {
+                    normalNumDays += i.totalDays;
+                    normalCost = i.roomStayCost;
+                }
+                else
+                {
+                    icuNumDays += i.totalDays;
+                    icuCost = i.roomStayCost;
+                }
+                
+            }
+            curr.ICuRoomTotal = Convert.ToDecimal(curr.Package.NumDaysICU) * icuCost;
+            curr.NormalRoomTotal = Convert.ToDecimal(curr.Package.NumDaysnorm) * normalCost;
 
             foreach (StayMedications item in medications)
             {

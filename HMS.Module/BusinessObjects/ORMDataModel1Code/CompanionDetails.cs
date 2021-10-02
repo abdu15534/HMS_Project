@@ -23,6 +23,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaving()
         {
             base.OnSaving();
+            
+            if (!IsDeleted)
+                if (this.Companion == null)
+                    this.Delete();
+
             if(this.Stay!= null)
             {
                 if(this.Stay.Patient.Nationality != Patient.Nationalitys.مصر)

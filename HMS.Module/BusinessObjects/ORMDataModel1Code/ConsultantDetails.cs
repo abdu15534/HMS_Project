@@ -12,6 +12,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         public ConsultantDetails(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); this.Date = DateTime.Now.Date; }
+        protected override void OnSaving()
+        {
+            base.OnSaving();
+            if (!IsDeleted)
+                if (this.Consultant == null)
+                    this.Delete();
+        }
     }
 
 }
