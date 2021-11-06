@@ -168,9 +168,6 @@
   <metadata name="xpObjectSource13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 485</value>
   </metadata>
-  <data name="DetailReport11.FilterString" xml:space="preserve">
-    <value>[reception.enterID] = ?parameter1 And ([Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType,ICU# Or [Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType,covid#)</value>
-  </data>
   <metadata name="xpObjectSource16.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 641</value>
   </metadata>

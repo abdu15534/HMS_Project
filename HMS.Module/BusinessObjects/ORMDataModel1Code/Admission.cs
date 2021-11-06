@@ -15,7 +15,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
     public partial class Admission
     {
-        public Admission(Session session) : base(session) { }
+        public Admission(Session session) : base(session) { 
+        
+            
+        }
         public override void AfterConstruction()
         {
             base.AfterConstruction(); StayStart = DateTime.Now;
@@ -36,12 +39,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             base.OnLoaded();
             // CalculateRoomServices();
+            DaysOfStay();
         }
 
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
             base.OnChanged(propertyName, oldValue, newValue);
-
             if (propertyName == nameof(Status))
             {
                 Room = null;
@@ -171,28 +174,64 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 //this.SupervisionDetailsCollection.Sum(p => p.price);
         }
 
+        //protected override void On()
+        //{
+        //    //base.();
+        //    DaysOfStay();
+        //}
+
         public void DaysOfStay()
         {
-            int _totalDays = 0;
+            double _totalDays = 0;
             if (StayStart.TimeOfDay < new TimeSpan(14, 0, 0))
             {
-                _totalDays = ((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(14)).Days;
+                DateTime ttime = DateTime.Now;
+                if (IsDischarged)
+                {
+                    ttime = this.StayEnd;
+                }
+                _totalDays = ( ttime - this.StayStart.Date.AddHours(14)).TotalDays + 1;
+                _totalDays = Math.Ceiling(_totalDays);
+                if (ignoreFirstDay)
+                {
+                    totalDays = Convert.ToInt32(_totalDays - 1);
+                }
+
+                else
+                {
+                    totalDays = Convert.ToInt32(_totalDays);
+                }
             }
 
             if (StayStart.TimeOfDay >= new TimeSpan(14, 0, 0))
             {
-                _totalDays = ((IsDischarged ? StayEnd : DateTime.Now) - StayStart.Date.AddHours(14)).Days + 1;
+                DateTime ttime = DateTime.Now;
+                if (IsDischarged)
+                {
+                    ttime = this.StayEnd;
+                }
+                _totalDays = ( ttime - this.StayStart.Date.AddHours(14)).TotalDays;
+                _totalDays = Math.Ceiling(_totalDays);
+                if (ignoreFirstDay)
+                {
+                    totalDays = Convert.ToInt32(_totalDays - 1);
+                }
+
+                else
+                {
+                    totalDays = Convert.ToInt32(_totalDays);
+                }
             }
 
 
             if (ignoreFirstDay)
             {
-                totalDays = (_totalDays - 1);
+                totalDays = Convert.ToInt32(_totalDays - 1);
             }
 
             else
             {
-                totalDays = _totalDays;
+                totalDays = Convert.ToInt32(_totalDays);
             }
         }
 

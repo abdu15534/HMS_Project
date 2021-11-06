@@ -881,7 +881,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter2});
             this.DetailReport1.DataSource = this.xpObjectSource5;
             this.DetailReport1.FilterString = "[Stay.reception.enterID] = ?parameter1";
-            this.DetailReport1.Level = 5;
+            this.DetailReport1.Level = 7;
             this.DetailReport1.Name = "DetailReport1";
             // 
             // GroupFooter2
@@ -960,7 +960,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter3});
             this.DetailReport2.DataSource = this.xpObjectSource6;
             this.DetailReport2.FilterString = "[Stay.reception.enterID] = ?parameter1";
-            this.DetailReport2.Level = 6;
+            this.DetailReport2.Level = 8;
             this.DetailReport2.Name = "DetailReport2";
             // 
             // Detail3
@@ -1068,7 +1068,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel9.CanShrink = true;
             this.xrLabel9.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([Room].[careCost]*[totalDays])), \'\',\' الرعاية الطبية\' )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([Room].[careCost]*[totalDays])), \'\',\' الرعاية التمريضية\' )")});
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(423.5616F, 0F);
             this.xrLabel9.Multiline = true;
@@ -1138,7 +1138,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel11.CanShrink = true;
             this.xrLabel11.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([Room].[supervisionCost]*[totalDays])), \'\',\' مرور إستشارى\' )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(IsNull(Sum([Room].[supervisionCost]*[totalDays])), \'\',\' الاشراف الطبي\' )")});
             this.xrLabel11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel11.LocationFloat = new DevExpress.Utils.PointFloat(423.5609F, 0F);
             this.xrLabel11.Multiline = true;
@@ -1184,7 +1184,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter6});
             this.DetailReport5.DataSource = this.xpObjectSource12;
             this.DetailReport5.FilterString = "[Stay.reception.enterID] = ?parameter1";
-            this.DetailReport5.Level = 12;
+            this.DetailReport5.Level = 6;
             this.DetailReport5.Name = "DetailReport5";
             // 
             // Detail6
@@ -1268,7 +1268,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter7});
             this.DetailReport6.DataSource = this.xpObjectSource8;
             this.DetailReport6.FilterString = "[admission.reception.enterID] = ?parameter1 And [service.ServiceType] = \'الأشعة\'";
-            this.DetailReport6.Level = 8;
+            this.DetailReport6.Level = 10;
             this.DetailReport6.Name = "DetailReport6";
             // 
             // Detail7
@@ -1344,7 +1344,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter8});
             this.DetailReport7.DataSource = this.xpObjectSource9;
             this.DetailReport7.FilterString = "[admission.reception.enterID] = ?parameter1 And [service.ServiceType] = \'تحاليل\'";
-            this.DetailReport7.Level = 7;
+            this.DetailReport7.Level = 9;
             this.DetailReport7.Name = "DetailReport7";
             // 
             // Detail8
@@ -1422,7 +1422,7 @@ namespace HMS.Module.Win.reports
             this.DetailReport8.DataSource = this.xpObjectSource10;
             this.DetailReport8.FilterString = "[admission.reception.enterID] = ?parameter1 And [service.ServiceType] = \'الجهاز_ا" +
     "لهضمى_و_المناظير\'";
-            this.DetailReport8.Level = 9;
+            this.DetailReport8.Level = 11;
             this.DetailReport8.Name = "DetailReport8";
             // 
             // Detail9
@@ -1776,7 +1776,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell31.StylePriority.UseForeColor = false;
             this.xrTableCell31.StylePriority.UsePadding = false;
             this.xrTableCell31.StylePriority.UseTextAlignment = false;
-            this.xrTableCell31.Text = "إجمالى المستحق";
+            this.xrTableCell31.Text = "إجمالى فاتورة المريض";
             this.xrTableCell31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell31.Weight = 1.4162510804763908D;
             // 
@@ -2023,7 +2023,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter13});
             this.DetailReport14.DataSource = this.xpObjectSource7;
             this.DetailReport14.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = \'Other\'";
-            this.DetailReport14.Level = 11;
+            this.DetailReport14.Level = 13;
             this.DetailReport14.Name = "DetailReport14";
             // 
             // Detail15
@@ -2093,7 +2093,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter12});
             this.DetailReport15.DataSource = this.xpObjectSource7;
             this.DetailReport15.FilterString = "[Stay.reception.enterID] = ?parameter1 And [Service.ServiceType] = \'Blood\'";
-            this.DetailReport15.Level = 10;
+            this.DetailReport15.Level = 12;
             this.DetailReport15.Name = "DetailReport15";
             // 
             // Detail16
@@ -2162,7 +2162,7 @@ namespace HMS.Module.Win.reports
             this.GroupFooter10});
             this.DetailReport9.DataSource = this.xpObjectSource13;
             this.DetailReport9.FilterString = "[Admission.reception.enterID] = ?parameter1";
-            this.DetailReport9.Level = 13;
+            this.DetailReport9.Level = 5;
             this.DetailReport9.Name = "DetailReport9";
             // 
             // Detail10
@@ -2238,7 +2238,7 @@ namespace HMS.Module.Win.reports
             this.Detail12,
             this.GroupFooter14});
             this.DetailReport11.DataSource = this.xpObjectSource1;
-            this.DetailReport11.FilterString = resources.GetString("DetailReport11.FilterString");
+            this.DetailReport11.FilterString = "[reception.enterID] = ?parameter1 And [Status] <> \'normal\'";
             this.DetailReport11.Level = 2;
             this.DetailReport11.Name = "DetailReport11";
             // 
@@ -2308,8 +2308,7 @@ namespace HMS.Module.Win.reports
             this.Detail14,
             this.GroupFooter15});
             this.DetailReport13.DataSource = this.xpObjectSource1;
-            this.DetailReport13.FilterString = "[Status] = ##Enum#XafDataModel.Module.BusinessObjects.test2.Admission+statusType," +
-    "normal# And [reception.enterID] = ?parameter1";
+            this.DetailReport13.FilterString = "[reception.enterID] = ?parameter1 And [Status] = \'normal\'";
             this.DetailReport13.Level = 1;
             this.DetailReport13.Name = "DetailReport13";
             // 

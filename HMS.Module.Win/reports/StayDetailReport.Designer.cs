@@ -3814,7 +3814,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel17.StylePriority.UseBorders = false;
             this.xrLabel17.StylePriority.UseFont = false;
             this.xrLabel17.StylePriority.UseTextAlignment = false;
-            this.xrLabel17.Text = "الرعاية الطبية";
+            this.xrLabel17.Text = "الرعاية التمريضية";
             this.xrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel19
@@ -4952,7 +4952,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell116.StylePriority.UseForeColor = false;
             this.xrTableCell116.StylePriority.UsePadding = false;
             this.xrTableCell116.StylePriority.UseTextAlignment = false;
-            this.xrTableCell116.Text = "إجمالى المستحق";
+            this.xrTableCell116.Text = "إجمالى فاتورة المريض";
             this.xrTableCell116.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell116.Weight = 1.4162510804763908D;
             // 

@@ -48,7 +48,8 @@ namespace HMS.Module.Win.Controllers
             reports.ClinicReport report = new reports.ClinicReport();
 
             var curr = View.CurrentObject as Appointment;
-            report.Parameters["parameter1"].Value = curr.id;
+            report.Parameters["parameter1"].Value = curr.Oid;
+            report.Parameters["parameter2"].Value = curr.PaymentsCollection.Sum(p => p.amount);
             report.ShowPreviewDialog();
         }
 

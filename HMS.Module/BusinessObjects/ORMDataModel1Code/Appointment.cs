@@ -52,7 +52,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
             if (this.Doctor != null && this.clinc != null)
             {
-                this.Location = this.Doctor.FullName + "  د/ " + (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
+                this.Location = this.Doctor.FullName + "  د/ ";
+                    //+ (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
             }
             switch (AptStatus)
             {

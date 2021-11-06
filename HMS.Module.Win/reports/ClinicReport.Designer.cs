@@ -97,6 +97,8 @@ namespace HMS.Module.Win.reports
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xpObjectSource12 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.parameter2 = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -116,6 +118,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -246,6 +249,7 @@ namespace HMS.Module.Win.reports
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.GroupHeader1});
+            this.DetailReport.DataSource = this.Appointment;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             // 
@@ -333,7 +337,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell10.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.xrTableCell10.BorderWidth = 0F;
             this.xrTableCell10.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Sum([PaymentsCollection].[amount])")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?parameter2")});
             this.xrTableCell10.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.ProcessDuplicatesTarget = DevExpress.XtraReports.UI.ProcessDuplicatesTarget.Tag;
@@ -439,8 +443,8 @@ namespace HMS.Module.Win.reports
             // 
             this.parameter1.Description = "Parameter1";
             this.parameter1.Name = "parameter1";
-            this.parameter1.Type = typeof(int);
-            this.parameter1.ValueInfo = "0";
+            this.parameter1.Type = typeof(System.Guid);
+            this.parameter1.ValueInfo = "00000000-0000-0000-0000-000000000000";
             this.parameter1.Visible = false;
             // 
             // xpObjectSource2
@@ -518,7 +522,7 @@ namespace HMS.Module.Win.reports
             this.GroupHeader4.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable1,
             this.xrTable6});
-            this.GroupHeader4.HeightF = 89.99995F;
+            this.GroupHeader4.HeightF = 101.7499F;
             this.GroupHeader4.Name = "GroupHeader4";
             // 
             // xrTable1
@@ -901,6 +905,21 @@ namespace HMS.Module.Win.reports
             this.xrLabel4.StylePriority.UsePadding = false;
             this.xrLabel4.Text = "التوقيع:";
             // 
+            // xpObjectSource12
+            // 
+            this.xpObjectSource12.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource12.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Payments, HMS.Module, Version=1.0.7977." +
+    "39551, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource12.Name = "xpObjectSource12";
+            // 
+            // parameter2
+            // 
+            this.parameter2.Description = "Parameter2";
+            this.parameter2.Name = "parameter2";
+            this.parameter2.Type = typeof(double);
+            this.parameter2.ValueInfo = "0";
+            this.parameter2.Visible = false;
+            // 
             // ClinicReport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -923,16 +942,18 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource9,
             this.xpObjectSource10,
             this.xpObjectSource11,
-            this.Appointment});
+            this.Appointment,
+            this.xpObjectSource12});
             this.DataSource = this.Appointment;
-            this.FilterString = "[id] = ?parameter1";
+            this.FilterString = "[Oid] = ?parameter1";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(21, 14, 21, 0);
             this.PageHeight = 827;
             this.PageWidth = 583;
             this.PaperKind = System.Drawing.Printing.PaperKind.A5;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.parameter1});
+            this.parameter1,
+            this.parameter2});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.baseControlStyle,
             this.evenDetailStyle,
@@ -957,6 +978,7 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1028,5 +1050,7 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
+        private DevExpress.Xpo.XPObjectSource xpObjectSource12;
+        private DevExpress.XtraReports.Parameters.Parameter parameter2;
     }
 }

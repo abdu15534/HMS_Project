@@ -16,6 +16,8 @@
       <Action Id="FullTextSearch" ImageName="EnableSearch" />
       <Action Id="ICUPatentsDetails" ImageName="EmployeeTaskList" />
       <Action Id="ICUtotals" ImageName="EmployeeTaskList" />
+      <Action Id="InPatients" ImageName="EmployeeTaskList" />
+      <Action Id="InPatientsTotal" ImageName="EmployeeTaskList" />
       <Action Id="New" PaintStyle="Default" />
       <Action Id="OrderConfirmed" ImageName="BO_Order_Item" TargetObjectsCriteria="[isConfirmed] &lt;&gt; True And [OrderType] &lt;&gt; ##Enum#XafDataModel.Module.BusinessObjects.test2.PurchasingOrder+OrderTypes,PurchasingOrder#" />
       <Action Id="OrderUnConfirmed" ImageName="BO_Quote" />
@@ -1094,6 +1096,7 @@
       <RuleRange Id="@edf15fdd-d5a4-4b86-b225-0f89ed05808d" TargetContextIDs="Save" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder" TargetPropertyName="VAT" MinimumValue="0" MaximumValue="100" IsNewNode="True" />
       <RuleRequiredField Id="@f2946277-e26f-4d42-b50d-4c0b2f7666c8" TargetType="XafDataModel.Module.BusinessObjects.test2.Test" TargetPropertyName="Patient" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@f44414e1-dae4-476f-a73c-79dc03557963" TargetType="XafDataModel.Module.BusinessObjects.test2.Employee" TargetPropertyName="job" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Clinc_inCharge" Removed="True" />
       <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XafDataModel.Module.BusinessObjects.test2.Patient_MedicalID" Removed="True" />
       <RuleCriteria Id="ReceptionRules" TargetType="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk" TargetContextIDs="Save" Criteria="[patient] Is Not Null And [Section] Is Not Null And [room] Is Not Null And [bed] Is Not Null" IsNewNode="True" />
     </Rules>
@@ -1452,7 +1455,7 @@
         <ColumnInfo Id="supplyProduct.product.name" PropertyName="supplyProduct.product.name" Index="1" Width="99" AllowEdit="False" IsNewNode="True" />
         <ColumnInfo Id="quantity" Width="80" Index="2" />
         <ColumnInfo Id="date" Width="65" Index="3" AllowEdit="True" />
-        <ColumnInfo Id="price" Width="56" Index="4" AllowEdit="False" />
+        <ColumnInfo Id="price" Width="56" Index="4" AllowEdit="True" />
         <ColumnInfo Id="total" Width="56" Index="5">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
@@ -1785,7 +1788,7 @@
         <ColumnInfo Id="description" Caption="وصف" />
       </Columns>
     </ListView>
-    <ListView Id="Clinc_LookupListView">
+    <ListView Id="Clinc_LookupListView" AllowNew="False" AllowUnlink="False">
       <Columns>
         <ColumnInfo Id="Name" Caption="إسم" />
       </Columns>
@@ -2339,7 +2342,7 @@
         <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
       </Columns>
     </ListView>
-    <ListView Id="Employee_LookupListView">
+    <ListView Id="Employee_LookupListView" AllowNew="False" AllowUnlink="False">
       <Columns>
         <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
       </Columns>
@@ -4427,6 +4430,7 @@
     </ListView>
     <DetailView Id="StaySupplies_DetailView">
       <Items>
+        <PropertyEditor Id="price" AllowEdit="False" />
         <PropertyEditor Id="profit" Caption="الربح" />
       </Items>
       <Layout>
@@ -4443,6 +4447,7 @@
     <ListView Id="StaySupplies_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
+        <ColumnInfo Id="price" AllowEdit="False" />
         <ColumnInfo Id="profit" Caption="الربح" />
       </Columns>
     </ListView>

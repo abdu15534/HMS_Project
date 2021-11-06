@@ -189,7 +189,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     return;
                 }
             }
-            if(this.Admissions.Sum(p=>p.stayTotalSum) > this.PaymentsCollection.Sum(p => p.amount))
+            if(this.totalC > this.PaymentsCollection.Sum(p => p.amount))
             {
                 MessageBox.Show("الرجاء السداد اولا", "لم تسدد جميع المستحقات ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
