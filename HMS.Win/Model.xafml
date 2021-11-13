@@ -2522,7 +2522,7 @@
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="Inventory_ListView" ShowDetailView="True" AllowNew="False" AllowDelete="False" />
+    <ListView Id="Inventory_ListView" ShowDetailView="True" AllowNew="True" AllowDelete="False" />
     <ListView Id="Inventory_LookupListView" ShowDetailView="True" AllowDelete="False" AllowNew="False" />
     <ListView Id="Inventory_StockProducts_ListView" ShowDetailView="False" IsGroupPanelVisible="False" IsFooterVisible="True">
       <Columns>
@@ -3031,7 +3031,7 @@
       </Columns>
     </ListView>
     <ListView Id="Patient_Endscopes_ListView" AllowNew="False" AllowUnlink="False" />
-    <ListView Id="Patient_ListView" IsFooterVisible="True" IsGroupPanelVisible="True">
+    <ListView Id="Patient_ListView" IsFooterVisible="True" IsGroupPanelVisible="True" DataAccessMode="DataView">
       <Columns>
         <ColumnInfo Id="account" Caption="حساب" Index="-1" SortOrder="None" GroupIndex="-1" />
         <ColumnInfo Id="BloodType" Width="74" SortOrder="None" GroupIndex="-1" Index="-1" />
@@ -3064,7 +3064,7 @@
         <ColumnInfo Id="DateOfBrith" Index="11" />
       </Columns>
     </ListView>
-    <ListView Id="Patient_LookupListView">
+    <ListView Id="Patient_LookupListView" DataAccessMode="DataView">
       <Columns>
         <ColumnInfo Id="FullName" Caption="الإسم بالكامل" />
       </Columns>

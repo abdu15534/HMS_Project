@@ -111,7 +111,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             ONegative
         }
 
-        [DevExpress.Xpo.Size(SizeAttribute.Unlimited), ValueConverter(typeof(ImageValueConverter))]
+        [DevExpress.Xpo.Size(SizeAttribute.Unlimited), ValueConverter(typeof(ImageValueConverter)), Delayed, VisibleInListView(false)]
         public Image ImageProperty
         {
             get { return GetDelayedPropertyValue<Image>("ImageProperty"); }
