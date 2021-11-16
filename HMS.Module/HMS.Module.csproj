@@ -364,6 +364,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\ConsultantDetails.Designer.cs">
       <DependentUpon>ConsultantDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Department.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Department.Designer.cs">
+      <DependentUpon>Department.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\EmergencyServiceDetails.Designer.cs">
       <DependentUpon>EmergencyServiceDetails.cs</DependentUpon>
@@ -603,6 +607,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Warning.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Warning.Designer.cs">
       <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\WearhouseType.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\WearhouseType.Designer.cs">
+      <DependentUpon>WearhouseType.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\Xray.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Xray.Designer.cs">

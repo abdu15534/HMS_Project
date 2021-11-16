@@ -559,6 +559,12 @@
     <Compile Include="Controllers\StayReportController.Designer.cs">
       <DependentUpon>StayReportController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\StockTransferController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\StockTransferController.Designer.cs">
+      <DependentUpon>StockTransferController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ViewController1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1050,6 +1056,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\StayReportController.resx">
       <DependentUpon>StayReportController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\StockTransferController.resx">
+      <DependentUpon>StockTransferController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\ViewController1.resx">
       <DependentUpon>ViewController1.cs</DependentUpon>

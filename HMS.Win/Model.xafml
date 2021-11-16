@@ -636,6 +636,12 @@
         <Member Name="totalOut" Caption="مجموع الخارج" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StockTransfer">
+      <AppearanceRules>
+        <AppearanceRule Id="@b3a54e62-db9b-4ba7-bd9f-f036e605188f" TargetItems="*" Criteria="[Transferd] = True" BackColor="128, 255, 128" IsNewNode="True" />
+        <AppearanceRule Id="@f4fc8c04-8866-4c1e-aef7-22fef4e9f891" TargetItems="*" Criteria="[Transferd] = False" BackColor="255, 255, 128" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.SubAccount" Caption="حساب فرعى">
       <OwnMembers>
         <Member Name="accountName" Caption="إسم الحساب" />
@@ -673,6 +679,11 @@
         <Member Name="id" Caption="كود" />
         <Member Name="statement" Caption="بيان" />
       </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.TransferProduct">
+      <AppearanceRules>
+        <AppearanceRule Id="@a8193a4b-415d-4733-9a58-f186e989a5fd" TargetItems="*" Criteria="[TobeApproved] = True" BackColor="128, 255, 128" IsNewNode="True" />
+      </AppearanceRules>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.VacationDetails">
       <OwnMembers>
@@ -811,6 +822,7 @@
         <Items IsNewNode="True">
           <Item Id="PharmacyPOS" Caption="PharmacyPOS" ViewId="Pharmacy_ListView" ImageName="TopDown" IsNewNode="True" />
           <Item Id="ReceptionDesk" Caption="Reception Desk" ViewId="ReceptionDesk_ListView" ImageName="BO_Department" IsNewNode="True" />
+          <Item Id="StayMedications_ListView" ViewId="StayMedications_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Inventory &amp; products" Index="2" ImageName="BO_Order" IsNewNode="True">
@@ -819,6 +831,8 @@
           <Item Id="Product_ListView" ObjectKey="" ImageName="BO_Product_Group_32x32" Index="1" ViewId="Product_ListView" IsNewNode="True" />
           <Item Id="Category_ListView" ObjectKey="" Index="2" ImageName="BO_Price_Item" ViewId="Category_ListView" IsNewNode="True" />
           <Item Id="ProductUnit_ListView" ObjectKey="" ImageName="NewProduct" ViewId="ProductUnit_ListView" IsNewNode="True" />
+          <Item Id="StaySupplies_ListView" ViewId="StaySupplies_ListView" IsNewNode="True" />
+          <Item Id="StockTransfer_ListView" ViewId="StockTransfer_ListView" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="القسم الخارجي" Index="3" IsNewNode="True">
@@ -2502,19 +2516,14 @@
         </LayoutGroup>
       </Layout>
     </DashboardView>
-    <DetailView Id="Inventory_DetailView" AllowDelete="False" AllowEdit="False" AllowNew="False">
+    <DetailView Id="Inventory_DetailView" AllowDelete="True" AllowEdit="True" AllowNew="False">
       <Items>
         <PropertyEditor Id="Employee" Caption="الموظف المسؤل" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="13.480233311730395">
-            <LayoutGroup Id="Inventory" RelativeSize="100">
-              <LayoutItem Id="InventoryType" RelativeSize="28.846153846153847" />
-              <LayoutItem Id="ID" RelativeSize="22.115384615384617" />
-              <LayoutItem Id="Name" RelativeSize="22.115384615384617" />
-              <LayoutItem Id="Employee" RelativeSize="26.923076923076923" />
-            </LayoutGroup>
+            <LayoutGroup Id="Inventory" RelativeSize="100" />
           </LayoutGroup>
           <LayoutGroup Id="StockProducts_Group" TextAlignMode="AlignWithChildren" Direction="Vertical" RelativeSize="86.5197666882696">
             <LayoutItem Id="StockProducts" RelativeSize="100" />
@@ -4409,16 +4418,46 @@
         <ColumnInfo Id="statement" Caption="بيان" />
       </Columns>
     </ListView>
-    <DetailView Id="StayMedications_DetailView">
+    <DetailView Id="StayMedications_DetailView" AllowEdit="False" AllowNew="False">
       <Items>
         <PropertyEditor Id="profit" Caption="الربح" />
       </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="StayMedications" RelativeSize="100">
+              <LayoutGroup Id="StayMedications_col1" RelativeSize="50">
+                <LayoutItem Id="ID" RelativeSize="4.5133991537376588" />
+                <LayoutItem Id="Stay" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="Medication" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="quantity" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="date" RelativeSize="85.331452750352611" />
+              </LayoutGroup>
+              <LayoutGroup Id="StayMedications_col2" RelativeSize="50" Caption="StayMedications_col2">
+                <LayoutItem Id="profit" Index="0" RelativeSize="100" Removed="True" />
+                <LayoutItem Id="total" Index="1" RelativeSize="95.486600846262348" Removed="True" />
+                <LayoutItem Id="Package" Index="2" RelativeSize="92.1015514809591" Removed="True" />
+                <LayoutItem Id="price" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
     </DetailView>
-    <ListView Id="StayMedications_ListView">
+    <ListView Id="StayMedications_ListView" AllowLink="False" AllowNew="False">
       <Columns>
-        <ColumnInfo Id="emergency" Caption="طوارئ" />
-        <ColumnInfo Id="profit" Caption="الربح" />
-        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="emergency" Caption="طوارئ" Index="-1" />
+        <ColumnInfo Id="Medication" Index="-1" Width="155" />
+        <ColumnInfo Id="Package" Index="-1" />
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" Index="-1" />
+        <ColumnInfo Id="price" Index="-1" />
+        <ColumnInfo Id="profit" Caption="الربح" Index="-1" />
+        <ColumnInfo Id="Stay" Index="-1" />
+        <ColumnInfo Id="total" Index="-1" />
+        <ColumnInfo Id="Stay.reception.enterID" PropertyName="Stay.reception.enterID" Index="0" Width="68" IsNewNode="True" />
+        <ColumnInfo Id="Medication.product.name" PropertyName="Medication.product.name" Index="1" Width="140" IsNewNode="True" />
+        <ColumnInfo Id="quantity" Index="2" Width="60" />
+        <ColumnInfo Id="date" Index="3" Width="65" />
       </Columns>
     </ListView>
     <ListView Id="StayMedications_LookupListView" ShowDetailView="False">
@@ -4428,27 +4467,46 @@
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
       </Columns>
     </ListView>
-    <DetailView Id="StaySupplies_DetailView">
+    <DetailView Id="StaySupplies_DetailView" AllowEdit="False" AllowNew="False">
       <Items>
         <PropertyEditor Id="price" AllowEdit="False" />
         <PropertyEditor Id="profit" Caption="الربح" />
       </Items>
       <Layout>
-        <LayoutGroup Id="Main">
-          <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="StaySupplies">
-              <LayoutGroup Id="StaySupplies_col1" Caption="مستهلكات الإقامة1" />
-              <LayoutGroup Id="StaySupplies_col2" Caption="مستهلكات الإقامة2" />
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="StaySupplies" RelativeSize="100">
+              <LayoutGroup Id="StaySupplies_col1" Caption="مستهلكات الإقامة1" RelativeSize="50">
+                <LayoutItem Id="ID" RelativeSize="4.5133991537376588" />
+                <LayoutItem Id="Stay" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="quantity" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="supplyProduct" RelativeSize="3.3850493653032441" />
+                <LayoutItem Id="date" RelativeSize="85.331452750352611" />
+              </LayoutGroup>
+              <LayoutGroup Id="StaySupplies_col2" Caption="مستهلكات الإقامة2" RelativeSize="50">
+                <LayoutItem Id="Package" Removed="True" />
+                <LayoutItem Id="price" RelativeSize="100" Removed="True" />
+                <LayoutItem Id="profit" RelativeSize="95.486600846262348" Removed="True" />
+                <LayoutItem Id="total" RelativeSize="92.1015514809591" Removed="True" />
+              </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
-    <ListView Id="StaySupplies_ListView">
+    <ListView Id="StaySupplies_ListView" AllowEdit="False" AllowNew="False">
       <Columns>
-        <ColumnInfo Id="emergency" Caption="طوارئ" />
-        <ColumnInfo Id="price" AllowEdit="False" />
-        <ColumnInfo Id="profit" Caption="الربح" />
+        <ColumnInfo Id="emergency" Caption="طوارئ" Index="-1" />
+        <ColumnInfo Id="Package" Index="-1" />
+        <ColumnInfo Id="price" AllowEdit="False" Index="-1" />
+        <ColumnInfo Id="profit" Caption="الربح" Index="-1" />
+        <ColumnInfo Id="Stay" Index="-1" />
+        <ColumnInfo Id="supplyProduct" Index="-1" Width="172" />
+        <ColumnInfo Id="total" Index="-1" />
+        <ColumnInfo Id="Stay.reception.enterID" PropertyName="Stay.reception.enterID" Index="0" Width="68" IsNewNode="True" />
+        <ColumnInfo Id="supplyProduct.product.name" PropertyName="supplyProduct.product.name" Index="1" Width="157" IsNewNode="True" />
+        <ColumnInfo Id="quantity" Index="2" Width="60" />
+        <ColumnInfo Id="date" Index="3" Width="65" />
       </Columns>
     </ListView>
     <ListView Id="StaySupplies_LookupListView" ShowDetailView="False">
@@ -4487,6 +4545,45 @@
         <ColumnInfo Id="product.barCode" Width="85" />
         <ColumnInfo Id="product" PropertyName="product" Index="1" Width="154" IsNewNode="True" />
         <ColumnInfo Id="firstUnitQuantity" PropertyName="firstUnitQuantity" Index="2" IsNewNode="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StockTransfer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="40.189873417721522">
+            <LayoutGroup Id="StockTransfer" RelativeSize="100">
+              <LayoutGroup Id="StockTransfer_col1" RelativeSize="49.918699186991873">
+                <LayoutItem Id="ID" RelativeSize="36.363636363636367" Index="0" />
+                <LayoutItem Id="Date" RelativeSize="27.272727272727273" Index="1" />
+                <LayoutItem Id="ReportScan" ViewItem="ReportScan" Index="2" RelativeSize="36.363636363636367" IsNewNode="True" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="StockTransfer_col2" Caption="StockTransfer_col2" RelativeSize="50.081300813008127">
+                <LayoutItem Id="FromWarehouse" Index="0" RelativeSize="36.363636363636367" ViewItem="FromWarehouse" IsNewNode="True" />
+                <LayoutItem Id="ToWearhouse" ViewItem="ToWearhouse" Index="1" RelativeSize="63.636363636363633" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Transferd" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="TransferProducts_Group" TextAlignMode="AlignWithChildren" Direction="Vertical" RelativeSize="59.810126582278478">
+            <LayoutItem Id="TransferProducts" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StockTransfer_ListView">
+      <Columns>
+        <ColumnInfo Id="Transferd" Index="-1" />
+      </Columns>
+    </ListView>
+    <ListView Id="StockTransfer_TransferProducts_ListView" AllowLink="False" AllowUnlink="False" ShowDetailView="False">
+      <Columns>
+        <ColumnInfo Id="Approved" Index="-1" />
+        <ColumnInfo Id="StockProduct.product.name" PropertyName="StockProduct.product.name" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="StockProduct.product.sellUnit" PropertyName="StockProduct.product.sellUnit" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Quantity" Index="3" AllowEdit="False" />
+        <ColumnInfo Id="RequstedCount" Index="4" />
+        <ColumnInfo Id="TobeApproved" Index="5" />
+        <ColumnInfo Id="Notes" Index="6" Width="279" />
       </Columns>
     </ListView>
     <DetailView Id="StringObject_DetailView">
@@ -4765,6 +4862,39 @@
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="fromRoom" Caption="من غرفة" />
         <ColumnInfo Id="statement" Caption="بيان" />
+      </Columns>
+    </ListView>
+    <DetailView Id="TransferProduct_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="20.933333333333334">
+            <LayoutGroup Id="TransferProduct" RelativeSize="77.070063694267517">
+              <LayoutGroup Id="TransferProduct_col1" RelativeSize="50">
+                <LayoutItem Id="StockProduct" RelativeSize="36.363636363636367" />
+                <LayoutItem Id="Quantity" RelativeSize="27.272727272727273" />
+                <LayoutItem Id="RequstedCount" RelativeSize="36.363636363636367" />
+              </LayoutGroup>
+              <LayoutGroup Id="TransferProduct_col2" RelativeSize="50">
+                <LayoutItem Id="TobeApproved" RelativeSize="63.636363636363633" />
+                <LayoutItem Id="Approved" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="XPObject" RelativeSize="22.929936305732483">
+              <LayoutItem Id="Oid" RelativeSize="100" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="79.066666666666663">
+            <LayoutItem Id="Notes" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="TransferProduct_ListView">
+      <Columns>
+        <ColumnInfo Id="StockProduct.product.name" PropertyName="StockProduct.product.name" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="Quantity" Index="3" />
+        <ColumnInfo Id="StockTransfer" Index="5" />
+        <ColumnInfo Id="Approved" Index="6" />
       </Columns>
     </ListView>
     <DetailView Id="VacationDetails_DetailView">

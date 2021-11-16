@@ -48,11 +48,11 @@ namespace HMS.Module.Win.Controllers
             var curr = View.CurrentObject as Inventory;
             if (curr == null)
             {
-                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                var x = System.Convert.ToString(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
                 report.Parameters["parameter1"].Value = x;
             }
             else
-                report.Parameters["parameter1"].Value = ((Inventory)View.CurrentObject).ID;
+                report.Parameters["parameter1"].Value = curr.Oid;
 
             report.ShowPreviewDialog();
         }

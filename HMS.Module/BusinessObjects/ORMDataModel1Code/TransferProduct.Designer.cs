@@ -16,6 +16,7 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
+    [DevExpress.ExpressApp.DefaultListViewOptions(DevExpress.ExpressApp.MasterDetailMode.ListViewOnly, true, DevExpress.ExpressApp.NewItemRowPosition.Bottom)]
     public partial class TransferProduct : XPObject
     {
         StockProduct fStockProduct;
@@ -24,23 +25,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fStockProduct; }
             set { SetPropertyValue<StockProduct>(nameof(StockProduct), ref fStockProduct, value); }
         }
-        ProductUnit fUnit;
-        public ProductUnit Unit
-        {
-            get { return fUnit; }
-            set { SetPropertyValue<ProductUnit>(nameof(Unit), ref fUnit, value); }
-        }
-        double fQuantity;
+        [PersistentAlias("[StockProduct.firstUnitQuantity]")]
         public double Quantity
         {
-            get { return fQuantity; }
-            set { SetPropertyValue<double>(nameof(Quantity), ref fQuantity, value); }
+            get { return (double)(EvaluateAlias(nameof(Quantity))); }
         }
-        double fCount;
-        public double Count
+        double fRequstedCount;
+        public double RequstedCount
         {
-            get { return fCount; }
-            set { SetPropertyValue<double>(nameof(Count), ref fCount, value); }
+            get { return fRequstedCount; }
+            set { SetPropertyValue<double>(nameof(RequstedCount), ref fRequstedCount, value); }
         }
         string fNotes;
         [Size(SizeAttribute.Unlimited)]
@@ -55,6 +49,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fStockTransfer; }
             set { SetPropertyValue<StockTransfer>(nameof(StockTransfer), ref fStockTransfer, value); }
+        }
+        bool fTobeApproved;
+        public bool TobeApproved
+        {
+            get { return fTobeApproved; }
+            set { SetPropertyValue<bool>(nameof(TobeApproved), ref fTobeApproved, value); }
+        }
+        bool fApproved;
+        public bool Approved
+        {
+            get { return fApproved; }
+            set { SetPropertyValue<bool>(nameof(Approved), ref fApproved, value); }
+        }
+        double fQuantityC;
+        public double QuantityC
+        {
+            get { return fQuantityC; }
+            set { SetPropertyValue<double>(nameof(QuantityC), ref fQuantityC, value); }
         }
     }
 

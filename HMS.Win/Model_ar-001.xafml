@@ -2284,8 +2284,8 @@
     <ListView Id="StayMedications_ListView">
       <Columns>
         <ColumnInfo Id="emergency" Caption="طوارئ" />
-        <ColumnInfo Id="profit" Caption="الربح" />
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="profit" Caption="الربح" />
       </Columns>
     </ListView>
     <ListView Id="StayMedications_LookupListView">

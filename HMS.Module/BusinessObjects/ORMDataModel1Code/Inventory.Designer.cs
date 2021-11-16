@@ -36,6 +36,20 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fEmployee; }
             set { SetPropertyValue<Employee>(nameof(Employee), ref fEmployee, value); }
         }
+        Department fDepartment;
+        [Association(@"InventoryReferencesDepartment")]
+        public Department Department
+        {
+            get { return fDepartment; }
+            set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
+        WearhouseType fWearhouseType;
+        [Association(@"InventoryReferencesWearhouseType")]
+        public WearhouseType WearhouseType
+        {
+            get { return fWearhouseType; }
+            set { SetPropertyValue<WearhouseType>(nameof(WearhouseType), ref fWearhouseType, value); }
+        }
         [Association(@"StockProductReferencesInventory")]
         public XPCollection<StockProduct> StockProducts { get { return GetCollection<StockProduct>(nameof(StockProducts)); } }
     }

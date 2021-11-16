@@ -3705,11 +3705,11 @@
     <ListView Id="StayMedications_ListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="quantity" Caption="الكمية " />
-        <ColumnInfo Id="date" Caption="التاريخ" />
+        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
         <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
         <ColumnInfo Id="total" Caption="الاجمالي" EditMask="C" />
-        <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="date" Caption="التاريخ" />
       </Columns>
     </ListView>
     <ListView Id="StayMedications_LookupListView">
@@ -3742,11 +3742,11 @@
     <ListView Id="StaySupplies_ListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="quantity" Caption="الكمية " />
-        <ColumnInfo Id="supplyProduct" Caption="منتج" />
-        <ColumnInfo Id="date" Caption="التاريخ" />
         <ColumnInfo Id="price" Caption="السعر" EditMask="C" />
+        <ColumnInfo Id="supplyProduct" Caption="منتج" />
         <ColumnInfo Id="total" EditMask="C" />
+        <ColumnInfo Id="quantity" Caption="الكمية " />
+        <ColumnInfo Id="date" Caption="التاريخ" />
       </Columns>
     </ListView>
     <ListView Id="StaySupplies_LookupListView">

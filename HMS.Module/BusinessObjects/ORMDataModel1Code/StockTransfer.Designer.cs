@@ -43,6 +43,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fToWearhouse; }
             set { SetPropertyValue<Inventory>(nameof(ToWearhouse), ref fToWearhouse, value); }
         }
+        bool fTransferd;
+        public bool Transferd
+        {
+            get { return fTransferd; }
+            set { SetPropertyValue<bool>(nameof(Transferd), ref fTransferd, value); }
+        }
         [Association(@"TransferProductReferencesStockTransfer")]
         public XPCollection<TransferProduct> TransferProducts { get { return GetCollection<TransferProduct>(nameof(TransferProducts)); } }
     }
