@@ -137,5 +137,11 @@ namespace HMS.Module.Win.Controllers
             curr.Transferd = true;
             ObjectSpace.CommitChanges();
         }
+
+        private void TransferReport_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = e.CurrentObject as StockTransfer;
+
+        }
     }
 }

@@ -233,6 +233,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<StayMedications> StayMedicications { get { return GetCollection<StayMedications>(nameof(StayMedicications)); } }
         [Association(@"StaySuppliesReferencesAdmission")]
         public XPCollection<StaySupplies> StockDetailsCollection { get { return GetCollection<StaySupplies>(nameof(StockDetailsCollection)); } }
+        [Association(@"ProductRefundReferencesAdmission")]
+        public XPCollection<ProductRefund> ProductRefunds { get { return GetCollection<ProductRefund>(nameof(ProductRefunds)); } }
     }
 
 }

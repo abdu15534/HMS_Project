@@ -80,6 +80,7 @@ namespace HMS.Module.Win.Controllers
             this.TransferReport.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.TransferReport.ToolTip = null;
             this.TransferReport.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.TransferReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.TransferReport_Execute);
             // 
             // StockTransferController
             // 

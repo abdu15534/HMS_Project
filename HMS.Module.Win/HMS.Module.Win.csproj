@@ -949,6 +949,12 @@
     <Compile Include="reports\TotalPayments.Designer.cs">
       <DependentUpon>TotalPayments.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\TransferRequest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\TransferRequest.Designer.cs">
+      <DependentUpon>TransferRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\VacationsReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1245,6 +1251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\TotalPayments.resx">
       <DependentUpon>TotalPayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\TransferRequest.resx">
+      <DependentUpon>TransferRequest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\VacationsReport.resx">
       <DependentUpon>VacationsReport.cs</DependentUpon>

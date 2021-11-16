@@ -90,7 +90,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(StockTransfer),
             typeof(TransferProduct),
             typeof(Department),
-            typeof(WearhouseType)
+            typeof(WearhouseType),
+            typeof(ProductRefund)
         };
         public static Type[] GetPersistentTypes()
         {

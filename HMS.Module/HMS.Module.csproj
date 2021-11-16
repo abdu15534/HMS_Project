@@ -384,6 +384,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.Designer.cs">
       <DependentUpon>paymentSupplierBond.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.Designer.cs">
+      <DependentUpon>ProductRefund.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\receiptClientBond.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\receiptClientBond.Designer.cs">
       <DependentUpon>receiptClientBond.cs</DependentUpon>
