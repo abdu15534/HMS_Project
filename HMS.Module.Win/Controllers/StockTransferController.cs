@@ -9,6 +9,7 @@ using DevExpress.ExpressApp.Templates;
 using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
+using DevExpress.XtraReports.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -140,8 +141,10 @@ namespace HMS.Module.Win.Controllers
 
         private void TransferReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
+            reports.TransferRequest report = new reports.TransferRequest();
             var curr = e.CurrentObject as StockTransfer;
-
+            report.Parameters["id"].Value = curr.ID;
+            report.ShowPreviewDialog();
         }
     }
 }
