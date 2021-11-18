@@ -73,7 +73,7 @@ namespace HMS.Module.Win.Controllers
             // 
             // TransferReport
             // 
-            this.TransferReport.Caption = "Transfer Report";
+            this.TransferReport.Caption = "طلب صرف";
             this.TransferReport.ConfirmationMessage = null;
             this.TransferReport.Id = "TransferReport";
             this.TransferReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.StockTransfer);

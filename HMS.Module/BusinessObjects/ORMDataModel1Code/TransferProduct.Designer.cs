@@ -20,12 +20,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class TransferProduct : XPObject
     {
         StockProduct fStockProduct;
+        [DevExpress.Persistent.Base.DataSourceCriteria("Inventory ='@this.StockTransfer.FromWarehouse'")]
         public StockProduct StockProduct
         {
             get { return fStockProduct; }
             set { SetPropertyValue<StockProduct>(nameof(StockProduct), ref fStockProduct, value); }
         }
-        [PersistentAlias("[StockProduct.firstUnitQuantity]")]
+        [PersistentAlias("Iif([StockProduct.firstUnitQuantity] Is Null, 0.0, [StockProduct.firstUnitQuantity])")]
         public double Quantity
         {
             get { return (double)(EvaluateAlias(nameof(Quantity))); }

@@ -388,6 +388,14 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.Designer.cs">
       <DependentUpon>ProductRefund.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PurchaseRequest.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PurchaseRequest.Designer.cs">
+      <DependentUpon>PurchaseRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PurchaseRequestDetail.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PurchaseRequestDetail.Designer.cs">
+      <DependentUpon>PurchaseRequestDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\receiptClientBond.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\receiptClientBond.Designer.cs">
       <DependentUpon>receiptClientBond.cs</DependentUpon>

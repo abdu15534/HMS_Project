@@ -121,6 +121,12 @@ DevExpress.Persistent.Base.DataSourceCriteria(" InStay = false AND InEmergency =
         {
             get { return (decimal)(EvaluateAlias(nameof(XraySum))); }
         }
+        Department fDepartment;
+        public Department Department
+        {
+            get { return fDepartment; }
+            set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
         [Association(@"StayMedicationsReferencesEmergency"), Aggregated]
         public XPCollection<StayMedications> StayMedicationsCollection { get { return GetCollection<StayMedications>(nameof(StayMedicationsCollection)); } }
         [Association(@"StaySuppliesReferencesEmergency"), Aggregated]

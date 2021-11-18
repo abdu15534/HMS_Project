@@ -626,6 +626,12 @@
         <Member Name="secondUnitQuantity" Caption="وحدة تجزئة" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.StockTransfer" Caption="طلب تحويل">
+      <OwnMembers>
+        <Member Name="FromWarehouse" Caption="من مخزن" />
+        <Member Name="ToWearhouse" Caption="الى مخزن" />
+      </OwnMembers>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.SubAccount" Caption="حساب فرعى">
       <OwnMembers>
         <Member Name="accountName" Caption="إسم الحساب" />
@@ -676,6 +682,11 @@
         <Member Name="intoRoom" Caption="الي غرفة" />
         <Member Name="intoSection" Caption="الي قسم" />
         <Member Name="statement" Caption="بيان القيد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.TransferProduct">
+      <OwnMembers>
+        <Member Name="StockTransfer" Caption="طلب تحويل" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.VacationDetails">
@@ -2848,6 +2859,87 @@
       </Columns>
     </ListView>
     <ListView Id="ProjectTask_LookupListView" Caption="المهام" />
+    <DetailView Id="PurchaseRequest_DetailView" Caption="طلب شراء">
+      <Items>
+        <PropertyEditor Id="Approved" Caption="تم الموافقة" />
+        <PropertyEditor Id="Date" Caption="التاريخ" />
+        <PropertyEditor Id="Notes" Caption="ملاحظات" />
+        <PropertyEditor Id="PurchaseRequestDetails" Caption="اصناف الطلب" />
+        <PropertyEditor Id="Warehouse" Caption="المخزن" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PurchaseRequest" Caption="طلب شراء" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="ملاحظات" />
+          <LayoutGroup Id="PurchaseRequestDetails_Group" Caption="الاصناف المطلوبة" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PurchaseRequest_ListView" Caption="طلب شراء">
+      <Columns>
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
+        <ColumnInfo Id="Warehouse" Caption="المخزن" />
+        <ColumnInfo Id="Date" Caption="التاريخ" />
+        <ColumnInfo Id="Approved" Caption="تم الموافقة" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchaseRequest_LookupListView" Caption="طلب شراء">
+      <Columns>
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
+        <ColumnInfo Id="Date" Caption="التاريخ" />
+        <ColumnInfo Id="Approved" Caption="تم الموافقة" />
+        <ColumnInfo Id="Warehouse" Caption="المخزن" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchaseRequest_PurchaseRequestDetails_ListView" Caption="اصناف الطلب">
+      <Columns>
+        <ColumnInfo Id="PurchaseRequest" Caption="طلب شراء" />
+        <ColumnInfo Id="Quantity" Caption="الرصيد المتاح" />
+        <ColumnInfo Id="Product" Caption="المنتج" />
+        <ColumnInfo Id="RequstedAmount" Caption="الكمية" />
+        <ColumnInfo Id="Approved" Caption="تم الموافقة" />
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PurchaseRequestDetail_DetailView" Caption="اصناف الطلب">
+      <Items>
+        <PropertyEditor Id="Approved" Caption="تم الموافقة" />
+        <PropertyEditor Id="Notes" Caption="ملاحظات" />
+        <PropertyEditor Id="Product" Caption="المنتج" />
+        <PropertyEditor Id="PurchaseRequest" Caption="طلب شراء" />
+        <PropertyEditor Id="Quantity" Caption="الرصيد المتاح" />
+        <PropertyEditor Id="RequstedAmount" Caption="الكمية" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PurchaseRequestDetail" Caption="اصناف الطلب" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PurchaseRequestDetail_ListView" Caption="اصناف الطلب">
+      <Columns>
+        <ColumnInfo Id="Product" Caption="المنتج" />
+        <ColumnInfo Id="RequstedAmount" Caption="الكمية" />
+        <ColumnInfo Id="Quantity" Caption="الرصيد المتاح" />
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
+        <ColumnInfo Id="PurchaseRequest" Caption="طلب شراء" />
+        <ColumnInfo Id="Approved" Caption="تم الموافقة" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchaseRequestDetail_LookupListView" Caption="اصناف الطلب">
+      <Columns>
+        <ColumnInfo Id="Product" Caption="المنتج" />
+        <ColumnInfo Id="RequstedAmount" Caption="الكمية" />
+        <ColumnInfo Id="Quantity" Caption="الرصيد المتاح" />
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
+        <ColumnInfo Id="PurchaseRequest" Caption="طلب شراء" />
+        <ColumnInfo Id="Approved" Caption="تم الموافقة" />
+      </Columns>
+    </ListView>
     <DetailView Id="PurchasingOrder_DetailView">
       <Items>
         <PropertyEditor Id="id" Caption="الكود" />
@@ -3790,6 +3882,28 @@
       <Columns>
         <ColumnInfo Id="Inventory" Caption="المخازن" />
         <ColumnInfo Id="secondUnitQuantity" Caption="وحدة تجزئة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="StockTransfer_DetailView" Caption="طلبات التحويل">
+      <Items>
+        <PropertyEditor Id="Date" Caption="التاريخ" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StockTransfer" Caption="طلب تحويل" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="StockTransfer_ListView" Caption="طلب تحويل" />
+    <ListView Id="StockTransfer_TransferProducts_ListView">
+      <Columns>
+        <ColumnInfo Id="Quantity" Caption="الرصيد المتاح" />
+        <ColumnInfo Id="RequstedCount" Caption="الكمية" />
+        <ColumnInfo Id="QuantityC" Caption="الرصيد المتاح" />
+        <ColumnInfo Id="TobeApproved" Caption="موافقة" />
+        <ColumnInfo Id="Notes" Caption="ملاحظات" />
       </Columns>
     </ListView>
     <DetailView Id="StringObject_DetailView">

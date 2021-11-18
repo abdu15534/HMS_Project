@@ -239,5 +239,75 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void AcceptAllRequest_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as PurchaseRequest;
+
+            var requstedAndApproved = curr.PurchaseRequestDetails;
+            var purchaseOrder = ObjectSpace.CreateObject<PurchasingOrder>();
+            curr.Order = purchaseOrder;
+            purchaseOrder.inventory = curr.Warehouse;
+            foreach(var i in requstedAndApproved)
+            {
+                i.Approved = true;
+                var purchaseOrderDetail = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                purchaseOrderDetail.product = i.Product;
+                purchaseOrderDetail.quantity = i.RequstedAmount;
+                purchaseOrderDetail.price = 1;
+                purchaseOrderDetail.puchasingOrder = purchaseOrder;
+                curr.Approved = true;
+            }
+            ObjectSpace.CommitChanges();
+        }
+
+       
+
+        private void CancelPurchaseRequest_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as PurchaseRequest;
+
+            var requstedAndApproved = curr.PurchaseRequestDetails;
+            var purchaseOrder = ObjectSpace.GetObjectByKey(typeof(PurchasingOrder),curr.Order.id);
+            ObjectSpace.Delete(purchaseOrder);
+            curr.Order = null;
+            foreach (var i in requstedAndApproved)
+            {
+                i.Approved = false;
+                //var purchaseOrderDetail = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                //purchaseOrderDetail.product = i.Product;
+                //purchaseOrderDetail.quantity = 1;
+                //purchaseOrderDetail.price = 1;
+                //purchaseOrderDetail.puchasingOrder = purchaseOrder;
+                curr.Approved = false;
+            }
+            ObjectSpace.CommitChanges();
+        }
+
+        private void RequestReport_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+
+        }
+
+        private void AcceptSomeOFTheRequest_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = View.CurrentObject as PurchaseRequest;
+
+            var requstedAndApproved = curr.PurchaseRequestDetails.Where(p => p.Approved == true);
+            var purchaseOrder = ObjectSpace.CreateObject<PurchasingOrder>();
+            curr.Order = purchaseOrder;
+            purchaseOrder.inventory = curr.Warehouse;
+            foreach (var i in requstedAndApproved)
+            {
+                i.Approved = true;
+                var purchaseOrderDetail = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                purchaseOrderDetail.product = i.Product;
+                purchaseOrderDetail.quantity = i.RequstedAmount;
+                purchaseOrderDetail.price = 1;
+                purchaseOrderDetail.puchasingOrder = purchaseOrder;
+                curr.Approved = true;
+            }
+            ObjectSpace.CommitChanges();
+        }
     }
 }

@@ -89,6 +89,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if (this.Session.IsNewObject(this))
             {
+                switch (status)
+                {
+                    case statusType.normal:
+                        this.Department = Session.GetObjectByKey<Department>(3);
+                        return;
+                    case statusType.ICU:
+                        this.Department = Session.GetObjectByKey<Department>(4);
+                        return;
+                    case statusType.covid:
+                        this.Department = Session.GetObjectByKey<Department>(5);
+                        return;
+                }
                 if (reception.currentStay != this)
                 {
                     /*                    if(this.reception.currentStay.totalDays != this.reception.currentStay.SupervisionDetailsCollection.Count)

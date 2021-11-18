@@ -2,12 +2,18 @@
 <Application Logo="ExpressAppLogo" PreferredLanguage="ar">
   <ActionDesign>
     <Actions>
+      <Action Id="AcceptAllRequest" ImageName="TrackingChanges_Accept" />
+      <Action Id="AcceptSomeOFTheRequest" ImageName="ApplyChanges" />
       <Action Id="AddDepartmentsServices" ImageName="AddParameter" />
       <Action Id="AddPharmacy" ImageName="AddParameter" />
       <Action Id="AddStock" ImageName="AddParameter" />
       <Action Id="AddTests" ImageName="AddParameter" />
+      <Action Id="ApproveTransferForSome" ImageName="ApplyChanges" />
+      <Action Id="ApproveTransferofAll" ImageName="TrackingChanges_Accept" />
       <Action Id="BackUpDataBase" ImageName="Open2" />
       <Action Id="CancelAction" ImageName="Cancel" />
+      <Action Id="CancelPurchaseRequest" ImageName="Ungroup" />
+      <Action Id="CancelRequest" ImageName="Ungroup" />
       <Action Id="CheckOutAction" TargetObjectsCriteria="[IsDischarged] &lt;&gt; True" ConfirmationMessage="Check out this stay ?" ImageMode="UseActionImage" ImageName="Walking_32x32" />
       <Action Id="Close" ImageName="Action_CloseAllWindows" />
       <Action Id="CurrentStay" ImageName="BO_Category" />
@@ -25,9 +31,11 @@
       <Action Id="PatientLable" ImageName="Shopping_Barcode" />
       <Action Id="PostSalaryPayment" TargetObjectsCriteria="[post] = False And [SalaryDetailsCollection][].Count() &gt; 0" />
       <Action Id="PrintProductLable" ImageName="Shopping_Barcode" />
+      <Action Id="RequestReport" ImageName="BO_Report" />
       <Action Id="RestoreDatabase" ImageName="Up" />
       <Action Id="SalaryPayment" TargetObjectsCriteria="[date] &lt;&gt; null And [SalaryDetailsCollection][].Count() = 0" Caption="تجهيز المرتبات" />
       <Action Id="Transfer" ImageName="MovePivotTable" TargetObjectsCriteria="[isDischarged] = False" />
+      <Action Id="TransferReport" ImageName="BO_Report" />
       <Action Id="UnCheckOutAction" TargetObjectsCriteria="[IsDischarged] = True And [reception.isDischarged] = False" />
       <Action Id="XrayServices" ImageName="AddParameter" />
     </Actions>
@@ -448,6 +456,17 @@
         <Member Name="id" Caption="كود" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchaseRequest">
+      <AppearanceRules>
+        <AppearanceRule Id="@d503a2ef-e0b9-408f-aa2a-f6521fc02e74" TargetItems="*" Criteria="[Approved] = False" BackColor="255, 255, 128" IsNewNode="True" />
+        <AppearanceRule Id="@d78052ed-84d3-4945-ade8-f8792191db9b" TargetItems="*" Criteria="[Approved] = True" BackColor="128, 255, 128" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchaseRequestDetail">
+      <AppearanceRules>
+        <AppearanceRule Id="@44e1890d-c656-43b1-9fd7-2656e7e96c59" TargetItems="*" Criteria="[Approved] = True" BackColor="128, 255, 128" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder">
       <AppearanceRules>
         <AppearanceRule Id="@77437ef1-429f-439a-9af4-92c210627ee4" Enabled="False" Criteria="[isConfirmed] = True" TargetItems="*" IsNewNode="True" />
@@ -816,13 +835,14 @@
           <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" ViewId="Emergency_ListView" Index="3" ImageName="Flag_of_the_Red_Cross" IsNewNode="True" />
           <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" Visible="False" IsNewNode="True" />
           <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" ImageName="BO_Product" IsNewNode="True" />
+          <Item Id="Department_ListView" ViewId="Department_ListView" ImageName="BO_Department" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Pharmacy" Caption="Pharmacy" Index="1" ImageName="AddParameter" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="PharmacyPOS" Caption="PharmacyPOS" ViewId="Pharmacy_ListView" ImageName="TopDown" IsNewNode="True" />
           <Item Id="ReceptionDesk" Caption="Reception Desk" ViewId="ReceptionDesk_ListView" ImageName="BO_Department" IsNewNode="True" />
-          <Item Id="StayMedications_ListView" ViewId="StayMedications_ListView" IsNewNode="True" />
+          <Item Id="StayMedications_ListView" ViewId="StayMedications_ListView" ImageName="BO_List" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Inventory &amp; products" Index="2" ImageName="BO_Order" IsNewNode="True">
@@ -831,8 +851,8 @@
           <Item Id="Product_ListView" ObjectKey="" ImageName="BO_Product_Group_32x32" Index="1" ViewId="Product_ListView" IsNewNode="True" />
           <Item Id="Category_ListView" ObjectKey="" Index="2" ImageName="BO_Price_Item" ViewId="Category_ListView" IsNewNode="True" />
           <Item Id="ProductUnit_ListView" ObjectKey="" ImageName="NewProduct" ViewId="ProductUnit_ListView" IsNewNode="True" />
-          <Item Id="StaySupplies_ListView" ViewId="StaySupplies_ListView" IsNewNode="True" />
-          <Item Id="StockTransfer_ListView" ViewId="StockTransfer_ListView" IsNewNode="True" />
+          <Item Id="StaySupplies_ListView" ViewId="StaySupplies_ListView" ImageName="BO_List" IsNewNode="True" />
+          <Item Id="StockTransfer_ListView" ViewId="StockTransfer_ListView" ImageName="BO_Transition" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="القسم الخارجي" Index="3" IsNewNode="True">
@@ -851,6 +871,7 @@
           <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="Purchasing Orders" ImageName="BO_Sale_Item" ViewId="PurchasingOrder_ListView" Index="2" IsNewNode="True" />
           <Item Id="@67bb11cc-460a-4402-8b48-659d5fc12b30" ViewId="SuppliesSettings_DetailView" Index="3" ImageName="Prioritized" IsNewNode="True" />
           <Item Id="@b1b37ff0-b31a-4432-b07a-1912c620ef30" Caption="Exchange" ImageName="Business_Dollar" ViewId="OrderExchange_ListView" IsNewNode="True" />
+          <Item Id="PurchaseRequest_ListView" ViewId="PurchaseRequest_ListView" ImageName="EmployeeTaskList" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="HRDepartment" Index="5" ImageName="BO_Customer" Caption="HRDepartment" Visible="True" IsNewNode="True">
@@ -1082,6 +1103,7 @@
   <Validation>
     <Rules>
       <RuleRequiredField Id="@102dc461-04b5-4dc6-8793-a98798dbf54b" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="PhoneNumber2" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleRequiredField Id="@12dc5ae7-f9df-4458-8726-8364dd8d478f" TargetType="XafDataModel.Module.BusinessObjects.test2.StockTransfer" TargetPropertyName="FromWarehouse" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@2aca6ddf-c3d6-47b3-ab2c-761609b4c834" TargetType="XafDataModel.Module.BusinessObjects.test2.Employee" TargetPropertyName="FirstName" TargetContextIDs="Save" IsNewNode="True" />
       <RuleCriteria Id="@2bdf5d0b-ab75-4e24-b42b-e9c9e9ce3050" TargetType="XafDataModel.Module.BusinessObjects.test2.receiptClientBond" Criteria="[amount] &gt; 0.0m And [date] Is Not Null" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@3137da9b-99e9-4ab1-ac61-d595e8b8625f" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="Photo" TargetContextIDs="Save" IsNewNode="True" />
@@ -1090,20 +1112,24 @@
       <RuleRequiredField Id="@559c6ebe-25f4-48fd-a8c5-125319fb0ab8" TargetType="XafDataModel.Module.BusinessObjects.test2.Endscope" TargetPropertyName="Patient" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@5acd8399-ba40-4d93-8311-e51ad817da16" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="PhoneNumber1" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRange Id="@6250b2db-07d2-48cf-9ec1-1e5f0ff1d67f" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder" TargetPropertyName="discount" TargetContextIDs="Save" MinimumValue="0" MaximumValue="100" IsNewNode="True" />
+      <RuleRequiredField Id="@6d02d2b4-aa1c-419a-ba56-82a47ca9e43b" TargetType="XafDataModel.Module.BusinessObjects.test2.StockTransfer" TargetPropertyName="ToWearhouse" TargetContextIDs="Save" IsNewNode="True" />
       <RuleCriteria Id="@7dabec58-18a3-41f4-867a-f8c214eaddb7" TargetType="XafDataModel.Module.BusinessObjects.test2.Admission" Criteria="[StayStart] &lt; [StayEnd]" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@7f2a10ce-86e8-45ec-8bb6-b0212efb1f0c" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="Birthday" TargetContextIDs="Save" IsNewNode="True" />
       <RuleCriteria Id="@813476ba-96b4-4429-a5c4-8fe6f399659a" TargetType="XafDataModel.Module.BusinessObjects.test2.SalaryPayment" Criteria="[date] Is Not Null And [paymentAccount] Is Not Null And [SalaryDetailsCollection][].Count() &gt; 0" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@838ac415-358d-46d1-85a5-d2960f96d7b3" TargetContextIDs="Save" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="Occubation" IsNewNode="True" />
       <RuleRequiredField Id="@83ae4f2a-17d2-46a6-b872-4c80f1fd9cb9" TargetType="XafDataModel.Module.BusinessObjects.test2.Xrays" TargetPropertyName="Patient" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleRequiredField Id="@8aafb197-9867-4478-a31d-2ece31e8aa07" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchaseRequest" TargetPropertyName="Warehouse" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@8cdc104f-716e-4035-affe-08d593aa15b1" TargetContextIDs="Save" TargetType="XafDataModel.Module.BusinessObjects.test2.Employee" TargetPropertyName="section" IsNewNode="True" />
       <RuleCriteria Id="@95b4b964-7cac-4287-860d-96383f741744" TargetType="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails" Criteria="[totalDeduction] &gt; 0.0m And [DeductionType] Is Not Null And [payPerHour] &gt; 0.0m" TargetContextIDs="Save" CustomMessageTemplate="" IsNewNode="True" />
       <RuleCriteria Id="@9b44b73e-2143-40ec-b949-6f21fd24e270" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" Criteria="[amount] &gt; 0.0m" IsNewNode="True" />
       <RuleRequiredField Id="@a15414c7-cb54-4776-9618-ded4b68aa617" TargetType="XafDataModel.Module.BusinessObjects.test2.Product" TargetPropertyName="category" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@b5127507-38a2-4fd6-8de1-b866e639ab09" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" TargetPropertyName="product" IsNewNode="True" />
       <RuleRequiredField Id="@bbc67994-a037-4f02-8f8a-f0c0dfeb8a2e" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="PhoneNumber2" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleCriteria Id="@bf100fb5-58de-48a8-a360-fe7cda5a57f1" TargetType="XafDataModel.Module.BusinessObjects.test2.TransferProduct" TargetContextIDs="Save" TargetCollectionPropertyName="" TargetCollectionOwnerType="" Criteria="[RequstedCount] &gt; 0.0" IsNewNode="True" />
       <RuleRequiredField Id="@cc48887f-1622-4c75-9960-48debc00e31f" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="DateOfBrith" TargetContextIDs="Save" IsNewNode="True" />
       <RuleCriteria Id="@d13a9551-c5c4-4b68-be22-3aa1f3dceb57" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder" TargetContextIDs="Save" Criteria="[date] Is Not Null And [inventory] Is Not Null And [supplierAccount] Is Not Null And [PurchasingOrderDetails][].Count() &gt; 0" TargetCriteria="" SkipNullOrEmptyValues="False" IsNewNode="True" />
       <RuleRequiredField Id="@d76ca977-7929-46ef-9d1a-227d72f26c83" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="ImageProperty" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleCriteria Id="@dd92beb9-3e7d-4c25-8619-e3e67a328d0a" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchaseRequestDetail" Criteria="[RequstedAmount] &gt; 0.0" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@dfe2248a-7939-41d2-892a-05b2217b846b" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="PhoneNumber1" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@e6f60cfb-7aff-4934-87d5-1457e4da7402" TargetType="XafDataModel.Module.BusinessObjects.test2.Patient" TargetPropertyName="FullName" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRange Id="@ece1c909-0269-42f9-b350-02c8c85fdc42" TargetContextIDs="Save" MinimumValue="0" MaximumValue="100" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrder" TargetPropertyName="tax" IsNewNode="True" />
@@ -1724,7 +1750,7 @@
         <ColumnInfo Id="room" Caption="الغرفة" />
       </Columns>
     </ListView>
-    <ListView Id="bed_LookupListView" Caption="السرير">
+    <ListView Id="bed_LookupListView" Caption="السرير" AllowNew="False" AllowUnlink="False">
       <Columns>
         <ColumnInfo Id="number" Caption="الرقم" />
       </Columns>
@@ -2005,6 +2031,7 @@
         <ColumnInfo Id="employee" Caption="موظف" />
       </Columns>
     </ListView>
+    <ListView Id="Department_LookupListView" AllowNew="False" />
     <DetailView Id="Emergency_DetailView">
       <Items>
         <PropertyEditor Id="amount" Caption="الكمية" />
@@ -2533,7 +2560,7 @@
     </DetailView>
     <ListView Id="Inventory_ListView" ShowDetailView="True" AllowNew="True" AllowDelete="False" />
     <ListView Id="Inventory_LookupListView" ShowDetailView="True" AllowDelete="False" AllowNew="False" />
-    <ListView Id="Inventory_StockProducts_ListView" ShowDetailView="False" IsGroupPanelVisible="False" IsFooterVisible="True">
+    <ListView Id="Inventory_StockProducts_ListView" ShowDetailView="False" IsGroupPanelVisible="False" IsFooterVisible="True" AllowEdit="False" AllowDelete="False" AllowNew="False">
       <Columns>
         <ColumnInfo Id="totalIn" Caption="مجموع الداخل" />
         <ColumnInfo Id="totalOut" Caption="مجموع الخارج" />
@@ -3480,6 +3507,51 @@
         <ColumnInfo Id="StartDate" Caption="تاريخ البداية" />
       </Columns>
     </ListView>
+    <DetailView Id="PurchaseRequest_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="18.939393939393938">
+            <LayoutGroup Id="PurchaseRequest" RelativeSize="100">
+              <LayoutGroup Id="PurchaseRequest_col1" RelativeSize="50">
+                <LayoutItem Id="ID" RelativeSize="50" />
+                <LayoutItem Id="Date" RelativeSize="50" />
+                <LayoutItem Id="Approved" RelativeSize="35.632183908045974" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="PurchaseRequest_col2" Caption="PurchaseRequest_col2" RelativeSize="50">
+                <LayoutItem Id="Warehouse" Index="0" RelativeSize="100" />
+                <LayoutItem Id="Order" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="18.75">
+            <LayoutItem Id="Notes" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="PurchaseRequestDetails_Group" TextAlignMode="AlignWithChildren" Direction="Vertical" RelativeSize="62.310606060606062">
+            <LayoutItem Id="PurchaseRequestDetails" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="PurchaseRequest_ListView">
+      <Columns>
+        <ColumnInfo Id="Order" Index="-1" />
+        <ColumnInfo Id="Warehouse" Index="0" />
+        <ColumnInfo Id="Date" Index="1" />
+        <ColumnInfo Id="Approved" Index="2" />
+      </Columns>
+    </ListView>
+    <ListView Id="PurchaseRequest_LookupListView" AllowNew="False" />
+    <ListView Id="PurchaseRequest_PurchaseRequestDetails_ListView" ShowDetailView="False">
+      <Columns>
+        <ColumnInfo Id="ID" Index="-1" />
+        <ColumnInfo Id="Quantity" Index="-1" />
+        <ColumnInfo Id="Product" Index="0" />
+        <ColumnInfo Id="Product.purchasingUnit" PropertyName="Product.purchasingUnit" Index="1" IsNewNode="True" />
+        <ColumnInfo Id="RequstedAmount" Index="2" />
+        <ColumnInfo Id="Approved" Index="3" />
+        <ColumnInfo Id="Notes" Index="4" />
+      </Columns>
+    </ListView>
     <DetailView Id="PurchasingOrder_DetailView">
       <Items>
         <PropertyEditor Id="date" PropertyName="date" IsNewNode="True" Removed="True" />
@@ -3666,6 +3738,7 @@
         <ColumnInfo Id="amount" Index="-1" Caption="الكمية" />
         <ColumnInfo Id="bed" Width="47" Index="-1" Caption="السرير" />
         <ColumnInfo Id="date" Index="-1" Caption="تاريخ" />
+        <ColumnInfo Id="Department" Index="-1" />
         <ColumnInfo Id="doctor" Width="48" Index="-1" Caption="الطبيب" />
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
@@ -4539,12 +4612,12 @@
     </ListView>
     <ListView Id="StockProduct_LookupListView" AllowDelete="False" AllowEdit="False" AllowNew="False" ShowDetailView="True" Caption="منتج المخزن">
       <Columns>
-        <ColumnInfo Id="Inventory" PropertyName="Inventory" Index="-1" Width="144" IsNewNode="True" />
+        <ColumnInfo Id="firstUnitQuantity" PropertyName="firstUnitQuantity" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="product.unitAmount" PropertyName="product.unitAmount" Index="-1" Width="73" IsNewNode="True" />
-        <ColumnInfo Id="secondUnitQuantity" PropertyName="secondUnitQuantity" Index="-1" SortIndex="-1" SortOrder="None" IsNewNode="True" />
         <ColumnInfo Id="product.barCode" Width="85" />
         <ColumnInfo Id="product" PropertyName="product" Index="1" Width="154" IsNewNode="True" />
-        <ColumnInfo Id="firstUnitQuantity" PropertyName="firstUnitQuantity" Index="2" IsNewNode="True" />
+        <ColumnInfo Id="Inventory" PropertyName="Inventory" Index="2" Width="144" IsNewNode="True" />
+        <ColumnInfo Id="secondUnitQuantity" PropertyName="secondUnitQuantity" Index="3" SortIndex="-1" SortOrder="None" IsNewNode="True" />
       </Columns>
     </ListView>
     <DetailView Id="StockTransfer_DetailView">
