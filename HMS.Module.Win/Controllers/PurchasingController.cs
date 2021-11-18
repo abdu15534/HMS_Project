@@ -286,7 +286,11 @@ namespace HMS.Module.Win.Controllers
 
         private void RequestReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
+            reports.RefundDocument report = new reports.RefundDocument();
+            var curr = e.CurrentObject as PurchaseRequest;
 
+            report.Parameters["parameter1"].Value = curr.ID;
+            report.ShowPreviewDialog();
         }
 
         private void AcceptSomeOFTheRequest_Execute(object sender, SimpleActionExecuteEventArgs e)
