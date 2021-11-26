@@ -20,9 +20,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+            InPatientSettings settingObj = Session.Query<InPatientSettings>().First();
             this.DeceasedPackageApplyed = false;
             dateEnter = DateTime.Now;
-            this.ServiceRate = 12;
+            this.ServiceRate = settingObj.ServiceRate;
+            this.StampPrice = settingObj.StampPrice;
             currentStay = new Admission(Session);
             journalEntry = new JournalEntry(Session);
             

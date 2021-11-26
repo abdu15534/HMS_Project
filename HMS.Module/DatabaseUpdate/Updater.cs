@@ -275,6 +275,16 @@ namespace HMS.Module.DatabaseUpdate
             }
             ObjectSpace.CommitChanges();
 
+            if (ObjectSpace.GetObjectsCount(typeof(InPatientSettings), null) == 0)
+            {
+                var setting = ObjectSpace.CreateObject<InPatientSettings>();
+                setting.ServiceRate = 15;
+                setting.StampPrice = 20m;
+                
+
+            }
+            ObjectSpace.CommitChanges();
+
             //Emploees Sections
             if (ObjectSpace.GetObjectsCount(typeof(Section), null) == 0)
             {

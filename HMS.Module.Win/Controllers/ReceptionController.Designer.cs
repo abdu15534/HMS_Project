@@ -41,6 +41,8 @@ namespace HMS.Module.Win.Controllers
             this.PatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.FindAddmition = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             this.FintdPatient = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
+            this.ToltalAccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.AccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -185,6 +187,30 @@ namespace HMS.Module.Win.Controllers
             this.FintdPatient.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.FintdPatient.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.FintdPatient_Execute);
             // 
+            // ToltalAccountStatement
+            // 
+            this.ToltalAccountStatement.Caption = "كشف حساب اجمالي";
+            this.ToltalAccountStatement.ConfirmationMessage = null;
+            this.ToltalAccountStatement.Id = "ToltalAccountStatement";
+            this.ToltalAccountStatement.ImageName = "EmployeeTaskList";
+            this.ToltalAccountStatement.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.ToltalAccountStatement.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ToltalAccountStatement.ToolTip = null;
+            this.ToltalAccountStatement.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ToltalAccountStatement.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AccountStatement_Execute);
+            // 
+            // AccountStatement
+            // 
+            this.AccountStatement.Caption = "كشف حساب تفصيلي";
+            this.AccountStatement.ConfirmationMessage = null;
+            this.AccountStatement.Id = "AccountStatement";
+            this.AccountStatement.ImageName = "EmployeeTaskList";
+            this.AccountStatement.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.AccountStatement.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.AccountStatement.ToolTip = null;
+            this.AccountStatement.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.AccountStatement.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AccountStatement_Execute_1);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -198,6 +224,8 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.PatientLable);
             this.Actions.Add(this.FindAddmition);
             this.Actions.Add(this.FintdPatient);
+            this.Actions.Add(this.ToltalAccountStatement);
+            this.Actions.Add(this.AccountStatement);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -214,5 +242,7 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction PatientLable;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FindAddmition;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FintdPatient;
+        private DevExpress.ExpressApp.Actions.SimpleAction ToltalAccountStatement;
+        private DevExpress.ExpressApp.Actions.SimpleAction AccountStatement;
     }
 }

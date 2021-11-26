@@ -149,10 +149,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(amountC))); }
         }
-        [PersistentAlias("[amountC] - [Discount] + [medicationC] + [ServiceFeeC] + Iif([PackageDetails][[Applyed] = True].Sum([price]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([price]))")]
+        [PersistentAlias("[amountC] - [Discount] + [medicationC] + [ServiceFeeC] + [StampPrice] + Iif([PackageDetails][[Applyed] = True].Sum([price]) Is Null, 0.0m, [PackageDetails][[Applyed] = True].Sum([price]))")]
         public decimal totalC
         {
             get { return (decimal)(EvaluateAlias(nameof(totalC))); }
+        }
+        decimal fStampPrice;
+        public decimal StampPrice
+        {
+            get { return fStampPrice; }
+            set { SetPropertyValue<decimal>(nameof(StampPrice), ref fStampPrice, value); }
         }
         [Association(@"AdmissionReferencesReceptionDesk")]
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }

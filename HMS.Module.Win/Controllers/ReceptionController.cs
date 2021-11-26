@@ -142,6 +142,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["patientName"].Value = curr.patient.FullName;
                 report.Parameters["enterDate"].Value = curr.dateEnter;
                 report.Parameters["leaveDate"].Value = curr.dateLeave;
+                report.Parameters["IsAccountStatement"].Value = false;
                 if (!curr.isDischarged)
                     report.Parameters["leaveDate"].Value = "مازال في الاقامة";
                 report.Parameters["totalStay"].Value = curr.total;
@@ -190,7 +191,37 @@ namespace HMS.Module.Win.Controllers
 
             else
             {
-                report.Parameters["parameter1"].Value = curr.enterID;
+                decimal regolAraddmission = curr.Admissions.Where(p => p.Status == Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal icuAddmission = curr.Admissions.Where(p => p.Status != Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal supervision = curr.Admissions.Sum(p => p.MedicalSupervisionSum);
+                decimal midcalCare = curr.Admissions.Sum(p => p.medicalCareSum);
+                decimal outSuperviosn = curr.Admissions.Sum(p => p.ConsolationSum);
+                decimal companion = curr.Admissions.Sum(p => p.companionSum);
+                decimal pharmacy = curr.Admissions.Sum(p => p.medicationSum);
+                decimal supplies = curr.Admissions.Sum(p => p.suppliesSum);
+                decimal tests = curr.Admissions.Sum(p => p.testsSum);
+                decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
+                decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
+                decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+
+                report.Parameters["norStay"].Value = regolAraddmission;
+                report.Parameters["icuStay"].Value = icuAddmission;
+                report.Parameters["supervsion"].Value = supervision;
+                report.Parameters["roomCare"].Value = midcalCare;
+                report.Parameters["outSuperviosn"].Value = outSuperviosn;
+                report.Parameters["Companion"].Value = companion;
+                report.Parameters["Pharmacy"].Value = pharmacy;
+                report.Parameters["Supplies"].Value = supplies;
+                report.Parameters["Tests"].Value = tests;
+                report.Parameters["Xrayes"].Value = xrayes;
+                report.Parameters["edos"].Value = edoscopy;
+                report.Parameters["blood"].Value = bloodServies;
+                report.Parameters["otherServies"].Value = otherServices;
+
+                report.Parameters["IsAccountstatement"].Value = false;
+
+                report.Parameters["id"].Value = curr.enterID;
                 report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
                 //report.Parameters["patientName"].Value = curr.patient.FullName;
                 //report.Parameters["enterDate"].Value = curr.dateEnter;
@@ -249,5 +280,104 @@ namespace HMS.Module.Win.Controllers
             
         }
 
+        private void AccountStatement_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.StayTotals report = new reports.StayTotals();
+
+            var curr = View.CurrentObject as ReceptionDesk;
+
+            if (curr == null)
+            {
+                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["enterID"].Value = x;
+            }
+
+            else
+            {
+                decimal regolAraddmission = curr.Admissions.Where(p => p.Status == Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal icuAddmission = curr.Admissions.Where(p => p.Status != Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal supervision = curr.Admissions.Sum(p => p.MedicalSupervisionSum);
+                decimal midcalCare = curr.Admissions.Sum(p => p.medicalCareSum);
+                decimal outSuperviosn = curr.Admissions.Sum(p => p.ConsolationSum);
+                decimal companion = curr.Admissions.Sum(p => p.companionSum);
+                decimal pharmacy = curr.Admissions.Sum(p => p.medicationSum);
+                decimal supplies = curr.Admissions.Sum(p => p.suppliesSum);
+                decimal tests = curr.Admissions.Sum(p => p.testsSum);
+                decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
+                decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
+                decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+
+                report.Parameters["norStay"].Value = regolAraddmission;
+                report.Parameters["icuStay"].Value = icuAddmission;
+                report.Parameters["supervsion"].Value = supervision;
+                report.Parameters["roomCare"].Value = midcalCare;
+                report.Parameters["outSuperviosn"].Value = outSuperviosn;
+                report.Parameters["Companion"].Value = companion;
+                report.Parameters["Pharmacy"].Value = pharmacy;
+                report.Parameters["Supplies"].Value = supplies;
+                report.Parameters["Tests"].Value = tests;
+                report.Parameters["Xrayes"].Value = xrayes;
+                report.Parameters["edos"].Value = edoscopy;
+                report.Parameters["blood"].Value = bloodServies;
+                report.Parameters["otherServies"].Value = otherServices;
+
+                report.Parameters["IsAccountstatement"].Value = true;
+
+                report.Parameters["id"].Value = curr.enterID;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
+                //report.Parameters["patientName"].Value = curr.patient.FullName;
+                //report.Parameters["enterDate"].Value = curr.dateEnter;
+                //report.Parameters["leaveDate"].Value = curr.dateLeave;
+                //if (!curr.isDischarged)
+                //    report.Parameters["leaveDate"].Value = "مازال في الاقامة";
+                //report.Parameters["totalStay"].Value = curr.total;
+                //report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+
+                //PermissionPolicyUser user;
+                //if (SecuritySystem.CurrentUser != null)
+                //{
+                //    user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
+                //    report.Parameters["user"].Value = user.UserName;
+                //}
+            }
+
+            report.ShowPreviewDialog();
+        }
+
+        private void AccountStatement_Execute_1(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.StayDetailReport report = new reports.StayDetailReport();
+
+            var curr = View.CurrentObject as ReceptionDesk;
+
+            if (curr == null)
+            {
+                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["enterID"].Value = x;
+            }
+
+            else
+            {
+                report.Parameters["enterID"].Value = curr.enterID;
+                report.Parameters["patientName"].Value = curr.patient.FullName;
+                report.Parameters["enterDate"].Value = curr.dateEnter;
+                report.Parameters["leaveDate"].Value = curr.dateLeave;
+                report.Parameters["IsAccountStatement"].Value = true;
+                if (!curr.isDischarged)
+                    report.Parameters["leaveDate"].Value = "مازال في الاقامة";
+                report.Parameters["totalStay"].Value = curr.total;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
+
+                PermissionPolicyUser user;
+                if (SecuritySystem.CurrentUser != null)
+                {
+                    user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
+                    report.Parameters["user"].Value = user.UserName;
+                }
+            }
+
+            report.ShowPreviewDialog();
+        }
     }
 }

@@ -290,6 +290,12 @@
         <Member Name="IsAvailable" Caption="متاح" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.InPatientSettings" Caption="اعدادات الاقامات">
+      <OwnMembers>
+        <Member Name="ServiceRate" Caption="نسبة الخدمة" />
+        <Member Name="StampPrice" Caption="الدمغة" />
+      </OwnMembers>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Inventory" Caption="المخازن">
       <OwnMembers>
         <Member Name="Employee" Caption="الموظف" />
@@ -459,6 +465,8 @@
         <Member Name="dateLeave" EditMask="f" DisplayFormat="{0:f}" />
         <Member Name="journalEntry" Caption="قيد" />
         <Member Name="note" Caption="ملاحظة" />
+        <Member Name="ServiceRate" Caption="نسبة الخدمة" />
+        <Member Name="StampPrice" Caption="الدمغة" />
         <Member Name="total" Caption="الاجمالي" />
       </OwnMembers>
     </Class>
@@ -3081,6 +3089,7 @@
       <Columns>
         <ColumnInfo Id="note" Caption="ملاحظة" />
         <ColumnInfo Id="total" Caption="الاجمالي" />
+        <ColumnInfo Id="ServiceRate" Caption="نسبة الخدمة" />
       </Columns>
     </ListView>
     <DetailView Id="ReportDataV2_DetailView">
