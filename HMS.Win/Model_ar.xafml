@@ -802,6 +802,11 @@
   <NavigationItems>
     <Items>
       <Item Id="In-Patient" Caption="المستشفي" />
+      <Item Id="القسم الخارجي">
+        <Items>
+          <Item Id="Appointments" Caption="مواعيد" />
+        </Items>
+      </Item>
       <Item Id="Pharmacy" Caption="الصيدلية">
         <Items>
           <Item Id="ReceptionDesk" Caption="الاقامات" />
@@ -810,11 +815,6 @@
       <Item Id="Inventory &amp; products" Caption="المخازن و المنتجات">
         <Items>
           <Item Id="Product_ListView" Caption="منتج" />
-        </Items>
-      </Item>
-      <Item Id="القسم الخارجي">
-        <Items>
-          <Item Id="Appointments" Caption="مواعيد" />
         </Items>
       </Item>
       <Item Id="Purchasing Department" Caption="المشتريات">

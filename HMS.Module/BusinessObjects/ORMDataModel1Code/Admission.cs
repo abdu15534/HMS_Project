@@ -2,6 +2,7 @@
 using DevExpress.Xpo;
 using NPOI.SS.Formula.Functions;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -50,7 +51,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 Room = null;
                 bed = null;
             }
-
+            if (propertyName == nameof(suppliesSum))
+            {
+                PackageDetail pdetail = reception.PackageDetails.FirstOrDefault(o => o.Applyed);
+            }
             if (propertyName == nameof(Room))
             {
                 if (Room != null)
@@ -64,6 +68,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if ((propertyName == nameof(StayStart) || propertyName == nameof(StayEnd)) && newValue != null)
             {
                 CalculateRoomServices();
+            }
+            if ((propertyName == nameof(StayMedicications) || propertyName == nameof(medicationSum)) && newValue != null)
+            {
+                
             }
         }
         protected override void OnSaving()
@@ -122,7 +130,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 bed.isAvailable = false;
                 //Patient.InStay = true;
             }
-            
+            IEnumerable<PackageDetail> packages = this.reception.PackageDetails.Where(o => o.Applyed == true);
+            foreach (PackageDetail item in packages)
+            {
+                item.UpdateInfo();
+            }
             transferFlag = false;
         }
 

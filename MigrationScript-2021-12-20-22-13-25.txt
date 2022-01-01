@@ -1,0 +1,20 @@
+/* 
+   Attention! The SQL commands below change the database structure and may corrupt any existing data.
+   We recommend you create a database backup before running this script.
+*/
+
+alter table "dbo"."CompanionDetails" add "GCRecord" int NULL;
+drop index "iSurgeryCategory_PackageDetail" on "dbo"."PackageDetail";
+alter table "dbo"."PackageDetail" drop constraint "FK_PackageDetail_SurgeryCategory";
+drop index "iPayer_Payments" on "dbo"."Payments";
+alter table "dbo"."Payments" drop constraint "FK_Payments_Payer";
+drop index "iStockProduct_PurchaseRequestDetail" on "dbo"."PurchaseRequestDetail";
+alter table "dbo"."PurchaseRequestDetail" drop constraint "FK_PurchaseRequestDetail_StockProduct";
+alter table "dbo"."PurchasingOrderDetail" alter column "Discount" double precision NULL;
+alter table "dbo"."Surgery" alter column "Patient" int NULL;
+drop index "iUnit_TransferProduct" on "dbo"."TransferProduct";
+alter table "dbo"."TransferProduct" drop constraint "FK_TransferProduct_Unit";
+drop index "Index1" on "dbo"."CompanionDetails";
+create  index "iGCRecord_CompanionDetails" on "dbo"."CompanionDetails"("GCRecord");
+create  index "iPatient_Surgery" on "dbo"."Surgery"("Patient");
+alter table "dbo"."Surgery" add constraint "FK_Surgery_Patient" foreign key ("Patient") references "dbo"."Patient"("ID")

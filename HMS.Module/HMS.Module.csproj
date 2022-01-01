@@ -388,6 +388,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\paymentSupplierBond.Designer.cs">
       <DependentUpon>paymentSupplierBond.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PreSchdual.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PreSchdual.Designer.cs">
+      <DependentUpon>PreSchdual.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.Designer.cs">
       <DependentUpon>ProductRefund.cs</DependentUpon>
@@ -500,6 +504,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\PurchasingOrderDetail.Designer.cs">
       <DependentUpon>PurchasingOrderDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ReceiptItem.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ReceiptItem.Designer.cs">
+      <DependentUpon>ReceiptItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\ReceptionDesk.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ReceptionDesk.Designer.cs">
       <DependentUpon>ReceptionDesk.cs</DependentUpon>
@@ -599,6 +607,26 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\SuppliesSettings.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\SuppliesSettings.Designer.cs">
       <DependentUpon>SuppliesSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Surgery.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Surgery.Designer.cs">
+      <DependentUpon>Surgery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgeryPackage.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgeryPackage.Designer.cs">
+      <DependentUpon>SurgeryPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\surgeryRoom.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\surgeryRoom.Designer.cs">
+      <DependentUpon>surgeryRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgerySchedule.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgerySchedule.Designer.cs">
+      <DependentUpon>SurgerySchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgicalCategory.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\SurgicalCategory.Designer.cs">
+      <DependentUpon>SurgicalCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\TestDetails.Designer.cs">

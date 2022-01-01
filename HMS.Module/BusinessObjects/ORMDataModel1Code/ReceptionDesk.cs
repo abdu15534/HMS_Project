@@ -31,6 +31,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         }
 
+        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        {
+            base.OnChanged(propertyName, oldValue, newValue);
+            if ((propertyName == nameof(totalC) || propertyName == nameof(medicationC) || propertyName == nameof(amountC)) && newValue != null)
+            {
+                
+            }
+        }
+
+
         public enum dischargeTypes { في_المستشفى , تحسن, وفاة, حسب_الطلب }
 
         dischargeTypes reasonForDischarge;

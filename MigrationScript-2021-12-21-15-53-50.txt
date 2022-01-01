@@ -1,0 +1,14 @@
+/* 
+   Attention! The SQL commands below change the database structure and may corrupt any existing data.
+   We recommend you create a database backup before running this script.
+*/
+
+alter table "dbo"."SurgicalCategory" add "ID" int NOT NULL;
+alter table "dbo"."SurgicalCategory" add constraint "PK_SurgicalCategory" primary key ("ID");
+alter table "dbo"."Surgery" add constraint "FK_Surgery_ID" foreign key ("ID") references "dbo"."PackageDetail"("ID");
+create  index "iSurgeryCategory_Surgery" on "dbo"."Surgery"("SurgeryCategory");
+alter table "dbo"."Surgery" add constraint "FK_Surgery_SurgeryCategory" foreign key ("SurgeryCategory") references "dbo"."SurgicalCategory"("ID");
+create  index "iSurgery_SurgerySchedule" on "dbo"."SurgerySchedule"("Surgery");
+alter table "dbo"."SurgerySchedule" add constraint "FK_SurgerySchedule_Surgery" foreign key ("Surgery") references "dbo"."Surgery"("ID");
+create  index "iID_SurgicalCategory" on "dbo"."SurgicalCategory"("ID");
+alter table "dbo"."SurgicalCategory" add constraint "FK_SurgicalCategory_ID" foreign key ("ID") references "dbo"."Package"("ID")

@@ -25,47 +25,35 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fID; }
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
-        double fFromNotTo5;
-        public double FromNotTo5
+        double fFromNotTo4;
+        public double FromNotTo4
         {
-            get { return fFromNotTo5; }
-            set { SetPropertyValue<double>(nameof(FromNotTo5), ref fFromNotTo5, value); }
+            get { return fFromNotTo4; }
+            set { SetPropertyValue<double>(nameof(FromNotTo4), ref fFromNotTo4, value); }
         }
-        double fFrom6To10;
-        public double From6To10
+        double fFrom5To9;
+        public double From5To9
         {
-            get { return fFrom6To10; }
-            set { SetPropertyValue<double>(nameof(From6To10), ref fFrom6To10, value); }
+            get { return fFrom5To9; }
+            set { SetPropertyValue<double>(nameof(From5To9), ref fFrom5To9, value); }
         }
-        double fFrom11To20;
-        public double From11To20
+        double fFrom10To90;
+        public double From10To90
         {
-            get { return fFrom11To20; }
-            set { SetPropertyValue<double>(nameof(From11To20), ref fFrom11To20, value); }
+            get { return fFrom10To90; }
+            set { SetPropertyValue<double>(nameof(From10To90), ref fFrom10To90, value); }
         }
-        double fFrom21To30;
-        public double From21To30
+        double fFrom91To149;
+        public double From91To149
         {
-            get { return fFrom21To30; }
-            set { SetPropertyValue<double>(nameof(From21To30), ref fFrom21To30, value); }
+            get { return fFrom91To149; }
+            set { SetPropertyValue<double>(nameof(From91To149), ref fFrom91To149, value); }
         }
-        double fFrom31To40;
-        public double From31To40
+        double fFrom150ToAll;
+        public double From150ToAll
         {
-            get { return fFrom31To40; }
-            set { SetPropertyValue<double>(nameof(From31To40), ref fFrom31To40, value); }
-        }
-        double fFrom41To50;
-        public double From41To50
-        {
-            get { return fFrom41To50; }
-            set { SetPropertyValue<double>(nameof(From41To50), ref fFrom41To50, value); }
-        }
-        double fFrom50ToAll;
-        public double From50ToAll
-        {
-            get { return fFrom50ToAll; }
-            set { SetPropertyValue<double>(nameof(From50ToAll), ref fFrom50ToAll, value); }
+            get { return fFrom150ToAll; }
+            set { SetPropertyValue<double>(nameof(From150ToAll), ref fFrom150ToAll, value); }
         }
     }
 

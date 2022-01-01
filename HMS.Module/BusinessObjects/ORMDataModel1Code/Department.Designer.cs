@@ -31,6 +31,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fName; }
             set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
         }
+        bool fCustomerFacing;
+        public bool CustomerFacing
+        {
+            get { return fCustomerFacing; }
+            set { SetPropertyValue<bool>(nameof(CustomerFacing), ref fCustomerFacing, value); }
+        }
         [Association(@"InventoryReferencesDepartment")]
         public XPCollection<Inventory> Inventories { get { return GetCollection<Inventory>(nameof(Inventories)); } }
     }

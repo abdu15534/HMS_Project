@@ -112,6 +112,21 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fUpdatedBy; }
             set { SetPropertyValue<string>(nameof(UpdatedBy), ref fUpdatedBy, value); }
         }
+        Department fDepartment;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" CustomerFacing = 'true'")]
+        public Department Department
+        {
+            get { return fDepartment; }
+            set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
+        string fTargetid;
+        public string Targetid
+        {
+            get { return fTargetid; }
+            set { SetPropertyValue<string>(nameof(Targetid), ref fTargetid, value); }
+        }
+        [Association(@"ReceiptItemReferencesreceiptClientBond")]
+        public XPCollection<ReceiptItem> ReceiptItems { get { return GetCollection<ReceiptItem>(nameof(ReceiptItems)); } }
     }
 
 }

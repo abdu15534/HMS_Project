@@ -57,6 +57,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fClinicLetter; }
             set { SetPropertyValue<string>(nameof(ClinicLetter), ref fClinicLetter, value); }
         }
+        decimal fExaminationPrice;
+        public decimal ExaminationPrice
+        {
+            get { return fExaminationPrice; }
+            set { SetPropertyValue<decimal>(nameof(ExaminationPrice), ref fExaminationPrice, value); }
+        }
     }
 
 }

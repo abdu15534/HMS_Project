@@ -38,6 +38,7 @@ namespace HMS.Module.Win.Controllers
             this.AcceptAllRequest = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.RequestReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AcceptSomeOFTheRequest = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.ZeroToAllItems = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // Confirmed
             // 
@@ -136,6 +137,17 @@ namespace HMS.Module.Win.Controllers
             this.AcceptSomeOFTheRequest.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.AcceptSomeOFTheRequest.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AcceptSomeOFTheRequest_Execute);
             // 
+            // ZeroToAllItems
+            // 
+            this.ZeroToAllItems.Caption = "Zero To All Items";
+            this.ZeroToAllItems.ConfirmationMessage = null;
+            this.ZeroToAllItems.Id = "ZeroToAllItems";
+            this.ZeroToAllItems.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Inventory);
+            this.ZeroToAllItems.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.ZeroToAllItems.ToolTip = null;
+            this.ZeroToAllItems.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.ZeroToAllItems.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ZeroToAllItems_Execute);
+            // 
             // PurchasingController
             // 
             this.Actions.Add(this.Confirmed);
@@ -146,6 +158,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.AcceptAllRequest);
             this.Actions.Add(this.RequestReport);
             this.Actions.Add(this.AcceptSomeOFTheRequest);
+            this.Actions.Add(this.ZeroToAllItems);
 
         }
 
@@ -159,5 +172,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction AcceptAllRequest;
         private DevExpress.ExpressApp.Actions.SimpleAction RequestReport;
         private DevExpress.ExpressApp.Actions.SimpleAction AcceptSomeOFTheRequest;
+        private DevExpress.ExpressApp.Actions.SimpleAction ZeroToAllItems;
     }
 }

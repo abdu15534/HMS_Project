@@ -62,7 +62,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(creditor))); }
         }
-        [PersistentAlias("Iif([Stays][].Sum([stayTotalSum]) Is Null, 0.0m, [Stays][].Sum([stayTotalSum])) + Iif([Emergencies][].Sum([TotalSum]) Is Null, 0.0m, [Emergencies][].Sum([TotalSum])) + Iif([Appointments][].Sum([amount]) Is Null, 0.0m, [Appointments][].Sum([amount]))")]
+        [PersistentAlias("Iif([Stays][].Sum([stayTotalSum]) Is Null, 0.0m, [Stays][].Sum([stayTotalSum])) + Iif([Emergencies][].Sum([TotalSum]) Is Null, 0.0m, [Emergencies][].Sum([TotalSum])) + Iif([Appointments][].Sum([ExaminationPrice]) Is Null, 0.0m, [Appointments][].Sum([ExaminationPrice]))")]
         public decimal debtor
         {
             get { return (decimal)(EvaluateAlias(nameof(debtor))); }

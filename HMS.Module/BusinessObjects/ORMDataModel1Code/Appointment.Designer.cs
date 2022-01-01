@@ -39,11 +39,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fclinc; }
             set { SetPropertyValue<Clinc>(nameof(clinc), ref fclinc, value); }
         }
-        decimal famount;
-        public decimal amount
+        decimal fExaminationPrice;
+        public decimal ExaminationPrice
         {
-            get { return famount; }
-            set { SetPropertyValue<decimal>(nameof(amount), ref famount, value); }
+            get { return fExaminationPrice; }
+            set { SetPropertyValue<decimal>(nameof(ExaminationPrice), ref fExaminationPrice, value); }
         }
         Employee fDoctor;
         [Association(@"AppointmentReferencesEmployee")]
@@ -60,7 +60,7 @@ DevExpress.Persistent.Validation.RuleRequiredField]
         {
             get { return (int)(EvaluateAlias(nameof(PatientAge))); }
         }
-        [PersistentAlias("Iif([ClinicServiceDetails][].Sum([price]) Is Null, [amount], [ClinicServiceDetails][].Sum([price]) + [amount])")]
+        [PersistentAlias("Iif([ClinicServiceDetails][].Sum([price]) Is Null, [ExaminationPrice], [ClinicServiceDetails][].Sum([price]) + [ExaminationPrice])")]
         public decimal total
         {
             get { return (decimal)(EvaluateAlias(nameof(total))); }

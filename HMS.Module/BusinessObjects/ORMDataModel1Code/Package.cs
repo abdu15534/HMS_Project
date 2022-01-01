@@ -12,6 +12,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         public Package(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+        
     }
 
 }

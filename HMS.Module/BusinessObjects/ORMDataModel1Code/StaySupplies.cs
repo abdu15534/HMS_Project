@@ -2,7 +2,8 @@
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -94,6 +95,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.supplyProduct == null || quantity == 0)
                     this.Delete();
+            if (Stay != null)
+            {
+                IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
+                if (packages != null)
+                {
+                    foreach (PackageDetail item in packages)
+                    {
+                        item.ApplyPackageToMedicalSupplies();
+                    }
+                }
+            }
+
         }
 
         protected override void OnDeleting()

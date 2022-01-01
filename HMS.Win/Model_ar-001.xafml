@@ -205,7 +205,6 @@
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Appointment">
       <OwnMembers>
-        <Member Name="amount" Caption="الكمية" />
         <Member Name="clinc" Caption="العيادة" />
         <Member Name="id" Caption="كود" />
       </OwnMembers>
@@ -687,7 +686,6 @@
     </ListView>
     <DetailView Id="Appointment_DetailView">
       <Items>
-        <PropertyEditor Id="amount" Caption="المبلغ" />
         <PropertyEditor Id="clinc" Caption="العيادة" />
         <PropertyEditor Id="Description" Caption="ملاحظات" />
         <PropertyEditor Id="EndOn" Caption="ميعاد نهاية الحجز" />
@@ -712,7 +710,6 @@
         <ColumnInfo Id="Status" Caption="الحالة" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="clinc" Caption="العيادة" />
-        <ColumnInfo Id="amount" Caption="الكمية" />
       </Columns>
     </ListView>
     <DetailView Id="AuditDataItemPersistent_DetailView">
@@ -1529,7 +1526,6 @@
         <ColumnInfo Id="Status" Caption="الحالة" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="clinc" Caption="العيادة" />
-        <ColumnInfo Id="amount" Caption="الكمية" />
       </Columns>
     </ListView>
     <DetailView Id="Patient_DetailView">

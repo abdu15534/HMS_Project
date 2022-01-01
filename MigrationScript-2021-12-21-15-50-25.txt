@@ -1,0 +1,41 @@
+/* 
+   Attention! The SQL commands below change the database structure and may corrupt any existing data.
+   We recommend you create a database backup before running this script.
+*/
+
+drop index "iSurgeryCategory_Package" on "dbo"."Package";
+alter table "dbo"."Package" drop constraint "FK_Package_SurgeryCategory";
+drop index "iSurgeryRoom_PackageDetail" on "dbo"."PackageDetail";
+alter table "dbo"."PackageDetail" drop constraint "FK_PackageDetail_SurgeryRoom";
+drop index "iPayer_Payments" on "dbo"."Payments";
+alter table "dbo"."Payments" drop constraint "FK_Payments_Payer";
+alter table "dbo"."SurgerySchedule" drop constraint "FK_SurgerySchedule_Surgery";
+drop index "iSurgery_SurgerySchedule" on "dbo"."SurgerySchedule";
+alter table "dbo"."Surgery" drop constraint "FK_Surgery_ID";
+alter table "dbo"."Surgery" drop constraint "PK_Surgery";
+alter table "dbo"."Surgery" add "IDTemporaryb813bb50-656e-476c-a941-704985d04941" int NULL;
+update "dbo"."Surgery" set "IDTemporaryb813bb50-656e-476c-a941-704985d04941"="ID";
+alter table "dbo"."Surgery" drop column "ID";
+EXEC sp_rename '"dbo"."Surgery".IDTemporaryb813bb50-656e-476c-a941-704985d04941', 'ID', 'COLUMN';
+drop index "iSurgeryPackage_Surgery" on "dbo"."Surgery";
+alter table "dbo"."Surgery" drop constraint "FK_Surgery_SurgeryPackage";
+alter table "dbo"."Surgery" drop constraint "FK_Surgery_SurgeryCategory";
+drop index "iSurgeryCategory_Surgery" on "dbo"."Surgery";
+alter table "dbo"."SurgicalCategory" drop constraint "FK_SurgicalCategory_ID";
+alter table "dbo"."SurgicalCategory" drop constraint "PK_SurgicalCategory";
+alter table "dbo"."SurgicalCategory" add "IDTemporary2375e4fd-7dd8-4acd-991d-9f4272e37195" int NULL;
+update "dbo"."SurgicalCategory" set "IDTemporary2375e4fd-7dd8-4acd-991d-9f4272e37195"="ID";
+alter table "dbo"."SurgicalCategory" drop column "ID";
+EXEC sp_rename '"dbo"."SurgicalCategory".IDTemporary2375e4fd-7dd8-4acd-991d-9f4272e37195', 'ID', 'COLUMN';
+alter table "dbo"."Surgery" alter column "ID" int NOT NULL;
+alter table "dbo"."Surgery" add constraint "PK_Surgery" primary key ("ID");
+alter table "dbo"."SurgicalCategory" alter column "ID" int NOT NULL;
+alter table "dbo"."SurgicalCategory" add constraint "PK_SurgicalCategory" primary key ("ID");
+create  index "iID_Surgery" on "dbo"."Surgery"("ID");
+alter table "dbo"."Surgery" add constraint "FK_Surgery_ID" foreign key ("ID") references "dbo"."PackageDetail"("ID");
+create  index "iSurgeryCategory_Surgery" on "dbo"."Surgery"("SurgeryCategory");
+alter table "dbo"."Surgery" add constraint "FK_Surgery_SurgeryCategory" foreign key ("SurgeryCategory") references "dbo"."SurgicalCategory"("ID");
+create  index "iSurgery_SurgerySchedule" on "dbo"."SurgerySchedule"("Surgery");
+alter table "dbo"."SurgerySchedule" add constraint "FK_SurgerySchedule_Surgery" foreign key ("Surgery") references "dbo"."Surgery"("ID");
+create  index "iID_SurgicalCategory" on "dbo"."SurgicalCategory"("ID");
+alter table "dbo"."SurgicalCategory" add constraint "FK_SurgicalCategory_ID" foreign key ("ID") references "dbo"."Package"("ID")

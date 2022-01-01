@@ -146,5 +146,10 @@ namespace HMS.Module.Win.Controllers
             report.Parameters["id"].Value = curr.ID;
             report.ShowPreviewDialog();
         }
+
+        private void ZeroToAllItems_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+
+        }
     }
 }

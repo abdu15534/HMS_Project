@@ -1,6 +1,8 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.Xpo;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -48,6 +50,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.Service == null)
                     this.Delete();
+            if (Stay != null)
+            {
+                IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
+                if (packages != null)
+                {
+                    foreach (PackageDetail item in packages)
+                    {
+                        item.ApplyPackageToServics();
+                    }
+                }
+            }
         }
     }
 

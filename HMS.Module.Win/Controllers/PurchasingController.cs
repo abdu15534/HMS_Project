@@ -313,5 +313,15 @@ namespace HMS.Module.Win.Controllers
             }
             ObjectSpace.CommitChanges();
         }
+
+        private void ZeroToAllItems_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            var curr = e.CurrentObject as Inventory;
+            foreach (StockProduct item in curr.StockProducts)
+            {
+                item.firstUnitQuantity = 0;
+                item.secondUnitQuantity = 0;
+            }
+        }
     }
 }

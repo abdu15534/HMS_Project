@@ -5,6 +5,8 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Linq;
+
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
@@ -62,6 +64,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.service == null)
                     this.Delete();
+            if (admission != null)
+            {
+                IEnumerable<PackageDetail> packages = admission.reception.PackageDetails.Where(o => o.Applyed);
+                if (packages != null)
+                {
+                    foreach (PackageDetail item in packages)
+                    {
+                        item.ApplyPackageToEndos();
+                    }
+                }
+            }
         }
     }
 

@@ -264,13 +264,11 @@ namespace HMS.Module.DatabaseUpdate
             if (ObjectSpace.GetObjectsCount(typeof(SuppliesSettings), null) == 0)
             {
                 var setting = ObjectSpace.CreateObject<SuppliesSettings>();
-                setting.FromNotTo5 = 3;
-                setting.From6To10 = 2.5;
-                setting.From11To20 = 2;
-                setting.From21To30 = 1.7;
-                setting.From31To40 = 1.5;
-                setting.From41To50 = 1.35;
-                setting.From50ToAll = 1.3;
+                setting.FromNotTo4 = 3;
+                setting.From5To9 = 2;
+                setting.From10To90 = 1.5;
+                setting.From91To149 = 1.3;
+                setting.From150ToAll = 1.25;
 
             }
             ObjectSpace.CommitChanges();
@@ -1404,7 +1402,7 @@ namespace HMS.Module.DatabaseUpdate
                 //var clincs = ObjectSpace.GetObjects<Clinc>();
                 var fakeAppointments = new Faker<Appointment>("ar")
                     .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
-                    .RuleFor(o => o.amount, 100)
+                    .RuleFor(o => o.ExaminationPrice, 100)
                     .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
                     .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
                     .RuleFor(o => o.Doctor, (f,p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])

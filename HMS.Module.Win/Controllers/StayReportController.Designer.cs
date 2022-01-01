@@ -68,6 +68,8 @@ namespace HMS.Module.Win.Controllers
             this.ApplyPackage.Caption = "Apply Package";
             this.ApplyPackage.ConfirmationMessage = null;
             this.ApplyPackage.Id = "ApplyPackage";
+            this.ApplyPackage.ImageName = "TrackingChanges_Accept_32x32";
+            this.ApplyPackage.TargetObjectsCriteria = "Applyed != true";
             this.ApplyPackage.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.PackageDetail);
             this.ApplyPackage.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.ApplyPackage.ToolTip = null;
@@ -79,6 +81,8 @@ namespace HMS.Module.Win.Controllers
             this.DiscardPackage.Caption = "Discard Package";
             this.DiscardPackage.ConfirmationMessage = null;
             this.DiscardPackage.Id = "DiscardPackage";
+            this.DiscardPackage.ImageName = "TrackingChanges_Reject_32x32";
+            this.DiscardPackage.TargetObjectsCriteria = "Applyed == true";
             this.DiscardPackage.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.PackageDetail);
             this.DiscardPackage.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.DiscardPackage.ToolTip = null;

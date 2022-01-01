@@ -1,20 +1,20 @@
 ﻿using System;
 using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
 using DevExpress.Persistent.Base;
 using System.Linq;
 using System.Windows.Forms;
 using DevExpress.ExpressApp;
+using System.Collections.Generic;
+using DevExpress.Data.Filtering;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
     [DefaultClassOptions]
     public partial class receiptClientBond
     {
+        string queryComplement = "')";
+        string xrayQuery = "SELECT        dbo.Patient.FullName, dbo.Service.Name, dbo.XraysDetails.price FROM dbo.Xrays INNER JOIN dbo.XraysDetails ON dbo.Xrays.id = dbo.XraysDetails.Xrays INNER JOIN dbo.Patient ON dbo.Xrays.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.XraysDetails.service = dbo.Service.ID WHERE        (dbo.Patient.FullName = N'";
+        string appointmentsQuery = "SELECT        TOP (100) PERCENT dbo.ClinicServiceDetail.Appointment, dbo.Appointment.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.Service.Price FROM dbo.Appointment INNER JOIN dbo.ClinicServiceDetail ON dbo.Appointment.Oid = dbo.ClinicServiceDetail.Appointment INNER JOIN dbo.Patient ON dbo.Appointment.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.ClinicServiceDetail.ClinicService = dbo.Service.ID WHERE(dbo.Appointment.Oid  = '";
         public receiptClientBond(Session session) : base(session) { }
         public override void AfterConstruction()
         {
@@ -23,7 +23,59 @@ namespace XafDataModel.Module.BusinessObjects.test2
             journal = new JournalEntry(Session);
             journal.date = DateTime.Now;
         }
-        public enum PaymentType { General = 0, Admission = 1, Emergency = 2, Appointment = 3}
+        protected override void OnChanged(string propertyName, object oldValue, object newValue)
+        {
+            base.OnChanged(propertyName, oldValue, newValue);
+            if (propertyName == nameof(Department) && newValue != null && fromAccount != null)
+            {
+                if(Department.ID  == 8)
+                {
+                    Guid appo = Session.Query<Appointment>().Where(a => a.Patient.FullName == fromAccount.accountName).Select(p => p.Oid).First();
+                    Targetid = appo.ToString();
+                    getAppointmentServices(Targetid);
+                }
+            }
+            else if (propertyName == nameof(fromAccount) && newValue != null && Department != null)
+            {
+                if (Department.ID == 8)
+                {
+                    Guid appo = Session.Query<Appointment>().Where(a => a.Patient.FullName == fromAccount.accountName).Select(p => p.Oid).First();
+                    Targetid = appo.ToString();
+                    getAppointmentServices(Targetid);
+                }
+            }
+        }
+        ////IList<XPBaseObject> admat;
+
+        //public List<object> Admat
+        //{
+        //    get {
+        //        //Type objType = Department.type;
+        //        string query = "SELECT        TOP (100) PERCENT dbo.ClinicServiceDetail.Appointment, dbo.Appointment.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.Service.Price FROM dbo.Appointment INNER JOIN dbo.ClinicServiceDetail ON dbo.Appointment.Oid = dbo.ClinicServiceDetail.Appointment INNER JOIN dbo.Patient ON dbo.Appointment.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.ClinicServiceDetail.ClinicService = dbo.Service.ID WHERE(dbo.Patient.FullName = N'" + fromAccount.accountName +"')";
+        //        DevExpress.Xpo.DB.SelectedData x2 = Session.ExecuteQuery(query);
+        //        DevExpress.Xpo.DB.SelectStatementResultRow[] x3 = x2.ResultSet[0].Rows;
+        //        List<object> x5 = new List<object>();
+        //        foreach (var item in x3)
+        //        {
+        //            var listItem = new List<object>();
+        //            var t = item.GetType().GetProperties();
+        //            Console.WriteLine(t);
+        //            listItem.Add(item.Values.GetValue(4));
+        //            listItem.Add(item.Values.GetValue(0));
+        //            x5.Add(listItem);
+        //        }
+        //        //if (this.Department.ID == 6)
+        //        //{
+        //        //object obj = Session.FindObject(typeof(ClinicServiceDetail), CriteriaOperator.Parse("Contains([Subject], ?)", paramValue));
+        //        //var x = Session.Query<ClinicServiceDetail>().Where(p => p.Appointment.Patient.FullName == fromAccount.accountName).ToList();
+        //        //    IList<object> y = (IList<object>)x;
+        //            return x5;
+        //        //}
+        //        //return null;            
+        //    }
+        //    //set => SetPropertyValue(nameof(Admat), ref admat, value);
+        //}
+        public enum PaymentType { General = 0, Admission = 1, Emergency = 2}
 
         PaymentType paymentType;
 
@@ -32,6 +84,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get => paymentType;
             set => SetPropertyValue(nameof(PaymentDestnation), ref paymentType, value);
         }
+
+
+        
 
         public enum BondTypes { receiptClient, paymentSupplier, receiptManagement, paymentManagement }
 
@@ -80,6 +135,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
             
         }
 
+        public List<object> getAppointmentServices(string target )
+        {
+            var appointment = Session.Query<Appointment>().Where(a => a.Patient.FullName == fromAccount.accountName).OrderByDescending(t => t.StartOn).First();
+            DevExpress.Xpo.DB.SelectedData appointmentServices = Session.ExecuteQuery(appointmentsQuery + target + queryComplement);
+            DevExpress.Xpo.DB.SelectStatementResultRow[] resultRows = appointmentServices.ResultSet[0].Rows;
+            List<object> x5 = new List<object>();
+            ReceiptItem reciptItem1 = new ReceiptItem(Session); 
+            reciptItem1.Name = "كشف عيادة " + appointment.clinc.Name + " دكتور " + appointment.Doctor.FullName;
+            reciptItem1.Price = appointment.ExaminationPrice;
+            reciptItem1.Date = DateTime.Now;
+            reciptItem1.reciptBond = this;
+            foreach (var item in resultRows)
+            {
+                ReceiptItem reciptItem = new ReceiptItem(Session);
+                reciptItem.Name = item.Values.GetValue(3).ToString();
+                reciptItem.Price = Convert.ToDecimal(item.Values.GetValue(4));
+                reciptItem.Date = DateTime.Now;
+                reciptItem.reciptBond = this;
+                //1
+                //4
+                x5.Add(item.Values.GetValue(3));
+            }
+            this.amount = appointment.total;
+            return x5;
+        }
 
         public void OrderConfirm(bool add)
         {
@@ -128,7 +208,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         return;
                     }
                 }
-                else if (PaymentDestnation == (PaymentType)3)
+                else if (Department.ID == 8)
                 {
                     try
                     {

@@ -10,8 +10,21 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
     public partial class Department
     {
+        private Type ftype;
+
         public Department(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+
+        public Type type
+        {
+            get => ftype;
+            set => SetPropertyValue(nameof(type), ref ftype, value);
+        }
+
+        public Type getType()
+        {
+            return type;
+        }
     }
 
 }
