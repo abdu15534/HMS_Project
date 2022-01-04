@@ -445,7 +445,6 @@
         <Member Name="category" Caption="النوع" AllowClear="False" />
         <Member Name="id" Caption="كود" />
         <Member Name="name" Caption="الإسم" />
-        <Member Name="Orders" AllowEdit="False" />
         <Member Name="purchasingPrice" AllowEdit="False" />
         <Member Name="purchasingUnit" Caption="وحدة الشراء" />
         <Member Name="sellingPrice" AllowEdit="False" />
@@ -1141,6 +1140,7 @@
       <RuleCriteria Id="@95b4b964-7cac-4287-860d-96383f741744" TargetType="XafDataModel.Module.BusinessObjects.test2.SalaryDeductionDetails" Criteria="[totalDeduction] &gt; 0.0m And [DeductionType] Is Not Null And [payPerHour] &gt; 0.0m" TargetContextIDs="Save" CustomMessageTemplate="" IsNewNode="True" />
       <RuleCriteria Id="@9b44b73e-2143-40ec-b949-6f21fd24e270" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" Criteria="[amount] &gt; 0.0m" IsNewNode="True" />
       <RuleRequiredField Id="@a15414c7-cb54-4776-9618-ded4b68aa617" TargetType="XafDataModel.Module.BusinessObjects.test2.Product" TargetPropertyName="category" TargetContextIDs="Save" IsNewNode="True" />
+      <RuleRequiredField Id="@a4f37770-e70e-4903-8dd6-818b75406b36" TargetType="XafDataModel.Module.BusinessObjects.test2.Product" TargetPropertyName="name" TargetContextIDs="Save" IsNewNode="True" />
       <RuleRequiredField Id="@b5127507-38a2-4fd6-8de1-b866e639ab09" TargetType="XafDataModel.Module.BusinessObjects.test2.PurchasingOrderDetail" TargetContextIDs="Save" TargetPropertyName="product" IsNewNode="True" />
       <RuleRequiredField Id="@bbc67994-a037-4f02-8f8a-f0c0dfeb8a2e" TargetType="XafDataModel.Module.BusinessObjects.test2.Companion" TargetPropertyName="PhoneNumber2" TargetContextIDs="Save" IsNewNode="True" />
       <RuleCriteria Id="@bf100fb5-58de-48a8-a360-fe7cda5a57f1" TargetType="XafDataModel.Module.BusinessObjects.test2.TransferProduct" TargetContextIDs="Save" TargetCollectionPropertyName="" TargetCollectionOwnerType="" Criteria="[RequstedCount] &gt; 0.0" IsNewNode="True" />
@@ -3534,7 +3534,7 @@
     </ListView>
     <DetailView Id="ProcessDataLockingInfoMergeDialog_DetailView" Caption="إنذار" />
     <DetailView Id="ProcessDataLockingInfoRefreshDialog_DetailView" Caption="إنذار" />
-    <DetailView Id="Product_DetailView" AllowDelete="False">
+    <DetailView Id="Product_DetailView" AllowDelete="True">
       <Items>
         <PropertyEditor Id="category" Caption="النوع" />
         <PropertyEditor Id="id" Caption="كود" />
@@ -3542,7 +3542,7 @@
         <PropertyEditor Id="purchasingUnit" Caption="وحدة الشراء" />
       </Items>
     </DetailView>
-    <ListView Id="Product_ListView" IsGroupPanelVisible="True" ShowFindPanel="True" AllowDelete="False">
+    <ListView Id="Product_ListView" IsGroupPanelVisible="True" ShowFindPanel="True" AllowDelete="True">
       <Columns>
         <ColumnInfo Id="id" Caption="كود" Index="0" />
         <ColumnInfo Id="name" Caption="الإسم" Index="1" />
@@ -3561,7 +3561,6 @@
         <ColumnInfo Id="purchasingUnit" PropertyName="purchasingUnit" Index="1" Caption="وحدة الشراء" IsNewNode="True" />
       </Columns>
     </ListView>
-    <ListView Id="Product_Orders_ListView" AllowDelete="False" />
     <DetailView Id="ProductUnit_DetailView">
       <Items>
         <PropertyEditor Id="id" Caption="كود" />
@@ -4660,7 +4659,6 @@
                 <LayoutItem Id="ID" RelativeSize="4.5133991537376588" />
                 <LayoutItem Id="Stay" RelativeSize="3.3850493653032441" />
                 <LayoutItem Id="quantity" RelativeSize="3.3850493653032441" />
-                <LayoutItem Id="supplyProduct" RelativeSize="3.3850493653032441" />
                 <LayoutItem Id="date" RelativeSize="85.331452750352611" />
               </LayoutGroup>
               <LayoutGroup Id="StaySupplies_col2" Caption="مستهلكات الإقامة2" RelativeSize="50">
@@ -4703,10 +4701,7 @@
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="StockProduct" Caption="منتج المخزن">
-              <LayoutGroup Id="StockProduct_col1" Caption="منتج المخزن1" />
-              <LayoutGroup Id="StockProduct_col2" Caption="منتج المخزن2" />
-            </LayoutGroup>
+            <LayoutGroup Id="StockProduct" Caption="منتج المخزن" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -5069,7 +5064,6 @@
           <LayoutGroup Id="SimpleEditors" RelativeSize="20.933333333333334">
             <LayoutGroup Id="TransferProduct" RelativeSize="77.070063694267517">
               <LayoutGroup Id="TransferProduct_col1" RelativeSize="50">
-                <LayoutItem Id="StockProduct" RelativeSize="36.363636363636367" />
                 <LayoutItem Id="Quantity" RelativeSize="27.272727272727273" />
                 <LayoutItem Id="RequstedCount" RelativeSize="36.363636363636367" />
               </LayoutGroup>

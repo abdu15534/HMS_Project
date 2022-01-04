@@ -20,6 +20,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class TransferProduct : XPObject
     {
         StockProduct fStockProduct;
+        [Association(@"TransferProductReferencesStockProduct")]
         [DevExpress.Persistent.Base.DataSourceCriteria("Inventory ='@this.StockTransfer.FromWarehouse'")]
         public StockProduct StockProduct
         {

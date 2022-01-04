@@ -35,6 +35,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<PurchasingOrder>(nameof(puchasingOrder), ref fpuchasingOrder, value); }
         }
         Product fproduct;
+        [Association(@"PurchasingOrderDetailReferencesProduct")]
         public Product product
         {
             get { return fproduct; }

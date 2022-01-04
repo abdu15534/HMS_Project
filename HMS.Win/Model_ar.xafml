@@ -407,7 +407,6 @@
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Product" Caption="منتج">
       <OwnMembers>
         <Member Name="barCode" Caption="الباركود" />
-        <Member Name="Orders" Caption="الفواتير" />
         <Member Name="purchasingPrice" Caption="سعر الشراء" />
         <Member Name="sellingPrice" Caption="سعر البيع" />
         <Member Name="sellUnit" Caption="وحدة البيع" />
@@ -2826,7 +2825,6 @@
           <LayoutGroup Id="SimpleEditors">
             <LayoutGroup Id="Product" Caption="منتج" />
           </LayoutGroup>
-          <LayoutGroup Id="Orders_Group" Caption="الفواتير" />
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -2915,7 +2913,6 @@
       <Items>
         <PropertyEditor Id="Approved" Caption="تم الموافقة" />
         <PropertyEditor Id="Notes" Caption="ملاحظات" />
-        <PropertyEditor Id="Product" Caption="المنتج" />
         <PropertyEditor Id="PurchaseRequest" Caption="طلب شراء" />
         <PropertyEditor Id="Quantity" Caption="الرصيد المتاح" />
         <PropertyEditor Id="RequstedAmount" Caption="الكمية" />
@@ -3004,7 +3001,6 @@
       <Items>
         <PropertyEditor Id="id" Caption="الكود" />
         <PropertyEditor Id="price" Caption="السعر" />
-        <PropertyEditor Id="product" Caption="منتج" />
         <PropertyEditor Id="quantity" Caption="الكمية" />
       </Items>
     </DetailView>
@@ -3829,7 +3825,6 @@
         <PropertyEditor Id="ID" Caption="الكود" />
         <PropertyEditor Id="price" Caption="السعر" EditMask="C" />
         <PropertyEditor Id="quantity" Caption="الكمية " />
-        <PropertyEditor Id="supplyProduct" Caption="منتج" />
         <PropertyEditor Id="total" EditMask="C" />
       </Items>
       <Layout>
@@ -3863,18 +3858,13 @@
     <DetailView Id="StockProduct_DetailView" Caption="المستهلكات الطبية">
       <Items>
         <PropertyEditor Id="firstUnitQuantity" Caption="وحدة جملة" />
-        <PropertyEditor Id="Inventory" Caption="المخازن" />
         <PropertyEditor Id="Oid" Caption="الكود" />
-        <PropertyEditor Id="product" Caption="منتج" />
         <PropertyEditor Id="secondUnitQuantity" Caption="وحدة تجزئة" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسية">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="StockProduct" Caption="المستهلكات الطبية">
-              <LayoutGroup Id="StockProduct_col1" Caption="المستهلكات الطبية1" />
-              <LayoutGroup Id="StockProduct_col2" Caption="المستهلكات الطبية2" />
-            </LayoutGroup>
+            <LayoutGroup Id="StockProduct" Caption="المستهلكات الطبية" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

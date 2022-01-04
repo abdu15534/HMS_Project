@@ -12,6 +12,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         public PurchaseRequestDetail(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+        
     }
 
-}
+    }

@@ -963,46 +963,22 @@ namespace HMS.Module.Win.Controllers
                         {
                             //Debug.WriteLine(dt.Rows);
                             Product product = ObjectSpace.CreateObject<Product>();
-                            //fzp.Ilosc = 1;
+                            //        //fzp.Ilosc = 1;
                             string myString = "";
 
 
-                            //if (row[0] != DBNull.Value)
-                            //{
-                            //    myString = row[0].ToString();
-                            //    if (!string.IsNullOrEmpty(row[0].ToString()))
-                            //        product.id = Convert.ToInt32(row[0].ToString());
-                            //    //    try
-                            //    //    {
-                            //    //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //    //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    //    }
-                            //    //    catch { fzp.Produkt = null; }
-
-                            //    //    try
-                            //    //    {
-                            //    //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    //    }
-                            //    //    catch { fzp.Oddzial = null; }
-
-                            //    //    try
-                            //    //    {
-                            //    //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    //    }
-                            //    //    catch { fzp.Dzial = null; }
-
-                            //    //    try
-                            //    //    {
-                            //    //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    //    }
-                            //    //    catch { fzp.KomorkaKoszt = null; }
-                            //}
+                            if (row[0] != DBNull.Value)
+                            {
+                                myString += row[0].ToString() + "first";
+                                if (!string.IsNullOrEmpty(row[0].ToString()))
+                                    product.id = Convert.ToInt32(row[0].ToString());
+                            }
 
 
                             if (row[1] != DBNull.Value)
                             {
-                                myString += " - " + row[1].ToString();
-                                //service.ServiceType = (ServiceTypes)17;
+                                myString += " - " + row[1].ToString()+ "second";
+                                Debug.WriteLine("second");
                                 if (!string.IsNullOrEmpty(row[1].ToString()))
                                     product.name = row[1].ToString();
                             }
@@ -1011,41 +987,53 @@ namespace HMS.Module.Win.Controllers
                             if (row[2] != DBNull.Value)
                             {
                                 myString += " - " + row[2].ToString();
+                                
                                 if (!string.IsNullOrEmpty(row[2].ToString()))
                                 {
-                                    product.purchasingPrice = Convert.ToDecimal(row[2].ToString());
+                                    product.TempQuantity = Convert.ToDouble(row[2].ToString());
                                 }
 
                             }
 
                             product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
 
-                            //if (row[3] != DBNull.Value)
-                            //{
-                            //    //myString += " - " + row[3].ToString();
-                            //    if (!string.IsNullOrEmpty(row[3].ToString()))
-                            //    {
-                            //        service.Price = Convert.ToDecimal(row[3].ToString());
-                            //    }
-                            //}
+                            if (row[3] != DBNull.Value)
+                            {
+                                myString += " - " + row[3].ToString()+ "fourth";
+                                if (!string.IsNullOrEmpty(row[3].ToString()))
+                                {
+                                    ProductUnit Unit = ObjectSpace.FindObject<ProductUnit>(CriteriaOperator.Parse("unit = ?", row[3].ToString()));
+                                    product.purchasingUnit = Unit;
+                                    product.sellUnit = Unit;
+                                }
+                            }
+                                if (row[4] != DBNull.Value)
+                            {
+                                myString += " - " + row[4].ToString() + "fifth";
+                                    Debug.WriteLine(Convert.ToDecimal(row[4].ToString()));
+                                if (!string.IsNullOrEmpty(row[4].ToString()))
+                                {
+                                    product.purchasingPrice = Convert.ToDecimal(row[4].ToString());
+                                }
+                            }
 
                             Debug.WriteLine(myString);
-                            ObjectSpace.CommitChanges();
+                            //        ObjectSpace.CommitChanges();
                         }
                         catch
                         {
 
                         }
-                        
 
-                        //    fzp.FakturaZakupu = fz;
-                        //    fzp.Save();
+
+                        ObjectSpace.CommitChanges();
+                        //    //    fzp.FakturaZakupu = fz;
+                        //    //    fzp.Save();
                     }
 
-                    ObjectSpace.CommitChanges();
-                    ObjectSpace.Refresh();
+                        ObjectSpace.Refresh();
 
-                    SplashScreenManager.CloseForm(false);
+                            SplashScreenManager.CloseForm(false);
                 }
                 catch (Exception ex)
                 {
@@ -1077,6 +1065,197 @@ namespace HMS.Module.Win.Controllers
             var curr = View.CurrentObject as Product;
             report.Parameters["parameter1"].Value = curr.id;
             report.ShowPreviewDialog();
+        }
+
+        private void AddPurchasingOrder_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            bool czyPustyWiersz;
+            DataTable dt;
+
+            OpenFileDialog excel = new OpenFileDialog();
+            excel.Filter = "Dokument excel|*.xls;*.xlsx";
+            excel.Title = "أختر الملف الذي يحتوي على المستهلكات";
+            if (excel.ShowDialog() == DialogResult.OK)
+            {
+
+                try
+                {
+
+                    SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ المستهلكات ...");
+
+                    var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+                    var Order = ObjectSpace.CreateObject<PurchasingOrder>();
+                    Order.supplierAccount = supplier;
+                    Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
+                    Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+
+                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
+                    {
+                        #region Deserializacja Excel  
+                        var rows = workBook.Worksheet(1).RowsUsed();
+
+                        dt = new DataTable();
+
+                        bool isFirstRow = true;
+
+                        foreach (var row in rows)
+                        {
+                            //Console.WriteLine(row);
+                            czyPustyWiersz = row.IsEmpty();
+
+
+                            if (isFirstRow)
+                            {
+                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
+                                {
+                                    //Debug.WriteLine(cell.Value);
+                                    //Console.WriteLine(cell.Value);
+                                    //Console.WriteLine("##");
+                                    dt.Columns.Add(cell.Value.ToString());
+                                }
+
+                                isFirstRow = false;
+                            }
+                            else
+                            {
+                                bool czyDodany = false;
+
+                                int i = 0;
+                                foreach (IXLCell cell in row.Cells())
+                                {
+                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
+                                    //Console.WriteLine(cell.Value);
+                                    //Debug.WriteLine(cell.Value);
+                                    if (czyDodany == false)
+                                    {
+                                        dt.Rows.Add();
+                                        czyDodany = true;
+                                    }
+
+                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
+                                    i++;
+                                }
+
+                            }
+
+
+
+                        }
+                        #endregion
+                    }
+
+                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        try
+                        {
+                            //Debug.WriteLine(dt.Rows);
+                            //        //fzp.Ilosc = 1;
+                            string myString = "";
+
+
+                            if (row[0] != DBNull.Value)
+                            {
+                                myString += row[0].ToString() + "first";
+                                if (!string.IsNullOrEmpty(row[0].ToString()))
+                                {
+                                }
+                            }
+                            var xlProduct = ObjectSpace.GetObjectByKey<Product>(Convert.ToInt32(row[0].ToString()));
+
+                            PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                            //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].purchasingPrice.ToString()));
+                            purchase.product = xlProduct;
+                            
+                            
+                            
+
+                            if (row[1] != DBNull.Value)
+                            {
+                                myString += " - " + row[1].ToString() + "second";
+                                //service.ServiceType = (ServiceTypes)17;
+                                if (!string.IsNullOrEmpty(row[1].ToString()))
+                                {
+
+                                }
+                            }
+
+
+                            if (row[2] != DBNull.Value)
+                            {
+                                myString += " - " + row[2].ToString() + "therd";
+                                if (!string.IsNullOrEmpty(row[2].ToString()))
+                                {
+                                    purchase.quantity = Convert.ToDouble(row[2].ToString());
+                                }
+
+                            }
+
+
+                            if (row[3] != DBNull.Value)
+                            {
+                                Debug.WriteLine(row[3].ToString());
+                                myString += " - " + row[3].ToString() + "fourth";
+                                if (!string.IsNullOrEmpty(row[3].ToString()))
+                                {
+                                    
+                                    
+                                }
+                            }
+                            if (row[4] != DBNull.Value)
+                            {
+                                //myString += " - " + row[4].ToString()+ "fifth";
+                                if (!string.IsNullOrEmpty(row[3].ToString()))
+                                {
+                                    purchase.price = Convert.ToDecimal(row[3].ToString());
+                                }
+                            }
+
+                            Debug.WriteLine(myString);
+                            //        ObjectSpace.CommitChanges();
+                            Order.PurchasingOrderDetails.Add(purchase);
+                        }
+                        catch
+                        {
+
+                        }
+
+
+                        ObjectSpace.CommitChanges();
+                        //    //    fzp.FakturaZakupu = fz;
+                        //    //    fzp.Save();
+                    }
+
+                    ObjectSpace.Refresh();
+
+                    SplashScreenManager.CloseForm(false);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    SplashScreenManager.CloseForm(false);
+                    Tracing.Tracer.LogError(ex);
+                    MessageOptions mo = new MessageOptions();
+                    mo.Duration = 3000;
+                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
+                    mo.Type = InformationType.Error;
+                    mo.OkDelegate = () =>
+                    {
+                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
+                        //ErrorBox eb = new ErrorBox(ex.Message);
+                        //DetailView dv = Application.CreateDetailView(os, eb);
+
+                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
+                    };
+                    Application.ShowViewStrategy.ShowMessage(mo);
+                }
+
+            }
+            //var Supplies = ObjectSpace.GetObjects<Product>().Where(p => p.category.name == "مستهلكات");
+            //foreach (var item in Supplies.ToList())
+            //{
+            //}
         }
     }
 }

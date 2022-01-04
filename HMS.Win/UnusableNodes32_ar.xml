@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Product_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="Orders_Group" Caption="الفواتير" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PurchaseRequestDetail_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Product" Caption="المنتج" />
+      </Items>
+    </DetailView>
+    <DetailView Id="PurchasingOrderDetail_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="product" Caption="منتج" />
+      </Items>
+    </DetailView>
+    <DetailView Id="StaySupplies_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="supplyProduct" Caption="منتج" />
+      </Items>
+    </DetailView>
+    <DetailView Id="StockProduct_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Inventory" Caption="المخازن" />
+        <PropertyEditor Id="product" Caption="منتج" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StockProduct">
+              <LayoutGroup Id="StockProduct_col1" Caption="المستهلكات الطبية1" />
+              <LayoutGroup Id="StockProduct_col2" Caption="المستهلكات الطبية2" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Product">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Orders" Caption="الفواتير" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

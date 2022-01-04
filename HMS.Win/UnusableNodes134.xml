@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="Product_Orders_ListView" AllowDelete="False" />
+    <DetailView Id="Appointment_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SizeableEditors">
+            <LayoutGroup Id="Auto0b1b9493-a18f-4fc3-a9a8-c5e04f6da5d7">
+              <LayoutItem Id="amount" ViewItem="amount" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PackageDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PackageDetail">
+              <LayoutGroup Id="PackageDetail_col1">
+                <LayoutItem Id="Total" ViewItem="Total" />
+                <LayoutGroup Id="Auto2b0b22d5-38c1-492e-80c8-a8d94d96162d">
+                  <LayoutGroup Id="Autoc69c5d27-4028-42e5-a430-09b13c4949c9">
+                    <LayoutItem Id="AnesthesiaFees" ViewItem="AnesthesiaFees" />
+                    <LayoutItem Id="AssistantFees" ViewItem="AssistantFees" />
+                    <LayoutItem Id="SurgeonsFees" ViewItem="SurgeonsFees" />
+                    <LayoutItem Id="RoomOpeningFee" ViewItem="RoomOpeningFee" />
+                    <LayoutItem Id="SurgeryRoom" ViewItem="SurgeryRoom" />
+                    <LayoutItem Id="SurgeryCategory" ViewItem="SurgeryCategory" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto426f7cfb-1a5c-421e-a513-ef9e6b8d9db7">
+                    <LayoutItem Id="isSurgery" ViewItem="isSurgery" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="StaySupplies_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StaySupplies">
+              <LayoutGroup Id="StaySupplies_col1">
+                <LayoutItem Id="supplyProduct" RelativeSize="3.3850493653032441" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="StockProduct_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="StockProduct">
+              <LayoutGroup Id="StockProduct_col1" Caption="منتج المخزن1" />
+              <LayoutGroup Id="StockProduct_col2" Caption="منتج المخزن2" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="TransferProduct_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="TransferProduct">
+              <LayoutGroup Id="TransferProduct_col1">
+                <LayoutItem Id="StockProduct" RelativeSize="36.363636363636367" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Product">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Orders" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

@@ -27,6 +27,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Inventory>(nameof(Inventory), ref fInventory, value); }
         }
         Product fproduct;
+        [Association(@"StockProductReferencesProduct")]
         public Product product
         {
             get { return fproduct; }
@@ -56,6 +57,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return ftotalOut; }
             set { SetPropertyValue<double>(nameof(totalOut), ref ftotalOut, value); }
         }
+        [Association(@"StaySuppliesReferencesStockProduct"), Aggregated]
+        public XPCollection<StaySupplies> StaySuppliesCollection { get { return GetCollection<StaySupplies>(nameof(StaySuppliesCollection)); } }
+        [Association(@"TransferProductReferencesStockProduct"), Aggregated]
+        public XPCollection<TransferProduct> TransferProducts { get { return GetCollection<TransferProduct>(nameof(TransferProducts)); } }
     }
 
 }

@@ -862,6 +862,7 @@ namespace HMS.Module.DatabaseUpdate
 
             if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0 && ObjectSpace.GetObjectsCount(typeof(Product), null) != 0)
             {
+                //CriteriaOperator.Parse("[Name] = ?", "Stock")
                 var supplier = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
                 //var fakeSuppliers = new Faker<Supplier>("ar")
@@ -872,30 +873,30 @@ namespace HMS.Module.DatabaseUpdate
                 //   .RuleFor(o => o.Email, f => f.Internet.Email());
 
                 //var suppliers = fakeSuppliers.Generate(40);
-                var Order = ObjectSpace.CreateObject<PurchasingOrder>();
-                Order.supplierAccount = supplier;
-                Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Pharmacy"));
-                Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
+                //var Order = ObjectSpace.CreateObject<PurchasingOrder>();
+                //Order.supplierAccount = supplier;
+                //Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Pharmacy"));
+                //Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
 
                 List<Product> supplies2 = ObjectSpace.GetObjects<Product>().Where(o => o.category.name == "مستهلكات").ToList();
-                List<Product> medications2 = ObjectSpace.GetObjects<Product>().Where(o => o.category.name == "دواء" || o.category.name == "غير دواء").ToList();
+                //List<Product> medications2 = ObjectSpace.GetObjects<Product>().Where(o => o.category.name == "دواء" || o.category.name == "غير دواء").ToList();
 
-                int i = 0;
-                foreach (var item in medications2.ToList())
-                {
-                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                    Product product = item;
-                    //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].name.ToString(), medications2[i].sellingPrice.ToString()));
-                    purchase.product = product;
-                    purchase.quantity = (Int32)new Random().Next(300, 500);
-                    purchase.price = product.sellingPrice;
-                    purchase.Discount = (Int32)new Random().Next(5, 30);
-                    Console.WriteLine(purchase.price.ToString() + " updater");
-                    i++;
-                    //purchasings.Add(purchase);
-                    Order.PurchasingOrderDetails.Add(purchase);
+                //int i = 0;
+                //foreach (var item in medications2.ToList())
+                //{
+                //    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                //    Product product = item;
+                //    //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", medications2[i].name.ToString(), medications2[i].sellingPrice.ToString()));
+                //    purchase.product = product;
+                //    purchase.quantity = (Int32)new Random().Next(300, 500);
+                //    purchase.price = product.sellingPrice;
+                //    purchase.Discount = (Int32)new Random().Next(5, 30);
+                //    Console.WriteLine(purchase.price.ToString() + " updater");
+                //    i++;
+                //    //purchasings.Add(purchase);
+                //    Order.PurchasingOrderDetails.Add(purchase);
 
-                }
+                //}
                 //Order.OrderConfirm(true);
 
                 var Order2 = ObjectSpace.CreateObject<PurchasingOrder>();
@@ -906,15 +907,19 @@ namespace HMS.Module.DatabaseUpdate
                 int j = 0;
                 foreach (var item in supplies2.ToList())
                 {
-                    PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
-                    Product product = item;
-                    //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].purchasingPrice.ToString()));
-                    purchase.product = product;
-                    purchase.quantity = (Int32)new Random().Next(300, 500);
-                    purchase.price = product.purchasingPrice;
-                    j++;
-                    Order2.PurchasingOrderDetails.Add(purchase);
-                    Console.WriteLine(purchase.price.ToString() + " updater");
+                    if(item.purchasingPrice != 0 && item.TempQuantity != 0)
+                    {
+                        PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
+                        Product product = item;
+                        //ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("[name] = ? AND [sellingPrice] = ?", supplies2[j].name.ToString(), supplies2[j].purchasingPrice.ToString()));
+                        purchase.product = product;
+                        purchase.quantity = product.TempQuantity;
+                        purchase.price = product.purchasingPrice;
+                        j++;
+                    
+                        Order2.PurchasingOrderDetails.Add(purchase);
+                        Console.WriteLine(purchase.price.ToString() + " updater");
+                    }
                 }
                 //Order2.OrderConfirm(true);
 

@@ -36,6 +36,7 @@ namespace HMS.Module.Win.Controllers
             this.AddStock = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AddPharmacy = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PrintProductLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.AddPurchasingOrder = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // AddDepartmentsServices
             // 
@@ -103,6 +104,17 @@ namespace HMS.Module.Win.Controllers
             this.PrintProductLable.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.PrintProductLable.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.PrintProductLable_Execute);
             // 
+            // AddPurchasingOrder
+            // 
+            this.AddPurchasingOrder.Caption = "Add Purchasing Order";
+            this.AddPurchasingOrder.ConfirmationMessage = null;
+            this.AddPurchasingOrder.Id = "AddPurchasingOrder";
+            this.AddPurchasingOrder.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Product);
+            this.AddPurchasingOrder.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.AddPurchasingOrder.ToolTip = null;
+            this.AddPurchasingOrder.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.AddPurchasingOrder.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AddPurchasingOrder_Execute);
+            // 
             // DataImportController
             // 
             this.Actions.Add(this.AddDepartmentsServices);
@@ -111,6 +123,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.AddStock);
             this.Actions.Add(this.AddPharmacy);
             this.Actions.Add(this.PrintProductLable);
+            this.Actions.Add(this.AddPurchasingOrder);
 
         }
 
@@ -122,5 +135,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction AddStock;
         private DevExpress.ExpressApp.Actions.SimpleAction AddPharmacy;
         private DevExpress.ExpressApp.Actions.SimpleAction PrintProductLable;
+        private DevExpress.ExpressApp.Actions.SimpleAction AddPurchasingOrder;
     }
 }

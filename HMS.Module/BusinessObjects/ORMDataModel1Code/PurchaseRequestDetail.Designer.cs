@@ -27,6 +27,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         Product fProduct;
+        [Association(@"PurchaseRequestDetailReferencesProduct")]
         public Product Product
         {
             get { return fProduct; }

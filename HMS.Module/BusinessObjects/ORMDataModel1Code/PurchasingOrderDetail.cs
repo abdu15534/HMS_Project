@@ -5,6 +5,8 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Linq;
+
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
@@ -22,6 +24,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaved()
         {
             base.OnSaved();
+           
+            if (!IsDeleted)
+                if (this.amount == 0 || quantity == 0)
+                    this.Delete();
+        
             try
             {
                 this.puchasingOrder.TotalOrderChangeFlag();
@@ -31,6 +38,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             }
         }
-    }
+
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+        }
+        }
 
 }

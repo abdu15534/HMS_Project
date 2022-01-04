@@ -2326,10 +2326,7 @@
       <Layout>
         <LayoutGroup Id="Main">
           <LayoutGroup Id="SimpleEditors">
-            <LayoutGroup Id="StockProduct" Caption="منتج المخزن">
-              <LayoutGroup Id="StockProduct_col1" Caption="منتج المخزن1" />
-              <LayoutGroup Id="StockProduct_col2" Caption="منتج المخزن2" />
-            </LayoutGroup>
+            <LayoutGroup Id="StockProduct" Caption="منتج المخزن" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>

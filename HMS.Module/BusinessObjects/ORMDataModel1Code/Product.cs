@@ -1,6 +1,8 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+using DevExpress.Xpo.Metadata;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,16 +18,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         }
 
-        public IList<PurchasingOrder> Orders
-        {
-            get => Session.Query<PurchasingOrder>().Where(p => p.PurchasingOrderDetails.Any(x => x.product == this)).ToList();
-        }
+        //public IList<PurchasingOrder> Orders
+        //{
+        //    get => Session.Query<PurchasingOrder>().Where(p => p.PurchasingOrderDetails.Any(x => x.product == this)).ToList();
+        //}
 
         public override void AfterConstruction() {
             base.AfterConstruction();
 
             unitAmount = 1;
-            var unit = Session.FindObject<ProductUnit>(new BinaryOperator("unit", "قطعة"));
+            var unit = Session.FindObject<ProductUnit>(new BinaryOperator("unit", "وحدة"));
             this.purchasingUnit = unit;
             this.sellUnit = unit;
         }
@@ -63,6 +65,49 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 }
             }
         }
+        protected override void OnDeleting()
+        {
+
+            //IEnumerable<StockProduct> stockproducts = Session.Query<StockProduct>().Where(p => p.product == this).ToList();
+            //    //Console.WriteLine(stockproducts.Count);
+            //    Session.Delete(stockproducts);
+
+            //IEnumerable<PurchasingOrderDetail> OrdersList = Session.Query<PurchasingOrderDetail>().Where(p => p.product== this).ToList();
+            //foreach (PurchasingOrderDetail item in OrdersList)
+            //{
+            //    //item.puchasingOrder.OrderConfirm(false);
+            //    Session.Delete(item);
+
+            //}
+            //    //Console.WriteLine(Orders.Count);
+            //    // Session.Delete(OrdersList);
+
+
+
+            //IEnumerable<PurchaseRequestDetail> Requests = Session.Query<PurchaseRequestDetail>().Where(p => p.Product == this).ToList();
+            //    //Console.WriteLine(Requests.Count);
+            //    Session.Delete(Requests);
+            //Session.CommitTransaction();
+            base.OnDeleting();
+            Session.Delete(this.PurchaseRequestDetails);
+            Session.Delete(this.PurchasingOrderDetails);
+            Session.Delete(this.StockProducts);
+            //foreach (object obj in Session.CollectReferencingObjects(this))
+            //{
+            //    foreach (XPMemberInfo property in Session.GetClassInfo(obj).PersistentProperties)
+            //    {
+            //        if (property.MemberType.IsAssignableFrom(this.GetType()))
+            //        {
+            //            if (Object.ReferenceEquals(this, property.GetValue(obj))) {
+            //                property.SetValue(obj, null);
+            //            }
+            //        }
+            //    }
+            //}
+
+
+        }
+
     }
 
 }

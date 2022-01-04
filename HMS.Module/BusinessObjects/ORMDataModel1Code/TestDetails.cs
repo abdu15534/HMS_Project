@@ -64,17 +64,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.service == null)
                     this.Delete();
-            if (admission != null)
-            {
-                IEnumerable<PackageDetail> packages = admission.reception.PackageDetails.Where(o => o.Applyed);
-                if (packages != null)
-                {
-                    foreach (PackageDetail item in packages)
-                    {
-                        item.ApplyPackageToTests();
-                    }
-                }
-            }
+            //if (admission != null)
+            //{
+            //    IEnumerable<PackageDetail> packages = admission.reception.PackageDetails.Where(o => o.Applyed);
+            //    if (packages != null)
+            //    {
+            //        foreach (PackageDetail item in packages)
+            //        {
+            //            item.ApplyPackageToTests();
+            //        }
+            //    }
+            //}
         }
     }
 

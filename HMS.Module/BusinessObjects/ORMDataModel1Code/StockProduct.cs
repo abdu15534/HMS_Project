@@ -3,6 +3,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -44,6 +45,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnLoaded()
         {
             base.OnLoaded();
+        }
+
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            //var suppleis = Session.Query<StaySupplies>().Where(p => p.supplyProduct == this).ToList();
+            //Session.Delete(suppleis);
+
+            //var transfers = Session.Query<TransferProduct>().Where(p => p.StockProduct == this).ToList();
+            Session.Delete(this.TransferProducts);
+            Session.Delete(this.StaySuppliesCollection);
+
         }
     }
 

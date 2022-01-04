@@ -95,24 +95,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.supplyProduct == null || quantity == 0)
                     this.Delete();
-            if (Stay != null)
-            {
-                IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
-                if (packages != null)
-                {
-                    foreach (PackageDetail item in packages)
-                    {
-                        item.ApplyPackageToMedicalSupplies();
-                    }
-                }
-            }
+            //if (Stay != null)
+            //{
+            //    IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
+            //    if (packages != null)
+            //    {
+            //        foreach (PackageDetail item in packages)
+            //        {
+            //            item.ApplyPackageToMedicalSupplies();
+            //        }
+            //    }
+            //}
 
         }
 
         protected override void OnDeleting()
         {
             base.OnDeleting();
-            if (supplyProduct != null && !IsLoading)
+            if (supplyProduct != null && !IsLoading && quantity != 0)
                 this.supplyProduct.secondUnitQuantity += quantity;
         }
 

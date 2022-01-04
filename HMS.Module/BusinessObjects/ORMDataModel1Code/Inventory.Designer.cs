@@ -50,7 +50,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fWearhouseType; }
             set { SetPropertyValue<WearhouseType>(nameof(WearhouseType), ref fWearhouseType, value); }
         }
-        [Association(@"StockProductReferencesInventory")]
+        [Association(@"StockProductReferencesInventory"), Aggregated]
         public XPCollection<StockProduct> StockProducts { get { return GetCollection<StockProduct>(nameof(StockProducts)); } }
     }
 

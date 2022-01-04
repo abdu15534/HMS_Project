@@ -74,6 +74,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return funitAmount; }
             set { SetPropertyValue<int>(nameof(unitAmount), ref funitAmount, value); }
         }
+        double fTempQuantity;
+        public double TempQuantity
+        {
+            get { return fTempQuantity; }
+            set { SetPropertyValue<double>(nameof(TempQuantity), ref fTempQuantity, value); }
+        }
+        [Association(@"PurchasingOrderDetailReferencesProduct"), Aggregated]
+        public XPCollection<PurchasingOrderDetail> PurchasingOrderDetails { get { return GetCollection<PurchasingOrderDetail>(nameof(PurchasingOrderDetails)); } }
+        [Association(@"PurchaseRequestDetailReferencesProduct"), Aggregated]
+        public XPCollection<PurchaseRequestDetail> PurchaseRequestDetails { get { return GetCollection<PurchaseRequestDetail>(nameof(PurchaseRequestDetails)); } }
+        [Association(@"StockProductReferencesProduct"), Aggregated]
+        public XPCollection<StockProduct> StockProducts { get { return GetCollection<StockProduct>(nameof(StockProducts)); } }
     }
 
 }
