@@ -35,9 +35,36 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnChanged(propertyName, oldValue, newValue);
             if (propertyName == nameof(clinc) && newValue != null)
             {
-                if (clinc.ExaminationPrice != null)
+                if (Apttype == AppointmentType.كشف)
                 {
-                    ExaminationPrice = clinc.ExaminationPrice;
+                    if (clinc.ExaminationPrice != null)
+                    {
+                        ExaminationPrice = clinc.ExaminationPrice;
+                    }
+                }
+                else
+                {
+                    if (clinc.ConsultationPrice != null)
+                    {
+                        ExaminationPrice = clinc.ConsultationPrice;
+                    }
+                }
+            }
+            if (propertyName == nameof(Apttype) && newValue != null)
+            {
+                if (Apttype == AppointmentType.كشف)
+                {
+                    if (clinc.ExaminationPrice != null)
+                    {
+                        ExaminationPrice = clinc.ExaminationPrice;
+                    }
+                }
+                else
+                {
+                    if (clinc.ConsultationPrice != null)
+                    {
+                        ExaminationPrice = clinc.ConsultationPrice;
+                    }
                 }
             }
         }
@@ -54,7 +81,20 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public enum AppointmentStatus
         {
-            NotSet, InProgress, NoShow, Canceled, completed,
+            NotSet, Paid ,InProgress, NoShow, Canceled, completed,
+        }
+
+        AppointmentType ftype;
+
+        public AppointmentType Apttype
+        {
+            get => ftype;
+            set => SetPropertyValue(nameof(Apttype), ref ftype, value);
+        }
+
+        public enum AppointmentType
+        {
+            NotSet, كشف, استشارة
         }
 
         protected override void OnSaving()

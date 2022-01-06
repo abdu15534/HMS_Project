@@ -14,8 +14,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         string stringQueryComplement = "')";
         string intQueryComplement = ")";
-        string xrayQuery = "SELECT dbo.Service.Name, dbo.XraysDetails.price, dbo.Patient.FullName, dbo.Xrays.id, dbo.Xrays.Patient FROM dbo.Xrays INNER JOIN dbo.XraysDetails ON dbo.Xrays.id = dbo.XraysDetails.Xrays INNER JOIN dbo.Patient ON dbo.Xrays.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.XraysDetails.service = dbo.Service.ID WHERE   (dbo.Xrays.id = ";
+        string xrayQuery = "SELECT  dbo.Xrays.id, dbo.Xrays.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.XraysDetails.price FROM dbo.Xrays INNER JOIN dbo.XraysDetails ON dbo.Xrays.id = dbo.XraysDetails.Xrays INNER JOIN dbo.Service ON dbo.XraysDetails.service = dbo.Service.ID INNER JOIN dbo.Patient ON dbo.Xrays.Patient = dbo.Patient.ID WHERE        (dbo.Xrays.id = ";
         string appointmentsQuery = "SELECT        TOP (100) PERCENT dbo.ClinicServiceDetail.Appointment, dbo.Appointment.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.Service.Price FROM dbo.Appointment INNER JOIN dbo.ClinicServiceDetail ON dbo.Appointment.Oid = dbo.ClinicServiceDetail.Appointment INNER JOIN dbo.Patient ON dbo.Appointment.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.ClinicServiceDetail.ClinicService = dbo.Service.ID WHERE(dbo.Appointment.Oid  = '";
+        string testQuery = "SELECT        dbo.Test.id, dbo.Test.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.TestDetails.price FROM dbo.Patient INNER JOIN dbo.Test ON dbo.Patient.ID = dbo.Test.Patient INNER JOIN dbo.TestDetails ON dbo.Test.id = dbo.TestDetails.Test INNER JOIN dbo.Service ON dbo.TestDetails.service = dbo.Service.ID WHERE        (dbo.Test.id = ";
+        string endoQuery = "SELECT  dbo.Endscope.id, dbo.Endscope.Patient, dbo.Patient.FullName, dbo.Service.Name, dbo.EndscopeDetails.price FROM dbo.EndscopeDetails INNER JOIN dbo.Endscope ON dbo.EndscopeDetails.Endscope = dbo.Endscope.id INNER JOIN dbo.Patient ON dbo.Endscope.Patient = dbo.Patient.ID INNER JOIN dbo.Service ON dbo.EndscopeDetails.service = dbo.Service.ID WHERE        (dbo.Endscope.id = ";
         public receiptClientBond(Session session) : base(session) { }
         public override void AfterConstruction()
         {
@@ -36,6 +38,51 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     string fullQuery = GetTargetAppointment();
                     addServices(fullQuery);
                 }
+                else if (Department.ID == 9)
+                {
+                    try
+                    {
+                        Xrays xray = Session.Query<Xrays>().Where(p => p.Patient.account == fromAccount).First();
+                        amount = xray.total;
+                        Targetid = xray.id.ToString();
+                        string fullXrayQuery = xrayQuery + Targetid + intQueryComplement;
+                        addServices(fullXrayQuery);
+
+                    }
+                    catch
+                    {
+                    }
+                }
+                else if (Department.ID == 10)
+                {
+                    try
+                    {
+                        Test test = Session.Query<Test>().Where(p => p.Patient.account == fromAccount).First();
+                        amount = test.total;
+                        Targetid = test.id.ToString();
+                        string fullTestQuery = testQuery + Targetid + intQueryComplement;
+                        addServices(fullTestQuery);
+
+                    }
+                    catch
+                    {
+                    }
+                }
+                else if (Department.ID == 11)
+                {
+                    try
+                    {
+                        Endscope endo = Session.Query<Endscope>().Where(p => p.Patient.account == fromAccount).First();
+                        amount = endo.total;
+                        Targetid = endo.id.ToString();
+                        string fullEndoQuery = endoQuery + Targetid + intQueryComplement;
+                        addServices(fullEndoQuery);
+
+                    }
+                    catch 
+                    {
+                    }
+                }
             }
             else if (propertyName == nameof(fromAccount) && newValue != null && Department != null)
             {
@@ -44,23 +91,78 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 if (Department.ID == 8)
                 {
                     string fullQuery = GetTargetAppointment();
-                    addServices(Targetid);
+                    addServices(fullQuery);
+                }
+                else if (Department.ID == 9)
+                {
+                    try
+                    {
+                        Xrays xray = Session.Query<Xrays>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        amount = xray.total;
+                        Targetid = xray.id.ToString();
+                        string fullXrayQuery = xrayQuery + Targetid + intQueryComplement;
+                        addServices(fullXrayQuery);
+
+                    }
+                    catch
+                    {
+                    }
+                }
+                else if (Department.ID == 10)
+                {
+                    try
+                    {
+                        Test test = Session.Query<Test>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        amount = test.total;
+                        Targetid = test.id.ToString();
+                        string fullTestQuery = testQuery + Targetid + intQueryComplement;
+                        addServices(fullTestQuery);
+                    }
+                    catch
+                    {
+
+                        
+                    }
+                }
+                else if (Department.ID == 11)
+                {
+                    try
+                    {
+                        Endscope endo = Session.Query<Endscope>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        amount = endo.total;
+                        Targetid = endo.id.ToString();
+                        string fullEndoQuery = endoQuery + Targetid + intQueryComplement;
+                        addServices(fullEndoQuery);
+
+                    }
+                    catch 
+                    {
+                    }
                 }
             }
         }
 
         private string GetTargetAppointment()
         {
-            Appointment appo = Session.Query<Appointment>().Where(a => a.Patient.account == fromAccount).OrderByDescending(p => p.StartOn).First();
-            Targetid = appo.Oid.ToString();
-            string fullQuery = appointmentsQuery + Targetid + stringQueryComplement;
-            ReceiptItem reciptItem1 = new ReceiptItem(Session);
-            reciptItem1.Name = "كشف " + appo.clinc.Name + " دكتور " + appo.Doctor.FullName;
-            reciptItem1.Price = appo.ExaminationPrice;
-            reciptItem1.Date = DateTime.Now;
-            reciptItem1.reciptBond = this;
-            amount = appo.total;
-            return fullQuery;
+            string fullQuery = null;
+            try
+            {
+                Appointment appo = Session.Query<Appointment>().Where(a => a.Patient.account == fromAccount).OrderByDescending(p => p.StartOn).First();
+                Targetid = appo.Oid.ToString();
+                fullQuery = appointmentsQuery + Targetid + stringQueryComplement;
+                ReceiptItem reciptItem1 = new ReceiptItem(Session);
+                reciptItem1.Name = appo.Apttype + " " + appo.clinc.Name + " دكتور " + appo.Doctor.FullName;
+                reciptItem1.Price = appo.ExaminationPrice;
+                reciptItem1.Date = DateTime.Now;
+                reciptItem1.reciptBond = this;
+                amount = appo.total;
+                return fullQuery;
+
+            }
+            catch
+            {
+                return fullQuery;
+            }
         }
 
         ////IList<XPBaseObject> admat;
@@ -180,13 +282,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
                 Payments clientPayments = new Payments(Session);
                 Patient patient = Session.Query<Patient>().Where(o => o.account == fromAccount).Single();
-                if(PaymentDestnation == (PaymentType)0)
-                {
-                    clientPayments.ReceptionDesk = null;
-                    clientPayments.Emergency = null;
-                    clientPayments.Appointment = null;
-                }
-                else if (PaymentDestnation == (PaymentType)1)
+                //if(PaymentDestnation == (PaymentType)0)
+                //{
+                //    clientPayments.ReceptionDesk = null;
+                //    clientPayments.Emergency = null;
+                //    clientPayments.Appointment = null;
+                //}
+                //else 
+                if (PaymentDestnation == (PaymentType)1)
                 {
                     try
                     {
@@ -221,6 +324,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     try
                     {
                         Appointment appointment = Session.Query<Appointment>().Where(o => o.Patient == patient).OrderByDescending(t => t.StartOn).ToList()[0];
+                        appointment.AptStatus = Appointment.AppointmentStatus.Paid;
                         clientPayments.Appointment = appointment;
                         clientPayments.ReceptionDesk = null;
                         clientPayments.Emergency = null;
@@ -229,6 +333,50 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                         MessageBox.Show("لا توجد اي حجوزات لهذا العميل", "خطاء ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
+                    }
+                }
+                else if (Department.ID == 9 )
+                {
+                    try
+                    {
+                        Xrays xray = Session.GetObjectByKey<Xrays>(Convert.ToInt32(Targetid));
+                        xray.Paid = true;
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("لا توجد اي اشعة لهذا العميل", "خطاء ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+
+                    }
+                }else if(Department.ID == 10)
+                {
+                    try
+                    {
+                        Test test = Session.GetObjectByKey<Test>(Convert.ToInt32(Targetid));
+                        test.Paid = true;
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("لا توجد اي تحاليل لهذا العميل", "خطاء ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+
+                    }
+                }
+                else if (Department.ID == 11)
+                {
+                    try
+                    {
+                        Endscope endo = Session.GetObjectByKey<Endscope>(Convert.ToInt32(Targetid));
+                        endo.Paid = true;
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("لا توجد اي مناظير لهذا العميل", "خطاء ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+
                     }
                 }
 
@@ -266,6 +414,26 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     Payments payment = Session.Query<Payments>().Where(o => o.journalEntry == journal).Single();
                     payment.Delete();
+                    if (Department.ID == 9)
+                    {
+                        Xrays xray = Session.GetObjectByKey<Xrays>(Convert.ToInt32(Targetid));
+                        xray.Paid = false;
+                    }
+                    else if (Department.ID == 10)
+                    {
+                        Test test = Session.GetObjectByKey<Test>(Convert.ToInt32(Targetid));
+                        test.Paid = false;
+                    }
+                    else if (Department.ID == 11)
+                    {
+                        Endscope endo = Session.GetObjectByKey<Endscope>(Convert.ToInt32(Targetid));
+                        endo.Paid = false;
+                    }
+                    else if (Department.ID == 8)
+                    {
+                        Appointment appointment = Session.GetObjectByKey<Appointment>(Targetid); ;
+                        appointment.AptStatus = Appointment.AppointmentStatus.NotSet;
+                    }
                 }
                 catch (Exception e)
                 {

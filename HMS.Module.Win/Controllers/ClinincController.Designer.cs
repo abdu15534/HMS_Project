@@ -34,6 +34,9 @@ namespace HMS.Module.Win.Controllers
             this.OutPatientLable = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.FindAppointment = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             this.ClearTicket = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.createXrayAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            this.createTestAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            this.createEndoAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
             // 
             // PaymentRecipt
             // 
@@ -82,12 +85,57 @@ namespace HMS.Module.Win.Controllers
             this.ClearTicket.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.ClearTicket.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.ClearTicket_Execute);
             // 
+            // createXrayAppo
+            // 
+            this.createXrayAppo.AcceptButtonCaption = null;
+            this.createXrayAppo.CancelButtonCaption = null;
+            this.createXrayAppo.Caption = "create Xray Appo";
+            this.createXrayAppo.ConfirmationMessage = null;
+            this.createXrayAppo.Id = "createXrayAppo";
+            this.createXrayAppo.ImageName = "ChartType_SwiftPlot";
+            this.createXrayAppo.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.createXrayAppo.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.createXrayAppo.ToolTip = null;
+            this.createXrayAppo.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.createXrayAppo.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.createXrayAppo_Execute);
+            // 
+            // createTestAppo
+            // 
+            this.createTestAppo.AcceptButtonCaption = null;
+            this.createTestAppo.CancelButtonCaption = null;
+            this.createTestAppo.Caption = "create Test Appo";
+            this.createTestAppo.ConfirmationMessage = null;
+            this.createTestAppo.Id = "createTestAppo";
+            this.createTestAppo.ImageName = "ActionGroup_EasyTestRecorder";
+            this.createTestAppo.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.createTestAppo.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.createTestAppo.ToolTip = null;
+            this.createTestAppo.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.createTestAppo.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.createTestAppo_Execute);
+            // 
+            // createEndoAppo
+            // 
+            this.createEndoAppo.AcceptButtonCaption = null;
+            this.createEndoAppo.CancelButtonCaption = null;
+            this.createEndoAppo.Caption = "create Endo Appo";
+            this.createEndoAppo.ConfirmationMessage = null;
+            this.createEndoAppo.Id = "createEndoAppo";
+            this.createEndoAppo.ImageName = "Electronics_TV";
+            this.createEndoAppo.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.createEndoAppo.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.createEndoAppo.ToolTip = null;
+            this.createEndoAppo.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.createEndoAppo.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.createEndoAppo_Execute);
+            // 
             // ClinincController
             // 
             this.Actions.Add(this.PaymentRecipt);
             this.Actions.Add(this.OutPatientLable);
             this.Actions.Add(this.FindAppointment);
             this.Actions.Add(this.ClearTicket);
+            this.Actions.Add(this.createXrayAppo);
+            this.Actions.Add(this.createTestAppo);
+            this.Actions.Add(this.createEndoAppo);
 
         }
 
@@ -97,5 +145,8 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction OutPatientLable;
         private DevExpress.ExpressApp.Actions.ParametrizedAction FindAppointment;
         private DevExpress.ExpressApp.Actions.SimpleAction ClearTicket;
+        private DevExpress.ExpressApp.Actions.PopupWindowShowAction createXrayAppo;
+        private DevExpress.ExpressApp.Actions.PopupWindowShowAction createTestAppo;
+        private DevExpress.ExpressApp.Actions.PopupWindowShowAction createEndoAppo;
     }
 }

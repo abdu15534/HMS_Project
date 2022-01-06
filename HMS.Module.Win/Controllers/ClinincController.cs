@@ -25,6 +25,9 @@ namespace HMS.Module.Win.Controllers
         public ClinincController()
         {
             InitializeComponent();
+            createXrayAppo.CustomizePopupWindowParams += createXrayAppo_CustomizePopupWindowParams;
+            createTestAppo.CustomizePopupWindowParams += createTestAppo_CustomizePopupWindowParams;
+            createEndoAppo.CustomizePopupWindowParams += createEndoAppo_CustomizePopupWindowParams;
             // Target required Views (via the TargetXXX properties) and create their Actions.
         }
         protected override void OnActivated()
@@ -112,6 +115,57 @@ namespace HMS.Module.Win.Controllers
             var curr = View.CurrentObject as Appointment;
             curr.TicketNumber = 0;
             ObjectSpace.CommitChanges();
+        }
+
+        private void createXrayAppo_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+        {
+
+        }
+
+        private void createXrayAppo_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
+        {
+            var appo = View.CurrentObject as Appointment;
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Xrays));
+            Xrays xray = objectSpace.CreateObject<Xrays>();
+            xray.Patient = objectSpace.GetObjectByKey<Patient>(appo.Patient.ID);
+            DetailView detailView = Application.CreateDetailView(objectSpace, xray);
+
+            detailView.ViewEditMode = ViewEditMode.Edit;
+            e.View = detailView;
+        }
+
+        private void createTestAppo_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+        {
+
+        }
+
+        private void createTestAppo_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
+        {
+            var appo = View.CurrentObject as Appointment;
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Test));
+            Test test = objectSpace.CreateObject<Test>();
+            test.Patient = objectSpace.GetObjectByKey<Patient>(appo.Patient.ID);
+            DetailView detailView = Application.CreateDetailView(objectSpace, test);
+
+            detailView.ViewEditMode = ViewEditMode.Edit;
+            e.View = detailView;
+        }
+
+        private void createEndoAppo_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
+        {
+
+        }
+
+        private void createEndoAppo_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
+        {
+            var appo = View.CurrentObject as Appointment;
+            IObjectSpace objectSpace = Application.CreateObjectSpace(typeof(Endscope));
+            Endscope endo = objectSpace.CreateObject<Endscope>();
+            endo.Patient = objectSpace.GetObjectByKey<Patient>(appo.Patient.ID);
+            DetailView detailView = Application.CreateDetailView(objectSpace, endo);
+
+            detailView.ViewEditMode = ViewEditMode.Edit;
+            e.View = detailView;
         }
     }
 }
