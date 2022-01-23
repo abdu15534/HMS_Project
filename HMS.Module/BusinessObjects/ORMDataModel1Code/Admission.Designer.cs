@@ -187,7 +187,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fMedicalSupervisionSum; }
             set { SetPropertyValue<decimal>(nameof(MedicalSupervisionSum), ref fMedicalSupervisionSum, value); }
         }
-        [PersistentAlias("[companionSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum] + [ConsolationSum]")]
+        [PersistentAlias("[companionSum] + [servicesSum] + [suppliesSum] + [endscopesSum] + [testsSum] + [xraysSum] + [MedicalSupervisionSum] + [medicalCareSum] + [roomStaySum] + [ConsolationSum] + [OutMedcationSum]")]
         public decimal stayTotalSum
         {
             get { return (decimal)(EvaluateAlias(nameof(stayTotalSum))); }
@@ -215,6 +215,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(ConsolationSum))); }
         }
+        [PersistentAlias("Iif([OutMedications][].Sum([amount]) Is Null, 0.0m, [OutMedications][].Sum([amount]))")]
+        public decimal OutMedcationSum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(OutMedcationSum))); }
+        }
         Department fDepartment;
         public Department Department
         {
@@ -241,6 +246,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<StaySupplies> StockDetailsCollection { get { return GetCollection<StaySupplies>(nameof(StockDetailsCollection)); } }
         [Association(@"ProductRefundReferencesAdmission")]
         public XPCollection<ProductRefund> ProductRefunds { get { return GetCollection<ProductRefund>(nameof(ProductRefunds)); } }
+        [Association(@"OutMedicationReferencesAdmission")]
+        public XPCollection<OutMedication> OutMedications { get { return GetCollection<OutMedication>(nameof(OutMedications)); } }
     }
 
 }

@@ -11,6 +11,8 @@
     <AssemblyName>HMS.Module</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -375,6 +377,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\InPatientSettings.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\InPatientSettings.Designer.cs">
       <DependentUpon>InPatientSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\OutMedication.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\OutMedication.Designer.cs">
+      <DependentUpon>OutMedication.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\Package.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Package.Designer.cs">

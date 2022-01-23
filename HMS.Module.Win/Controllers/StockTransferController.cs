@@ -105,7 +105,7 @@ namespace HMS.Module.Win.Controllers
             IEnumerable<TransferProduct> productList = ObjectSpace.GetObjects<TransferProduct>().Where(p => p.TobeApproved == true  && p.StockTransfer == curr);
             foreach (TransferProduct tProduct in productList)
             {
-                if (tProduct.StockProduct.firstUnitQuantity > tProduct.RequstedCount)
+                if (tProduct.StockProduct.firstUnitQuantity >= tProduct.RequstedCount)
                 {
                 }
                 else

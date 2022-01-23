@@ -33,7 +33,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 Session.Delete(ReceiptItems);
                 this.amount = 0;
-                if (Department.ID  == 8)
+                if (Department.ID == 8)
                 {
                     string fullQuery = GetTargetAppointment();
                     addServices(fullQuery);
@@ -79,7 +79,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         addServices(fullEndoQuery);
 
                     }
-                    catch 
+                    catch
                     {
                     }
                 }
@@ -97,7 +97,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     try
                     {
-                        Xrays xray = Session.Query<Xrays>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        Xrays xray = Session.Query<Xrays>().Where(p => p.Patient.account == fromAccount).First();
                         amount = xray.total;
                         Targetid = xray.id.ToString();
                         string fullXrayQuery = xrayQuery + Targetid + intQueryComplement;
@@ -112,37 +112,36 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     try
                     {
-                        Test test = Session.Query<Test>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        Test test = Session.Query<Test>().Where(p => p.Patient.account == fromAccount).First();
                         amount = test.total;
                         Targetid = test.id.ToString();
                         string fullTestQuery = testQuery + Targetid + intQueryComplement;
                         addServices(fullTestQuery);
+
                     }
                     catch
                     {
-
-                        
                     }
                 }
                 else if (Department.ID == 11)
                 {
                     try
                     {
-                        Endscope endo = Session.Query<Endscope>().Where(p => p.Patient.account == fromAccount && p.Paid == false).First();
+                        Endscope endo = Session.Query<Endscope>().Where(p => p.Patient.account == fromAccount).First();
                         amount = endo.total;
                         Targetid = endo.id.ToString();
                         string fullEndoQuery = endoQuery + Targetid + intQueryComplement;
                         addServices(fullEndoQuery);
 
                     }
-                    catch 
+                    catch
                     {
                     }
                 }
             }
         }
 
-        private string GetTargetAppointment()
+        private  string GetTargetAppointment()
         {
             string fullQuery = null;
             try

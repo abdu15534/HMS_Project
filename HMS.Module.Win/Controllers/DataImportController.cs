@@ -61,7 +61,6 @@ namespace HMS.Module.Win.Controllers
 
         private void simpleAction1_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
             
             OpenFileDialog excel = new OpenFileDialog();
@@ -75,63 +74,9 @@ namespace HMS.Module.Win.Controllers
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
 
-
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(1).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
-
-                            
-                                if (isFirstRow)
-                                {
-                                    foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                    {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                        //Console.WriteLine("##");
-                                        dt.Columns.Add(cell.Value.ToString());
-                                    }
-
-                                isFirstRow = false;
-                                }
-                                else
-                                {
-                                    bool czyDodany = false;
-
-                                    int i = 0;
-                                    foreach (IXLCell cell in row.Cells())
-                                    {
-                                        //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                        //Console.WriteLine(cell.Value);
-                                        //Debug.WriteLine(cell.Value);
-                                        if (czyDodany == false)
-                                        {
-                                            dt.Rows.Add();
-                                            czyDodany = true;
-                                        }
-
-                                        dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                        i++;
-                                    }
-
-                                }
-                            
+                    dt = ExtractDataTable(excel, 1);
 
 
-                        }
-                        #endregion
-                    }
-
-                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -147,30 +92,6 @@ namespace HMS.Module.Win.Controllers
                             //myString = row[0].ToString();
                             if (!string.IsNullOrEmpty(row[0].ToString()))
                                 service.ID = Convert.ToInt32(row[0].ToString());
-                            //    try
-                            //    {
-                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    }
-                            //    catch { fzp.Produkt = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    }
-                            //    catch { fzp.Oddzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    }
-                            //    catch { fzp.Dzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    }
-                            //    catch { fzp.KomorkaKoszt = null; }
                         }
 
             
@@ -283,20 +204,7 @@ namespace HMS.Module.Win.Controllers
                 {
                     Console.WriteLine(ex);
                     SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
                 }
 
             }
@@ -304,7 +212,6 @@ namespace HMS.Module.Win.Controllers
 
         private void AddXrayServices_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
 
             OpenFileDialog excel = new OpenFileDialog();
@@ -318,63 +225,9 @@ namespace HMS.Module.Win.Controllers
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
 
-
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(2).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
+                    dt = ExtractDataTable(excel, 2);
 
 
-                            if (isFirstRow)
-                            {
-                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                    //Console.WriteLine("##");
-                                    dt.Columns.Add(cell.Value.ToString());
-                                }
-
-                                isFirstRow = false;
-                            }
-                            else
-                            {
-                                bool czyDodany = false;
-
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells())
-                                {
-                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                    //Console.WriteLine(cell.Value);
-                                    //Debug.WriteLine(cell.Value);
-                                    if (czyDodany == false)
-                                    {
-                                        dt.Rows.Add();
-                                        czyDodany = true;
-                                    }
-
-                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                    i++;
-                                }
-
-                            }
-
-
-
-                        }
-                        #endregion
-                    }
-
-                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -390,30 +243,7 @@ namespace HMS.Module.Win.Controllers
                             myString = row[0].ToString();
                             if (!string.IsNullOrEmpty(row[0].ToString()))
                                 service.ID = Convert.ToInt32(row[0].ToString());
-                            //    try
-                            //    {
-                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    }
-                            //    catch { fzp.Produkt = null; }
 
-                            //    try
-                            //    {
-                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    }
-                            //    catch { fzp.Oddzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    }
-                            //    catch { fzp.Dzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    }
-                            //    catch { fzp.KomorkaKoszt = null; }
                         }
 
 
@@ -489,20 +319,7 @@ namespace HMS.Module.Win.Controllers
                 {
                     Console.WriteLine(ex);
                     SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
                 }
 
             }
@@ -510,7 +327,6 @@ namespace HMS.Module.Win.Controllers
 
         private void AddTests_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
 
             OpenFileDialog excel = new OpenFileDialog();
@@ -523,64 +339,10 @@ namespace HMS.Module.Win.Controllers
                 {
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الخدمات ...");
-
-
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(3).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
-
-
-                            if (isFirstRow)
-                            {
-                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                    //Console.WriteLine("##");
-                                    dt.Columns.Add(cell.Value.ToString());
-                                }
-
-                                isFirstRow = false;
-                            }
-                            else
-                            {
-                                bool czyDodany = false;
-
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells())
-                                {
-                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                    //Console.WriteLine(cell.Value);
-                                    //Debug.WriteLine(cell.Value);
-                                    if (czyDodany == false)
-                                    {
-                                        dt.Rows.Add();
-                                        czyDodany = true;
-                                    }
-
-                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                    i++;
-                                }
-
-                            }
+                    dt = ExtractDataTable(excel, 3);
 
 
 
-                        }
-                        #endregion
-                    }
-
-                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -595,30 +357,7 @@ namespace HMS.Module.Win.Controllers
                             //myString = row[0].ToString();
                             if (!string.IsNullOrEmpty(row[0].ToString()))
                                 service.ID = Convert.ToInt32(row[0].ToString());
-                            //    try
-                            //    {
-                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    }
-                            //    catch { fzp.Produkt = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    }
-                            //    catch { fzp.Oddzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    }
-                            //    catch { fzp.Dzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    }
-                            //    catch { fzp.KomorkaKoszt = null; }
+                            
                         }
 
 
@@ -668,20 +407,7 @@ namespace HMS.Module.Win.Controllers
                 {
                     Console.WriteLine(ex);
                     SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
                 }
 
             }
@@ -689,7 +415,6 @@ namespace HMS.Module.Win.Controllers
 
         private void AddPharmacy_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
 
             OpenFileDialog excel = new OpenFileDialog();
@@ -703,61 +428,8 @@ namespace HMS.Module.Win.Controllers
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الأدوية ...");
 
+                    dt = ExtractDataTable(excel, 2);
 
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(2).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
-
-
-                            if (isFirstRow)
-                            {
-                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                    //Console.WriteLine("##");
-                                    dt.Columns.Add(cell.Value.ToString());
-                                }
-
-                                isFirstRow = false;
-                            }
-                            else
-                            {
-                                bool czyDodany = false;
-
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells())
-                                {
-                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                    //Console.WriteLine(cell.Value);
-                                    //Debug.WriteLine(cell.Value);
-                                    if (czyDodany == false)
-                                    {
-                                        dt.Rows.Add();
-                                        czyDodany = true;
-                                    }
-
-                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                    i++;
-                                }
-
-                            }
-
-
-
-                        }
-                        #endregion
-                    }
 
                     //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
@@ -774,30 +446,6 @@ namespace HMS.Module.Win.Controllers
                             myString = row[5].ToString();
                             if (!string.IsNullOrEmpty(row[5].ToString()))
                                 product.sellingPrice = Convert.ToDecimal(row[5].ToString());
-                            //    try
-                            //    {
-                            //        var identyfikatorProd = ciag[0] + "-" + ciag[1];
-                            //        fzp.Produkt = ObjectSpace.FindObject<Produkt>(CriteriaOperator.Parse("Identyfikator= ?", identyfikatorProd));
-                            //    }
-                            //    catch { fzp.Produkt = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Oddzial = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[2]));
-                            //    }
-                            //    catch { fzp.Oddzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.Dzial = ObjectSpace.FindObject<Dzial>(CriteriaOperator.Parse("SymbolDzialu = ?", ciag[3].ToUpper()));
-                            //    }
-                            //    catch { fzp.Dzial = null; }
-
-                            //    try
-                            //    {
-                            //        fzp.KomorkaKoszt = ObjectSpace.FindObject<MPK>(CriteriaOperator.Parse("Konto = ?", ciag[4]));
-                            //    }
-                            //    catch { fzp.KomorkaKoszt = null; }
                         }
 
 
@@ -864,20 +512,7 @@ namespace HMS.Module.Win.Controllers
                 {
                     Console.WriteLine(ex);
                     SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
                 }
 
             }
@@ -885,7 +520,6 @@ namespace HMS.Module.Win.Controllers
 
         private void AddStock_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
 
             OpenFileDialog excel = new OpenFileDialog();
@@ -898,164 +532,148 @@ namespace HMS.Module.Win.Controllers
                 {
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ المستهلكات ...");
-
-
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(1).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
-
-
-                            if (isFirstRow)
-                            {
-                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                    //Console.WriteLine("##");
-                                    dt.Columns.Add(cell.Value.ToString());
-                                }
-
-                                isFirstRow = false;
-                            }
-                            else
-                            {
-                                bool czyDodany = false;
-
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells())
-                                {
-                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                    //Console.WriteLine(cell.Value);
-                                    //Debug.WriteLine(cell.Value);
-                                    if (czyDodany == false)
-                                    {
-                                        dt.Rows.Add();
-                                        czyDodany = true;
-                                    }
-
-                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                    i++;
-                                }
-
-                            }
-
-
-
-                        }
-                        #endregion
-                    }
+                    dt = ExtractDataTable(excel, 1);
 
                     //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        try
-                        {
-                            //Debug.WriteLine(dt.Rows);
-                            Product product = ObjectSpace.CreateObject<Product>();
-                            //        //fzp.Ilosc = 1;
-                            string myString = "";
+                       
+                        Product product = ObjectSpace.CreateObject<Product>();
+                        //string myString = "";
 
+                        product.id = Convert.ToInt32(GetCellValue(row,0));
 
-                            if (row[0] != DBNull.Value)
-                            {
-                                myString += row[0].ToString() + "first";
-                                if (!string.IsNullOrEmpty(row[0].ToString()))
-                                    product.id = Convert.ToInt32(row[0].ToString());
-                            }
+                        product.name = GetCellValue(row, 1);
 
+                        product.TempQuantity = Convert.ToDouble(GetCellValue(row, 2));
 
-                            if (row[1] != DBNull.Value)
-                            {
-                                myString += " - " + row[1].ToString()+ "second";
-                                Debug.WriteLine("second");
-                                if (!string.IsNullOrEmpty(row[1].ToString()))
-                                    product.name = row[1].ToString();
-                            }
+                        ProductUnit Unit = ObjectSpace.FindObject<ProductUnit>(CriteriaOperator.Parse("unit = ?", GetCellValue(row, 3)));
 
+                        product.purchasingUnit = Unit;
+                        product.sellUnit = Unit;
 
-                            if (row[2] != DBNull.Value)
-                            {
-                                myString += " - " + row[2].ToString();
-                                
-                                if (!string.IsNullOrEmpty(row[2].ToString()))
-                                {
-                                    product.TempQuantity = Convert.ToDouble(row[2].ToString());
-                                }
+                        product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
 
-                            }
-
-                            product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
-
-                            if (row[3] != DBNull.Value)
-                            {
-                                myString += " - " + row[3].ToString()+ "fourth";
-                                if (!string.IsNullOrEmpty(row[3].ToString()))
-                                {
-                                    ProductUnit Unit = ObjectSpace.FindObject<ProductUnit>(CriteriaOperator.Parse("unit = ?", row[3].ToString()));
-                                    product.purchasingUnit = Unit;
-                                    product.sellUnit = Unit;
-                                }
-                            }
-                                if (row[4] != DBNull.Value)
-                            {
-                                myString += " - " + row[4].ToString() + "fifth";
-                                    Debug.WriteLine(Convert.ToDecimal(row[4].ToString()));
-                                if (!string.IsNullOrEmpty(row[4].ToString()))
-                                {
-                                    product.purchasingPrice = Convert.ToDecimal(row[4].ToString());
-                                }
-                            }
-
-                            Debug.WriteLine(myString);
-                            //        ObjectSpace.CommitChanges();
-                        }
-                        catch
-                        {
-
-                        }
-
+                        product.purchasingPrice = Convert.ToDecimal(GetCellValue(row, 4));
+                       
+                        //Debug.WriteLine(myString);
 
                         ObjectSpace.CommitChanges();
-                        //    //    fzp.FakturaZakupu = fz;
-                        //    //    fzp.Save();
                     }
 
-                        ObjectSpace.Refresh();
+                    ObjectSpace.Refresh();
 
-                            SplashScreenManager.CloseForm(false);
+                    SplashScreenManager.CloseForm(false);
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                     SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
                 }
 
             }
+        }
+
+        private string GetCellValue(DataRow row, int cellIdx)
+        {
+
+            try
+            {
+                if (row[cellIdx] != DBNull.Value)
+                {
+                    if (!string.IsNullOrEmpty(row[cellIdx].ToString()))
+                        return row[cellIdx].ToString();
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                ErrorSplashScreen(e, e.Message);
+                return null;
+            }
+         
+        }
+
+        private void ErrorSplashScreen(Exception ex, string msg)
+        {
+            Tracing.Tracer.LogError(ex);
+            MessageOptions mo = new MessageOptions();
+            mo.Duration = 3000;
+            mo.Message = msg;
+            mo.Type = InformationType.Error;
+            mo.OkDelegate = () =>
+            {
+                IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
+                //ErrorBox eb = new ErrorBox(ex.Message);
+                //DetailView dv = Application.CreateDetailView(os, eb);
+
+                //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
+            };
+            Application.ShowViewStrategy.ShowMessage(mo);
+        }
+
+        private static DataTable ExtractDataTable(OpenFileDialog excel, int sheetNum)
+        {
+            bool EmptyRow;
+            DataTable dt;
+            using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
+            {
+                #region Deserializacja Excel  
+                var rows = workBook.Worksheet(sheetNum).RowsUsed();
+
+                dt = new DataTable();
+
+                bool isFirstRow = true;
+
+                foreach (var row in rows)
+                {
+                    //Console.WriteLine(row);
+                    EmptyRow = row.IsEmpty();
+
+
+                    if (isFirstRow)
+                    {
+                        foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
+                        {
+                            //Debug.WriteLine(cell.Value);
+                            //Console.WriteLine(cell.Value);
+                            //Console.WriteLine("##");
+                            dt.Columns.Add(cell.Value.ToString());
+                        }
+
+                        isFirstRow = false;
+                    }
+                    else
+                    {
+                        bool czyDodany = false;
+
+                        int i = 0;
+                        foreach (IXLCell cell in row.Cells())
+                        {
+                            //Console.OutputEncoding = System.Text.Encoding.UTF8;
+                            //Console.WriteLine(cell.Value);
+                            //Debug.WriteLine(cell.Value);
+                            if (czyDodany == false)
+                            {
+                                dt.Rows.Add();
+                                czyDodany = true;
+                            }
+
+                            dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
+                            i++;
+                        }
+
+                    }
+
+
+
+                }
+                #endregion
+            }
+
+            return dt;
         }
 
         private void PrintProductLable_Execute(object sender, SimpleActionExecuteEventArgs e)
@@ -1069,7 +687,6 @@ namespace HMS.Module.Win.Controllers
 
         private void AddPurchasingOrder_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            bool czyPustyWiersz;
             DataTable dt;
 
             OpenFileDialog excel = new OpenFileDialog();
@@ -1088,63 +705,11 @@ namespace HMS.Module.Win.Controllers
                     Order.supplierAccount = supplier;
                     Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
                     Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
-
-                    using (XLWorkbook workBook = new XLWorkbook(excel.FileName))
-                    {
-                        #region Deserializacja Excel  
-                        var rows = workBook.Worksheet(1).RowsUsed();
-
-                        dt = new DataTable();
-
-                        bool isFirstRow = true;
-
-                        foreach (var row in rows)
-                        {
-                            //Console.WriteLine(row);
-                            czyPustyWiersz = row.IsEmpty();
+                    
+                    dt = ExtractDataTable(excel, 1);
+                    
 
 
-                            if (isFirstRow)
-                            {
-                                foreach (IXLCell cell in row.Cells())//foreach (IXLCell cell in row.Cells())  
-                                {
-                                    //Debug.WriteLine(cell.Value);
-                                    //Console.WriteLine(cell.Value);
-                                    //Console.WriteLine("##");
-                                    dt.Columns.Add(cell.Value.ToString());
-                                }
-
-                                isFirstRow = false;
-                            }
-                            else
-                            {
-                                bool czyDodany = false;
-
-                                int i = 0;
-                                foreach (IXLCell cell in row.Cells())
-                                {
-                                    //Console.OutputEncoding = System.Text.Encoding.UTF8;
-                                    //Console.WriteLine(cell.Value);
-                                    //Debug.WriteLine(cell.Value);
-                                    if (czyDodany == false)
-                                    {
-                                        dt.Rows.Add();
-                                        czyDodany = true;
-                                    }
-
-                                    dt.Rows[dt.Rows.Count - 1][i] = cell.Value.ToString();
-                                    i++;
-                                }
-
-                            }
-
-
-
-                        }
-                        #endregion
-                    }
-
-                    //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
 
                     foreach (DataRow row in dt.Rows)
                     {
@@ -1234,21 +799,8 @@ namespace HMS.Module.Win.Controllers
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
-                    SplashScreenManager.CloseForm(false);
-                    Tracing.Tracer.LogError(ex);
-                    MessageOptions mo = new MessageOptions();
-                    mo.Duration = 3000;
-                    mo.Message = "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.";
-                    mo.Type = InformationType.Error;
-                    mo.OkDelegate = () =>
-                    {
-                        IObjectSpace os = Application.CreateObjectSpace(typeof(ErrorBox));
-                        //ErrorBox eb = new ErrorBox(ex.Message);
-                        //DetailView dv = Application.CreateDetailView(os, eb);
-
-                        //Application.ShowViewStrategy.ShowViewInPopupWindow(dv);
-                    };
-                    Application.ShowViewStrategy.ShowMessage(mo);
+                    ErrorSplashScreen(ex, "حدث خطأ أثناء استيراد البيانات من ملف Excel. انقر فوق الرسالة لمعرفة التفاصيل.");
+                    
                 }
 
             }

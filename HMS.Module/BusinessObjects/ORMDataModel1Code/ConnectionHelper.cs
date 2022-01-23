@@ -101,7 +101,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(Surgery),
             typeof(SurgerySchedule),
             typeof(SurgeryPackage),
-            typeof(ReceiptItem)
+            typeof(ReceiptItem),
+            typeof(OutMedication)
         };
         public static Type[] GetPersistentTypes()
         {

@@ -150,6 +150,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             Session.Delete(this.EndscopeDetailsCollection);
             Session.Delete(this.SupervisionDetailsCollection);
             Session.Delete(this.ConsultantDetailsCollection);
+            //Session.Delete(this.OutMedications);
             if (!transferFlag)
             {
                 Patient.InStay = false;

@@ -160,6 +160,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fStampPrice; }
             set { SetPropertyValue<decimal>(nameof(StampPrice), ref fStampPrice, value); }
         }
+        [PersistentAlias("Iif([PaymentsCollection][].Sum([amount]) = null, [totalC], [totalC] - [PaymentsCollection][].Sum([amount]))")]
+        public decimal Balance
+        {
+            get { return (decimal)(EvaluateAlias(nameof(Balance))); }
+        }
         [Association(@"AdmissionReferencesReceptionDesk")]
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }
         [Association(@"PackageDetailReferencesReceptionDesk")]

@@ -154,6 +154,7 @@
         <Member Name="medicalCareSum" Caption="اجمالي الرعاية الطبية" />
         <Member Name="MedicalSupervisionSum" Caption="اجمالي الاشراف الطبي" />
         <Member Name="medicationSum" Caption="إجمالى الأدوية" />
+        <Member Name="OutMedcationSum" Caption="اجمالي الادوية الخارجية" />
         <Member Name="reception" Caption="الاستقبال" />
         <Member Name="roomCareCost" Caption="تكلفة رعاية الغرفة" />
         <Member Name="roomStayCost" Caption="تكلفة اقامة الغرفة" />
@@ -350,6 +351,7 @@
         <Member Name="IsAvailable" Caption="متاح" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.OutMedication" Caption="الادوية الخارجية" />
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Patient" Caption="المريض">
       <OwnMembers>
         <Member Name="account" Caption="حسابات" />
@@ -460,6 +462,7 @@
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk">
       <OwnMembers>
         <Member Name="Admissions" Caption="الاقامات" />
+        <Member Name="Balance" Caption="الباقي" />
         <Member Name="dateEnter" DisplayFormat="{0:f}" EditMask="f" />
         <Member Name="dateLeave" EditMask="f" DisplayFormat="{0:f}" />
         <Member Name="journalEntry" Caption="قيد" />
@@ -1016,6 +1019,7 @@
         <ColumnInfo Id="stayTotalSum" Caption="إجمالى تكلفة الإقامة" />
       </Columns>
     </ListView>
+    <ListView Id="Admission_OutMedications_ListView" Caption="الادوية الخارجية" />
     <ListView Id="Admission_StayMedicications_ListView">
       <Columns>
         <ColumnInfo Id="pharmacy" Caption="الصيدلية" />
@@ -2402,6 +2406,15 @@
     <DetailView Id="ObjectAccessPermission_DetailView">
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسية" />
+      </Layout>
+    </DetailView>
+    <DetailView Id="OutMedication_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="OutMedication" Caption="" />
+          </LayoutGroup>
+        </LayoutGroup>
       </Layout>
     </DetailView>
     <DetailView Id="Party_DetailView">

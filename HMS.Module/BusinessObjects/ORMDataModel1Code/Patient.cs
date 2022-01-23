@@ -179,7 +179,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         protected override void OnSaving()
         {
-
             base.OnSaving();
             if (this.Session.IsNewObject(this))
             {
@@ -213,10 +212,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 MessageBox.Show("برجاء التأكد من الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (ImageProperty == null)
+            //if (ImageProperty == null)
+            //{
+            //    MessageBox.Show("برجاء التأكد من إدخال صورة البطاقة الشخصي!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            string[] authorsList = FullName.Split(' ');
+            if(authorsList.Length < 4)
             {
-                MessageBox.Show("برجاء التأكد من إدخال صورة الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                throw new ArgumentException("برجاء التأكد من إدخال الاسم الرباعي!", nameof(phonenumber1));
+                //MessageBox.Show("برجاء التأكد من إدخال الاسم الرباعي!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

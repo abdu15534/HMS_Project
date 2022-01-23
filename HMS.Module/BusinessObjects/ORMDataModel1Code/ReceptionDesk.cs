@@ -94,38 +94,38 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 this.patient.InStay = true;
             }
-            if(reasonForDischarge == dischargeTypes.وفاة && DeceasedPackageApplyed == false)
-            {
-                StockProduct l = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='جوانتي, 2 رباط , لفت'"));
+            //if(reasonForDischarge == dischargeTypes.وفاة && DeceasedPackageApplyed == false)
+            //{
+            //    StockProduct l = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='جوانتي, 2 رباط , لفت'"));
                 
               
-                StaySupplies deceassedService = new StaySupplies(Session);
-                deceassedService.Stay = this.currentStay;
-                deceassedService.supplyProduct = l;
-                deceassedService.quantity = 1;
-                //deceassedService.Save();
+            //    StaySupplies deceassedService = new StaySupplies(Session);
+            //    deceassedService.Stay = this.currentStay;
+            //    deceassedService.supplyProduct = l;
+            //    deceassedService.quantity = 1;
+            //    //deceassedService.Save();
 
-                StockProduct l2 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='كيس بلاستك'"));
-
-
-                StaySupplies deceassedService2 = new StaySupplies(Session);
-                deceassedService2.Stay = this.currentStay;
-                deceassedService2.supplyProduct = l2;
-                deceassedService2.quantity = 1;
-                //deceassedService2.Save();
-
-                StockProduct l3 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='ملاية'"));
+            //    StockProduct l2 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='كيس بلاستك'"));
 
 
-                StaySupplies deceassedService3 = new StaySupplies(Session);
-                deceassedService3.Stay = this.currentStay;
-                deceassedService3.supplyProduct = l3;
-                deceassedService3.quantity = 1;
-                //deceassedService3.Save();
+            //    StaySupplies deceassedService2 = new StaySupplies(Session);
+            //    deceassedService2.Stay = this.currentStay;
+            //    deceassedService2.supplyProduct = l2;
+            //    deceassedService2.quantity = 1;
+            //    //deceassedService2.Save();
+
+            //    StockProduct l3 = Session.FindObject<StockProduct>(CriteriaOperator.Parse("product.name='ملاية'"));
 
 
-                DeceasedPackageApplyed = true;
-            }
+            //    StaySupplies deceassedService3 = new StaySupplies(Session);
+            //    deceassedService3.Stay = this.currentStay;
+            //    deceassedService3.supplyProduct = l3;
+            //    deceassedService3.quantity = 1;
+            //    //deceassedService3.Save();
+
+
+            //    DeceasedPackageApplyed = true;
+            //}
             if (this.Session.IsNewObject(this))
             {
                 currentStay.Status = this.Section;
@@ -136,17 +136,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 currentStay.reception = this;
             }
             
-            if(!IsDeleted)
-            {
-                if (journalEntry.JournalDetailsCollection.Count > 0)
-                {
-                    journalEntry.Post(true);
-                }
+            //if(!IsDeleted)
+            //{
+            //    if (journalEntry.JournalDetailsCollection.Count > 0)
+            //    {
+            //        journalEntry.Post(true);
+            //    }
 
-                journalEntry.DeleteDetails();
-                SetJournal();
-                journalEntry.Post(false);
-            }
+            //    journalEntry.DeleteDetails();
+            //    SetJournal();
+            //    journalEntry.Post(false);
+            //}
             if(this.IsDiscounted == true)
             {
                 this.IsDiscounted = false;

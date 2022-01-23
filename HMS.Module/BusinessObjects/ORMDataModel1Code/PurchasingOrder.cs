@@ -19,14 +19,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             base.AfterConstruction();
             isConfirmed = false;
-            paymentAccount = Session.FindObject<Account>(new BinaryOperator("accountNumber", 104020001));
+            //paymentAccount = Session.FindObject<Account>(new BinaryOperator("accountNumber", 104020001));
 
             journalEntry = new JournalEntry(Session);
             journalEntry.date = DateTime.Now;
 
             date = DateTime.Now;
             inventory = Session.Query<Inventory>().First();
-            supplierAccount = Session.FindObject<Account>(new BinaryOperator("accountNumber", 207010001));
+            //supplierAccount = Session.FindObject<Account>(new BinaryOperator("accountNumber", 207010001));
         }
 
         OrderTypes orderType;
@@ -120,13 +120,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 journalEntry.DeleteDetails();
                 SetJournalDetails();
-                journalEntry.Post(false);
+                //journalEntry.Post(false);
                 isConfirmed = true;
             }
 
             else
             {
-                journalEntry.Post(true);
+                //journalEntry.Post(true);
                 isConfirmed = false;
             }
 
@@ -181,14 +181,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         if (denominator == 0)
                         {
                             stockProduct.product.purchasingPrice = 0;
-                            Console.WriteLine("denominator == 0");
                         }
                         else
                         {
                             stockProduct.product.purchasingPrice = numerator / denominator;
                             if (this.inventory.InventoryType == Inventory.InventoryTypes.Stock)
                             {
-                                Console.WriteLine("Inventory.InventoryTypes.Stock");
+                                //Console.WriteLine("Inventory.InventoryTypes.Stock");
                                 if (stockProduct.product.purchasingPrice >= Convert.ToDecimal(0) && stockProduct.product.purchasingPrice <= Convert.ToDecimal(4))
                                 {
                                     stockProduct.product.sellingPrice = stockProduct.product.purchasingPrice * Convert.ToDecimal(factorsObj.FromNotTo4);
@@ -214,19 +213,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             {
                                 if (denominator != 0m)
                                 {
-                                    Console.WriteLine("denominator != 0m");
                                     stockProduct.product.sellingPrice = newMedicenPrice / denominator;
                                 }
                                 else
                                 {
                                     stockProduct.product.sellingPrice = newMedicenPrice;
-                                    Console.WriteLine("denominator != 0m");
                                 }
 
                             }
                         }
                     }
-                    Console.WriteLine(stockProduct.product.sellingPrice.ToString() + " purchaseing order");
+                    //Console.WriteLine(stockProduct.product.sellingPrice.ToString() + " purchaseing order");
                 }
                 else
                 {

@@ -68,44 +68,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnDeleting()
         {
 
-            //IEnumerable<StockProduct> stockproducts = Session.Query<StockProduct>().Where(p => p.product == this).ToList();
-            //    //Console.WriteLine(stockproducts.Count);
-            //    Session.Delete(stockproducts);
-
-            //IEnumerable<PurchasingOrderDetail> OrdersList = Session.Query<PurchasingOrderDetail>().Where(p => p.product== this).ToList();
-            //foreach (PurchasingOrderDetail item in OrdersList)
-            //{
-            //    //item.puchasingOrder.OrderConfirm(false);
-            //    Session.Delete(item);
-
-            //}
-            //    //Console.WriteLine(Orders.Count);
-            //    // Session.Delete(OrdersList);
-
-
-
-            //IEnumerable<PurchaseRequestDetail> Requests = Session.Query<PurchaseRequestDetail>().Where(p => p.Product == this).ToList();
-            //    //Console.WriteLine(Requests.Count);
-            //    Session.Delete(Requests);
-            //Session.CommitTransaction();
             base.OnDeleting();
             Session.Delete(this.PurchaseRequestDetails);
             Session.Delete(this.PurchasingOrderDetails);
             Session.Delete(this.StockProducts);
-            //foreach (object obj in Session.CollectReferencingObjects(this))
-            //{
-            //    foreach (XPMemberInfo property in Session.GetClassInfo(obj).PersistentProperties)
-            //    {
-            //        if (property.MemberType.IsAssignableFrom(this.GetType()))
-            //        {
-            //            if (Object.ReferenceEquals(this, property.GetValue(obj))) {
-            //                property.SetValue(obj, null);
-            //            }
-            //        }
-            //    }
-            //}
-
-
+          
         }
 
     }

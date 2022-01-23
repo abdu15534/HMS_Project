@@ -4,6 +4,7 @@ using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -32,6 +33,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         fquantity = (supplyProduct.firstUnitQuantity) * supplyProduct.product.unitAmount + supplyProduct.secondUnitQuantity;
                         supplyProduct.firstUnitQuantity = 0;
                         supplyProduct.secondUnitQuantity = 0;
+                        if (fquantity == 0)
+                        {
+                            OutOfStockMesseage();
+                        }
                     }
                 }
                 else
@@ -79,14 +84,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             price = medic.product.sellingPrice / medic.product.unitAmount;
                         }
                     }
-                    
+
                 }
             }
 
+            CalculateProfitOfSupplyProduct();
+        }
+
+        private void CalculateProfitOfSupplyProduct()
+        {
             if (supplyProduct != null && supplyProduct.product != null && supplyProduct.product.purchasingPrice != 0)
             {
                 profit = Convert.ToDecimal((double)((price - (supplyProduct.product.purchasingPrice / supplyProduct.product.unitAmount))) * quantity);
             }
+        }
+
+        private void OutOfStockMesseage()
+        {
+            MessageBox.Show("لا توجد كمية كافية في المخزن من " + supplyProduct.product.name, supplyProduct.Inventory.Name, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         protected override void OnSaving()
@@ -95,17 +110,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (!IsDeleted)
                 if (this.supplyProduct == null || quantity == 0)
                     this.Delete();
-            //if (Stay != null)
-            //{
-            //    IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
-            //    if (packages != null)
-            //    {
-            //        foreach (PackageDetail item in packages)
-            //        {
-            //            item.ApplyPackageToMedicalSupplies();
-            //        }
-            //    }
-            //}
+            if (Stay != null)
+            {
+                IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
+                if (packages != null)
+                {
+                    foreach (PackageDetail item in packages)
+                    {
+                        item.ApplyPackageToMedicalSupplies();
+                    }
+                }
+            } 
 
         }
 
