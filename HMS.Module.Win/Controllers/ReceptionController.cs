@@ -152,6 +152,7 @@ namespace HMS.Module.Win.Controllers
                 decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
+                decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
@@ -167,6 +168,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["blood"].Value = bloodServies;
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
+                report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
                 report.Parameters["enterID"].Value = curr.enterID;
                 report.Parameters["patientName"].Value = curr.patient.FullName;
@@ -235,6 +237,7 @@ namespace HMS.Module.Win.Controllers
                 decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
+                decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
@@ -250,6 +253,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["blood"].Value = bloodServies;
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
+                report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
                 report.Parameters["IsAccountstatement"].Value = false;
 
