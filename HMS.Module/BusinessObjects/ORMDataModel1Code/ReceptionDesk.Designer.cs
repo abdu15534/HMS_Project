@@ -171,6 +171,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
         public XPCollection<PackageDetail> PackageDetails { get { return GetCollection<PackageDetail>(nameof(PackageDetails)); } }
         [Association(@"PaymentsReferencesReceptionDesk")]
         public XPCollection<Payments> PaymentsCollection { get { return GetCollection<Payments>(nameof(PaymentsCollection)); } }
+        [Association(@"SurgeryReferencesReceptionDesk")]
+        public XPCollection<Surgery> Surgeries { get { return GetCollection<Surgery>(nameof(Surgeries)); } }
     }
 
 }

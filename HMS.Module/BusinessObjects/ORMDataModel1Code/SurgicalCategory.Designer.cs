@@ -49,6 +49,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fopeningFee; }
             set { SetPropertyValue<decimal>(nameof(openingFee), ref fopeningFee, value); }
         }
+        string fName;
+        public string Name
+        {
+            get { return fName; }
+            set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
+        }
     }
 
 }

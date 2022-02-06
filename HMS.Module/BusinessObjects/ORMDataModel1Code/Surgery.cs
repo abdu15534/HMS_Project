@@ -11,28 +11,38 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Surgery
     {
         public Surgery(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction(); }
+        public override void AfterConstruction() 
+        { 
+            base.AfterConstruction();
+            Date = DateTime.Now;
+        }
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
             base.OnChanged(propertyName, oldValue, newValue);
 
             if (propertyName == nameof(SurgeryPackage) && newValue != null)
             {
-                if (this.SurgeryPackage.SurgeonsFees != null)
+                ApplySurgeryCatagory();
+            }
+        }
+
+        private void ApplySurgeryCatagory()
+        {
+            if (SurgeryPackage.SurgeonsFees != null)
+            {
+                SurgeonsFees = SurgeryPackage.SurgeonsFees;
+                price = SurgeryPackage.Price;
+                if (SurgeryPackage.AssistantFeeRate != null)
                 {
-                    this.SurgeonsFees = this.SurgeryPackage.SurgeonsFees;
-                    if (this.SurgeryPackage.AssistantFeeRate != null)
-                    {
-                        this.AssistantFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(this.SurgeryPackage.AssistantFeeRate);
-                    }
-                    if (this.SurgeryPackage.AnesthesiaFeeRate != null)
-                    {
-                        this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(this.SurgeryPackage.AnesthesiaFeeRate);
-                    }
-                    if (SurgeryPackage.openingFee != null)
-                    {
-                        this.RoomOpeningFee = this.SurgeryPackage.openingFee;
-                    }
+                    AssistantFees = SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AssistantFeeRate);
+                }
+                if (SurgeryPackage.AnesthesiaFeeRate != null)
+                {
+                    this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AnesthesiaFeeRate);
+                }
+                if (SurgeryPackage.openingFee != null)
+                {
+                    RoomOpeningFee = SurgeryPackage.openingFee;
                 }
             }
         }

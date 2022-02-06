@@ -836,11 +836,13 @@
           <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" Index="2" ImageName="Business_Diagram" IsNewNode="True" />
           <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" Index="3" ImageName="Flag_of_the_Red_Cross" ViewId="Emergency_ListView" IsNewNode="True" />
           <Item Id="@29c9bf48-a9c8-4600-9bd9-b040d8621be0" ViewId="SurgicalCategory_ListView" IsNewNode="True" />
+          <Item Id="@33f2c767-2b47-4f3b-9d0b-71eff9715d09" ViewId="SurgeryPackage_ListView" IsNewNode="True" />
           <Item Id="@4e7040c5-0327-45cd-a558-8958312dab6e" ViewId="AppointmentsAccounting_ListView" IsNewNode="True" />
           <Item Id="@57f6267e-b634-4bb1-bf1d-1c350a4369c3" ViewId="surgeryRoom_ListView" IsNewNode="True" />
           <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" Visible="False" IsNewNode="True" />
           <Item Id="@8d823551-8426-429b-bf6f-ac1fd594fb8b" ViewId="InPatientSettings_DetailView" IsNewNode="True" />
           <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" ImageName="BO_Product" IsNewNode="True" />
+          <Item Id="@d7dd9b16-273a-444f-b8bf-c3bb85238594" ViewId="Surgery_ListView" IsNewNode="True" />
           <Item Id="Department_ListView" ViewId="Department_ListView" ImageName="BO_Department" IsNewNode="True" />
         </Items>
       </Item>
@@ -957,7 +959,7 @@
         </Items>
       </Item>
       <Item Id="State Machine" Visible="False" Index="16" />
-      <Item Id="Task" Visible="False" Index="17" />
+      <Item Id="Task" Visible="True" Index="17" />
       <Item Id="Workflow" Visible="False" Index="17" Removed="True" />
       <Item Id="Reports" ImageName="BO_Report" Visible="True" Index="18" />
       <Item Id="Services" Caption="Services" Visible="False" IsNewNode="True">
@@ -3944,23 +3946,23 @@
       </Items>
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="56.289308176100626">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="53.915662650602407">
             <LayoutGroup Id="ReceptionDesk" RelativeSize="100" Direction="Vertical">
               <LayoutGroup Id="Autobd567611-e72b-45bc-b5d8-604e47ed1290" ShowCaption="False" Caption="Autobd567611-e72b-45bc-b5d8-604e47ed1290(4)" Direction="Horizontal" Index="0" RelativeSize="26.959247648902821" IsNewNode="True">
-                <LayoutGroup Id="ReceptionDesk_col1" ShowCaption="False" Index="0" RelativeSize="49" IsNewNode="True">
+                <LayoutGroup Id="ReceptionDesk_col1" ShowCaption="False" Index="0" RelativeSize="48.863636363636367" IsNewNode="True">
                   <LayoutItem Id="Section" ViewItem="Section" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
                   <LayoutItem Id="room" ViewItem="room" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
                   <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutGroup Id="ReceptionDesk_col2" ShowCaption="False" Index="1" RelativeSize="51" IsNewNode="True">
+                <LayoutGroup Id="ReceptionDesk_col2" ShowCaption="False" Index="1" RelativeSize="51.136363636363633" IsNewNode="True">
                   <LayoutItem Id="enterID" ViewItem="enterID" Index="0" RelativeSize="37.2093023255814" IsNewNode="True" />
                   <LayoutItem Id="patient" ViewItem="patient" Index="1" RelativeSize="27.906976744186046" IsNewNode="True" />
                   <LayoutItem Id="dateEnter" ViewItem="dateEnter" Index="2" RelativeSize="34.883720930232556" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
               <LayoutGroup Id="Auto4d423eba-94d6-479e-8fde-67fe12fde1e1" ShowCaption="False" Caption="Auto4d423eba-94d6-479e-8fde-67fe12fde1e1(13)" Direction="Horizontal" Index="1" RelativeSize="10.344827586206897" IsNewNode="True">
-                <LayoutItem Id="TransferReason" ViewItem="TransferReason" Index="0" RelativeSize="49" IsNewNode="True" />
-                <LayoutItem Id="ReasonForDischarge" ViewItem="ReasonForDischarge" Index="1" RelativeSize="51" IsNewNode="True" />
+                <LayoutItem Id="TransferReason" ViewItem="TransferReason" Index="0" RelativeSize="48.863636363636367" IsNewNode="True" />
+                <LayoutItem Id="ReasonForDischarge" ViewItem="ReasonForDischarge" Index="1" RelativeSize="51.136363636363633" IsNewNode="True" />
               </LayoutGroup>
               <LayoutItem Id="ServiceRate" ViewItem="ServiceRate" Index="2" RelativeSize="7.523510971786834" IsNewNode="True" />
               <LayoutItem Id="amountC" ViewItem="amountC" Index="3" RelativeSize="7.523510971786834" IsNewNode="True" />
@@ -3992,7 +3994,7 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <TabbedGroup Id="Tabs" RelativeSize="43.710691823899374" Index="1">
+          <TabbedGroup Id="Tabs" RelativeSize="46.084337349397593" Index="1">
             <LayoutGroup Id="Admissions" TextAlignMode="AlignWithChildren" RelativeSize="100">
               <LayoutItem Id="Admissions" TextAlignMode="AutoSize" RelativeSize="100" />
             </LayoutGroup>
@@ -4001,6 +4003,9 @@
             </LayoutGroup>
             <LayoutGroup Id="PaymentsCollection" TextAlignMode="AlignWithChildren" RelativeSize="100">
               <LayoutItem Id="PaymentsCollection" TextAlignMode="AutoSize" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="Surgeries" TextAlignMode="AlignWithChildren" RelativeSize="100">
+              <LayoutItem Id="Surgeries" TextAlignMode="AutoSize" RelativeSize="100" />
             </LayoutGroup>
           </TabbedGroup>
           <LayoutGroup Id="SizeableEditors" RelativeSize="17.045454545454547" Caption="note" Removed="True">
@@ -4086,6 +4091,17 @@
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
         </ColumnInfo>
+      </Columns>
+    </ListView>
+    <ListView Id="ReceptionDesk_Surgeries_ListView">
+      <Columns>
+        <ColumnInfo Id="Patient" Width="121" Index="-1" />
+        <ColumnInfo Id="SurgeryPackage" Width="138" Index="0" />
+        <ColumnInfo Id="Date" Width="129" Index="1" />
+        <ColumnInfo Id="SurgeonsFees" Index="2" />
+        <ColumnInfo Id="AnesthesiaFees" Index="3" />
+        <ColumnInfo Id="AssistantFees" Index="4" />
+        <ColumnInfo Id="RoomOpeningFee" Index="5" />
       </Columns>
     </ListView>
     <DetailView Id="ReportDataV2_DetailView" Caption="تقرير">

@@ -1,12 +1,9 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
-using NPOI.SS.Formula.Functions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Windows.Forms;
-using static XafDataModel.Module.BusinessObjects.test2.Spendings;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -16,9 +13,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
     public partial class Admission
     {
-        public Admission(Session session) : base(session) { 
-        
-            
+        public Admission(Session session) : base(session)
+        {
+
+
         }
         public override void AfterConstruction()
         {
@@ -71,7 +69,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
             if ((propertyName == nameof(StayMedicications) || propertyName == nameof(medicationSum)) && newValue != null)
             {
-                
+
+            }
+            if (propertyName == nameof(StayStart) && newValue != null)
+             {
+                var erlestDate = this.reception.Admissions.Min(p => p.StayStart);
+                if (erlestDate != this.reception.dateEnter)
+                {
+                    this.reception.dateEnter = erlestDate;
+                }
             }
         }
         protected override void OnSaving()
@@ -130,10 +136,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 bed.isAvailable = false;
                 //Patient.InStay = true;
             }
-            IEnumerable<PackageDetail> packages = this.reception.PackageDetails.Where(o => o.Applyed == true);
-            foreach (PackageDetail item in packages)
+
+            if (this.reception.PackageDetails != null)
             {
-                item.UpdateInfo();
+                IEnumerable<PackageDetail> packages = this.reception.PackageDetails.Where(o => o.Applyed == true);
+                foreach (PackageDetail item in packages)
+                {
+                    item.UpdateInfo();
+                }
             }
             transferFlag = false;
         }
@@ -195,8 +205,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     MedicalSupervisionSum = this.roomSupervisionCost * totalDays;
                 }
             }
-            
-                //this.SupervisionDetailsCollection.Sum(p => p.price);
+
+            //this.SupervisionDetailsCollection.Sum(p => p.price);
         }
 
         //protected override void On()
@@ -215,7 +225,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     ttime = this.StayEnd;
                 }
-                _totalDays = ( ttime - this.StayStart.Date.AddHours(14)).TotalDays + 1;
+                _totalDays = (ttime - this.StayStart.Date.AddHours(14)).TotalDays + 1;
                 _totalDays = Math.Ceiling(_totalDays);
                 if (ignoreFirstDay)
                 {
@@ -235,7 +245,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     ttime = this.StayEnd;
                 }
-                _totalDays = ( ttime - this.StayStart.Date.AddHours(14)).TotalDays;
+                _totalDays = (ttime - this.StayStart.Date.AddHours(14)).TotalDays;
                 _totalDays = Math.Ceiling(_totalDays);
                 if (ignoreFirstDay)
                 {

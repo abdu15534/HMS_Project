@@ -60,6 +60,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fRoomOpeningFee; }
             set { SetPropertyValue<decimal>(nameof(RoomOpeningFee), ref fRoomOpeningFee, value); }
         }
+        ReceptionDesk fRecption;
+        [Association(@"SurgeryReferencesReceptionDesk")]
+        public ReceptionDesk Recption
+        {
+            get { return fRecption; }
+            set { SetPropertyValue<ReceptionDesk>(nameof(Recption), ref fRecption, value); }
+        }
     }
 
 }

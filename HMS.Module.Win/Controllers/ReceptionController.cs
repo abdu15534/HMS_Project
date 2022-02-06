@@ -343,6 +343,8 @@ namespace HMS.Module.Win.Controllers
                 decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
                 decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
+                decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
@@ -357,6 +359,8 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["edos"].Value = edoscopy;
                 report.Parameters["blood"].Value = bloodServies;
                 report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["OutMedication"].Value = outMedication;
+                report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
                 report.Parameters["IsAccountstatement"].Value = true;
 
@@ -395,6 +399,38 @@ namespace HMS.Module.Win.Controllers
 
             else
             {
+                decimal regolAraddmission = curr.Admissions.Where(p => p.Status == Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal icuAddmission = curr.Admissions.Where(p => p.Status != Admission.statusType.normal).Sum(p => p.roomStaySum);
+                decimal supervision = curr.Admissions.Sum(p => p.MedicalSupervisionSum);
+                decimal midcalCare = curr.Admissions.Sum(p => p.medicalCareSum);
+                decimal outSuperviosn = curr.Admissions.Sum(p => p.ConsolationSum);
+                decimal companion = curr.Admissions.Sum(p => p.companionSum);
+                decimal pharmacy = curr.Admissions.Sum(p => p.medicationSum);
+                decimal supplies = curr.Admissions.Sum(p => p.suppliesSum);
+                decimal tests = curr.Admissions.Sum(p => p.testsSum);
+                decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
+                decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
+                decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
+                decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
+
+                report.Parameters["norStay"].Value = regolAraddmission;
+                report.Parameters["icuStay"].Value = icuAddmission;
+                report.Parameters["supervsion"].Value = supervision;
+                report.Parameters["roomCare"].Value = midcalCare;
+                report.Parameters["outSuperviosn"].Value = outSuperviosn;
+                report.Parameters["Companin"].Value = companion;
+                report.Parameters["Pharmacy"].Value = pharmacy;
+                report.Parameters["Supplis"].Value = supplies;
+                report.Parameters["Tests"].Value = tests;
+                report.Parameters["Xrayes"].Value = xrayes;
+                report.Parameters["edos"].Value = edoscopy;
+                report.Parameters["blood"].Value = bloodServies;
+                report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["OutMedication"].Value = outMedication;
+                report.Parameters["paymentsTotal"].Value = paymentsTotal;
+
                 report.Parameters["enterID"].Value = curr.enterID;
                 report.Parameters["patientName"].Value = curr.patient.FullName;
                 report.Parameters["enterDate"].Value = curr.dateEnter;

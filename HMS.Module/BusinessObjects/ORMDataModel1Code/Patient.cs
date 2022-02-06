@@ -1,14 +1,11 @@
 ﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo;
 using DevExpress.Xpo.Metadata;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace XafDataModel.Module.BusinessObjects.test2
@@ -17,16 +14,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Patient
     {
         public Patient(Session session) : base(session) { }
-        public override void AfterConstruction()
+        public override void AfterConstruction() 
         {
             base.AfterConstruction();
             //Patient result = Session.Query<Patient>().OrderByDescending(t => t.ID).FirstOrDefault();
-            
+
 
             account = new Account(Session);
 
-            account.SubAccount = Session.FindObject<SubAccount>(new BinaryOperator("accountNumber", 10301 ));
-       }
+            account.SubAccount = Session.FindObject<SubAccount>(new BinaryOperator("accountNumber", 10301));
+        }
 
         string fullName;
         public string FullName
@@ -53,7 +50,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             مسلم, مسيحى, أخرى
         }
-        
+
 
         string phonenumber1;
         public string PhoneNumber1
@@ -65,8 +62,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
 
 
-       
-        
+
+
         string phonenumber2;
         public string PhoneNumber2
         {
@@ -218,17 +215,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
             //    return;
             //}
             string[] authorsList = FullName.Split(' ');
-            if(authorsList.Length < 4)
+            if (authorsList.Length < 4)
             {
-                throw new ArgumentException("برجاء التأكد من إدخال الاسم الرباعي!", nameof(phonenumber1));
+                throw new ArgumentException("برجاء التأكد من إدخال الاسم الرباعي!", nameof(FullName));
                 //MessageBox.Show("برجاء التأكد من إدخال الاسم الرباعي!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-    
+
 
         protected override void OnSaved()
-        { 
+        {
             base.OnSaved();
         }
 
