@@ -19,13 +19,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 int idNum = 1;
                 this.id = idNum;
-                
+
             }
             else
             {
                 int newID = result.id + 1;
                 this.id = newID;
-               
+
             }
             this.AllDay = false;
         }
@@ -42,12 +42,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         ExaminationPrice = clinc.ExaminationPrice;
                     }
                 }
-                else
+                else if (Apttype == AppointmentType.استشارة)
                 {
                     if (clinc.ConsultationPrice != null)
                     {
                         ExaminationPrice = clinc.ConsultationPrice;
                     }
+                }
+                else if (Apttype == AppointmentType.NotSet)
+                {
+                    ExaminationPrice = 0;
                 }
             }
             if (propertyName == nameof(Apttype) && newValue != null)
@@ -81,7 +85,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public enum AppointmentStatus
         {
-            NotSet, Paid ,InProgress, NoShow, Canceled, completed,
+            NotSet, Paid, InProgress, NoShow, Canceled, completed,
         }
 
         AppointmentType ftype;
@@ -106,7 +110,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             if (this.Doctor != null && this.clinc != null)
             {
                 this.Location = this.Doctor.FullName + "  د/ ";
-                    //+ (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
+                //+ (this.clinc.inCharge != null ? this.clinc.inCharge.FullName : " ");
             }
             switch (AptStatus)
             {
