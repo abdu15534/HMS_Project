@@ -34,6 +34,7 @@ namespace HMS.Module.Win.Controllers
             this.ICUtotals = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.InPatients = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.InPatientsTotal = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.DailyAccountReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // ICUPatentsDetails
             // 
@@ -79,12 +80,25 @@ namespace HMS.Module.Win.Controllers
             this.InPatientsTotal.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
             this.InPatientsTotal.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.InPatientsTotal_Execute);
             // 
+            // DailyAccountReport
+            // 
+            this.DailyAccountReport.Caption = "تقرير الاقامات";
+            this.DailyAccountReport.ConfirmationMessage = null;
+            this.DailyAccountReport.Id = "DailyAccountReport";
+            this.DailyAccountReport.ImageName = "BO_REPORT";
+            this.DailyAccountReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.DailyAccountReport.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.DailyAccountReport.ToolTip = null;
+            this.DailyAccountReport.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.DailyAccountReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.DailyAccountReport_Execute);
+            // 
             // Departments
             // 
             this.Actions.Add(this.ICUPatentsDetails);
             this.Actions.Add(this.ICUtotals);
             this.Actions.Add(this.InPatients);
             this.Actions.Add(this.InPatientsTotal);
+            this.Actions.Add(this.DailyAccountReport);
 
         }
 
@@ -94,5 +108,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction ICUtotals;
         private DevExpress.ExpressApp.Actions.SimpleAction InPatients;
         private DevExpress.ExpressApp.Actions.SimpleAction InPatientsTotal;
+        private DevExpress.ExpressApp.Actions.SimpleAction DailyAccountReport;
     }
 }

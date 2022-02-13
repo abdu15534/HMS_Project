@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace XafDataModel.Module.BusinessObjects.test2
@@ -14,7 +15,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
     public partial class Patient
     {
         public Patient(Session session) : base(session) { }
-        public override void AfterConstruction() 
+        public override void AfterConstruction()
         {
             base.AfterConstruction();
             //Patient result = Session.Query<Patient>().OrderByDescending(t => t.ID).FirstOrDefault();
@@ -227,6 +228,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaved()
         {
             base.OnSaved();
+        }
+
+        protected override void OnDeleting()
+        {
+            base.OnDeleting();
+            Account account = Session.Query<Account>().Where(a => a == this.account).First();
+            Session.Delete(account);
+
         }
 
     }

@@ -137,12 +137,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 //Patient.InStay = true;
             }
 
-            if (this.reception.PackageDetails != null)
+            if (!IsDeleted)
             {
-                IEnumerable<PackageDetail> packages = this.reception.PackageDetails.Where(o => o.Applyed == true);
-                foreach (PackageDetail item in packages)
+                if (this.reception.PackageDetails != null)
                 {
-                    item.UpdateInfo();
+                    IEnumerable<PackageDetail> packages = this.reception.PackageDetails.Where(o => o.Applyed == true);
+                    foreach (PackageDetail item in packages)
+                    {
+                        item.UpdateInfo();
+                    }
                 }
             }
             transferFlag = false;

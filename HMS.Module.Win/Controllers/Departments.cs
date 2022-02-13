@@ -68,5 +68,12 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void DailyAccountReport_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.InPatientsFinance report = new reports.InPatientsFinance();
+
+            report.ShowPreviewDialog();
+        }
     }
 }
