@@ -152,11 +152,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(xraysSum))); }
         }
-        int ftotalDays;
-        public int totalDays
+        double ftotalDays;
+        public double totalDays
         {
             get { return ftotalDays; }
-            set { SetPropertyValue<int>(nameof(totalDays), ref ftotalDays, value); }
+            set { SetPropertyValue<double>(nameof(totalDays), ref ftotalDays, value); }
         }
         [PersistentAlias("[stayTotalSum]")]
         public decimal amount
@@ -225,6 +225,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fDepartment; }
             set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
+        bool fhalfDayAtStart;
+        public bool halfDayAtStart
+        {
+            get { return fhalfDayAtStart; }
+            set { SetPropertyValue<bool>(nameof(halfDayAtStart), ref fhalfDayAtStart, value); }
+        }
+        bool fHalfDayAtEnd;
+        public bool HalfDayAtEnd
+        {
+            get { return fHalfDayAtEnd; }
+            set { SetPropertyValue<bool>(nameof(HalfDayAtEnd), ref fHalfDayAtEnd, value); }
         }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }

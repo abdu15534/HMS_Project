@@ -72,7 +72,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             }
             if (propertyName == nameof(StayStart) && newValue != null)
-             {
+            {
                 var erlestDate = this.reception.Admissions.Min(p => p.StayStart);
                 if (erlestDate != this.reception.dateEnter)
                 {
@@ -194,18 +194,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 if (this.Patient.Nationality != Patient.Nationalitys.مصر)
                 {
-                    roomStaySum = this.roomStayCost * totalDays;
-                    medicalCareSum = this.roomCareCost * totalDays;
-                    MedicalSupervisionSum = this.roomSupervisionCost * totalDays;
+                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays);
+                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays);
+                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays);
                     roomStaySum = roomStaySum * Convert.ToDecimal(1.5);
                     medicalCareSum = medicalCareSum * Convert.ToDecimal(1.5);
                     MedicalSupervisionSum = MedicalSupervisionSum * Convert.ToDecimal(1.5);
                 }
                 else
                 {
-                    roomStaySum = this.roomStayCost * totalDays;
-                    medicalCareSum = this.roomCareCost * totalDays;
-                    MedicalSupervisionSum = this.roomSupervisionCost * totalDays;
+                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays);
+                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays);
+                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays);
                 }
             }
 
@@ -217,6 +217,19 @@ namespace XafDataModel.Module.BusinessObjects.test2
         //    //base.();
         //    DaysOfStay();
         //}
+
+        private double DeductHalfDays(double totalDays)
+        {
+            if (halfDayAtStart)
+            {
+                totalDays = totalDays - 0.5;
+            }
+            if (HalfDayAtEnd)
+            {
+                totalDays = totalDays - 0.5;
+            }
+            return totalDays;
+        }
 
         public void DaysOfStay()
         {
@@ -230,14 +243,16 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 }
                 _totalDays = (ttime - this.StayStart.Date.AddHours(14)).TotalDays + 1;
                 _totalDays = Math.Ceiling(_totalDays);
+                _totalDays = Convert.ToInt32(_totalDays);
+                _totalDays = DeductHalfDays(_totalDays);
                 if (ignoreFirstDay)
                 {
-                    totalDays = Convert.ToInt32(_totalDays - 1);
+                    totalDays = _totalDays - 1;
                 }
 
                 else
                 {
-                    totalDays = Convert.ToInt32(_totalDays);
+                    totalDays = _totalDays;
                 }
             }
 
@@ -250,26 +265,28 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 }
                 _totalDays = (ttime - this.StayStart.Date.AddHours(14)).TotalDays;
                 _totalDays = Math.Ceiling(_totalDays);
+                _totalDays = Convert.ToInt32(_totalDays);
+                _totalDays = DeductHalfDays(_totalDays);
                 if (ignoreFirstDay)
                 {
-                    totalDays = Convert.ToInt32(_totalDays - 1);
+                    totalDays = _totalDays - 1;
                 }
 
                 else
                 {
-                    totalDays = Convert.ToInt32(_totalDays);
+                    totalDays = _totalDays;
                 }
             }
 
 
             if (ignoreFirstDay)
             {
-                totalDays = Convert.ToInt32(_totalDays - 1);
+                totalDays = _totalDays - 1;
             }
 
             else
             {
-                totalDays = Convert.ToInt32(_totalDays);
+                totalDays = _totalDays;
             }
         }
 
