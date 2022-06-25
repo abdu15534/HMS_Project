@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Price" Caption="السعر" DisplayFormat="{0:C}" EditMask="C" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Service_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Price" Caption="السعر" EditMask="C" />
+      </Items>
+    </DetailView>
+    <ListView Id="Service_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Price" Caption="السعر" EditMask="C" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

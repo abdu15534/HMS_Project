@@ -17,14 +17,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnChanged(propertyName, oldValue, newValue);
             if (propertyName == nameof(Service) && newValue != null)
             {
-                if (this.Emergency.Patient.Nationality == Patient.Nationalitys.مصر)
-                {
-                    this.Price = ((Service)newValue).Price;
-                }
-                else
-                {
-                    this.Price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
-                }
+                //if (this.Emergency.Patient.Nationality == Patient.Nationalitys.مصر)
+                //{
+                //    this.Price = ((Service)newValue).Price;
+                //}
+                //else
+                //{
+                //    this.Price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+                //}
             }
         }
     }

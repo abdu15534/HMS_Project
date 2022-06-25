@@ -358,6 +358,18 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicServiceDetail.Designer.cs">
       <DependentUpon>ClinicServiceDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConractDepartment.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConractDepartment.Designer.cs">
+      <DependentUpon>ConractDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConractServiceDiscount.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ConractServiceDiscount.Designer.cs">
+      <DependentUpon>ConractServiceDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Conratct.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Conratct.Designer.cs">
+      <DependentUpon>Conratct.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\Consultant.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Consultant.Designer.cs">
       <DependentUpon>Consultant.cs</DependentUpon>
@@ -397,6 +409,14 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\PreSchdual.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\PreSchdual.Designer.cs">
       <DependentUpon>PreSchdual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PriceList.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PriceList.Designer.cs">
+      <DependentUpon>PriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PriceListDetail.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\PriceListDetail.Designer.cs">
+      <DependentUpon>PriceListDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ProductRefund.Designer.cs">
@@ -553,6 +573,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Service.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\Service.Designer.cs">
       <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ServiceBase.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\ServiceBase.Designer.cs">
+      <DependentUpon>ServiceBase.cs</DependentUpon>
     </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\ServiceDetails.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ServiceDetails.Designer.cs">

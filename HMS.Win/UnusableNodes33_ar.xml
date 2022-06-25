@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="ID" Caption="الكود" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Emergency">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Transaction" Caption="التحويل" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="Emergency_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Transaction" Caption="التحويل" />
+      </Items>
+    </DetailView>
+    <ListView Id="Emergency_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+      </Columns>
+    </ListView>
+    <ListView Id="Emergency_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+      </Columns>
+    </ListView>
+    <ListView Id="Patient_Emergencies_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

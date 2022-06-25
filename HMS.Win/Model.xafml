@@ -345,7 +345,6 @@
         <Member Name="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
         <Member Name="StayMedicationsCollection" Caption="أدوية الإقامة" />
         <Member Name="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <Member Name="Transaction" Caption="التحويل" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.EmergencyServiceDetails">
@@ -591,11 +590,6 @@
         <Member Name="statement" AllowEdit="False" />
       </OwnMembers>
     </Class>
-    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service">
-      <OwnMembers>
-        <Member Name="ID" AllowEdit="False" />
-      </OwnMembers>
-    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails">
       <OwnMembers>
         <Member Name="emergency" Caption="طوارئ" />
@@ -835,14 +829,10 @@
           <Item Id="@48f349c2-be1f-4bff-8a6e-1b93c9b61e58" ViewId="Patient_ListView" Index="1" ImageName="BO_MyDetails" IsNewNode="True" />
           <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" Index="2" ImageName="Business_Diagram" IsNewNode="True" />
           <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" Index="3" ImageName="Flag_of_the_Red_Cross" ViewId="Emergency_ListView" IsNewNode="True" />
-          <Item Id="@29c9bf48-a9c8-4600-9bd9-b040d8621be0" ViewId="SurgicalCategory_ListView" IsNewNode="True" />
-          <Item Id="@33f2c767-2b47-4f3b-9d0b-71eff9715d09" ViewId="SurgeryPackage_ListView" IsNewNode="True" />
           <Item Id="@4e7040c5-0327-45cd-a558-8958312dab6e" ViewId="AppointmentsAccounting_ListView" IsNewNode="True" />
-          <Item Id="@57f6267e-b634-4bb1-bf1d-1c350a4369c3" ViewId="surgeryRoom_ListView" IsNewNode="True" />
           <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" Visible="False" IsNewNode="True" />
           <Item Id="@8d823551-8426-429b-bf6f-ac1fd594fb8b" ViewId="InPatientSettings_DetailView" IsNewNode="True" />
           <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" ImageName="BO_Product" IsNewNode="True" />
-          <Item Id="@d7dd9b16-273a-444f-b8bf-c3bb85238594" ViewId="Surgery_ListView" IsNewNode="True" />
           <Item Id="Department_ListView" ViewId="Department_ListView" ImageName="BO_Department" IsNewNode="True" />
         </Items>
       </Item>
@@ -872,7 +862,16 @@
           <Item Id="StayMedications_ListView" ViewId="StayMedications_ListView" ImageName="BO_List" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Inventory &amp; products" Index="4" ImageName="BO_Order" IsNewNode="True">
+      <Item Id="@63112209-e338-4ddd-9fe3-4b41a1695618" Caption="Contracts" Index="4" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="@aac4f3fe-cb2e-4c4e-b851-d79b691dd1de" ViewId="Conratct_ListView" Index="0" IsNewNode="True" />
+          <Item Id="@a514400f-4d33-492e-9a5a-6afd6d3fb035" ViewId="PriceList_ListView" Index="1" IsNewNode="True" />
+          <Item Id="@51e86ddc-ddee-4194-9876-602be8f23ac4" ViewId="PriceListDetail_ListView" Index="2" IsNewNode="True" />
+          <Item Id="@3c9169ee-9997-4e99-b67d-757208e0178d" ViewId="ConractDepartment_ListView" Index="3" IsNewNode="True" />
+          <Item Id="@5b770db4-e5eb-4b2f-8e93-8a0acd8192bf" ViewId="ConractServiceDiscount_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Inventory &amp; products" Index="5" ImageName="BO_Order" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Inventory_ListView" ObjectKey="" ImageName="BO_Order_Item" Index="0" ViewId="Inventory_ListView" IsNewNode="True" />
           <Item Id="Product_ListView" ObjectKey="" ImageName="BO_Product_Group_32x32" Index="1" ViewId="Product_ListView" IsNewNode="True" />
@@ -882,7 +881,7 @@
           <Item Id="StockTransfer_ListView" ViewId="StockTransfer_ListView" ImageName="BO_Transition" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="Purchasing Department" ImageName="BO_Sale" Index="5" IsNewNode="True">
+      <Item Id="Purchasing Department" ImageName="BO_Sale" Index="6" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="@e9353a71-75b8-4042-b746-162d2c8a0e91" Caption="Supplier" ViewId="Supplier_ListView" Index="0" IsNewNode="True" />
           <Item Id="@bb1ee386-b88c-4075-931d-2a00d7a7d8b4" Caption="Purchasing Orders" ImageName="BO_Sale_Item" ViewId="PurchasingOrder_ListView" Index="2" IsNewNode="True" />
@@ -891,7 +890,7 @@
           <Item Id="PurchaseRequest_ListView" ViewId="PurchaseRequest_ListView" ImageName="EmployeeTaskList" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="HRDepartment" Index="6" ImageName="BO_Customer" Caption="HRDepartment" Visible="True" IsNewNode="True">
+      <Item Id="HRDepartment" Index="7" ImageName="BO_Customer" Caption="HRDepartment" Visible="True" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Section_ListView" ViewId="Section_ListView" ObjectKey="" ImageName="BO_Position" Index="0" Caption="اقسام العمل" IsNewNode="True" />
           <Item Id="Job_ListView" ViewId="Job_ListView" ObjectKey="" ImageName="BO_MyDetails" Index="1" Caption="الوظائف" IsNewNode="True" />
@@ -900,14 +899,14 @@
           <Item Id="SalaryDocument_ListView" ObjectKey="" ImageName="Currency" ViewId="SalaryPayment_ListView" Index="4" Caption="صرف مرتبات " IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="@304c1aff-0fec-4dfe-8164-bcb288938137" Caption="المستخدمين و الصلاحيات" ImageName="Security_Lock" Index="7" IsNewNode="True">
+      <Item Id="@304c1aff-0fec-4dfe-8164-bcb288938137" Caption="المستخدمين و الصلاحيات" ImageName="Security_Lock" Index="8" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="MyDetails" ViewId="PermissionPolicyUser_DetailView" ObjectKey="@CurrentUserID" Caption="بياناتي" ImageName="BO_MyDetails" IsNewNode="True" />
           <Item Id="PermissionPolicyRole_ListView" ViewId="PermissionPolicyRole_ListView" ObjectKey="" IsNewNode="True" />
           <Item Id="PermissionPolicyUser_ListView" ViewId="PermissionPolicyUser_ListView" ObjectKey="" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="الحسابات" Index="8" ImageName="Accounting" IsNewNode="True">
+      <Item Id="الحسابات" Index="9" ImageName="Accounting" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="receiptClientBond_ListView" ViewId="receiptClientBond_ListView" ObjectKey="" Index="0" Caption="سند قبض خاص بالعملاء" ImageName="BO_Invoice" IsNewNode="True" />
           <Item Id="paymentSupplierBond_ListView" ViewId="paymentSupplierBond_ListView" ObjectKey="" Index="1" Caption="سند صرف خاص بالموردين" ImageName="BO_Invoice" IsNewNode="True" />
@@ -915,7 +914,7 @@
           <Item Id="JournalEntry_ListView" ObjectKey="" ImageName="Currency" ViewId="JournalEntry_ListView" Caption="قيود اليومية" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="سندات" Index="9" Visible="True" IsNewNode="True">
+      <Item Id="سندات" Index="10" Visible="True" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="@d65e8406-5e88-44e6-a2aa-a4367f52965d" Caption="سندات قبض لجميع العمليات الادارية بالمؤسسة" Index="0" ImageName="Currency" IsNewNode="True" />
           <Item Id="@3958217f-c66e-4c53-93b4-fb45428c299b" Caption="سندات صرف لجميع العمليات الادارية بالمؤسسة" Index="1" IsNewNode="True" />
@@ -923,26 +922,26 @@
           <Item Id="Bond_ListView" ObjectKey="" Caption="سندات قبض خاصة بالعملاء" ImageName="Currency" ViewId="Bond_ListView" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="المصروفات" Caption="المصروفات" ImageName="Business_Dollar" Index="10" Visible="False" IsNewNode="True">
+      <Item Id="المصروفات" Caption="المصروفات" ImageName="Business_Dollar" Index="11" Visible="False" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="Spendings_ListView" ObjectKey="" Caption="المصاريف" ImageName="Business_DollarCircled" ViewId="Spendings_ListView" IsNewNode="True" />
           <Item Id="SpendingsCategory_ListView" ObjectKey="" Caption="أصناف المصاريف" ImageName="BO_Document" ViewId="SpendingsCategory_ListView" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="أرصدة" Index="11" Visible="False" IsNewNode="True">
+      <Item Id="أرصدة" Index="12" Visible="False" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="StartAccounts_ListView" ObjectKey="" Caption="أرصدة مدينة للعملاء و الموردين + أصول الشركة" ImageName="BO_Position" ViewId="StartAccounts_ListView" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="إحصائيات" ImageName="ChartType_Pie" Index="12" Visible="False" IsNewNode="True">
+      <Item Id="إحصائيات" ImageName="ChartType_Pie" Index="13" Visible="False" IsNewNode="True">
         <Items IsNewNode="True">
           <DashboardNavigationItem Id="@ab007e00-0bff-4afb-9faa-f72e097ab4a4" DashboardTitle="Finance report" Caption="Finance report" IsNewNode="True" />
           <DashboardNavigationItem Id="Payments report" DashboardTitle="Payments report" Caption="Payments report" IsNewNode="True" />
         </Items>
       </Item>
-      <Item Id="DashboardItem" Index="13" Visible="False" IsNewNode="True" />
-      <Item Id="KPI" Index="14" Visible="False" />
-      <Item Id="Default" Index="15" Visible="True">
+      <Item Id="DashboardItem" Index="14" Visible="False" IsNewNode="True" />
+      <Item Id="KPI" Index="15" Visible="False" />
+      <Item Id="Default" Index="16" Visible="True">
         <Items>
           <Item Id="@362deeb9-8aa3-4004-b15a-42d3ed951042" ViewId="PackageDetail_ListView" IsNewNode="True" />
           <Item Id="@394e6602-66f4-4844-83bb-1858e82ac983" ViewId="SurgicalCategory_ListView" IsNewNode="True" />
@@ -958,10 +957,10 @@
           <Item Id="Xrays_ListView" Removed="True" />
         </Items>
       </Item>
-      <Item Id="State Machine" Visible="False" Index="16" />
-      <Item Id="Task" Visible="True" Index="17" />
+      <Item Id="State Machine" Visible="False" Index="17" />
       <Item Id="Workflow" Visible="False" Index="17" Removed="True" />
-      <Item Id="Reports" ImageName="BO_Report" Visible="True" Index="18" />
+      <Item Id="Task" Visible="True" Index="18" />
+      <Item Id="Reports" ImageName="BO_Report" Visible="True" Index="19" />
       <Item Id="Services" Caption="Services" Visible="False" IsNewNode="True">
         <Items IsNewNode="True">
           <Item Id="ServicesDataEntry" Caption="Services Data Entry" ViewId="Service_DetailView" IsNewNode="True" />
@@ -1292,50 +1291,50 @@
       <Layout>
         <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
           <LayoutGroup Id="Main" ShowCaption="True" Index="0" RelativeSize="100" Caption="بيانات الحجز" TextAlignMode="UseParentOptions" IsNewNode="True">
-            <LayoutGroup Id="SimpleEditors" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="17.704918032786885" IsNewNode="True">
+            <LayoutGroup Id="SimpleEditors" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="21.869782971619365" IsNewNode="True">
               <LayoutGroup Id="Admission_col2" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
                 <LayoutGroup Id="Item7" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="اساسي" Direction="Vertical" GroupStyle="Light" IsNewNode="True">
-                  <LayoutGroup Id="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d" ShowCaption="False" Caption="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d(6)" Direction="Horizontal" Index="0" RelativeSize="34.177215189873415" IsNewNode="True">
-                    <LayoutItem Id="admissionID" ViewItem="admissionID" Index="0" RelativeSize="48.98278560250391" IsNewNode="True" />
-                    <LayoutItem Id="Patient" ViewItem="Patient" Index="1" RelativeSize="51.01721439749609" IsNewNode="True" />
-                  </LayoutGroup>
-                  <LayoutGroup Id="Autoafd14b6b-f69e-4aa8-87d4-7f61d5f711b8" ShowCaption="False" Caption="Autoafd14b6b-f69e-4aa8-87d4-7f61d5f711b8(9)" Direction="Horizontal" Index="1" RelativeSize="65.822784810126578" IsNewNode="True">
-                    <LayoutGroup Id="Autof28457bf-452e-42a5-9257-4ae9cd3422d3" ShowCaption="False" Caption="Autof28457bf-452e-42a5-9257-4ae9cd3422d3(10)" Index="0" RelativeSize="48.98278560250391" IsNewNode="True">
-                      <LayoutItem Id="doctor" ViewItem="doctor" Index="0" RelativeSize="48.07692307692308" IsNewNode="True" />
-                      <LayoutItem Id="StayStart" ViewItem="StayStart" Index="1" RelativeSize="51.92307692307692" IsNewNode="True" />
+                  <LayoutGroup Id="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d" ShowCaption="False" Caption="Auto9761bf76-c0f3-4853-b9fe-3c18e3763d5d(6)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
+                    <LayoutGroup Id="Autoc8200e43-0759-4a53-9809-28d7d7f25e30" ShowCaption="False" Caption="" Index="0" RelativeSize="43.484042553191486" IsNewNode="True">
+                      <LayoutItem Id="admissionID" ViewItem="admissionID" Index="0" RelativeSize="26.470588235294116" IsNewNode="True" />
+                      <LayoutItem Id="doctor" ViewItem="doctor" Index="1" RelativeSize="23.529411764705884" IsNewNode="True" />
+                      <LayoutItem Id="halfDayAtStart" ViewItem="halfDayAtStart" Index="2" RelativeSize="23.529411764705884" IsNewNode="True" />
+                      <LayoutItem Id="HalfDayAtEnd" ViewItem="HalfDayAtEnd" Index="3" RelativeSize="26.470588235294116" IsNewNode="True" />
                     </LayoutGroup>
-                    <LayoutGroup Id="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83" ShowCaption="False" Caption="Auto495b08a5-9975-4cd9-9817-57dbcc2eaf83(13)" Index="1" RelativeSize="51.01721439749609" IsNewNode="True">
-                      <LayoutItem Id="totalDays" ViewItem="totalDays" Index="0" RelativeSize="48.07692307692308" IsNewNode="True" />
-                      <LayoutItem Id="StayEnd" ViewItem="StayEnd" Index="1" RelativeSize="51.92307692307692" IsNewNode="True" />
+                    <LayoutGroup Id="Auto2bd52ca9-86d7-4bd6-9b80-e6cf2d48a2a7" ShowCaption="False" Caption="" Index="1" RelativeSize="56.515957446808514" IsNewNode="True">
+                      <LayoutItem Id="Patient" ViewItem="Patient" Index="0" RelativeSize="26.470588235294116" IsNewNode="True" />
+                      <LayoutItem Id="totalDays" ViewItem="totalDays" Index="1" RelativeSize="23.529411764705884" IsNewNode="True" />
+                      <LayoutItem Id="StayStart" ViewItem="StayStart" Index="2" RelativeSize="23.529411764705884" IsNewNode="True" />
+                      <LayoutItem Id="StayEnd" ViewItem="StayEnd" Index="3" RelativeSize="26.470588235294116" IsNewNode="True" />
                     </LayoutGroup>
                   </LayoutGroup>
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Auto832128af-fdfd-4ec7-958f-27b3034ad989" ShowCaption="False" Caption="Auto832128af-fdfd-4ec7-958f-27b3034ad989(16)" Direction="Vertical" Index="1" RelativeSize="9.01639344262295" IsCollapsibleGroup="False" IsNewNode="True">
+            <LayoutGroup Id="Auto832128af-fdfd-4ec7-958f-27b3034ad989" ShowCaption="False" Caption="Auto832128af-fdfd-4ec7-958f-27b3034ad989(16)" Direction="Vertical" Index="1" RelativeSize="9.1819699499165282" IsCollapsibleGroup="False" IsNewNode="True">
               <LayoutGroup Id="Item11" ShowCaption="True" CaptionLocation="Top" Direction="Horizontal" Index="0" RelativeSize="100" GroupStyle="Light" Caption="القسم" IsNewNode="True">
-                <LayoutItem Id="Status" ViewItem="Status" Index="0" RelativeSize="33.489827856025038" IsNewNode="True" />
-                <LayoutItem Id="Room" ViewItem="Room" Index="1" RelativeSize="33.020344287949925" ShowCaption="True" IsNewNode="True" />
-                <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="33.489827856025038" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" Index="0" RelativeSize="31.648936170212767" IsNewNode="True" />
+                <LayoutItem Id="Room" ViewItem="Room" Index="1" RelativeSize="31.382978723404257" ShowCaption="True" IsNewNode="True" />
+                <LayoutItem Id="bed" ViewItem="bed" Index="2" RelativeSize="36.968085106382979" IsNewNode="True" />
               </LayoutGroup>
             </LayoutGroup>
-            <LayoutGroup Id="Item8" ShowCaption="False" CaptionLocation="Top" Index="2" RelativeSize="27.21311475409836" IsNewNode="True">
+            <LayoutGroup Id="Item8" ShowCaption="False" CaptionLocation="Top" Index="2" RelativeSize="27.712854757929883" IsNewNode="True">
               <LayoutGroup Id="Autod6966d8f-ab28-4da6-a898-6d7545f14d93" ShowCaption="False" Index="0" RelativeSize="100" IsNewNode="True">
                 <LayoutGroup Id="Autof6b5e97f-27f9-43df-9053-56e5b3dc3247" ShowCaption="True" Index="0" RelativeSize="33.734939759036145" Caption="سعر اقامة الغرفة و الاشراف و الرعاية" Direction="Horizontal" IsNewNode="True">
-                  <LayoutItem Id="roomStayCost" ViewItem="roomStayCost" Index="0" RelativeSize="33.489827856025038" IsNewNode="True" />
-                  <LayoutItem Id="roomCareCost" ViewItem="roomCareCost" Index="1" RelativeSize="33.020344287949925" IsNewNode="True" />
-                  <LayoutItem Id="roomSupervisionCost" ViewItem="roomSupervisionCost" Index="2" RelativeSize="33.489827856025038" IsNewNode="True" />
+                  <LayoutItem Id="roomStayCost" ViewItem="roomStayCost" Index="0" RelativeSize="31.648936170212767" IsNewNode="True" />
+                  <LayoutItem Id="roomCareCost" ViewItem="roomCareCost" Index="1" RelativeSize="31.382978723404257" IsNewNode="True" />
+                  <LayoutItem Id="roomSupervisionCost" ViewItem="roomSupervisionCost" Index="2" RelativeSize="36.968085106382979" IsNewNode="True" />
                 </LayoutGroup>
                 <LayoutGroup Id="Item14" ShowCaption="True" Caption="اجمالي الاقامة" CaptionLocation="Top" GroupStyle="Light" Index="1" RelativeSize="33.132530120481931" IsNewNode="True">
                   <LayoutItem Id="stayTotalSum" ViewItem="stayTotalSum" Index="0" RelativeSize="100" IsNewNode="True" />
                 </LayoutGroup>
                 <LayoutGroup Id="Auto4e6f1af9-a60d-4a9b-867e-e637465905d7" ShowCaption="True" Caption="التحويل" TextAlignMode="AlignWithChildren" GroupStyle="Light" Direction="Horizontal" Index="2" RelativeSize="33.132530120481931" IsNewNode="True">
-                  <LayoutItem Id="ignoreFirstDay" ViewItem="ignoreFirstDay" Index="0" RelativeSize="48.6697965571205" IsNewNode="True" />
-                  <LayoutItem Id="transferDayCount" ViewItem="transferDayCount" Index="1" RelativeSize="51.3302034428795" IsNewNode="True" />
+                  <LayoutItem Id="ignoreFirstDay" ViewItem="ignoreFirstDay" Index="0" RelativeSize="46.276595744680854" IsNewNode="True" />
+                  <LayoutItem Id="transferDayCount" ViewItem="transferDayCount" Index="1" RelativeSize="53.723404255319146" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
-            <TabbedGroup Id="Tabs" Index="3" RelativeSize="46.0655737704918" IsNewNode="True">
+            <TabbedGroup Id="Tabs" Index="3" RelativeSize="41.235392320534224" IsNewNode="True">
               <LayoutGroup Id="StayMedicications" ShowCaption="True" TextAlignMode="AlignWithChildren" Index="0" RelativeSize="100" Caption="أدوية الحجز" IsNewNode="True">
                 <LayoutItem Id="StayMedicications" TextAlignMode="AutoSize" ViewItem="StayMedicications" Index="0" RelativeSize="100" IsNewNode="True" />
               </LayoutGroup>
@@ -1371,31 +1370,31 @@
           <LayoutGroup Id="Item13" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" Caption="تفصيل تكلفة الاقامة" RelativeSize="100" IsNewNode="True">
             <LayoutGroup Id="Item10" ShowCaption="True" Caption="تفاصيل تكلفة الاقامة" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
               <LayoutGroup Id="Auto642984a1-e6d5-4117-befa-28a8ad578e46" ShowCaption="False" Caption="Auto642984a1-e6d5-4117-befa-28a8ad578e46(24)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
-                <LayoutGroup Id="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8" ShowCaption="False" Caption="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8(25)" Index="0" RelativeSize="48.84080370942813" IsNewNode="True">
-                  <LayoutItem Id="companionSum" ViewItem="companionSum" Index="0" RelativeSize="4.5996592844974442" IsNewNode="True" />
-                  <LayoutItem Id="ConsolationSum" ViewItem="ConsolationSum" Index="1" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="xraysSum" ViewItem="xraysSum" Index="2" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="roomStaySum" ViewItem="roomStaySum" Index="3" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="medicalCareSum" ViewItem="medicalCareSum" Index="4" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="5" RelativeSize="79.045996592844972" IsNewNode="True" />
+                <LayoutGroup Id="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8" ShowCaption="False" Caption="Auto182304d1-c22f-4ea9-aae2-326a0afc24c8(25)" Index="0" RelativeSize="46.315789473684212" IsNewNode="True">
+                  <LayoutItem Id="companionSum" ViewItem="companionSum" Index="0" RelativeSize="4.6875" IsNewNode="True" />
+                  <LayoutItem Id="ConsolationSum" ViewItem="ConsolationSum" Index="1" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="xraysSum" ViewItem="xraysSum" Index="2" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="roomStaySum" ViewItem="roomStaySum" Index="3" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="medicalCareSum" ViewItem="medicalCareSum" Index="4" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="suppliesSum" ViewItem="suppliesSum" Index="5" RelativeSize="78.645833333333329" IsNewNode="True" />
                 </LayoutGroup>
-                <LayoutGroup Id="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143" ShowCaption="False" Caption="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143(32)" Index="1" RelativeSize="51.15919629057187" IsNewNode="True">
-                  <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="0" RelativeSize="4.5996592844974442" IsNewNode="True" />
-                  <LayoutItem Id="endscopesSum" ViewItem="endscopesSum" Index="1" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="testsSum" ViewItem="testsSum" Index="2" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="MedicalSupervisionSum" ViewItem="MedicalSupervisionSum" Index="3" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="4" RelativeSize="4.0885860306643949" IsNewNode="True" />
-                  <LayoutItem Id="OutMedcationSum" ViewItem="OutMedcationSum" Index="5" RelativeSize="79.045996592844972" IsNewNode="True" />
+                <LayoutGroup Id="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143" ShowCaption="False" Caption="Autoe8ad1b03-7052-4e20-82cc-9c0185d35143(32)" Index="1" RelativeSize="53.684210526315788" IsNewNode="True">
+                  <LayoutItem Id="servicesSum" ViewItem="servicesSum" Index="0" RelativeSize="4.6875" IsNewNode="True" />
+                  <LayoutItem Id="endscopesSum" ViewItem="endscopesSum" Index="1" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="testsSum" ViewItem="testsSum" Index="2" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="MedicalSupervisionSum" ViewItem="MedicalSupervisionSum" Index="3" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="medicationSum" ViewItem="medicationSum" Index="4" RelativeSize="4.166666666666667" IsNewNode="True" />
+                  <LayoutItem Id="OutMedcationSum" ViewItem="OutMedcationSum" Index="5" RelativeSize="78.645833333333329" IsNewNode="True" />
                 </LayoutGroup>
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
           <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Index="2" RelativeSize="100" Caption="البيانات طبية" IsNewNode="True">
-            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="4.5901639344262293" Caption="Auto9aba8244-e836-405f-8960-49e671ecf136(62)" IsNewNode="True">
+            <LayoutGroup Id="Auto9aba8244-e836-405f-8960-49e671ecf136" ShowCaption="False" Direction="Vertical" Index="0" RelativeSize="4.674457429048414" Caption="Auto9aba8244-e836-405f-8960-49e671ecf136(62)" IsNewNode="True">
               <LayoutItem Id="Patient.BloodType" Index="0" RelativeSize="100" ViewItem="Patient.BloodType" IsNewNode="True" />
             </LayoutGroup>
-            <LayoutItem Id="firstDiagnosis" CaptionLocation="Top" Index="1" RelativeSize="45.901639344262293" ViewItem="firstDiagnosis" IsNewNode="True" />
-            <LayoutItem Id="finalDiagnosis" CaptionLocation="Top" Index="2" RelativeSize="49.508196721311478" ViewItem="finalDiagnosis" IsNewNode="True" />
+            <LayoutItem Id="firstDiagnosis" CaptionLocation="Top" Index="1" RelativeSize="45.742904841402336" ViewItem="firstDiagnosis" IsNewNode="True" />
+            <LayoutItem Id="finalDiagnosis" CaptionLocation="Top" Index="2" RelativeSize="49.582637729549248" ViewItem="finalDiagnosis" IsNewNode="True" />
           </LayoutGroup>
         </TabbedGroup>
         <LayoutGroup Id="Main" Removed="True" />
@@ -1597,7 +1596,6 @@
     </ListView>
     <ListView Id="Appointment_ClinicServiceDetails_ListView" AllowNew="True">
       <Columns>
-        <ColumnInfo Id="ClinicService.Price" PropertyName="ClinicService.Price" Index="-1" IsNewNode="True" />
         <ColumnInfo Id="ID" Index="-1" />
         <ColumnInfo Id="ClinicService" Width="119" Index="0" />
         <ColumnInfo Id="ClinicService.Name" PropertyName="ClinicService.Name" Index="1" Width="213" IsNewNode="True" />
@@ -2105,7 +2103,6 @@
         <PropertyEditor Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
         <PropertyEditor Id="StayMedicationsCollection" Caption="أدوية الإقامة" />
         <PropertyEditor Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
         <TabbedGroup Id="Item7" CaptionLocation="Top" Index="0" RelativeSize="69.897959183673464" IsNewNode="True">
@@ -2199,8 +2196,6 @@
         <ColumnInfo Id="servicesSum" Width="83" Index="-1" Caption="جمالى تكلفة الخدمات الطبية" />
         <ColumnInfo Id="suppliesSum" Width="82" Index="-1" Caption="إجمالى تكلفة المستلزمات الطبية" />
         <ColumnInfo Id="TestSum" Index="-1" />
-        <ColumnInfo Id="Transaction" Width="77" Index="-1" Caption="التحويل" />
-        <ColumnInfo Id="TransactionsSecond" SortIndex="0" SortOrder="Ascending" Index="-1" />
         <ColumnInfo Id="XraySum" Index="-1" />
         <ColumnInfo Id="Patient" Width="69" Index="0" Caption="المريض" />
         <ColumnInfo Id="doctor" Width="119" Index="1" />
@@ -2217,7 +2212,6 @@
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="Patient" Caption="المريض" />
         <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
@@ -3152,8 +3146,6 @@
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="Paid" Index="-1" />
         <ColumnInfo Id="Patient" Caption="المريض" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" Index="-1" />
-        <ColumnInfo Id="TransactionsSecond" Index="-1" />
         <ColumnInfo Id="date" Caption="تاريخ" Index="0" />
         <ColumnInfo Id="doctor" Caption="الطبيب" Index="1" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" Index="3" />
@@ -3534,6 +3526,12 @@
         <ColumnInfo Id="ID" Caption="الكود" />
       </Columns>
     </ListView>
+    <ListView Id="PriceList_PriceListDetails_ListView">
+      <Columns>
+        <ColumnInfo Id="ServiceBase" Index="0" Width="149" />
+        <ColumnInfo Id="Price" Index="1" />
+      </Columns>
+    </ListView>
     <DetailView Id="ProceedMember_DetailView">
       <Items>
         <PropertyEditor Id="Name" Caption="إسم" />
@@ -3849,6 +3847,8 @@
         <ColumnInfo Id="doctor" Width="48" Index="-1" Caption="الطبيب" />
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
+        <ColumnInfo Id="HalfDayAtEnd" Index="-1" />
+        <ColumnInfo Id="halfDayAtStart" Index="-1" />
         <ColumnInfo Id="ignoreFirstDay" Width="92" Index="-1" />
         <ColumnInfo Id="IsDischarged" Width="42" Index="-1" Caption="خارج" />
         <ColumnInfo Id="Patient" Width="74" Index="-1" Caption="المريض" SortIndex="-1" SortOrder="None" />
@@ -3922,6 +3922,7 @@
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>
         </ColumnInfo>
+        <ColumnInfo Id="OutMedcationSum" Index="16" />
       </Columns>
     </ListView>
     <DetailView Id="ReceptionDesk_DetailView" Caption="إستقبال القسم الداخلى" ItemToTabBorderDistance="1" TextToControlDistance="1">
@@ -4428,19 +4429,7 @@
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="Service" RelativeSize="100">
-              <LayoutGroup Id="Service_col1" RelativeSize="49.92">
-                <LayoutItem Id="ServiceType" RelativeSize="6.9868995633187776" />
-                <LayoutItem Id="Name" RelativeSize="5.2401746724890828" Index="1" />
-                <LayoutItem Id="Price" ViewItem="Price" Index="2" RelativeSize="87.772925764192138" IsNewNode="True" />
-                <LayoutItem Id="ID" RelativeSize="3.3850493653032441" Removed="True" />
-              </LayoutGroup>
-              <LayoutGroup Id="Service_col2" Caption="Service_col2" RelativeSize="50.08">
-                <LayoutItem Id="ID" ViewItem="ID" Index="0" RelativeSize="100" IsNewNode="True" />
-                <LayoutItem Id="Price" RelativeSize="93.013100436681228" Index="1" Removed="True" />
-                <LayoutItem Id="category" Removed="True" />
-              </LayoutGroup>
-            </LayoutGroup>
+            <LayoutGroup Id="Service" RelativeSize="100" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -4451,8 +4440,6 @@
         <ColumnInfo Id="ID" Index="0" />
         <ColumnInfo Id="ServiceType" Index="1" />
         <ColumnInfo Id="Name" Index="2" />
-        <ColumnInfo Id="EnglishName" Index="3" />
-        <ColumnInfo Id="Price" Index="4" />
       </Columns>
     </ListView>
     <ListView Id="Service_LookupListView" ShowDetailView="True" AllowNew="False" AllowDelete="False">
@@ -4461,8 +4448,6 @@
         <ColumnInfo Id="ServiceType" Index="-1" />
         <ColumnInfo Id="ID" Index="0" />
         <ColumnInfo Id="Name" Index="1" />
-        <ColumnInfo Id="EnglishName" Index="2" />
-        <ColumnInfo Id="Price" Index="3" />
       </Columns>
     </ListView>
     <ListView Id="ServiceDetails_ListView">
@@ -5268,7 +5253,6 @@
         <ColumnInfo Id="Package" Index="-1" />
         <ColumnInfo Id="service" Index="0" Width="0" />
         <ColumnInfo Id="service.Name" PropertyName="service.Name" Index="1" Width="267" IsNewNode="True" />
-        <ColumnInfo Id="service.EnglishName" PropertyName="service.EnglishName" Index="2" Width="251" IsNewNode="True" />
         <ColumnInfo Id="price" Index="3" Width="107">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />

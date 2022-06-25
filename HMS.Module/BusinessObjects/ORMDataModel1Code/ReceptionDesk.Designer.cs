@@ -165,6 +165,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return (decimal)(EvaluateAlias(nameof(Balance))); }
         }
+        Conratct fContract;
+        public Conratct Contract
+        {
+            get { return fContract; }
+            set { SetPropertyValue<Conratct>(nameof(Contract), ref fContract, value); }
+        }
         [Association(@"AdmissionReferencesReceptionDesk")]
         public XPCollection<Admission> Admissions { get { return GetCollection<Admission>(nameof(Admissions)); } }
         [Association(@"PackageDetailReferencesReceptionDesk")]

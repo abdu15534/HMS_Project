@@ -8,14 +8,12 @@ using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
-using DevExpress.Xpo;
 using HMS.Module.InitialData;
 using HMS.Module.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using XafDataModel.Module.BusinessObjects.test2;
-using static XafDataModel.Module.BusinessObjects.test2.Patient;
 using Account = XafDataModel.Module.BusinessObjects.test2.Account;
 using MasterAccount = XafDataModel.Module.BusinessObjects.test2.MasterAccount;
 
@@ -278,7 +276,7 @@ namespace HMS.Module.DatabaseUpdate
                 var setting = ObjectSpace.CreateObject<InPatientSettings>();
                 setting.ServiceRate = 15;
                 setting.StampPrice = 20m;
-                
+
 
             }
             ObjectSpace.CommitChanges();
@@ -833,31 +831,31 @@ namespace HMS.Module.DatabaseUpdate
                 ObjectSpace.CommitChanges();
             }
 
-            if (ObjectSpace.GetObjectsCount(typeof(Service), null) == 0)
-            {
-                List<ServicesInitialData> services = new ServicesInitialData().services();
-                int bloodid = 19000;
-                int otherid = 18000;
-                foreach (ServicesInitialData item in services)
-                {
-                    var service = ObjectSpace.CreateObject<Service>();
-                    if (item.serviceType == ServiceTypes.Other)
-                    {
-                        otherid += 1;
-                        service.ID = otherid;
-                    }
-                    else
-                    {
-                        bloodid += 1;
-                        service.ID = bloodid;
-                    }
-                    service.Name = item.name;
-                    service.Price = item.price;
-                    service.ServiceType = (Service.ServiceTypes)item.serviceType;
+            //if (ObjectSpace.GetObjectsCount(typeof(Service), null) == 0)
+            //{
+            //    List<ServicesInitialData> services = new ServicesInitialData().services();
+            //    int bloodid = 19000;
+            //    int otherid = 18000;
+            //    foreach (ServicesInitialData item in services)
+            //    {
+            //        var service = ObjectSpace.CreateObject<Service>();
+            //        if (item.serviceType == ServiceTypes.Other)
+            //        {
+            //            otherid += 1;
+            //            service.ID = otherid;
+            //        }
+            //        else
+            //        {
+            //            bloodid += 1;
+            //            service.ID = bloodid;
+            //        }
+            //        service.Name = item.name;
+            //        service.Price = item.price;
+            //        service.ServiceType = (Service.ServiceTypes)item.serviceType;
 
-                }
-                ObjectSpace.CommitChanges();
-            }
+            //    }
+            //    ObjectSpace.CommitChanges();
+            //}
 
 
             if (ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) == 0 && ObjectSpace.GetObjectsCount(typeof(Product), null) != 0)
@@ -907,7 +905,7 @@ namespace HMS.Module.DatabaseUpdate
                 int j = 0;
                 foreach (var item in supplies2.ToList())
                 {
-                    if(item.purchasingPrice != 0 && item.TempQuantity != 0)
+                    if (item.purchasingPrice != 0 && item.TempQuantity != 0)
                     {
                         PurchasingOrderDetail purchase = ObjectSpace.CreateObject<PurchasingOrderDetail>();
                         Product product = item;
@@ -916,7 +914,7 @@ namespace HMS.Module.DatabaseUpdate
                         purchase.quantity = product.TempQuantity;
                         purchase.price = product.purchasingPrice;
                         j++;
-                    
+
                         Order2.PurchasingOrderDetails.Add(purchase);
                         Console.WriteLine(purchase.price.ToString() + " updater");
                     }
@@ -1410,32 +1408,32 @@ namespace HMS.Module.DatabaseUpdate
                     .RuleFor(o => o.ExaminationPrice, 100)
                     .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
                     .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
-                    .RuleFor(o => o.Doctor, (f,p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
-                    .RuleFor(o => o.StartOn, f => f.Date.Between(DateTime.Today,DateTime.Today.AddHours(23)))
+                    .RuleFor(o => o.Doctor, (f, p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
+                    .RuleFor(o => o.StartOn, f => f.Date.Between(DateTime.Today, DateTime.Today.AddHours(23)))
                     .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
 
                 var Appointments = fakeAppointments.Generate(30);
 
             }
 
-                //        //foreach (Appointment item in Appointments)
-                //        //{
+            //        //foreach (Appointment item in Appointments)
+            //        //{
 
-                //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
-                //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
-                //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
-                //        //    clinicService.Appointment = item;
-                //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
+            //        //    var clinicService = ObjectSpace.CreateObject<ClinicService>();
+            //        //    List<ClinicService> currentClinincServices = item.clinc.ClinicServices.ToList();
+            //        //    var numberOfServices = new Random(Guid.NewGuid().GetHashCode()).Next(0, 4);
+            //        //    clinicService.Appointment = item;
+            //        //    clinicService = currentClinincServices[new Random(Guid.NewGuid().GetHashCode()).Next(0, currentClinincServices.Count)];
 
-                //        //    //var payment = ObjectSpace.CreateObject<Payments>();
-                //        //    //payment.Patient = item.Patient;
-                //        //    //payment.amount = item.amount;
-                //        //    //payment.date = item.StartOn;
-                //        //}
+            //        //    //var payment = ObjectSpace.CreateObject<Payments>();
+            //        //    //payment.Patient = item.Patient;
+            //        //    //payment.amount = item.amount;
+            //        //    //payment.date = item.StartOn;
+            //        //}
 
-                //    }
+            //    }
 
-                ObjectSpace.CommitChanges();
+            ObjectSpace.CommitChanges();
 
             //*** The following code generate stay fake data ***
             /*

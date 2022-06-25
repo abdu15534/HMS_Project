@@ -26,12 +26,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             public void ApplySurgeryPackage()
         {
-            IQueryable<StayMedications> FirstMedications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Medication.Inventory.Department.ID == 7 && p.Package == null);
-            IQueryable<StaySupplies> FirstSupplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.supplyProduct.Inventory.Department.ID == 7 && p.Package == null);
-            IQueryable<TestDetails> Firsttests = Session.Query<TestDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
-            IQueryable<XraysDetails> Firstxrays = Session.Query<XraysDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
-            IQueryable<EndscopeDetails> Firstendoscpy = Session.Query<EndscopeDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
-            IQueryable<ServiceDetails> Firstservies = Session.Query<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == Reciption && o.Service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
+            //IQueryable<StayMedications> FirstMedications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Medication.Inventory.Department.ID == 7 && p.Package == null);
+            //IQueryable<StaySupplies> FirstSupplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.supplyProduct.Inventory.Department.ID == 7 && p.Package == null);
+            //IQueryable<TestDetails> Firsttests = Session.Query<TestDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
+            //IQueryable<XraysDetails> Firstxrays = Session.Query<XraysDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
+            //IQueryable<EndscopeDetails> Firstendoscpy = Session.Query<EndscopeDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
+            //IQueryable<ServiceDetails> Firstservies = Session.Query<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == Reciption && o.Service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
 
             ApplyPackageToMedecations();
             ApplyPackageToMedicalSupplies();

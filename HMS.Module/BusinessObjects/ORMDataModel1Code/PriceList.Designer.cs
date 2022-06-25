@@ -16,21 +16,23 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class Service : ServiceBase
+    public partial class PriceList : XPBaseObject
     {
-        int fidentefcation;
-        public int identefcation
+        int fID;
+        [Key(true)]
+        public int ID
         {
-            get { return fidentefcation; }
-            set { SetPropertyValue<int>(nameof(identefcation), ref fidentefcation, value); }
+            get { return fID; }
+            set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
-        ServiceSecondCategory fcategory;
-        [Association(@"ServiceReferencesServiceSecondCategory")]
-        public ServiceSecondCategory category
+        string fName;
+        public string Name
         {
-            get { return fcategory; }
-            set { SetPropertyValue<ServiceSecondCategory>(nameof(category), ref fcategory, value); }
+            get { return fName; }
+            set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
         }
+        [Association(@"PriceListDetailReferencesPriceList")]
+        public XPCollection<PriceListDetail> PriceListDetails { get { return GetCollection<PriceListDetail>(nameof(PriceListDetails)); } }
     }
 
 }

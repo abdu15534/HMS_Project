@@ -268,7 +268,6 @@
         <Member Name="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
         <Member Name="StayMedicationsCollection" Caption="أدوية الإقامة" />
         <Member Name="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <Member Name="Transaction" Caption="التحويل" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.JournalDetails">
@@ -1026,7 +1025,6 @@
         <PropertyEditor Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
         <PropertyEditor Id="StayMedicationsCollection" Caption="أدوية الإقامة" />
         <PropertyEditor Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <PropertyEditor Id="Transaction" Caption="التحويل" />
       </Items>
       <Layout>
         <TabbedGroup Id="Tabs">
@@ -1045,7 +1043,6 @@
         <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
         <ColumnInfo Id="servicesSum" Caption="جمالى تكلفة الخدمات الطبية" />
         <ColumnInfo Id="suppliesSum" Caption="إجمالى تكلفة المستلزمات الطبية" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="Patient" Caption="المريض" />
         <ColumnInfo Id="date" Caption="تاريخ" />
       </Columns>
@@ -1055,7 +1052,6 @@
         <ColumnInfo Id="finalDiagnosis" Caption="التشخيص النهائى" />
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="Patient" Caption="المريض" />
         <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />
@@ -1549,7 +1545,6 @@
         <ColumnInfo Id="firstDiagnosis" Caption="التشخيص المبدئى" />
         <ColumnInfo Id="id" Caption="كود" />
         <ColumnInfo Id="Patient" Caption="المريض" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
         <ColumnInfo Id="date" Caption="تاريخ" />
         <ColumnInfo Id="doctor" Caption="الطبيب" />
         <ColumnInfo Id="medicationSum" Caption="إجمالى تكلفة الأدوية" />

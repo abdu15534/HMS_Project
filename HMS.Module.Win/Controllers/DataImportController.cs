@@ -27,7 +27,6 @@ using System.Diagnostics;
 using XafDataModel.Module.BusinessObjects.test2;
 using DevExpress.XtraReports.UI;
 using static XafDataModel.Module.BusinessObjects.test2.Service;
-using ServiceTypes = XafDataModel.Module.BusinessObjects.test2.Service.ServiceTypes;
 
 namespace HMS.Module.Win.Controllers
 {
@@ -98,7 +97,7 @@ namespace HMS.Module.Win.Controllers
                         if (row[1] != DBNull.Value)
                         {
                             myString = row[1].ToString();
-                            service.ServiceType = (ServiceTypes)Convert.ToInt32(row[1].ToString());
+                            //service.ServiceType = (ServiceTypes)Convert.ToInt32(row[1].ToString());
                             //if (!string.IsNullOrEmpty(row[1].ToString()))
                             //    fzp.NazwaProduktu = row[1].ToString();
                         }
@@ -132,7 +131,7 @@ namespace HMS.Module.Win.Controllers
                             //myString += " - " + row[4].ToString();
                             if (!string.IsNullOrEmpty(row[4].ToString()))
                             {
-                                service.Price = Convert.ToDecimal(row[4].ToString());
+                                //service.Price = Convert.ToDecimal(row[4].ToString());
                             }
 
                         }
@@ -250,7 +249,7 @@ namespace HMS.Module.Win.Controllers
                         if (row[1] != DBNull.Value)
                         {
                             myString += " - "+ row[1].ToString();
-                            service.ServiceType = (ServiceTypes)16;
+                            //service.ServiceType = (ServiceTypes)16;
                             //if (!string.IsNullOrEmpty(row[1].ToString()))
                             //    fzp.NazwaProduktu = row[1].ToString();
                         }
@@ -284,7 +283,7 @@ namespace HMS.Module.Win.Controllers
                             //myString += " - " + row[4].ToString();
                             if (!string.IsNullOrEmpty(row[4].ToString()))
                             {
-                                service.EnglishName = row[4].ToString();
+                                //service.EnglishName = row[4].ToString();
                             }
 
                         }
@@ -297,7 +296,7 @@ namespace HMS.Module.Win.Controllers
                             //myString += " - " + row[5].ToString();
                             if (!string.IsNullOrEmpty(row[5].ToString()))
                             {
-                                service.Price = Convert.ToDecimal(row[5].ToString());
+                                //service.Price = Convert.ToDecimal(row[5].ToString());
                             }
 
                         }
@@ -364,7 +363,7 @@ namespace HMS.Module.Win.Controllers
                         if (row[1] != DBNull.Value)
                         {
                             myString = " - " + row[1].ToString();
-                            service.ServiceType = (ServiceTypes)17;
+                            //service.ServiceType = (ServiceTypes)17;
                             //if (!string.IsNullOrEmpty(row[1].ToString()))
                             //    fzp.NazwaProduktu = row[1].ToString();
                         }
@@ -387,7 +386,7 @@ namespace HMS.Module.Win.Controllers
                             //myString += " - " + row[3].ToString();
                             if (!string.IsNullOrEmpty(row[3].ToString()))
                             {
-                                service.Price = Convert.ToDecimal(row[3].ToString());
+                                //service.Price = Convert.ToDecimal(row[3].ToString());
                             }
                         }
 

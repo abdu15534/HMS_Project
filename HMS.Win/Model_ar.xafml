@@ -561,9 +561,6 @@
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Service" Caption="خدمة ">
       <OwnMembers>
         <Member Name="category" Caption="الصنف" />
-        <Member Name="ID" Caption="الكود" />
-        <Member Name="Name" Caption="الاسم" />
-        <Member Name="Price" Caption="السعر" DisplayFormat="{0:C}" EditMask="C" />
         <Member Name="ServiceType" Caption="نوع الخدمة" />
       </OwnMembers>
     </Class>
@@ -3657,7 +3654,6 @@
       <Items>
         <PropertyEditor Id="ID" Caption="الكود" />
         <PropertyEditor Id="Name" Caption="الاسم" />
-        <PropertyEditor Id="Price" Caption="السعر" EditMask="C" />
         <PropertyEditor Id="ServiceType" Caption="نوع الخدمة" />
       </Items>
       <Layout>
@@ -3673,7 +3669,6 @@
         <ColumnInfo Id="ID" Caption="الكود" />
         <ColumnInfo Id="ServiceType" Caption="نوع الخدمة" />
         <ColumnInfo Id="Name" Caption="الاسم" />
-        <ColumnInfo Id="Price" Caption="السعر" EditMask="C" />
       </Columns>
     </ListView>
     <ListView Id="Service_LookupListView" Caption="خدمة ">

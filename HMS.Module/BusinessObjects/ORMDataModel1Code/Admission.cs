@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-
+ 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
     [DefaultClassOptions, DefaultProperty("admissionID")]
@@ -73,10 +73,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
             if (propertyName == nameof(StayStart) && newValue != null)
             {
-                var erlestDate = this.reception.Admissions.Min(p => p.StayStart);
-                if (erlestDate != this.reception.dateEnter)
+                if (this.reception != null)
                 {
-                    this.reception.dateEnter = erlestDate;
+                    var erlestDate = this.reception.Admissions.Min(p => p.StayStart);
+                    if (erlestDate != this.reception.dateEnter)
+                    {
+                        this.reception.dateEnter = erlestDate;
+                    }
                 }
             }
         }

@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Views Id="Views">
+    <ListView Id="Appointment_ClinicServiceDetails_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ClinicService.Price" PropertyName="ClinicService.Price" Index="-1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PackageDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PackageDetail">
+              <LayoutGroup Id="PackageDetail_col1">
+                <LayoutItem Id="Total" ViewItem="Total" />
+                <LayoutGroup Id="Auto2b0b22d5-38c1-492e-80c8-a8d94d96162d">
+                  <LayoutGroup Id="Autoc69c5d27-4028-42e5-a430-09b13c4949c9">
+                    <LayoutItem Id="AnesthesiaFees" ViewItem="AnesthesiaFees" />
+                    <LayoutItem Id="AssistantFees" ViewItem="AssistantFees" />
+                    <LayoutItem Id="SurgeonsFees" ViewItem="SurgeonsFees" />
+                    <LayoutItem Id="RoomOpeningFee" ViewItem="RoomOpeningFee" />
+                    <LayoutItem Id="SurgeryRoom" ViewItem="SurgeryRoom" />
+                    <LayoutItem Id="SurgeryCategory" ViewItem="SurgeryCategory" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto426f7cfb-1a5c-421e-a513-ef9e6b8d9db7">
+                    <LayoutItem Id="isSurgery" ViewItem="isSurgery" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Service_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Service">
+              <LayoutGroup Id="Service_col1" RelativeSize="49.92">
+                <LayoutItem Id="ServiceType" RelativeSize="6.9868995633187776" />
+                <LayoutItem Id="Price" ViewItem="Price" Index="2" RelativeSize="87.772925764192138" />
+              </LayoutGroup>
+              <LayoutGroup Id="Service_col2" Caption="Service_col2" RelativeSize="50.08">
+                <LayoutItem Id="ID" ViewItem="ID" Index="0" RelativeSize="100" />
+                <LayoutItem Id="Price" RelativeSize="93.013100436681228" Index="1" Removed="True" />
+                <LayoutItem Id="category" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Service_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="EnglishName" Index="3" />
+        <ColumnInfo Id="Price" Index="4" />
+      </Columns>
+    </ListView>
+    <ListView Id="Service_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="EnglishName" Index="2" />
+        <ColumnInfo Id="Price" Index="3" />
+      </Columns>
+    </ListView>
+    <ListView Id="Xrays_XraysDetailsCollection_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="service.EnglishName" PropertyName="service.EnglishName" Index="2" Width="251" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

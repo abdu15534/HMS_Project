@@ -22,7 +22,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if (propertyName == nameof(ClinicService) && ClinicService != null)
             {
-                price = ClinicService.Price;
+                //price = ClinicService.Price;
             }
         }
     }

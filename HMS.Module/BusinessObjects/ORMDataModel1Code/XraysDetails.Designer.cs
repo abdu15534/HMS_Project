@@ -40,7 +40,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<DateTime>(nameof(date), ref fdate, value); }
         }
         Service fservice;
-        [DevExpress.Persistent.Base.DataSourceCriteria("ServiceType = 16")]
         public Service service
         {
             get { return fservice; }
