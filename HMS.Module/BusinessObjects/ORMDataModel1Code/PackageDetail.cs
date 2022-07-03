@@ -105,38 +105,77 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public void ApplyPackageToMedecations()
         {
-            decimal applyedMedications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == this.Package).Sum(p => p.total);
-            IQueryable<StayMedications> medications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == null);
-            decimal totalmedication = applyedMedications;
-            foreach (StayMedications item in medications)
-            {
-                if (this.Reciption.medication > totalmedication)
+            decimal outPackageTotal = 0;
+            var MedecationLimitationPackage = Package.medicineLimit;
+            var totalPackage = Session.Query<StayMedications>().Where(x => x.Stay.reception != null && x.Stay.reception == Reciption && x.Package == this.Package).Sum(x=>x.total);
+            var medications = Session.Query<StayMedications>().Where(x => x.Stay.reception != null && x.Stay.reception == Reciption && x.Package == null);
+          
+                
+                foreach(StayMedications medicationItem in medications) 
                 {
-                    totalmedication += item.total;
-                    if (totalmedication > this.Package.medicineLimit)
+                    var medicationTotal = medicationItem.total;
+                    if (medicationTotal + totalPackage <= MedecationLimitationPackage) 
                     {
-                        var defrance = totalmedication - this.Package.medicineLimit;
-                        defrance = Math.Abs(defrance);
-                        var newquantity = defrance / item.price;
-                        totalmedication -= defrance;
-                        var newmedcation = new StayMedications(Session);
-                        newmedcation.Medication = item.Medication;
-                        newmedcation.Stay = item.Stay;
-                        newmedcation.quantity = Convert.ToDouble(newquantity);
-                        //ObjectSpace.CommitChanges();
-                        item.price = item.price;
-                        item.quantity = item.quantity - Convert.ToDouble(newquantity);
-                        if (item.quantity > 1)
+                        totalPackage = totalPackage + medicationTotal;
+                        medicationItem.Package = this.Package;
+                    }
+                    else
+                    {
+                        if (totalPackage == MedecationLimitationPackage)
                         {
+                            outPackageTotal = outPackageTotal + medicationTotal;
+                            medicationItem.Package = null;
+                        }
+                        else
+                        {
+                        var inPackage = MedecationLimitationPackage - totalPackage;
+                        var quantity = Convert.ToDouble(inPackage/medicationTotal)*( medicationItem.quantity);
+                        var medicationPacakge = new StayMedications(Session);
+                        medicationPacakge.Medication = medicationItem.Medication;
+                        medicationPacakge.quantity = quantity;
+                        medicationPacakge.price = medicationItem.price;
+                        medicationPacakge.Stay = medicationItem.Stay;
+                        medicationPacakge.Package = this.Package;
+                        totalPackage = totalPackage + inPackage;
+                        outPackageTotal = outPackageTotal + (medicationTotal - inPackage);
+                        medicationItem.quantity = medicationItem.quantity - medicationPacakge.quantity;
+                        medicationItem.Package = null;
                         }
                     }
-                    item.Package = this.Package;
+                    
                 }
-                else
-                {
-                    break;
-                }
-            }
+            //decimal applyedMedications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == this.Package).Sum(p => p.total);
+            //IQueryable<StayMedications> medications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == null);
+            //decimal totalmedication = applyedMedications;
+            //foreach (StayMedications item in medications)
+            //{
+            //    if (this.Reciption.medication > totalmedication)
+            //    {
+            //        totalmedication += item.total;
+            //        if (totalmedication > this.Package.medicineLimit)
+            //        {
+            //            var defrance = totalmedication - this.Package.medicineLimit;
+            //            defrance = Math.Abs(defrance);
+            //            var newquantity = defrance / item.price;
+            //            totalmedication -= defrance;
+            //            var newmedcation = new StayMedications(Session);
+            //            newmedcation.Medication = item.Medication;
+            //            newmedcation.Stay = item.Stay;
+            //            newmedcation.quantity = Convert.ToDouble(newquantity);
+            //            //ObjectSpace.CommitChanges();
+            //            item.price = item.price;
+            //            item.quantity = item.quantity - Convert.ToDouble(newquantity);
+            //            if (item.quantity > 1)
+            //            {
+            //            }
+            //        }
+            //        item.Package = this.Package;
+            //    }
+            //    else
+            //    {
+            //        break;
+            //    }
+            //}
         }
 
         public void ApplyPackageToTests()
