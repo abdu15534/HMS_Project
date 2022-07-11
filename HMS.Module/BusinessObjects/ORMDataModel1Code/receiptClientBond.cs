@@ -1,11 +1,10 @@
-﻿using System;
-using DevExpress.Xpo;
+﻿using DevExpress.ExpressApp;
 using DevExpress.Persistent.Base;
+using DevExpress.Xpo;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using DevExpress.ExpressApp;
-using System.Collections.Generic;
-using DevExpress.Data.Filtering;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
@@ -33,12 +32,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 Session.Delete(ReceiptItems);
                 this.amount = 0;
-                if (Department.ID == 8)
+                if (Department.Name == "العيادات")
                 {
                     string fullQuery = GetTargetAppointment();
                     addServices(fullQuery);
                 }
-                else if (Department.ID == 9)
+                else if (Department.Name == "الأشعة")
                 {
                     try
                     {
@@ -53,7 +52,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                     }
                 }
-                else if (Department.ID == 10)
+                else if (Department.Name == "التحاليل")
                 {
                     try
                     {
@@ -68,7 +67,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                     }
                 }
-                else if (Department.ID == 11)
+                else if (Department.Name == "المناظير")
                 {
                     try
                     {
@@ -88,12 +87,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 Session.Delete(ReceiptItems);
                 this.amount = 0;
-                if (Department.ID == 8)
+                if (Department.Name == "العيادات")
                 {
                     string fullQuery = GetTargetAppointment();
                     addServices(fullQuery);
                 }
-                else if (Department.ID == 9)
+                else if (Department.Name == "الأشعة")
                 {
                     try
                     {
@@ -108,7 +107,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                     }
                 }
-                else if (Department.ID == 10)
+                else if (Department.Name == "التحاليل")
                 {
                     try
                     {
@@ -123,7 +122,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     {
                     }
                 }
-                else if (Department.ID == 11)
+                else if (Department.Name == "المناظير")
                 {
                     try
                     {
@@ -141,7 +140,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
         }
 
-        private  string GetTargetAppointment()
+        private string GetTargetAppointment()
         {
             string fullQuery = null;
             try
@@ -194,7 +193,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         //    }
         //    //set => SetPropertyValue(nameof(Admat), ref admat, value);
         //}
-        public enum PaymentType { General = 0, Admission = 1, Emergency = 2}
+        public enum PaymentType { General = 0, Admission = 1, Emergency = 2 }
 
         PaymentType paymentType;
 
@@ -205,7 +204,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
 
 
-        
+
 
         public enum BondTypes { receiptClient, paymentSupplier, receiptManagement, paymentManagement }
 
@@ -213,9 +212,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
         //XPCollection xpcUsers = new XPCollection(Session, typeof(eFlowUser), CriteriaOperator.Parse(criteria));
         //public XPCollection<Admission> admissions = 
         //Query<Admission>().Where(o => o.servicesSum > 0);
-        
 
-        
+
+
 
         protected override void OnSaving()
         {
@@ -232,10 +231,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             journal.type = this.GetType().ToString();
             journal.objectKey = this.id.ToString();
-            
 
 
-            if(fromAccount != null && intoAccount != null)
+
+            if (fromAccount != null && intoAccount != null)
             {
                 fromAccountBalance = fromAccount.credit - fromAccount.debit;
                 intoAccountBalance = intoAccount.credit - intoAccount.debit;
@@ -251,7 +250,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 OrderConfirm(false);
             }
             this.journal.Delete();
-            
+
         }
 
         public void addServices(string query)
@@ -272,12 +271,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public void OrderConfirm(bool add)
         {
-            
+
             if (add)
             {
-                
 
-                
+
+
 
                 Payments clientPayments = new Payments(Session);
                 Patient patient = Session.Query<Patient>().Where(o => o.account == fromAccount).Single();
@@ -334,7 +333,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         return;
                     }
                 }
-                else if (Department.ID == 9 )
+                else if (Department.ID == 9)
                 {
                     try
                     {
@@ -348,7 +347,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
                         return;
 
                     }
-                }else if(Department.ID == 10)
+                }
+                else if (Department.ID == 10)
                 {
                     try
                     {
@@ -438,7 +438,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     Console.WriteLine(e);
                 }
-                
+
                 journal.Post(true);
                 post = false;
             }

@@ -31,6 +31,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fcategory; }
             set { SetPropertyValue<ServiceSecondCategory>(nameof(category), ref fcategory, value); }
         }
+        Clinc fClinic;
+        public Clinc Clinic
+        {
+            get { return fClinic; }
+            set { SetPropertyValue<Clinc>(nameof(Clinic), ref fClinic, value); }
+        }
     }
 
 }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="PriceList_PriceListDetails_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="ServiceBase" Index="0" Width="149" />
+        <ColumnInfo Id="Price" Index="1" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="PackageDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PackageDetail">
+              <LayoutGroup Id="PackageDetail_col1">
+                <LayoutItem Id="Total" ViewItem="Total" />
+                <LayoutGroup Id="Auto2b0b22d5-38c1-492e-80c8-a8d94d96162d">
+                  <LayoutGroup Id="Autoc69c5d27-4028-42e5-a430-09b13c4949c9">
+                    <LayoutItem Id="AnesthesiaFees" ViewItem="AnesthesiaFees" />
+                    <LayoutItem Id="AssistantFees" ViewItem="AssistantFees" />
+                    <LayoutItem Id="SurgeonsFees" ViewItem="SurgeonsFees" />
+                    <LayoutItem Id="RoomOpeningFee" ViewItem="RoomOpeningFee" />
+                    <LayoutItem Id="SurgeryRoom" ViewItem="SurgeryRoom" />
+                    <LayoutItem Id="SurgeryCategory" ViewItem="SurgeryCategory" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto426f7cfb-1a5c-421e-a513-ef9e6b8d9db7">
+                    <LayoutItem Id="isSurgery" ViewItem="isSurgery" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="@63112209-e338-4ddd-9fe3-4b41a1695618">
+        <Items Id="Items">
+          <Item Id="@5b770db4-e5eb-4b2f-8e93-8a0acd8192bf" ViewId="ConractServiceDiscount_ListView" />
+          <Item Id="@3c9169ee-9997-4e99-b67d-757208e0178d" ViewId="ConractDepartment_ListView" />
+          <Item Id="@51e86ddc-ddee-4194-9876-602be8f23ac4" ViewId="PriceListDetail_ListView" />
+          <Item Id="@a514400f-4d33-492e-9a5a-6afd6d3fb035" ViewId="PriceList_ListView" />
+          <Item Id="@aac4f3fe-cb2e-4c4e-b851-d79b691dd1de" ViewId="Conratct_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

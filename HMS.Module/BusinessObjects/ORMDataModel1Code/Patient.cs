@@ -157,22 +157,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             أخرى,
         }
 
-        /*
-                private XPCollection<AuditDataItemPersistent> auditTrail;
-                [CollectionOperationSet(AllowAdd = false, AllowRemove = false)]
-                public XPCollection<AuditDataItemPersistent> AuditTrail
-                {
-                    get
-                    {
-                        if (auditTrail == null)
-                        {
-                            auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, this);
-                        }
-                        return auditTrail;
-                    }
-                }
-        */
-
 
 
         protected override void OnSaving()
@@ -199,10 +183,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             }
             if (phonenumber1.Length != 11)
                 throw new ArgumentException("برجاء إدخال رقم هاتف صحيح!", nameof(phonenumber1));
-            //{
-            //    MessageBox.Show("برجاء إدخال رقم هاتف صحيح!.", "رقم الهاتف غير صحيح", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
 
 
             if (nationalID.Length != 14)
@@ -210,16 +190,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 MessageBox.Show("برجاء التأكد من الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            //if (ImageProperty == null)
-            //{
-            //    MessageBox.Show("برجاء التأكد من إدخال صورة البطاقة الشخصي!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
             string[] authorsList = FullName.Split(' ');
             if (authorsList.Length < 4)
             {
                 throw new ArgumentException("برجاء التأكد من إدخال الاسم الرباعي!", nameof(FullName));
-                //MessageBox.Show("برجاء التأكد من إدخال الاسم الرباعي!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if (this.Contract == null)
+            {
+                Conratct defualtContract = Session.FindObject<Conratct>(CriteriaOperator.Parse("Name = ?", "مستشفى اكتوبر كلينيك"));
+                Contract = defualtContract;
             }
         }
 

@@ -34,6 +34,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Admission>(nameof(admission), ref fadmission, value); }
         }
         Service fservice;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" Departmet.Name= 'التحاليل'")]
         public Service service
         {
             get { return fservice; }

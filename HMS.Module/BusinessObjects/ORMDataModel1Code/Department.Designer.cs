@@ -26,6 +26,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         string fName;
+        [Indexed(Name = @"Dep name", Unique = true)]
         public string Name
         {
             get { return fName; }

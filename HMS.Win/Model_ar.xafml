@@ -217,6 +217,16 @@
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.CompensationDetails" Caption="المرافق" />
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ConractDepartment">
+      <OwnMembers>
+        <Member Name="Contract" Caption="تعاقد" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ConractServiceDiscount">
+      <OwnMembers>
+        <Member Name="Contract" Caption="تعاقد" />
+      </OwnMembers>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.DeductionDetails" Caption="تفاصيل الخصومات">
       <OwnMembers>
         <Member Name="note" Caption="ملاحظة" />
@@ -357,6 +367,7 @@
         <Member Name="account" Caption="حسابات" />
         <Member Name="Appointments" Caption="المواعيد" />
         <Member Name="BloodType" Caption="فصيلة الدم" />
+        <Member Name="Contract" Caption="تعاقد" />
         <Member Name="creditor" Caption="دائن" DisplayFormat="{0:C}" EditMask="C" />
         <Member Name="debtor" Caption="مدين" DisplayFormat="{0:C}" EditMask="C" />
         <Member Name="Emergencies" Caption="الطوارئ" />
@@ -463,6 +474,7 @@
       <OwnMembers>
         <Member Name="Admissions" Caption="الاقامات" />
         <Member Name="Balance" Caption="الباقي" />
+        <Member Name="Contract" Caption="تعاقد" />
         <Member Name="dateEnter" DisplayFormat="{0:f}" EditMask="f" />
         <Member Name="dateLeave" EditMask="f" DisplayFormat="{0:f}" />
         <Member Name="journalEntry" Caption="قيد" />
@@ -561,7 +573,6 @@
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Service" Caption="خدمة ">
       <OwnMembers>
         <Member Name="category" Caption="الصنف" />
-        <Member Name="ServiceType" Caption="نوع الخدمة" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails" Caption="الخدمات">
@@ -811,6 +822,7 @@
           <Item Id="ReceptionDesk" Caption="الاقامات" />
         </Items>
       </Item>
+      <Item Id="@63112209-e338-4ddd-9fe3-4b41a1695618" Caption="التعاقدات" />
       <Item Id="Inventory &amp; products" Caption="المخازن و المنتجات">
         <Items>
           <Item Id="Product_ListView" Caption="منتج" />
@@ -3654,7 +3666,6 @@
       <Items>
         <PropertyEditor Id="ID" Caption="الكود" />
         <PropertyEditor Id="Name" Caption="الاسم" />
-        <PropertyEditor Id="ServiceType" Caption="نوع الخدمة" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسية">
@@ -3667,7 +3678,6 @@
     <ListView Id="Service_ListView" Caption="خدمة ">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-        <ColumnInfo Id="ServiceType" Caption="نوع الخدمة" />
         <ColumnInfo Id="Name" Caption="الاسم" />
       </Columns>
     </ListView>

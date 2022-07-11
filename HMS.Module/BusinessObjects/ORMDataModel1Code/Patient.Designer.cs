@@ -109,6 +109,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fDateOfBrith; }
             set { SetPropertyValue<DateTime>(nameof(DateOfBrith), ref fDateOfBrith, value); }
         }
+        Conratct fContract;
+        public Conratct Contract
+        {
+            get { return fContract; }
+            set { SetPropertyValue<Conratct>(nameof(Contract), ref fContract, value); }
+        }
         [Association(@"StayReferencesPatient")]
         public XPCollection<Admission> Stays { get { return GetCollection<Admission>(nameof(Stays)); } }
         [Association(@"AppointmentReferencesPatient")]

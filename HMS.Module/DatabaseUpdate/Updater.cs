@@ -1,10 +1,8 @@
-﻿using Bogus;
-using DevExpress.Data.Filtering;
+﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Dashboards;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Updating;
-using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
@@ -281,6 +279,52 @@ namespace HMS.Module.DatabaseUpdate
             }
             ObjectSpace.CommitChanges();
 
+            if (ObjectSpace.GetObjectsCount(typeof(Department), null) == 0)
+            {
+                var dep = ObjectSpace.CreateObject<Department>();
+                dep.Name = "العيادات";
+                dep.CustomerFacing = true;
+
+                var dep2 = ObjectSpace.CreateObject<Department>();
+                dep2.Name = "الأشعة";
+                dep2.CustomerFacing = true;
+
+                var dep3 = ObjectSpace.CreateObject<Department>();
+                dep3.Name = "المناظير";
+                dep3.CustomerFacing = true;
+
+                var dep4 = ObjectSpace.CreateObject<Department>();
+                dep4.Name = "التحاليل";
+                dep4.CustomerFacing = true;
+
+                var dep5 = ObjectSpace.CreateObject<Department>();
+                dep5.Name = "الصيدلية";
+                dep5.CustomerFacing = false;
+
+                var dep6 = ObjectSpace.CreateObject<Department>();
+                dep6.Name = "المخازن";
+                dep6.CustomerFacing = false;
+
+            }
+            ObjectSpace.CommitChanges();
+
+            if (ObjectSpace.GetObjectsCount(typeof(PriceList), null) == 0)
+            {
+                var priceList = ObjectSpace.CreateObject<PriceList>();
+                priceList.Name = "مستشفى اكتوبر كلينيك";
+
+            }
+            ObjectSpace.CommitChanges();
+
+            if (ObjectSpace.GetObjectsCount(typeof(Conratct), null) == 0)
+            {
+                var contract = ObjectSpace.CreateObject<Conratct>();
+                contract.Name = "مستشفى اكتوبر كلينيك";
+                contract.PricList = ObjectSpace.GetObjectsQuery<PriceList>().Where(p => p.Name == "مستشفى اكتوبر كلينيك").First();
+
+            }
+            ObjectSpace.CommitChanges();
+
             //Emploees Sections
             if (ObjectSpace.GetObjectsCount(typeof(Section), null) == 0)
             {
@@ -331,103 +375,6 @@ namespace HMS.Module.DatabaseUpdate
 
                 ObjectSpace.CommitChanges();
             }
-
-            //if (ObjectSpace.GetObjectsCount(typeof(Employee), null) == 0)
-            //{
-            //    var employee1 = ObjectSpace.CreateObject<Employee>();
-            //    employee1.FirstName = "احمد";
-            //    employee1.LastName = "خالد";
-            //    employee1.section = ObjectSpace.FindObject<Section>(new BinaryOperator("name", "الادارة"));
-            //    employee1.job = ObjectSpace.FindObject<Job>(new BinaryOperator("name", "مدير"));
-            //    employee1.NationalID = "26106162100875";
-            //    employee1.daysOfWork = 30;
-            //    employee1.hoursOfDay = 8;
-            //    employee1.baseSalary = 6000;
-            //    employee1.incentive = 250;
-            //    employee1.housing = 600;
-            //    employee1.transportation = 400;
-            //    employee1.socialInsurane = 200;
-            //    employee1.medicine = 250;
-            //    employee1.others = 120;
-            //    employee1.insuranceDeduction = 165;
-            //    employee1.otherDeductions = 90;
-
-            //    var employee2 = ObjectSpace.CreateObject<Employee>();
-            //    employee2.FirstName = "مصطفي";
-            //    employee2.LastName = "عبدالله";
-            //    employee2.section = ObjectSpace.FindObject<Section>(new BinaryOperator("name", "الحسابات"));
-            //    employee2.job = ObjectSpace.FindObject<Job>(new BinaryOperator("name", "محاسب"));
-            //    employee2.NationalID = "25008183100925";
-            //    employee2.daysOfWork = 30;
-            //    employee2.hoursOfDay = 8;
-            //    employee2.baseSalary = 4000;
-            //    employee2.incentive = 300;
-            //    employee2.housing = 300;
-            //    employee2.transportation = 300;
-            //    employee2.socialInsurane = 150;
-            //    employee2.medicine = 200;
-            //    employee2.others = 90;
-            //    employee2.insuranceDeduction = 115;
-            //    employee2.otherDeductions = 60;
-
-            //    var employee3 = ObjectSpace.CreateObject<Employee>();
-            //    employee3.FirstName = "محمد";
-            //    employee3.LastName = "اسماعيل";
-            //    employee3.section = ObjectSpace.FindObject<Section>(new BinaryOperator("name", "التمريض"));
-            //    employee3.job = ObjectSpace.FindObject<Job>(new BinaryOperator("name", "ممرض"));
-            //    employee3.NationalID = "28624186981145";
-            //    employee3.daysOfWork = 30;
-            //    employee3.hoursOfDay = 10;
-            //    employee3.baseSalary = 2500;
-            //    employee3.incentive = 220;
-            //    employee3.housing = 350;
-            //    employee3.transportation = 250;
-            //    employee3.socialInsurane = 120;
-            //    employee3.medicine = 180;
-            //    employee3.others = 60;
-            //    employee3.insuranceDeduction = 125;
-            //    employee3.otherDeductions = 80;
-
-            //    var employee4 = ObjectSpace.CreateObject<Employee>();
-            //    employee4.FirstName = "ابراهيم";
-            //    employee4.LastName = "محمود";
-            //    employee4.section = ObjectSpace.FindObject<Section>(new BinaryOperator("name", "الاطباء"));
-            //    employee4.job = ObjectSpace.FindObject<Job>(new BinaryOperator("name", "طبيب"));
-            //    employee4.NationalID = "28624186981145";
-            //    employee4.daysOfWork = 30;
-            //    employee4.hoursOfDay = 8;
-            //    employee4.baseSalary = 5000;
-            //    employee4.incentive = 250;
-            //    employee4.housing = 500;
-            //    employee4.transportation = 300;
-            //    employee4.socialInsurane = 145;
-            //    employee4.medicine = 160;
-            //    employee4.others = 80;
-            //    employee4.insuranceDeduction = 150;
-            //    employee4.otherDeductions = 70;
-
-            //    var employee5 = ObjectSpace.CreateObject<Employee>();
-            //    employee5.FirstName = "رضا";
-            //    employee5.LastName = "ممدوح";
-            //    employee5.section = ObjectSpace.FindObject<Section>(new BinaryOperator("name", "المخازن"));
-            //    employee5.job = ObjectSpace.FindObject<Job>(new BinaryOperator("name", "عامل"));
-            //    employee5.NationalID = "22135397982285";
-            //    employee5.daysOfWork = 30;
-            //    employee5.hoursOfDay = 12;
-            //    employee5.baseSalary = 2500;
-            //    employee5.incentive = 270;
-            //    employee5.housing = 450;
-            //    employee5.transportation = 200;
-            //    employee5.socialInsurane = 145;
-            //    employee5.medicine = 150;
-            //    employee5.others = 65;
-            //    employee5.insuranceDeduction = 120;
-            //    employee5.otherDeductions = 55;
-
-            //    ObjectSpace.CommitChanges();
-
-            //}
-
 
 
             //ProductUnit
@@ -524,44 +471,7 @@ namespace HMS.Module.DatabaseUpdate
 
             ObjectSpace.CommitChanges();
 
-            //if (ObjectSpace.GetObjectsCount(typeof(Product), null) == 0)
-            //{
-            //    List<product> supplies = new product().initialStockProductData();
-            //    List<product> medications = new product().initialPharmacyProductData();
 
-            //    foreach (var item in supplies)
-            //    {
-            //        var product1 = ObjectSpace.CreateObject<Product>();
-            //        product1.name = item.Name;
-            //        product1.purchasingPrice = item.purchasingPrice;
-            //        product1.sellingPrice = item.sellingPrice;
-
-            //        //Inventory stock = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Stock"));
-
-            //        //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
-            //        //stockProduct.product = product1;
-            //        //stockProduct.Inventory = stock;
-            //        //stockProduct.firstUnitQuantity = (Int32)new Random(Guid.NewGuid().GetHashCode()).Next(300, 500);
-            //    }
-
-            //    foreach (var item in medications)
-            //    {
-            //        var product1 = ObjectSpace.CreateObject<Product>();
-            //        product1.name = item.Name;
-            //        product1.purchasingPrice = item.purchasingPrice;
-            //        product1.sellingPrice = item.sellingPrice;
-
-            //        //Inventory pharmacy = ObjectSpace.FindObject<Inventory>(new BinaryOperator("Name", "Pharmacy"));
-
-            //        //var stockProduct = ObjectSpace.CreateObject<StockProduct>();
-            //        //stockProduct.product = product1;
-            //        //stockProduct.Inventory = pharmacy;
-            //        //stockProduct.firstUnitQuantity= (Int32)new Random().Next(300, 500);
-            //    }
-            //    ObjectSpace.CommitChanges();
-            //}
-
-            //Generate Spendings fakeData
             if (ObjectSpace.GetObjectsCount(typeof(SpendingsCategory), null) == 0)
             {
                 var categories = new List<string> { "كهرباء", "مرتبات", "مصاريف عيادات", "هالك" };
@@ -1393,28 +1303,28 @@ namespace HMS.Module.DatabaseUpdate
             //}
             //}
             //ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0
-            if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
-            {
-                var patients = ObjectSpace.GetObjects<Patient>();
-                var doctors = ObjectSpace.GetObjects<Employee>().Where(o => o.section.id == 6 && o.Clinic != null).ToList();
-                var clincs = new List<Clinc>();
-                foreach (var i in doctors)
-                {
-                    clincs.Add(i.Clinic);
-                }
-                //var clincs = ObjectSpace.GetObjects<Clinc>();
-                var fakeAppointments = new Faker<Appointment>("ar")
-                    .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
-                    .RuleFor(o => o.ExaminationPrice, 100)
-                    .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
-                    .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
-                    .RuleFor(o => o.Doctor, (f, p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
-                    .RuleFor(o => o.StartOn, f => f.Date.Between(DateTime.Today, DateTime.Today.AddHours(23)))
-                    .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
+            //if (ObjectSpace.GetObjectsCount(typeof(Appointment), null) == 0 && ObjectSpace.GetObjectsCount(typeof(PurchasingOrder), null) != 0)
+            //{
+            //    var patients = ObjectSpace.GetObjects<Patient>();
+            //    var doctors = ObjectSpace.GetObjects<Employee>().Where(o => o.section.id == 6 && o.Clinic != null).ToList();
+            //    var clincs = new List<Clinc>();
+            //    foreach (var i in doctors)
+            //    {
+            //        clincs.Add(i.Clinic);
+            //    }
+            //    //var clincs = ObjectSpace.GetObjects<Clinc>();
+            //    var fakeAppointments = new Faker<Appointment>("ar")
+            //        .CustomInstantiator(f => new Appointment(((XPObjectSpace)ObjectSpace).Session))
+            //        .RuleFor(o => o.ExaminationPrice, 100)
+            //        .RuleFor(o => o.clinc, f => clincs[new Random(Guid.NewGuid().GetHashCode()).Next(0, clincs.Count)])
+            //        .RuleFor(o => o.Patient, f => patients[new Random(Guid.NewGuid().GetHashCode()).Next(0, patients.Count)])
+            //        .RuleFor(o => o.Doctor, (f, p) => doctors.Where(o => o.Clinic == p.clinc).ToList()[0])
+            //        .RuleFor(o => o.StartOn, f => f.Date.Between(DateTime.Today, DateTime.Today.AddHours(23)))
+            //        .RuleFor(o => o.EndOn, (f, p) => p.StartOn.AddMinutes(30.0));
 
-                var Appointments = fakeAppointments.Generate(30);
+            //    var Appointments = fakeAppointments.Generate(30);
 
-            }
+            //}
 
             //        //foreach (Appointment item in Appointments)
             //        //{

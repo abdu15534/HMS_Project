@@ -590,6 +590,11 @@
         <Member Name="statement" AllowEdit="False" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Service">
+      <AppearanceRules>
+        <AppearanceRule Id="@af5f3a9d-4ada-4225-8fd7-0b9380ed5eb3" Criteria="[Departmet.Name] &lt;&gt; 'العيادات'" Visibility="Hide" TargetItems="Clinic" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails">
       <OwnMembers>
         <Member Name="emergency" Caption="طوارئ" />
@@ -791,16 +796,6 @@
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.ReceptionDesk+transferTypes">
         <LocalizationItem Name="حالة_خاصة" Value="حالة خاصة" />
         <LocalizationItem Name="مريض_مستشفى" Value="مريض مستشفى" />
-      </LocalizationGroup>
-      <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Service+ServiceTypes">
-        <LocalizationItem Name="Blood" Value="نقل الدم ومشتقاته" />
-        <LocalizationItem Name="Other" Value="أخرى" />
-        <LocalizationItem Name="الانف_والأذن_والسمعيات" Value="الانف والأذن والسمعيات" />
-        <LocalizationItem Name="الجهاز_الهضمى_و_المناظير" Value="الجهاز الهضمى و المناظير" />
-        <LocalizationItem Name="المخ_والأعصاب" Value="المخ والأعصاب" />
-        <LocalizationItem Name="المسالك_البولية" Value="المسالك البولية" />
-        <LocalizationItem Name="النساء_والولادة" Value="النساء والولادة" />
-        <LocalizationItem Name="لم_يحدد" Value="لم يحدد" />
       </LocalizationGroup>
       <LocalizationGroup Name="XafDataModel.Module.BusinessObjects.test2.Spendings+TransactionCategories">
         <LocalizationItem Name="appointment" Value="عيادات خارجية" />
@@ -3030,37 +3025,38 @@
         <PropertyEditor Id="nationalID" Caption="الرقم القومى" />
       </Items>
       <Layout>
-        <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="73.2" IsNewNode="True">
+        <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="58.734939759036145" IsNewNode="True">
           <LayoutGroup Id="SimpleEditors" ShowCaption="True" GroupStyle="Card" Index="0" RelativeSize="100" Caption="اساسية" IsNewNode="True">
             <LayoutGroup Id="Auto349933a2-8e57-42f5-b83c-480f91841d2e" ShowCaption="False" Caption="Auto349933a2-8e57-42f5-b83c-480f91841d2e(3)" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
-              <LayoutGroup Id="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c" ShowCaption="False" Caption="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c(4)" Index="0" RelativeSize="57.886178861788615" IsNewNode="True">
+              <LayoutGroup Id="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c" ShowCaption="False" Caption="Autodf27cc5a-5543-4b0e-8469-fcc3c395e53c(4)" Index="0" RelativeSize="54" IsNewNode="True">
                 <LayoutGroup Id="Auto0c68a9ff-f894-4891-b13a-f7df9ffb1cc7" ShowCaption="True" Caption="بيانات اساسية" Index="0" RelativeSize="100" IsNewNode="True">
-                  <LayoutItem Id="MedicalID" ViewItem="MedicalID" Index="0" RelativeSize="11.188811188811188" IsNewNode="True" />
-                  <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="8.3916083916083917" IsNewNode="True" />
-                  <LayoutGroup Id="Autoefdf4f65-c45f-4b85-baba-847791768fb3" ShowCaption="False" Caption="Autoefdf4f65-c45f-4b85-baba-847791768fb3(8)" Direction="Horizontal" Index="2" RelativeSize="11.538461538461538" IsNewNode="True">
-                    <LayoutItem Id="DateOfBrith" ViewItem="DateOfBrith" Index="0" RelativeSize="54.86725663716814" IsNewNode="True" />
-                    <LayoutItem Id="Age" ViewItem="Age" Index="1" RelativeSize="45.13274336283186" IsNewNode="True" />
+                  <LayoutItem Id="MedicalID" ViewItem="MedicalID" Index="0" RelativeSize="10.32258064516129" IsNewNode="True" />
+                  <LayoutItem Id="FullName" ViewItem="FullName" Index="1" RelativeSize="7.741935483870968" IsNewNode="True" />
+                  <LayoutGroup Id="Autoefdf4f65-c45f-4b85-baba-847791768fb3" ShowCaption="False" Caption="Autoefdf4f65-c45f-4b85-baba-847791768fb3(8)" Direction="Horizontal" Index="2" RelativeSize="10.64516129032258" IsNewNode="True">
+                    <LayoutItem Id="DateOfBrith" ViewItem="DateOfBrith" Index="0" RelativeSize="56.509695290858723" IsNewNode="True" />
+                    <LayoutItem Id="Age" ViewItem="Age" Index="1" RelativeSize="43.490304709141277" IsNewNode="True" />
                   </LayoutGroup>
-                  <LayoutGroup Id="Autocacdb893-a689-4ea6-a060-f2e616f2d05f" ShowCaption="False" Caption="Autocacdb893-a689-4ea6-a060-f2e616f2d05f(9)" Direction="Horizontal" Index="3" RelativeSize="10.48951048951049" IsNewNode="True">
-                    <LayoutItem Id="Gender" ViewItem="Gender" Index="0" RelativeSize="54.86725663716814" IsNewNode="True" />
-                    <LayoutItem Id="BloodType" ViewItem="BloodType" Index="1" RelativeSize="45.13274336283186" IsNewNode="True" />
+                  <LayoutGroup Id="Autocacdb893-a689-4ea6-a060-f2e616f2d05f" ShowCaption="False" Caption="Autocacdb893-a689-4ea6-a060-f2e616f2d05f(9)" Direction="Horizontal" Index="3" RelativeSize="9.67741935483871" IsNewNode="True">
+                    <LayoutItem Id="Gender" ViewItem="Gender" Index="0" RelativeSize="56.509695290858723" IsNewNode="True" />
+                    <LayoutItem Id="BloodType" ViewItem="BloodType" Index="1" RelativeSize="43.490304709141277" IsNewNode="True" />
                   </LayoutGroup>
-                  <LayoutGroup Id="Autob23b5c56-54d8-4d3d-8d3b-fe2260f9838c" ShowCaption="False" Caption="Autob23b5c56-54d8-4d3d-8d3b-fe2260f9838c(12)" Index="4" RelativeSize="58.391608391608393" IsNewNode="True">
-                    <LayoutItem Id="Nationality" ViewItem="Nationality" Index="0" RelativeSize="16.167664670658684" IsNewNode="True" />
-                    <LayoutItem Id="nationalID" ViewItem="nationalID" Index="1" RelativeSize="14.37125748502994" IsNewNode="True" />
-                    <LayoutItem Id="PhoneNumber1" ViewItem="PhoneNumber1" Index="2" RelativeSize="14.37125748502994" IsNewNode="True" />
-                    <LayoutItem Id="PhoneNumber2" ViewItem="PhoneNumber2" Index="3" RelativeSize="14.37125748502994" IsNewNode="True" />
-                    <LayoutGroup Id="Auto7ca46bca-c187-429d-a84a-262281505ec8" ShowCaption="False" Caption="Auto7ca46bca-c187-429d-a84a-262281505ec8(17)" Direction="Vertical" Index="4" RelativeSize="40.7185628742515" IsNewNode="True">
-                      <LayoutGroup Id="Auto0242266d-90d8-404c-99f6-d1484eb3767a" ShowCaption="False" Caption="Auto0242266d-90d8-404c-99f6-d1484eb3767a(20)" Direction="Horizontal" Index="0" RelativeSize="52.941176470588232" IsNewNode="True">
-                        <LayoutItem Id="Relegion" ViewItem="Relegion" Index="0" RelativeSize="54.86725663716814" IsNewNode="True" />
-                        <LayoutItem Id="Occubation" ViewItem="Occubation" Index="1" RelativeSize="45.13274336283186" IsNewNode="True" />
+                  <LayoutGroup Id="Autob23b5c56-54d8-4d3d-8d3b-fe2260f9838c" ShowCaption="False" Caption="Autob23b5c56-54d8-4d3d-8d3b-fe2260f9838c(12)" Index="4" RelativeSize="61.612903225806448" IsNewNode="True">
+                    <LayoutItem Id="Nationality" ViewItem="Nationality" Index="0" RelativeSize="14.136125654450261" IsNewNode="True" />
+                    <LayoutItem Id="nationalID" ViewItem="nationalID" Index="1" RelativeSize="12.565445026178011" IsNewNode="True" />
+                    <LayoutItem Id="PhoneNumber1" ViewItem="PhoneNumber1" Index="2" RelativeSize="12.565445026178011" IsNewNode="True" />
+                    <LayoutItem Id="PhoneNumber2" ViewItem="PhoneNumber2" Index="3" RelativeSize="12.565445026178011" IsNewNode="True" />
+                    <LayoutGroup Id="Auto7ca46bca-c187-429d-a84a-262281505ec8" ShowCaption="False" Caption="Auto7ca46bca-c187-429d-a84a-262281505ec8(17)" Direction="Vertical" Index="4" RelativeSize="48.167539267015705" IsNewNode="True">
+                      <LayoutGroup Id="Auto0242266d-90d8-404c-99f6-d1484eb3767a" ShowCaption="False" Caption="Auto0242266d-90d8-404c-99f6-d1484eb3767a(20)" Direction="Horizontal" Index="0" RelativeSize="39.130434782608695" IsNewNode="True">
+                        <LayoutItem Id="Relegion" ViewItem="Relegion" Index="0" RelativeSize="56.509695290858723" IsNewNode="True" />
+                        <LayoutItem Id="Occubation" ViewItem="Occubation" Index="1" RelativeSize="43.490304709141277" IsNewNode="True" />
                       </LayoutGroup>
-                      <LayoutItem Id="Address" ViewItem="Address" Index="1" RelativeSize="47.058823529411768" IsNewNode="True" />
+                      <LayoutItem Id="Address" ViewItem="Address" Index="1" RelativeSize="26.086956521739129" IsNewNode="True" />
+                      <LayoutItem Id="Contract" ViewItem="Contract" Index="2" RelativeSize="34.782608695652172" IsNewNode="True" />
                     </LayoutGroup>
                   </LayoutGroup>
                 </LayoutGroup>
               </LayoutGroup>
-              <LayoutGroup Id="Autoda6756be-bbe8-4c94-98ae-658a9c865e80" ShowCaption="False" Caption="Autoda6756be-bbe8-4c94-98ae-658a9c865e80(12)" Index="1" RelativeSize="42.113821138211385" IsNewNode="True">
+              <LayoutGroup Id="Autoda6756be-bbe8-4c94-98ae-658a9c865e80" ShowCaption="False" Caption="Autoda6756be-bbe8-4c94-98ae-658a9c865e80(12)" Index="1" RelativeSize="46" IsNewNode="True">
                 <LayoutGroup Id="Person_col1" ShowCaption="False" Index="0" RelativeSize="100" Caption="Person_col1" TextAlignMode="AlignWithChildren" IsNewNode="True">
                   <LayoutItem Id="ImageProperty" ViewItem="ImageProperty" Index="0" RelativeSize="100" IsNewNode="True" />
                 </LayoutGroup>
@@ -3069,12 +3065,12 @@
           </LayoutGroup>
           <LayoutGroup Id="Item2" ShowCaption="True" CaptionLocation="Top" Direction="Vertical" Index="1" RelativeSize="100" Caption="تفاصيل" IsNewNode="True">
             <LayoutGroup Id="Person_col2" ShowCaption="True" Caption="أخري" Index="0" RelativeSize="100" IsNewNode="True">
-              <LayoutItem Id="Email" ViewItem="Email" Index="0" RelativeSize="89.403973509933778" IsNewNode="True" />
-              <LayoutItem Id="account" ViewItem="account" Index="1" RelativeSize="10.596026490066226" IsNewNode="True" />
+              <LayoutItem Id="Email" ViewItem="Email" Index="0" RelativeSize="90.1840490797546" IsNewNode="True" />
+              <LayoutItem Id="account" ViewItem="account" Index="1" RelativeSize="9.8159509202453989" IsNewNode="True" />
             </LayoutGroup>
           </LayoutGroup>
         </TabbedGroup>
-        <LayoutGroup Id="Main" RelativeSize="26.8" Index="1" TextAlignMode="UseParentOptions" Direction="Vertical">
+        <LayoutGroup Id="Main" RelativeSize="41.265060240963855" Index="1" TextAlignMode="UseParentOptions" Direction="Vertical">
           <TabbedGroup Id="Tabs" RelativeSize="100" Index="0">
             <LayoutGroup Id="Stays" TextAlignMode="AlignWithChildren" RelativeSize="100" Index="0">
               <LayoutItem Id="Stays" TextAlignMode="AutoSize" RelativeSize="100" />
@@ -3524,12 +3520,6 @@
     <ListView Id="PostponeTime_ListView">
       <Columns>
         <ColumnInfo Id="ID" Caption="الكود" />
-      </Columns>
-    </ListView>
-    <ListView Id="PriceList_PriceListDetails_ListView">
-      <Columns>
-        <ColumnInfo Id="ServiceBase" Index="0" Width="149" />
-        <ColumnInfo Id="Price" Index="1" />
       </Columns>
     </ListView>
     <DetailView Id="ProceedMember_DetailView">
@@ -4438,14 +4428,12 @@
       <Columns>
         <ColumnInfo Id="category" Index="-1" />
         <ColumnInfo Id="ID" Index="0" />
-        <ColumnInfo Id="ServiceType" Index="1" />
         <ColumnInfo Id="Name" Index="2" />
       </Columns>
     </ListView>
     <ListView Id="Service_LookupListView" ShowDetailView="True" AllowNew="False" AllowDelete="False">
       <Columns>
         <ColumnInfo Id="category" Index="-1" />
-        <ColumnInfo Id="ServiceType" Index="-1" />
         <ColumnInfo Id="ID" Index="0" />
         <ColumnInfo Id="Name" Index="1" />
       </Columns>

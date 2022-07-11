@@ -1,10 +1,6 @@
-﻿using System;
-using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
+﻿using DevExpress.Xpo;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
 using System.Linq;
 
 namespace XafDataModel.Module.BusinessObjects.test2
@@ -20,41 +16,41 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnChanged(propertyName, oldValue, newValue);
             if (propertyName == nameof(service) && newValue != null)
             {
-                //if (this.admission != null)
-                //{
-                //    if (this.admission.Patient.Nationality == Patient.Nationalitys.مصر)
-                //    {
-                //        this.price = ((Service)newValue).Price;
-                //    }
-                //    else
-                //    {
-                //        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
-                //    }
-                //}
-                //else if (this.Endscope != null)
-                //{
-                //    if (this.Endscope.Patient != null && this.Endscope.Patient.Nationality != Patient.Nationalitys.مصر)
-                //    {
-                //        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
-                        
-                //    }
-                //    else
-                //    {
-                //        this.price = ((Service)newValue).Price;
-                //    }
-                //}
-                //else if (this.Emergency != null)
-                //{
-                //    if (this.Emergency.Patient != null && this.Emergency.Patient.Nationality != Patient.Nationalitys.مصر)
-                //    {
-                //        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+                if (this.admission != null)
+                {
+                    if (this.admission.Patient.Nationality == Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.admission.Patient.Contract.PricList).First().Price;
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.admission.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
+                    }
+                }
+                else if (this.Endscope != null)
+                {
+                    if (this.Endscope.Patient != null && this.Endscope.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Endscope.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
 
-                //    }
-                //    else
-                //    {
-                //        this.price = ((Service)newValue).Price;
-                //    }
-                //}
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Endscope.Patient.Contract.PricList).First().Price;
+                    }
+                }
+                else if (this.Emergency != null)
+                {
+                    if (this.Emergency.Patient != null && this.Emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
+
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price;
+                    }
+                }
             }
         }
 

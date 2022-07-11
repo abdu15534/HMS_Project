@@ -16,31 +16,31 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             base.OnChanged(propertyName, oldValue, newValue);
 
-            if(propertyName == nameof(Service) && Service != null)
+            if (propertyName == nameof(Service) && Service != null)
             {
                 if (this.Stay != null)
                 {
                     if (this.Stay.Patient.Nationality == Patient.Nationalitys.مصر)
                     {
-                        this.price = ((Service)newValue).GetPrice(this.Stay.reception.Contract.PricList);
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Stay.Patient.Contract.PricList).First().Price;
                     }
                     else
                     {
-                        this.price = ((Service)newValue).GetPrice(this.Stay.reception.Contract.PricList) * Convert.ToDecimal(1.5);
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Stay.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
                     }
                 }
-                //else if (this.emergency != null)
-                //{
-                //    if (this.emergency.Patient != null && this.emergency.Patient.Nationality != Patient.Nationalitys.مصر)
-                //    {
-                //        this.price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
+                else if (this.emergency != null)
+                {
+                    if (this.emergency.Patient != null && this.emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.emergency.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
 
-                //    }
-                //    else
-                //    {
-                //        this.price = ((Service)newValue).Price;
-                //    }
-                //}
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.emergency.Patient.Contract.PricList).First().Price;
+                    }
+                }
             }
         }
 
