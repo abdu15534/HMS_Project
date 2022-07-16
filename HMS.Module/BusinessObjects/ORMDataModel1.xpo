@@ -3062,7 +3062,7 @@
       </xpObject>
     </dataBaseObjectModelHasClasses>
     <dataBaseObjectModelHasClasses Id="6e68b166-d89c-44c0-a8ac-07d1fd9b2277">
-      <xpObject Id="32519900-e9e6-462d-8793-ed0511a3d013" name="ConractDepartment" baseClass="XPBaseObject" userFileName="ConractDepartment" designerFileName="ConractDepartment.Designer" className="ConractDepartment" virtualBaseClass="XPBaseObject" virtualName="ConractDepartment">
+      <xpObject Id="32519900-e9e6-462d-8793-ed0511a3d013" name="ConractDepartment" baseClass="XPBaseObject" userFileName="ConractDepartment" designerFileName="ConractDepartment.Designer" className="ConractDepartment" virtualBaseClass="XPBaseObject" virtualName="ConractDepartment" customAttributes="DevExpress.ExpressApp.DefaultListViewOptions(DevExpress.ExpressApp.MasterDetailMode.ListViewOnly, true, DevExpress.ExpressApp.NewItemRowPosition.Bottom)">
         <fields>
           <generalXpObjectHasFields Id="4e8a2b5b-0fdb-46e4-bec8-2b7515cf08f6">
             <field Id="7ee5e711-4ec2-4d56-89c1-141aaaee25cd" name="ID" columnType="Int32" key="true" isIdentity="true" virtualColumnType="Int32" delayedUpdateModifiedOnly="false" />
@@ -3074,7 +3074,7 @@
             <field Id="caddbfa8-b6d1-4fab-a7c2-62c585d53977" name="Department" columnType="Decimal" virtualColumnType="Department" logicalType="Department" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="1af01df1-6b04-4d80-8ea6-1156658fa3c5">
-            <field Id="470a1b90-c9b2-4d7f-b423-ce7af1df5d79" name="Discount" columnType="Decimal" virtualColumnType="Department" logicalType="Department" delayedUpdateModifiedOnly="false" />
+            <field Id="470a1b90-c9b2-4d7f-b423-ce7af1df5d79" name="Discount" columnType="Double" virtualColumnType="Double" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
         </fields>
       </xpObject>

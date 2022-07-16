@@ -451,5 +451,72 @@ namespace HMS.Module.Win.Controllers
 
             report.ShowPreviewDialog();
         }
+
+        private void PatinetDayReport_Execute(object sender, ParametrizedActionExecuteEventArgs e)
+        {
+            reports.StayTotalsDay report = new reports.StayTotalsDay();
+            var paramValue = e.ParameterCurrentValue;
+            Console.WriteLine(paramValue);
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            if (paramValue != null)
+            {
+                DateTime startDate = Convert.ToDateTime(paramValue);
+                var curr = View.CurrentObject as ReceptionDesk;
+                //decimal regolAraddmission = curr.Admissions.Where(p => p.Status == Admission.statusType.normal).Sum(p => p.roomStaySum);
+                //decimal icuAddmission = curr.Admissions.Where(p => p.Status != Admission.statusType.normal).Sum(p => p.roomStaySum);
+                //decimal supervision = curr.Admissions.Where(p=> p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.MedicalSupervisionSum);
+                //decimal midcalCare = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.medicalCareSum);
+                decimal outSuperviosn = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.ConsolationSum);
+                decimal companion = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.companionSum);
+                decimal pharmacy = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.medicationSum);
+                decimal supplies = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.suppliesSum);
+                decimal tests = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.testsSum);
+                decimal xrayes = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.xraysSum);
+                decimal edoscopy = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.endscopesSum);
+                //decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
+                //decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal outMedication = curr.Admissions.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.OutMedcationSum);
+                //decimal paymentsTotal = curr.PaymentsCollection.Where(p => p.date >= startDate && p.date < startDate.AddDays(1)).Sum(p => p.amount);
+
+                //report.Parameters["norStay"].Value = regolAraddmission;
+                //report.Parameters["icuStay"].Value = icuAddmission;
+               // report.Parameters["supervsion"].Value = supervision;
+                //report.Parameters["roomCare"].Value = midcalCare;
+                report.Parameters["outSuperviosn"].Value = outSuperviosn;
+                report.Parameters["Companion"].Value = companion;
+                report.Parameters["Pharmacy"].Value = pharmacy;
+                report.Parameters["Supplies"].Value = supplies;
+                report.Parameters["Tests"].Value = tests;
+                report.Parameters["Xrayes"].Value = xrayes;
+                report.Parameters["edos"].Value = edoscopy;
+                //report.Parameters["blood"].Value = bloodServies;
+                //report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["OutMedication"].Value = outMedication;
+                //report.Parameters["paymentsTotal"].Value = paymentsTotal;
+                report.Parameters["startDate"].Value = startDate;
+                report.Parameters["endDate"].Value = startDate.AddDays(1);
+                report.Parameters["IsAccountstatement"].Value = true;
+
+                report.Parameters["id"].Value = curr.enterID;
+                report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.totalC), "جنيه", "قرش") + " فقط لاغير ";
+                //report.Parameters["patientName"].Value = curr.patient.FullName;
+                //report.Parameters["enterDate"].Value = curr.dateEnter;
+                //report.Parameters["leaveDate"].Value = curr.dateLeave;
+                //if (!curr.isDischarged)
+                //    report.Parameters["leaveDate"].Value = "مازال في الاقامة";
+                //report.Parameters["totalStay"].Value = curr.total;
+                //report.Parameters["totalN2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+
+                //PermissionPolicyUser user;
+                //if (SecuritySystem.CurrentUser != null)
+                //{
+                //    user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
+                //    report.Parameters["user"].Value = user.UserName;
+                //}
+                report.ShowPreviewDialog();
+
+            } 
+            
+        }
     }
 }

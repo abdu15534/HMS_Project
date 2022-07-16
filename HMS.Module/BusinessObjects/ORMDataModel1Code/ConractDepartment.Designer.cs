@@ -16,6 +16,7 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
+    [DevExpress.ExpressApp.DefaultListViewOptions(DevExpress.ExpressApp.MasterDetailMode.ListViewOnly, true, DevExpress.ExpressApp.NewItemRowPosition.Bottom)]
     public partial class ConractDepartment : XPBaseObject
     {
         int fID;
@@ -38,11 +39,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fDepartment; }
             set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
         }
-        Department fDiscount;
-        public Department Discount
+        double fDiscount;
+        public double Discount
         {
             get { return fDiscount; }
-            set { SetPropertyValue<Department>(nameof(Discount), ref fDiscount, value); }
+            set { SetPropertyValue<double>(nameof(Discount), ref fDiscount, value); }
         }
     }
 

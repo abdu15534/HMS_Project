@@ -43,6 +43,7 @@ namespace HMS.Module.Win.Controllers
             this.FintdPatient = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             this.ToltalAccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.PatinetDayReport = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -211,6 +212,21 @@ namespace HMS.Module.Win.Controllers
             this.AccountStatement.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.AccountStatement.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AccountStatement_Execute_1);
             // 
+            // PatinetDayReport
+            // 
+            this.PatinetDayReport.ActionMeaning = DevExpress.ExpressApp.Actions.ActionMeaning.Accept;
+            this.PatinetDayReport.Caption = "تقرير يومي";
+            this.PatinetDayReport.ConfirmationMessage = null;
+            this.PatinetDayReport.Id = "PatinetDayReport";
+            this.PatinetDayReport.NullValuePrompt = null;
+            this.PatinetDayReport.ShortCaption = null;
+            this.PatinetDayReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.PatinetDayReport.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.PatinetDayReport.ToolTip = null;
+            this.PatinetDayReport.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.PatinetDayReport.ValueType = typeof(System.DateTime);
+            this.PatinetDayReport.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.PatinetDayReport_Execute);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -226,6 +242,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.FintdPatient);
             this.Actions.Add(this.ToltalAccountStatement);
             this.Actions.Add(this.AccountStatement);
+            this.Actions.Add(this.PatinetDayReport);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -244,5 +261,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.ParametrizedAction FintdPatient;
         private DevExpress.ExpressApp.Actions.SimpleAction ToltalAccountStatement;
         private DevExpress.ExpressApp.Actions.SimpleAction AccountStatement;
+        private DevExpress.ExpressApp.Actions.ParametrizedAction PatinetDayReport;
     }
 }

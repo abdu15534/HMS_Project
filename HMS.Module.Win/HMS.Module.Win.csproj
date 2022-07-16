@@ -818,6 +818,12 @@
     <Compile Include="reports\OutPatintLable.Designer.cs">
       <DependentUpon>OutPatintLable.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\PatientDayReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\PatientDayReport.Designer.cs">
+      <DependentUpon>PatientDayReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\PatientLable.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -920,6 +926,12 @@
     </Compile>
     <Compile Include="reports\StayTotals.Designer.cs">
       <DependentUpon>StayTotals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\StayTotalsDay.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\StayTotalsDay.Designer.cs">
+      <DependentUpon>StayTotalsDay.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\StockProductLable.cs">
       <SubType>Component</SubType>
@@ -1182,6 +1194,9 @@
     <EmbeddedResource Include="reports\OutPatintLable.resx">
       <DependentUpon>OutPatintLable.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\PatientDayReport.resx">
+      <DependentUpon>PatientDayReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\PatientLable.resx">
       <DependentUpon>PatientLable.cs</DependentUpon>
     </EmbeddedResource>
@@ -1232,6 +1247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\StayTotals.resx">
       <DependentUpon>StayTotals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\StayTotalsDay.resx">
+      <DependentUpon>StayTotalsDay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\StockProductLable.resx">
       <DependentUpon>StockProductLable.cs</DependentUpon>

@@ -417,6 +417,18 @@
         <Member Name="total" Caption="الإجمالى" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PriceList" Caption="قائمة الأسعار">
+      <OwnMembers>
+        <Member Name="Name" Caption="الاسم" />
+        <Member Name="PriceListDetails" Caption="قائمة الاسعار تفصيلية" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.PriceListDetail">
+      <OwnMembers>
+        <Member Name="Price" Caption="السعر" />
+        <Member Name="PriceList" Caption="قائمة الأسعار" />
+      </OwnMembers>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Product" Caption="منتج">
       <OwnMembers>
         <Member Name="barCode" Caption="الباركود" />
@@ -575,6 +587,11 @@
         <Member Name="category" Caption="الصنف" />
       </OwnMembers>
     </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceBase">
+      <OwnMembers>
+        <Member Name="PriceListDetails" Caption="قائمة الاسعار تفصيلية" />
+      </OwnMembers>
+    </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.ServiceDetails" Caption="الخدمات">
       <OwnMembers>
         <Member Name="appointment" Caption="ميعاد" />
@@ -673,6 +690,40 @@
       <OwnMembers>
         <Member Name="account" Caption="حسابات" />
         <Member Name="Orders" Caption="الفواتير" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Surgery" Caption="العمليات">
+      <OwnMembers>
+        <Member Name="AnesthesiaFees" Caption="أتعاب التخدير" />
+        <Member Name="AssistantFees" Caption="أتعاب المساعدين" />
+        <Member Name="Date" Caption="التاريخ" />
+        <Member Name="Patient" Caption="المريض" />
+        <Member Name="Recption" Caption="الاستقبال" />
+        <Member Name="RoomOpeningFee" Caption="رسم فتح غرفة العمليات" />
+        <Member Name="SurgeonsFees" Caption="أتعاب الجراح" />
+        <Member Name="SurgeryPackage" Caption="باكدج العمليات" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SurgeryPackage" Caption="باكدج العمليات">
+      <OwnMembers>
+        <Member Name="AnesthesiaFeeRate" Caption="نسبة التخدير" />
+        <Member Name="AssistantFeeRate" Caption="نسبة المساعدين" />
+        <Member Name="openingFee" Caption="رسم الفتح" />
+        <Member Name="SurgeonsFees" Caption="أتعاب الجراح" />
+        <Member Name="SurgeryCategory" Caption="توصيف العملية" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.surgeryRoom" Caption="غرف العمليات">
+      <OwnMembers>
+        <Member Name="ID" Caption="كود" />
+        <Member Name="isAvailable" Caption="متاح" />
+        <Member Name="Name" Caption="الاسم" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SurgerySchedule" Caption="مواعيد العمليات">
+      <OwnMembers>
+        <Member Name="ID" Caption="كود" />
+        <Member Name="Surgery" Caption="العمليات" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.Test" Caption="تحليل">
@@ -812,6 +863,11 @@
   <NavigationItems>
     <Items>
       <Item Id="In-Patient" Caption="المستشفي" />
+      <Item Id="Surgery" Caption="العمليات">
+        <Items>
+          <Item Id="@bcc11ce7-5b20-4a45-87a2-5b407e89cd92" Caption="غرف العمليات" />
+        </Items>
+      </Item>
       <Item Id="القسم الخارجي">
         <Items>
           <Item Id="Appointments" Caption="مواعيد" />
@@ -2829,6 +2885,11 @@
     </DetailView>
     <ListView Id="PostponeTime_ListView" Caption="وقت التأجيل" />
     <ListView Id="PostponeTime_LookupListView" Caption="وقت التأجيل" />
+    <DetailView Id="PriceList_DetailView">
+      <Items>
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+    </DetailView>
     <DetailView Id="ProceedMember_DetailView">
       <Layout>
         <LayoutGroup Id="Main" Caption="الرئيسية" />
@@ -4016,6 +4077,65 @@
         <ColumnInfo Id="tax" Caption="ض.أ.ت.ص" />
       </Columns>
     </ListView>
+    <DetailView Id="Surgery_DetailView">
+      <Items>
+        <PropertyEditor Id="Applyed" Caption="تطبيق" />
+        <PropertyEditor Id="Date" Caption="التاريخ" />
+        <PropertyEditor Id="ID" Caption="كود" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Surgery" Caption="العمليات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Surgery_ListView">
+      <Columns>
+        <ColumnInfo Id="Applyed" Caption="تطبيق" />
+        <ColumnInfo Id="ID" Caption="كود" />
+      </Columns>
+    </ListView>
+    <ListView Id="Surgery_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Applyed" Caption="تطبيق" />
+        <ColumnInfo Id="ID" Caption="كود" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SurgeryPackage_DetailView">
+      <Items>
+        <PropertyEditor Id="ID" Caption="كود" />
+        <PropertyEditor Id="Name" Caption="الاسم" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SurgeryPackage" Caption="باكدج العمليات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="SurgeryPackage_ListView">
+      <Columns>
+        <ColumnInfo Id="ID" Caption="كود" />
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <ListView Id="SurgeryPackage_LookupListView">
+      <Columns>
+        <ColumnInfo Id="Name" Caption="الاسم" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SurgerySchedule_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="SurgerySchedule" Caption="مواعيد العمليات" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <DetailView Id="Test_DetailView" Caption="تحليل">
       <Items>
         <PropertyEditor Id="note" Caption="ملاحظة" />
