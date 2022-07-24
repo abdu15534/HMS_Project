@@ -79,6 +79,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -92,7 +93,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell31 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell32 = new DevExpress.XtraReports.UI.XRTableCell();
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
@@ -101,9 +101,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -741,6 +741,13 @@ namespace HMS.Module.Win.reports
             this.xrTableCell11.TextFormatString = "{0:.}";
             this.xrTableCell11.Weight = 0.30490566150947396D;
             // 
+            // xpObjectSource2
+            // 
+            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.PurchasingOrder, HMS.Module, Version=1." +
+    "0.7780.33038, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource2.Name = "xpObjectSource2";
+            // 
             // GroupFooter2
             // 
             this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -878,13 +885,6 @@ namespace HMS.Module.Win.reports
             this.parameter1.ValueInfo = "0";
             this.parameter1.Visible = false;
             // 
-            // xpObjectSource2
-            // 
-            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.PurchasingOrder, HMS.Module, Version=1." +
-    "0.7780.33038, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource2.Name = "xpObjectSource2";
-            // 
             // DelayedPurchases2
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -917,9 +917,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.invoiceInfoTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

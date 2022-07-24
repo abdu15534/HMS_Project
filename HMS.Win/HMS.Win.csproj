@@ -1061,6 +1061,7 @@
     <None Include="Resources\26839.jpg" />
     <None Include="Resources\3791425.jpg" />
     <EmbeddedResource Include="Images\Flag_of_the_Red_Cross.svg" />
+    <EmbeddedResource Include="Images\capsules.png" />
     <Content Include="Model_ar.xafml">
       <DependentUpon>Model.xafml</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1209,7 +1210,6 @@
     <None Include="ReadMe.txt" />
     <None Include="Images\ReadMe.txt" />
     <None Include="App.config" />
-    <Content Include="Images\icons8-exercise-32.png" />
     <EmbeddedResource Include="Images\runner.svg" />
     <Content Include="Model.xafml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

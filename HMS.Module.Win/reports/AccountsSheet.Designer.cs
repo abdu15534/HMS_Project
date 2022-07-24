@@ -80,6 +80,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow9 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -91,7 +92,6 @@ namespace HMS.Module.Win.reports
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.vendorLogo = new DevExpress.XtraReports.UI.XRPictureBox();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -100,8 +100,8 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.headerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -752,6 +752,13 @@ namespace HMS.Module.Win.reports
             this.xrTableCell11.TextFormatString = "{0:.}";
             this.xrTableCell11.Weight = 0.29948720113239075D;
             // 
+            // xpObjectSource2
+            // 
+            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.JournalEntry, HMS.Module, Version=1.0.7" +
+    "780.27610, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource2.Name = "xpObjectSource2";
+            // 
             // PageFooter
             // 
             this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -863,13 +870,6 @@ namespace HMS.Module.Win.reports
             this.PageHeader.HeightF = 123.8095F;
             this.PageHeader.Name = "PageHeader";
             // 
-            // xpObjectSource2
-            // 
-            this.xpObjectSource2.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.JournalEntry, HMS.Module, Version=1.0.7" +
-    "780.27610, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource2.Name = "xpObjectSource2";
-            // 
             // AccountsSheet
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -904,8 +904,8 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.headerTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

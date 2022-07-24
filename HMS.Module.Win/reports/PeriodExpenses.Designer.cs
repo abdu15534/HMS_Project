@@ -70,9 +70,9 @@ namespace HMS.Module.Win.reports
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrPictureBox1 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.invoiceInfoTable = new DevExpress.XtraReports.UI.XRTable();
+            this.invoiceInfoTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
@@ -506,6 +506,23 @@ namespace HMS.Module.Win.reports
             this.xrPictureBox1});
             this.PageHeader.Name = "PageHeader";
             // 
+            // invoiceInfoTable
+            // 
+            this.invoiceInfoTable.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
+            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(560.0002F, 9.999992F);
+            this.invoiceInfoTable.Name = "invoiceInfoTable";
+            this.invoiceInfoTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.invoiceInfoTableRow1});
+            this.invoiceInfoTable.SizeF = new System.Drawing.SizeF(180F, 52.28571F);
+            this.invoiceInfoTable.StylePriority.UseBorderDashStyle = false;
+            // 
+            // invoiceInfoTableRow1
+            // 
+            this.invoiceInfoTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell2});
+            this.invoiceInfoTableRow1.Name = "invoiceInfoTableRow1";
+            this.invoiceInfoTableRow1.Weight = 1.0066972757107671D;
+            // 
             // xrTableCell2
             // 
             this.xrTableCell2.BorderColor = System.Drawing.Color.LightGray;
@@ -525,23 +542,6 @@ namespace HMS.Module.Win.reports
             this.xrTableCell2.Text = "المصروفات";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             this.xrTableCell2.Weight = 2.9597637771210623D;
-            // 
-            // invoiceInfoTableRow1
-            // 
-            this.invoiceInfoTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell2});
-            this.invoiceInfoTableRow1.Name = "invoiceInfoTableRow1";
-            this.invoiceInfoTableRow1.Weight = 1.0066972757107671D;
-            // 
-            // invoiceInfoTable
-            // 
-            this.invoiceInfoTable.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Dot;
-            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(560.0002F, 9.999992F);
-            this.invoiceInfoTable.Name = "invoiceInfoTable";
-            this.invoiceInfoTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.invoiceInfoTableRow1});
-            this.invoiceInfoTable.SizeF = new System.Drawing.SizeF(180F, 52.28571F);
-            this.invoiceInfoTable.StylePriority.UseBorderDashStyle = false;
             // 
             // PeriodExpenses
             // 

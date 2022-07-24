@@ -824,20 +824,19 @@
           <Item Id="@48f349c2-be1f-4bff-8a6e-1b93c9b61e58" ViewId="Patient_ListView" Index="1" ImageName="BO_MyDetails" IsNewNode="True" />
           <Item Id="@e832d724-b3cf-432e-94c9-00272cd12d27" ViewId="Room_ListView" Index="2" ImageName="Business_Diagram" IsNewNode="True" />
           <Item Id="@a5fe8aa0-fe81-4ca7-9497-f5139b5b130e" Index="3" ImageName="Flag_of_the_Red_Cross" ViewId="Emergency_ListView" IsNewNode="True" />
-          <Item Id="@4e7040c5-0327-45cd-a558-8958312dab6e" ViewId="AppointmentsAccounting_ListView" IsNewNode="True" />
           <Item Id="@64492dfc-08f3-4470-a79c-e6ef72810560" ViewId="PackageDetail_ListView" Visible="False" IsNewNode="True" />
-          <Item Id="@8d823551-8426-429b-bf6f-ac1fd594fb8b" ViewId="InPatientSettings_DetailView" IsNewNode="True" />
+          <Item Id="@8d823551-8426-429b-bf6f-ac1fd594fb8b" ViewId="InPatientSettings_DetailView" ImageName="Actions_Settings" IsNewNode="True" />
           <Item Id="@d48f5e87-220a-4d1a-93bc-26f8852c44ea" ViewId="Package_ListView" ImageName="BO_Product" IsNewNode="True" />
-          <Item Id="Department_ListView" ViewId="Department_ListView" ImageName="BO_Department" IsNewNode="True" />
+          <Item Id="Department_ListView" ViewId="Department_ListView" ImageName="BO_Department" Caption="الأقسام" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Surgery" Caption="Surgery" Index="1" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="@79b09131-a23a-4e75-857c-231902be4bce" ViewId="SurgeryPackage_ListView" IsNewNode="True" />
-          <Item Id="@a2138f35-ba19-407f-9539-5a22f26b6de4" ViewId="SurgicalCategory_ListView" IsNewNode="True" />
-          <Item Id="@b3c886a2-3c5c-4b9c-9d74-9ce8c0057b05" ViewId="SurgerySchedule_ListView" IsNewNode="True" />
-          <Item Id="@bcc11ce7-5b20-4a45-87a2-5b407e89cd92" ViewId="surgeryRoom_ListView" Caption="Surgery Room" IsNewNode="True" />
-          <Item Id="@fa7398a3-6fef-42a6-bd3a-9e44c2f8a136" ViewId="Surgery_ListView" IsNewNode="True" />
+          <Item Id="@79b09131-a23a-4e75-857c-231902be4bce" ViewId="SurgeryPackage_ListView" ImageName="BO_Sale_Item" Caption="باكدجات العمليات" IsNewNode="True" />
+          <Item Id="@a2138f35-ba19-407f-9539-5a22f26b6de4" ViewId="SurgicalCategory_ListView" ImageName="BO_Category" Caption="فئات العمليات" IsNewNode="True" />
+          <Item Id="@b3c886a2-3c5c-4b9c-9d74-9ce8c0057b05" ViewId="SurgerySchedule_ListView" ImageName="BO_Scheduler" Caption="جدول العمليات" IsNewNode="True" />
+          <Item Id="@bcc11ce7-5b20-4a45-87a2-5b407e89cd92" ViewId="surgeryRoom_ListView" Caption="غرف العمليات" ImageName="Business_Diagram" IsNewNode="True" />
+          <Item Id="@fa7398a3-6fef-42a6-bd3a-9e44c2f8a136" ViewId="Surgery_ListView" ImageName="Mr" Caption="العمليات" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="القسم الخارجي" Index="2" IsNewNode="True">
@@ -848,6 +847,7 @@
           <Item Id="Test_ListView" ViewId="Test_ListView" ObjectKey="" ImageName="ActionGroup_EasyTestRecorder" Index="3" IsNewNode="True" />
           <Item Id="Xrays_ListView" ViewId="Xrays_ListView" ObjectKey="" ImageName="ChartType_SwiftPlot" Index="4" IsNewNode="True" />
           <Item Id="Services" Caption="الخدمات" ViewId="Service_ListView" Index="5" ImageName="BO_Security_Permission_Model" IsNewNode="True" />
+          <Item Id="@4e7040c5-0327-45cd-a558-8958312dab6e" ViewId="AppointmentsAccounting_ListView" Caption="حسابات العيادات" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Pharmacy" Caption="Pharmacy" Index="3" ImageName="AddParameter" IsNewNode="True">
@@ -859,11 +859,11 @@
       </Item>
       <Item Id="@63112209-e338-4ddd-9fe3-4b41a1695618" Caption="Contracts" Index="4" IsNewNode="True">
         <Items IsNewNode="True">
-          <Item Id="@aac4f3fe-cb2e-4c4e-b851-d79b691dd1de" ViewId="Conratct_ListView" Index="0" IsNewNode="True" />
-          <Item Id="@a514400f-4d33-492e-9a5a-6afd6d3fb035" ViewId="PriceList_ListView" Index="1" IsNewNode="True" />
-          <Item Id="@51e86ddc-ddee-4194-9876-602be8f23ac4" ViewId="PriceListDetail_ListView" Index="2" IsNewNode="True" />
-          <Item Id="@3c9169ee-9997-4e99-b67d-757208e0178d" ViewId="ConractDepartment_ListView" Index="3" IsNewNode="True" />
-          <Item Id="@5b770db4-e5eb-4b2f-8e93-8a0acd8192bf" ViewId="ConractServiceDiscount_ListView" IsNewNode="True" />
+          <Item Id="@aac4f3fe-cb2e-4c4e-b851-d79b691dd1de" ViewId="Conratct_ListView" Index="0" ImageName="BO_Report" Caption="التعاقدات" IsNewNode="True" />
+          <Item Id="@a514400f-4d33-492e-9a5a-6afd6d3fb035" ViewId="PriceList_ListView" Index="1" ImageName="BO_List" Caption="قوائم الأسعار" IsNewNode="True" />
+          <Item Id="@51e86ddc-ddee-4194-9876-602be8f23ac4" ViewId="PriceListDetail_ListView" Index="2" ImageName="InsertListBox" Caption="إعدادات قوائم الأسعار" IsNewNode="True" />
+          <Item Id="@3c9169ee-9997-4e99-b67d-757208e0178d" ViewId="ConractDepartment_ListView" Index="3" ImageName="BO_Category" Caption="تعاقدات الأقسام" IsNewNode="True" />
+          <Item Id="@5b770db4-e5eb-4b2f-8e93-8a0acd8192bf" ViewId="ConractServiceDiscount_ListView" ImageName="ErrorBarsWithPercentage" Caption="خصومات الخدمات" IsNewNode="True" />
         </Items>
       </Item>
       <Item Id="Inventory &amp; products" Index="5" ImageName="BO_Order" IsNewNode="True">
