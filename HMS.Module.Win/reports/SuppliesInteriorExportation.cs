@@ -6,9 +6,9 @@ using System.Drawing;
 
 namespace HMS.Module.Win.reports
 {
-    public partial class OrderReport : DevExpress.XtraReports.UI.XtraReport
+    public partial class SuppliesInteriorExportation : DevExpress.XtraReports.UI.XtraReport
     {
-        public OrderReport()
+        public SuppliesInteriorExportation()
         {
             InitializeComponent();
         }

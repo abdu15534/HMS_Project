@@ -484,9 +484,9 @@ namespace HMS.Module.Win.reports
             // 
             this.vendorLogo.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopLeft;
             this.vendorLogo.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("vendorLogo.ImageSource"));
-            this.vendorLogo.LocationFloat = new DevExpress.Utils.PointFloat(10.00021F, 9.999992F);
+            this.vendorLogo.LocationFloat = new DevExpress.Utils.PointFloat(10.00021F, 9.99999F);
             this.vendorLogo.Name = "vendorLogo";
-            this.vendorLogo.SizeF = new System.Drawing.SizeF(250F, 75.5F);
+            this.vendorLogo.SizeF = new System.Drawing.SizeF(226.0417F, 75.5F);
             this.vendorLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage;
             this.vendorLogo.StylePriority.UseBorderColor = false;
             this.vendorLogo.StylePriority.UseBorders = false;

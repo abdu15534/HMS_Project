@@ -48,7 +48,7 @@ namespace HMS.Module.Win.Controllers
 
         private void PaymentRecipt_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.ClinicReport report = new reports.ClinicReport();
+            reports.CashReceipt report = new reports.CashReceipt();
 
             var curr = View.CurrentObject as Appointment;
             report.Parameters["parameter1"].Value = curr.Oid;

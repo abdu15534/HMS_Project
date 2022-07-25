@@ -141,7 +141,7 @@ namespace HMS.Module.Win.Controllers
 
         private void TransferReport_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.TransferRequest report = new reports.TransferRequest();
+            reports.SuppliesExport report = new reports.SuppliesExport();
             var curr = e.CurrentObject as StockTransfer;
             report.Parameters["id"].Value = curr.ID;
             report.ShowPreviewDialog();

@@ -68,6 +68,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.totalTable = new DevExpress.XtraReports.UI.XRTable();
             this.totalRow = new DevExpress.XtraReports.UI.XRTableRow();
@@ -84,15 +85,14 @@ namespace HMS.Module.Win.reports
             this.xrTableCell32 = new DevExpress.XtraReports.UI.XRTableCell();
             this.parameter1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
-            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.headerTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -578,6 +578,12 @@ namespace HMS.Module.Win.reports
             this.xrTableCell16.TextFormatString = "{0:.}";
             this.xrTableCell16.Weight = 0.29948720113239075D;
             // 
+            // xpObjectSource1
+            // 
+            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Bond,HMS.Module";
+            this.xpObjectSource1.Name = "xpObjectSource1";
+            // 
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -772,12 +778,6 @@ namespace HMS.Module.Win.reports
             this.vendorLogo});
             this.PageHeader.Name = "PageHeader";
             // 
-            // xpObjectSource1
-            // 
-            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.Bond,HMS.Module";
-            this.xpObjectSource1.Name = "xpObjectSource1";
-            // 
             // Accounts
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -803,9 +803,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.totalTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

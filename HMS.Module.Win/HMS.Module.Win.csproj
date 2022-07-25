@@ -543,12 +543,6 @@
     <Compile Include="Controllers\PatientPaymentReportController.Designer.cs">
       <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\PaymentReportController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\PaymentReportController.Designer.cs">
-      <DependentUpon>PaymentReportController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\PurchasingController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -638,6 +632,12 @@
     <Compile Include="reports\AccountsSheet.Designer.cs">
       <DependentUpon>AccountsSheet.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\AdditionFromSupplier.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\AdditionFromSupplier.Designer.cs">
+      <DependentUpon>AdditionFromSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\AdmittedPatients.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -655,6 +655,12 @@
     </Compile>
     <Compile Include="reports\BuyingOrder.Designer.cs">
       <DependentUpon>BuyingOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\CashReceipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\CashReceipt.Designer.cs">
+      <DependentUpon>CashReceipt.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\ClinicReport.cs">
       <SubType>Component</SubType>
@@ -806,12 +812,6 @@
     <Compile Include="reports\NeededItems.Designer.cs">
       <DependentUpon>NeededItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="reports\OrderReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\OrderReport.Designer.cs">
-      <DependentUpon>OrderReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="reports\OutPatients.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -824,23 +824,11 @@
     <Compile Include="reports\OutPatintLable.Designer.cs">
       <DependentUpon>OutPatintLable.cs</DependentUpon>
     </Compile>
-    <Compile Include="reports\PatientDayReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\PatientDayReport.Designer.cs">
-      <DependentUpon>PatientDayReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="reports\PatientLable.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="reports\PatientLable.Designer.cs">
       <DependentUpon>PatientLable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\PaymentInvoice.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\PaymentInvoice.Designer.cs">
-      <DependentUpon>PaymentInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\paymentRepr.cs">
       <SubType>Component</SubType>
@@ -903,18 +891,6 @@
     <Compile Include="reports\SalariesReport.Designer.cs">
       <DependentUpon>SalariesReport.cs</DependentUpon>
     </Compile>
-    <Compile Include="reports\SalaryPaymentReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\SalaryPaymentReport.Designer.cs">
-      <DependentUpon>SalaryPaymentReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\Sarf.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\Sarf.Designer.cs">
-      <DependentUpon>Sarf.cs</DependentUpon>
-    </Compile>
     <Compile Include="reports\SarfWQabd.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -951,11 +927,17 @@
     <Compile Include="reports\SupplierItems.Designer.cs">
       <DependentUpon>SupplierItems.cs</DependentUpon>
     </Compile>
-    <Compile Include="reports\test.cs">
+    <Compile Include="reports\SuppliesExport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="reports\test.Designer.cs">
-      <DependentUpon>test.cs</DependentUpon>
+    <Compile Include="reports\SuppliesExport.Designer.cs">
+      <DependentUpon>SuppliesExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\SuppliesInteriorExportation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\SuppliesInteriorExportation.Designer.cs">
+      <DependentUpon>SuppliesInteriorExportation.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\TotalPayments.cs">
       <SubType>Component</SubType>
@@ -986,42 +968,6 @@
     </Compile>
     <Compile Include="reports\XrayPaymentReport.Designer.cs">
       <DependentUpon>XrayPaymentReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport3.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport3.Designer.cs">
-      <DependentUpon>XtraReport3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport4.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport4.Designer.cs">
-      <DependentUpon>XtraReport4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport5.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport5.Designer.cs">
-      <DependentUpon>XtraReport5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport6.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport6.Designer.cs">
-      <DependentUpon>XtraReport6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="reports\XtraReport7.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="reports\XtraReport7.Designer.cs">
-      <DependentUpon>XtraReport7.cs</DependentUpon>
     </Compile>
     <Compile Include="WinGroupFooterViewController.cs" />
     <Compile Include="WinModule.cs">
@@ -1068,9 +1014,6 @@
     <EmbeddedResource Include="Controllers\PatientPaymentReportController.resx">
       <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\PaymentReportController.resx">
-      <DependentUpon>PaymentReportController.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\PurchasingController.resx">
       <DependentUpon>PurchasingController.cs</DependentUpon>
     </EmbeddedResource>
@@ -1110,6 +1053,9 @@
     <EmbeddedResource Include="reports\AccountsSheet.resx">
       <DependentUpon>AccountsSheet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\AdditionFromSupplier.resx">
+      <DependentUpon>AdditionFromSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reports\AdmittedPatients.resx">
       <DependentUpon>AdmittedPatients.cs</DependentUpon>
     </EmbeddedResource>
@@ -1118,6 +1064,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\BuyingOrder.resx">
       <DependentUpon>BuyingOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\CashReceipt.resx">
+      <DependentUpon>CashReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\ClinicReport.resx">
       <DependentUpon>ClinicReport.cs</DependentUpon>
@@ -1194,23 +1143,14 @@
     <EmbeddedResource Include="reports\NeededItems.resx">
       <DependentUpon>NeededItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\OrderReport.resx">
-      <DependentUpon>OrderReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="reports\OutPatients.resx">
       <DependentUpon>OutPatients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\OutPatintLable.resx">
       <DependentUpon>OutPatintLable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\PatientDayReport.resx">
-      <DependentUpon>PatientDayReport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="reports\PatientLable.resx">
       <DependentUpon>PatientLable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\PaymentInvoice.resx">
-      <DependentUpon>PaymentInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\paymentRepr.resx">
       <DependentUpon>paymentRepr.cs</DependentUpon>
@@ -1242,12 +1182,6 @@
     <EmbeddedResource Include="reports\SalariesReport.resx">
       <DependentUpon>SalariesReport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\SalaryPaymentReport.resx">
-      <DependentUpon>SalaryPaymentReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\Sarf.resx">
-      <DependentUpon>Sarf.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="reports\SarfWQabd.resx">
       <DependentUpon>SarfWQabd.cs</DependentUpon>
     </EmbeddedResource>
@@ -1266,8 +1200,11 @@
     <EmbeddedResource Include="reports\SupplierItems.resx">
       <DependentUpon>SupplierItems.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\test.resx">
-      <DependentUpon>test.cs</DependentUpon>
+    <EmbeddedResource Include="reports\SuppliesExport.resx">
+      <DependentUpon>SuppliesExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\SuppliesInteriorExportation.resx">
+      <DependentUpon>SuppliesInteriorExportation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\TotalPayments.resx">
       <DependentUpon>TotalPayments.cs</DependentUpon>
@@ -1283,24 +1220,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\XrayPaymentReport.resx">
       <DependentUpon>XrayPaymentReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport3.resx">
-      <DependentUpon>XtraReport3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport4.resx">
-      <DependentUpon>XtraReport4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport5.resx">
-      <DependentUpon>XtraReport5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport6.resx">
-      <DependentUpon>XtraReport6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reports\XtraReport7.resx">
-      <DependentUpon>XtraReport7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
