@@ -769,7 +769,7 @@
             <field Id="07efb089-d40f-45e0-a214-2e4764e77512" name="quantity" columnType="Double" virtualColumnType="Double" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="f91e2bc9-6301-4d1a-ae0f-207fd2210733">
-            <field Id="50625399-4a94-4a61-85bc-b82552a9ecf5" name="supplyProduct" columnType="Single" virtualColumnType="StockProduct" logicalType="StockProduct" delayedUpdateModifiedOnly="false" customAttributes="DevExpress.Persistent.Base.DataSourceCriteria(&quot; Iif( '@this.Stay' == Null , Inventory.Department = '@this.emergency.Department',Inventory.Department = '@this.Stay.Department'), Inventory.Department = '@this.Department' &quot;)" />
+            <field Id="50625399-4a94-4a61-85bc-b82552a9ecf5" name="supplyProduct" columnType="Single" virtualColumnType="StockProduct" logicalType="StockProduct" delayedUpdateModifiedOnly="false" customAttributes="DevExpress.Persistent.Base.DataSourceCriteria(&quot;Iif( '@this.Stay' == Null , Inventory.Department = '@this.emergency.Department',Inventory.Department = '@this.Stay.Department')&quot;)" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="61e7021f-a4be-4e13-af60-931821a8f962">
             <field Id="bf2ecc47-ea0a-44af-9a13-0aec3a46d5bc" name="date" columnType="DateTime" virtualColumnType="DateTime" delayedUpdateModifiedOnly="false" />

@@ -1,5 +1,6 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using DevExpress.Xpo;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
             journal = new JournalEntry(Session);
             journal.date = DateTime.Now;
 
-            //User currentUser = (User)SecuritySystem.CurrentUser;
+            var user = SecuritySystem.CurrentUser.ToString();
 
-            //this.intoAccount = currentUser.account;
+            var currentUser = (User)Session.Query<User>().Where(u => u.UserName == user).First();
+            this.intoAccount = currentUser.account;
 
         }
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
