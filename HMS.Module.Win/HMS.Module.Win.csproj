@@ -477,6 +477,12 @@
     <Compile Include="Controllers\AccountingController.Designer.cs">
       <DependentUpon>AccountingController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AccountsController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\AccountsController.Designer.cs">
+      <DependentUpon>AccountsController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AuthViewController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1031,6 +1037,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controllers\AccountingController.resx">
       <DependentUpon>AccountingController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\AccountsController.resx">
+      <DependentUpon>AccountsController.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\CasherViewController.resx">
       <DependentUpon>CasherViewController.cs</DependentUpon>

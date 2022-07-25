@@ -1,25 +1,23 @@
-﻿using System;
-using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
+﻿using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
+using DevExpress.Xpo;
+using System;
 
 namespace XafDataModel.Module.BusinessObjects.test2
 {
     [DefaultClassOptions]
-    public partial class paymentSupplierBond
+    public partial class paymentBond
     {
-        
-        public paymentSupplierBond(Session session) : base(session) { }
+
+        public paymentBond(Session session) : base(session) { }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
             date = DateTime.Now;
             journal = new JournalEntry(Session);
             journal.date = DateTime.Now;
+
+            ffromAccount = Session.FindObject<Account>(new BinaryOperator("accountNumber", 104020001));
         }
 
         public enum BondTypes { receiptClient, paymentSupplier, receiptManagement, paymentManagement }

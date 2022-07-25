@@ -49,19 +49,58 @@ namespace HMS.Module.DatabaseUpdate
             //DashboardsModule.AddDashboardData<DashboardData>(
             //  ObjectSpace, "Inventory report", Resources.);
 
+            //Accounts
+            if (ObjectSpace.GetObjectsCount(typeof(MasterAccount), null) == 0)
+            {
+                List<InitialData.MasterAccount> masterAccounts = new InitialData.MasterAccount().InitialData();
 
-            PermissionPolicyUser userAdmin = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Admin"));
+                foreach (InitialData.MasterAccount item in masterAccounts)
+                {
+                    var acc = ObjectSpace.CreateObject<MasterAccount>();
+                    acc.accountNumber = item.accountNumber;
+                    acc.accountName = item.accountName;
+                    acc.AccountClassification = item.classification;
+                }
+                ObjectSpace.CommitChanges();
+
+
+                List<InitialData.SubAccount> subAccounts = new InitialData.SubAccount().InitialData();
+
+                foreach (InitialData.SubAccount item in subAccounts)
+                {
+                    var acc = ObjectSpace.CreateObject<XafDataModel.Module.BusinessObjects.test2.SubAccount>();
+                    acc.accountNumber = item.accountNumber;
+                    acc.accountName = item.accountName;
+                    acc.masterAccount = ObjectSpace.GetObjectByKey<MasterAccount>(item.masterAccountID);
+                }
+                ObjectSpace.CommitChanges();
+
+                List<InitialData.Account> Accounts = new InitialData.Account().InitialData();
+
+                foreach (InitialData.Account item in Accounts)
+                {
+                    var acc = ObjectSpace.CreateObject<XafDataModel.Module.BusinessObjects.test2.Account>();
+                    acc.accountNumber = item.accountNumber;
+                    acc.accountName = item.accountName;
+                    acc.SubAccount = ObjectSpace.GetObjectByKey<XafDataModel.Module.BusinessObjects.test2.SubAccount>(item.subAccountID);
+                }
+                ObjectSpace.CommitChanges();
+
+            }
+
+
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User userAdmin = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Admin"));
             if (userAdmin == null)
             {
-                userAdmin = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                userAdmin = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 userAdmin.UserName = "Admin";
                 // Set a password if the standard authentication type is used
                 userAdmin.SetPassword("98765");
             }
-            PermissionPolicyUser Manager1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "M_Entisar"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Manager1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "M_Entisar"));
             if (Manager1 == null)
             {
-                Manager1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Manager1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Manager1.UserName = "M_Entisar";
                 Manager1.SetPassword("941999");
             }
@@ -75,125 +114,125 @@ namespace HMS.Module.DatabaseUpdate
             }
 
 
-            PermissionPolicyUser Cashier1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Cashier1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Cashier1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Cashier1"));
             if (Cashier1 == null)
             {
-                Cashier1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Cashier1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Cashier1.UserName = "Cashier1";
                 Cashier1.SetPassword("Cashier123");
             }
 
-            PermissionPolicyUser Cashier2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Cashier2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Cashier2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Cashier2"));
             if (Cashier2 == null)
             {
-                Cashier2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Cashier2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Cashier2.UserName = "Cashier2";
                 Cashier2.SetPassword("Cashier567");
             }
 
-            PermissionPolicyUser AdmissionDesk1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "AdmissionDesk1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User AdmissionDesk1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "AdmissionDesk1"));
             if (AdmissionDesk1 == null)
             {
-                AdmissionDesk1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                AdmissionDesk1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 AdmissionDesk1.UserName = "AdmissionDesk1";
                 AdmissionDesk1.SetPassword("AdmissionDesk345");
             }
 
-            PermissionPolicyUser AdmissionDesk2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "AdmissionDesk2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User AdmissionDesk2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "AdmissionDesk2"));
             if (AdmissionDesk2 == null)
             {
-                AdmissionDesk2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                AdmissionDesk2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 AdmissionDesk2.UserName = "AdmissionDesk2";
                 AdmissionDesk2.SetPassword("AdmissionDesk678");
             }
 
-            PermissionPolicyUser ReceptionDesk1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "ReceptionDesk1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User ReceptionDesk1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "ReceptionDesk1"));
             if (ReceptionDesk1 == null)
             {
-                ReceptionDesk1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                ReceptionDesk1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 ReceptionDesk1.UserName = "ReceptionDesk1";
                 ReceptionDesk1.SetPassword("ReceptionDesk234");
             }
 
-            PermissionPolicyUser ReceptionDesk2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "ReceptionDesk2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User ReceptionDesk2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "ReceptionDesk2"));
             if (ReceptionDesk2 == null)
             {
-                ReceptionDesk2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                ReceptionDesk2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 ReceptionDesk2.UserName = "ReceptionDesk2";
                 ReceptionDesk2.SetPassword("ReceptionDesk789");
             }
 
-            PermissionPolicyUser Pharmacy1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Pharmacy1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Pharmacy1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Pharmacy1"));
             if (Pharmacy1 == null)
             {
-                Pharmacy1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Pharmacy1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Pharmacy1.UserName = "Pharmacy1";
                 Pharmacy1.SetPassword("Pharmacy567");
             }
 
-            PermissionPolicyUser Pharmacy2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Pharmacy2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Pharmacy2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Pharmacy2"));
             if (Pharmacy2 == null)
             {
-                Pharmacy2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Pharmacy2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Pharmacy2.UserName = "Pharmacy2";
                 Pharmacy2.SetPassword("Pharmacy678");
             }
 
-            PermissionPolicyUser Inventory1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Inventory1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Inventory1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Inventory1"));
             if (Inventory1 == null)
             {
-                Inventory1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Inventory1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Inventory1.UserName = "Inventory1";
                 Inventory1.SetPassword("Inventory345");
             }
 
-            PermissionPolicyUser Inventory2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Inventory2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Inventory2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Inventory2"));
             if (Inventory2 == null)
             {
-                Inventory2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Inventory2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Inventory2.UserName = "Inventory2";
                 Inventory2.SetPassword("Inventory789");
             }
 
-            PermissionPolicyUser Lab1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Lab1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Lab1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Lab1"));
             if (Lab1 == null)
             {
-                Lab1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Lab1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Lab1.UserName = "Lab1";
                 Lab1.SetPassword("Lab234");
             }
-            PermissionPolicyUser Lab2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Lab2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Lab2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Lab2"));
             if (Lab2 == null)
             {
-                Lab2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Lab2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Lab2.UserName = "Lab2";
                 Lab2.SetPassword("Lab456");
             }
-            PermissionPolicyUser XRay1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "XRay1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User XRay1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "XRay1"));
             if (XRay1 == null)
             {
-                XRay1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                XRay1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 XRay1.UserName = "Xray1";
                 XRay1.SetPassword("xray678");
             }
-            PermissionPolicyUser XRay2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "XRay2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User XRay2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "XRay2"));
             if (XRay2 == null)
             {
-                XRay2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                XRay2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 XRay2.UserName = "Xray2";
                 XRay2.SetPassword("XRay345");
             }
-            PermissionPolicyUser Endoscopy1 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Endoscopy1"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Endoscopy1 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Endoscopy1"));
             if (Endoscopy1 == null)
             {
-                Endoscopy1 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Endoscopy1 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Endoscopy1.UserName = "Endoscopy1";
                 Endoscopy1.SetPassword("Endoscopy678");
             }
-            PermissionPolicyUser Endoscopy2 = ObjectSpace.FindObject<PermissionPolicyUser>(new BinaryOperator("UserName", "Endoscopy2"));
+            DevExpress.Persistent.BaseImpl.PermissionPolicy.User Endoscopy2 = ObjectSpace.FindObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>(new BinaryOperator("UserName", "Endoscopy2"));
             if (Endoscopy2 == null)
             {
-                Endoscopy2 = ObjectSpace.CreateObject<PermissionPolicyUser>();
+                Endoscopy2 = ObjectSpace.CreateObject<DevExpress.Persistent.BaseImpl.PermissionPolicy.User>();
                 Endoscopy2.UserName = "Endoscopy2";
                 Endoscopy2.SetPassword("Endoscopy789");
             }
@@ -412,44 +451,7 @@ namespace HMS.Module.DatabaseUpdate
 
             }
 
-            //Accounts
-            if (ObjectSpace.GetObjectsCount(typeof(MasterAccount), null) == 0)
-            {
-                List<InitialData.MasterAccount> masterAccounts = new InitialData.MasterAccount().InitialData();
 
-                foreach (InitialData.MasterAccount item in masterAccounts)
-                {
-                    var acc = ObjectSpace.CreateObject<MasterAccount>();
-                    acc.accountNumber = item.accountNumber;
-                    acc.accountName = item.accountName;
-                    acc.AccountClassification = item.classification;
-                }
-                ObjectSpace.CommitChanges();
-
-
-                List<InitialData.SubAccount> subAccounts = new InitialData.SubAccount().InitialData();
-
-                foreach (InitialData.SubAccount item in subAccounts)
-                {
-                    var acc = ObjectSpace.CreateObject<XafDataModel.Module.BusinessObjects.test2.SubAccount>();
-                    acc.accountNumber = item.accountNumber;
-                    acc.accountName = item.accountName;
-                    acc.masterAccount = ObjectSpace.GetObjectByKey<MasterAccount>(item.masterAccountID);
-                }
-                ObjectSpace.CommitChanges();
-
-                List<InitialData.Account> Accounts = new InitialData.Account().InitialData();
-
-                foreach (InitialData.Account item in Accounts)
-                {
-                    var acc = ObjectSpace.CreateObject<XafDataModel.Module.BusinessObjects.test2.Account>();
-                    acc.accountNumber = item.accountNumber;
-                    acc.accountName = item.accountName;
-                    acc.SubAccount = ObjectSpace.GetObjectByKey<XafDataModel.Module.BusinessObjects.test2.SubAccount>(item.subAccountID);
-                }
-                ObjectSpace.CommitChanges();
-
-            }
 
             Safe safe = ObjectSpace.FindObject<Safe>(new BinaryOperator("name", "Safe"));
             if (safe == null)
@@ -472,45 +474,6 @@ namespace HMS.Module.DatabaseUpdate
             ObjectSpace.CommitChanges();
 
 
-            if (ObjectSpace.GetObjectsCount(typeof(SpendingsCategory), null) == 0)
-            {
-                var categories = new List<string> { "كهرباء", "مرتبات", "مصاريف عيادات", "هالك" };
-
-                foreach (string item in categories)
-                {
-                    var cat = ObjectSpace.CreateObject<SpendingsCategory>();
-                    cat.name = item;
-                }
-
-                ObjectSpace.CommitChanges();
-
-                for (int i = 12; i > 0; i--)
-                {
-                    var electric = ObjectSpace.CreateObject<Spendings>();
-                    electric.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "كهرباء"));
-                    electric.date = DateTime.Now.AddMonths(-i);
-                    electric.amount = new Random(Guid.NewGuid().GetHashCode()).Next(7000, 9000);
-
-                    var salaries = ObjectSpace.CreateObject<Spendings>();
-                    salaries.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "مرتبات"));
-                    salaries.date = DateTime.Now.AddMonths(-i);
-                    salaries.amount = new Random(Guid.NewGuid().GetHashCode()).Next(45000, 55000);
-
-
-                    var clincs = ObjectSpace.CreateObject<Spendings>();
-                    clincs.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "مصاريف عيادات"));
-                    clincs.date = DateTime.Now.AddMonths(-i);
-                    clincs.amount = new Random(Guid.NewGuid().GetHashCode()).Next(6000, 8000);
-
-
-                    var waste = ObjectSpace.CreateObject<Spendings>();
-                    waste.category = ObjectSpace.FindObject<SpendingsCategory>(new BinaryOperator("name", "هالك"));
-                    waste.date = DateTime.Now.AddMonths(-i);
-                    waste.amount = new Random(Guid.NewGuid().GetHashCode()).Next(3000, 5000);
-
-                }
-
-            }
 
             if (ObjectSpace.GetObjectsCount(typeof(Category), null) == 0)
             {

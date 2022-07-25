@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="SpendingsCategory_SpendingsCollection_ListView" Caption="المصروفات">
+      <Columns Id="Columns">
+        <ColumnInfo Id="category" Caption="النوع" />
+        <ColumnInfo Id="description" Caption="وصف" />
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+        <ColumnInfo Id="safe" Caption="الخزنة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="SpendingsCategory_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="SpendingsCollection" Caption="المصروفات" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SpendingsCollection_Group" Caption="المصروفات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SpendingsCategory">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="SpendingsCollection" Caption="المصروفات" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

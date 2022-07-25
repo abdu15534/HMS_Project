@@ -27,7 +27,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(id), ref fid, value); }
         }
         SpendingsCategory fcategory;
-        [Association(@"SpendingsReferencesSpendingsCategory")]
         public SpendingsCategory category
         {
             get { return fcategory; }

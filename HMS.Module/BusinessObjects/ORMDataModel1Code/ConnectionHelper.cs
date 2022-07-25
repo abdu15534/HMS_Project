@@ -79,7 +79,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(SalaryDeduction),
             typeof(SalaryDeductionDetails),
             typeof(SupervisionDetails),
-            typeof(paymentSupplierBond),
+            typeof(paymentBond),
             typeof(ClinicServiceDetail),
             typeof(EmergencyServiceDetails),
             typeof(Consultant),
@@ -108,7 +108,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(PriceListDetail),
             typeof(ConractDepartment),
             typeof(ConractServiceDiscount),
-            typeof(ServiceBase)
+            typeof(ServiceBase),
+            typeof(AccountTransfers)
         };
         public static Type[] GetPersistentTypes()
         {

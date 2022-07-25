@@ -16,7 +16,7 @@ using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
-    public partial class paymentSupplierBond : XPBaseObject
+    public partial class paymentBond : XPBaseObject
     {
         int fid;
         [Key(true)]
@@ -40,6 +40,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Account>(nameof(intoAccount), ref fintoAccount, value); }
         }
         decimal ffromAccountBalance;
+        [DevExpress.Persistent.Base.DataSourceCriteria(" accountNumber=''104020001")]
         public decimal fromAccountBalance
         {
             get { return ffromAccountBalance; }
@@ -98,6 +99,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fjournal; }
             set { SetPropertyValue<JournalEntry>(nameof(journal), ref fjournal, value); }
+        }
+        SpendingsCategory fCatagory;
+        [DevExpress.Persistent.Validation.RuleRequiredField]
+        public SpendingsCategory Catagory
+        {
+            get { return fCatagory; }
+            set { SetPropertyValue<SpendingsCategory>(nameof(Catagory), ref fCatagory, value); }
         }
     }
 

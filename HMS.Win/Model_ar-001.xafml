@@ -412,7 +412,6 @@
         <Member Name="description" Caption="وصف" />
         <Member Name="id" Caption="كود" />
         <Member Name="name" Caption="الإسم" />
-        <Member Name="SpendingsCollection" Caption="المصروفات" />
       </OwnMembers>
     </Class>
     <Class Name="XafDataModel.Module.BusinessObjects.test2.StartAccounts">
@@ -2176,12 +2175,10 @@
         <PropertyEditor Id="description" Caption="وصف" />
         <PropertyEditor Id="id" Caption="كود" />
         <PropertyEditor Id="name" Caption="الإسم" />
-        <PropertyEditor Id="SpendingsCollection" Caption="المصروفات" />
       </Items>
       <Layout>
         <LayoutGroup Id="Main" Caption="رئيسى">
           <LayoutGroup Id="SizeableEditors" Caption="وصف" />
-          <LayoutGroup Id="SpendingsCollection_Group" Caption="المصروفات" />
         </LayoutGroup>
       </Layout>
     </DetailView>
@@ -2195,17 +2192,6 @@
     <ListView Id="SpendingsCategory_LookupListView" Caption="فئة الصرف">
       <Columns>
         <ColumnInfo Id="name" Caption="الإسم" />
-      </Columns>
-    </ListView>
-    <ListView Id="SpendingsCategory_SpendingsCollection_ListView" Caption="المصروفات">
-      <Columns>
-        <ColumnInfo Id="category" Caption="النوع" />
-        <ColumnInfo Id="description" Caption="وصف" />
-        <ColumnInfo Id="id" Caption="كود" />
-        <ColumnInfo Id="Transaction" Caption="التحويل" />
-        <ColumnInfo Id="date" Caption="تاريخ" />
-        <ColumnInfo Id="amount" Caption="الكمية" />
-        <ColumnInfo Id="safe" Caption="الخزنة" />
       </Columns>
     </ListView>
     <DetailView Id="StartAccounts_DetailView">

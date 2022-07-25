@@ -25,11 +25,6 @@
         private void InitializeComponent() {
             this.module1 = new DevExpress.ExpressApp.SystemModule.SystemModule();
             this.module2 = new DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule();
-            this.module3 = new HMS.Module.HMSModule();
-            this.module4 = new HMS.Module.Win.HMSWindowsFormsModule();
-            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
-            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
-            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             this.auditTrailModule = new DevExpress.ExpressApp.AuditTrail.AuditTrailModule();
             this.objectsModule = new DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule();
             this.chartModule = new DevExpress.ExpressApp.Chart.ChartModule();
@@ -62,20 +57,12 @@
             this.viewVariantsModule = new DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule();
             this.workflowModule = new DevExpress.ExpressApp.Workflow.WorkflowModule();
             this.workflowWindowsFormsModule = new DevExpress.ExpressApp.Workflow.Win.WorkflowWindowsFormsModule();
+            this.securityModule1 = new DevExpress.ExpressApp.Security.SecurityModule();
+            this.module3 = new HMS.Module.HMSModule();
+            this.module4 = new HMS.Module.Win.HMSWindowsFormsModule();
+            this.securityStrategyComplex1 = new DevExpress.ExpressApp.Security.SecurityStrategyComplex();
+            this.authenticationStandard1 = new DevExpress.ExpressApp.Security.AuthenticationStandard();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            // 
-            // securityStrategyComplex1
-            // 
-            this.securityStrategyComplex1.AllowAnonymousAccess = false;
-            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
-            this.securityStrategyComplex1.PermissionsReloadMode = DevExpress.ExpressApp.Security.PermissionsReloadMode.NoCache;
-            this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
-            this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
-            this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);
-            // 
-            // authenticationStandard1
-            // 
-            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             // 
             // auditTrailModule
             // 
@@ -139,6 +126,18 @@
             this.workflowModule.WorkflowDefinitionType = typeof(DevExpress.ExpressApp.Workflow.Xpo.XpoWorkflowDefinition);
             this.workflowModule.WorkflowInstanceKeyType = typeof(DevExpress.Workflow.Xpo.XpoInstanceKey);
             this.workflowModule.WorkflowInstanceType = typeof(DevExpress.Workflow.Xpo.XpoWorkflowInstance);
+            // 
+            // securityStrategyComplex1
+            // 
+            this.securityStrategyComplex1.AllowAnonymousAccess = false;
+            this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
+            this.securityStrategyComplex1.PermissionsReloadMode = DevExpress.ExpressApp.Security.PermissionsReloadMode.NoCache;
+            this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
+            this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.User);
+            // 
+            // authenticationStandard1
+            // 
+            this.authenticationStandard1.LogonParametersType = typeof(DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters);
             // 
             // HMSWindowsFormsApplication
             // 

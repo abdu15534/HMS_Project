@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="paymentSupplierBond_DetailView" Caption="سند قبض نقدية خاص بالعملاء">
+      <Items Id="Items">
+        <PropertyEditor Id="fromAccount" Caption="دفعة من حساب" />
+        <PropertyEditor Id="fromAccountBalance" AllowEdit="False" />
+        <PropertyEditor Id="intoAccount" Caption="يصرف من حساب" />
+        <PropertyEditor Id="intoAccountBalance" AllowEdit="False" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" RelativeSize="100" TextAlignMode="AlignWithChildren">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="25.954198473282442">
+            <LayoutGroup Id="Autodcc9efba-3561-45ff-815c-3d15dc103b8c" ShowCaption="False" Caption="Autodcc9efba-3561-45ff-815c-3d15dc103b8c(3)" Direction="Horizontal" Index="0" RelativeSize="20.588235294117649">
+              <LayoutItem Id="id" ViewItem="id" Index="0" RelativeSize="50" />
+              <LayoutItem Id="date" ViewItem="date" Index="1" RelativeSize="50" />
+            </LayoutGroup>
+            <LayoutGroup Id="Autobc22ef0a-9cde-4880-ba32-247efd15618b" ShowCaption="False" Caption="Autobc22ef0a-9cde-4880-ba32-247efd15618b(6)" Index="1" RelativeSize="79.411764705882348">
+              <LayoutItem Id="fromAccount" ViewItem="fromAccount" Index="0" RelativeSize="20" />
+              <LayoutItem Id="intoAccount" ViewItem="intoAccount" Index="1" RelativeSize="17.777777777777779" />
+              <LayoutItem Id="amount" ViewItem="amount" Index="2" RelativeSize="17.777777777777779" />
+              <LayoutItem Id="fromAccountBalance" ViewItem="fromAccountBalance" Index="3" RelativeSize="17.777777777777779" />
+              <LayoutGroup Id="Autoab86284b-6071-4cef-842b-9fb30670cea9" ShowCaption="False" Caption="Autoab86284b-6071-4cef-842b-9fb30670cea9(11)" Direction="Horizontal" Index="4" RelativeSize="26.666666666666668">
+                <LayoutItem Id="statement" ViewItem="statement" Index="0" RelativeSize="50" />
+                <LayoutItem Id="intoAccountBalance" ViewItem="intoAccountBalance" Index="1" RelativeSize="50" />
+              </LayoutGroup>
+            </LayoutGroup>
+            <LayoutGroup Id="paymentSupplierBond" Index="2" RelativeSize="76.793893129770993" Direction="Vertical" Caption="بيانات الشيك" Removed="True">
+              <LayoutItem Id="chequeNumber" ViewItem="chequeNumber" Index="0" RelativeSize="6.8085106382978724" />
+              <LayoutGroup Id="paymentSupplierBond_col2" RelativeSize="100" Index="0" Removed="True">
+                <LayoutItem Id="chequeNumber" RelativeSize="6.8085106382978724" Index="0" />
+                <LayoutItem Id="chequeDate" RelativeSize="5.1063829787234045" Index="1" />
+                <LayoutItem Id="chequeBank" RelativeSize="5.1063829787234045" Index="2" />
+                <LayoutItem Id="post" RelativeSize="4.8936170212765955" Index="3" />
+                <LayoutItem Id="journal" RelativeSize="78.085106382978722" Index="4" />
+                <LayoutItem Id="date" RelativeSize="6.8085106382978724" Removed="True" />
+              </LayoutGroup>
+              <LayoutItem Id="chequeDate" ViewItem="chequeDate" Index="1" RelativeSize="5.1063829787234045" />
+              <LayoutItem Id="chequeBank" ViewItem="chequeBank" Index="2" RelativeSize="5.1063829787234045" />
+              <LayoutItem Id="post" ViewItem="post" Index="3" RelativeSize="4.8936170212765955" />
+              <LayoutItem Id="journal" ViewItem="journal" Index="4" RelativeSize="78.085106382978722" />
+              <LayoutGroup Id="paymentSupplierBond_col1" RelativeSize="50" Caption="paymentSupplierBond_col1" Removed="True">
+                <LayoutItem Id="fromAccountBalance" Index="1" RelativeSize="4.6332046332046328" Removed="True" />
+                <LayoutItem Id="intoAccount" Index="1" RelativeSize="4.0677966101694913" Removed="True" />
+                <LayoutItem Id="intoAccountBalance" Index="1" RelativeSize="93.522267206477736" Removed="True" />
+                <LayoutItem Id="amount" Index="3" RelativeSize="4.2402826855123674" Removed="True" />
+                <LayoutItem Id="statement" Index="3" RelativeSize="85.239852398523979" Removed="True" />
+                <LayoutItem Id="fromAccount" Removed="True" />
+                <LayoutItem Id="id" RelativeSize="100" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutItem Id="post" ViewItem="post" Index="1" RelativeSize="3.5114503816793894" />
+          <LayoutGroup Id="paymentSupplierBond" ShowCaption="True" Caption="بيانات الشيك" Index="2" RelativeSize="70.534351145038173">
+            <LayoutItem Id="chequeNumber" ViewItem="chequeNumber" Index="0" RelativeSize="7.4592074592074589" />
+            <LayoutItem Id="chequeDate" ViewItem="chequeDate" Index="1" RelativeSize="5.5944055944055942" />
+            <LayoutItem Id="chequeBank" ViewItem="chequeBank" Index="2" RelativeSize="86.946386946386951" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="paymentSupplierBond_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="chequeBank" Index="-1" />
+        <ColumnInfo Id="chequeDate" Index="-1" />
+        <ColumnInfo Id="chequeNumber" Index="-1" />
+        <ColumnInfo Id="journal" Index="-1" />
+        <ColumnInfo Id="fromAccount" Width="148" />
+        <ColumnInfo Id="intoAccount" Width="144" />
+        <ColumnInfo Id="fromAccountBalance" Width="124" />
+        <ColumnInfo Id="intoAccountBalance" Width="120" />
+        <ColumnInfo Id="amount" Width="56" />
+        <ColumnInfo Id="statement" Width="69" />
+        <ColumnInfo Id="date" Width="65" />
+        <ColumnInfo Id="post" Index="7" Width="41" />
+      </Columns>
+    </ListView>
+    <ListView Id="SpendingsCategory_SpendingsCollection_ListView" Caption="المصروفات">
+      <Columns Id="Columns">
+        <ColumnInfo Id="category" Caption="النوع" />
+        <ColumnInfo Id="description" Caption="وصف" />
+        <ColumnInfo Id="id" Caption="كود" />
+        <ColumnInfo Id="Transaction" Caption="التحويل" />
+        <ColumnInfo Id="date" Caption="تاريخ" />
+        <ColumnInfo Id="amount" Caption="الكمية" />
+        <ColumnInfo Id="safe" Caption="الخزنة" />
+      </Columns>
+    </ListView>
+    <DetailView Id="PackageDetail_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="PackageDetail">
+              <LayoutGroup Id="PackageDetail_col1">
+                <LayoutItem Id="Total" ViewItem="Total" />
+                <LayoutGroup Id="Auto2b0b22d5-38c1-492e-80c8-a8d94d96162d">
+                  <LayoutGroup Id="Autoc69c5d27-4028-42e5-a430-09b13c4949c9">
+                    <LayoutItem Id="AnesthesiaFees" ViewItem="AnesthesiaFees" />
+                    <LayoutItem Id="AssistantFees" ViewItem="AssistantFees" />
+                    <LayoutItem Id="SurgeonsFees" ViewItem="SurgeonsFees" />
+                    <LayoutItem Id="RoomOpeningFee" ViewItem="RoomOpeningFee" />
+                    <LayoutItem Id="SurgeryRoom" ViewItem="SurgeryRoom" />
+                    <LayoutItem Id="SurgeryCategory" ViewItem="SurgeryCategory" />
+                  </LayoutGroup>
+                  <LayoutGroup Id="Auto426f7cfb-1a5c-421e-a513-ef9e6b8d9db7">
+                    <LayoutItem Id="isSurgery" ViewItem="isSurgery" />
+                  </LayoutGroup>
+                </LayoutGroup>
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Patient_DetailView">
+      <Layout Id="Layout">
+        <TabbedGroup Id="Item1">
+          <LayoutGroup Id="Item2">
+            <LayoutGroup Id="Person_col2">
+              <LayoutItem Id="Email" ViewItem="Email" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </TabbedGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="SpendingsCategory_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="SpendingsCollection" Caption="المصروفات" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SpendingsCollection_Group" Caption="المصروفات" />
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.paymentSupplierBond">
+      <AppearanceRules Id="AppearanceRules">
+        <AppearanceRule Id="@57836aab-1351-4731-bcf6-5c4a2a64da14" TargetItems="chequeNumber ,chequeBank , chequeDate " Enabled="False" />
+        <AppearanceRule Id="@d4e7a1ed-12cd-41ef-96dc-7a0f6cd4193b" TargetItems="*" Criteria="[post] = True" Enabled="False" />
+      </AppearanceRules>
+      <OwnMembers Id="OwnMembers">
+        <Member Name="fromAccount" DataSourceCriteria="[SubAccount.accountNumber] In (10301, 20701)" />
+        <Member Name="intoAccount" DataSourceCriteria="[SubAccount.accountNumber] In (10402, 10401, 20101, 20104)" />
+        <Member Name="post" AllowEdit="False" />
+        <Member Name="statement" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.SpendingsCategory">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="SpendingsCollection" Caption="المصروفات" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="سندات">
+        <Items Id="Items">
+          <Item Id="Bond_ListView" ViewId="Bond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="الحسابات">
+        <Items Id="Items">
+          <Item Id="paymentSupplierBond_ListView" ViewId="paymentSupplierBond_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="paymentSupplierBond_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

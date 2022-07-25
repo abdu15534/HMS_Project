@@ -39,8 +39,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fname; }
             set { SetPropertyValue<string>(nameof(name), ref fname, value); }
         }
-        [Association(@"SpendingsReferencesSpendingsCategory")]
-        public XPCollection<Spendings> SpendingsCollection { get { return GetCollection<Spendings>(nameof(SpendingsCollection)); } }
     }
 
 }

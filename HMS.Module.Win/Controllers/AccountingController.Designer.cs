@@ -147,7 +147,7 @@ namespace HMS.Module.Win.Controllers
             this.PaymentBondConfirm.ImageName = "BO_UNKNOWN";
             this.PaymentBondConfirm.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.PaymentBondConfirm.TargetObjectsCriteria = "post  != true && amount > 0";
-            this.PaymentBondConfirm.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.paymentSupplierBond);
+            this.PaymentBondConfirm.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.paymentBond);
             this.PaymentBondConfirm.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.PaymentBondConfirm.ToolTip = null;
             this.PaymentBondConfirm.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
@@ -161,7 +161,7 @@ namespace HMS.Module.Win.Controllers
             this.PaymentBondUnConfirm.ImageName = "BO_UNKNOWN";
             this.PaymentBondUnConfirm.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
             this.PaymentBondUnConfirm.TargetObjectsCriteria = "post  == true";
-            this.PaymentBondUnConfirm.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.paymentSupplierBond);
+            this.PaymentBondUnConfirm.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.paymentBond);
             this.PaymentBondUnConfirm.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.PaymentBondUnConfirm.ToolTip = null;
             this.PaymentBondUnConfirm.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);

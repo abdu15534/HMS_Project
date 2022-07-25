@@ -1,21 +1,9 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
+﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Layout;
-using DevExpress.ExpressApp.Model.NodeGenerators;
-using DevExpress.ExpressApp.SystemModule;
-using DevExpress.ExpressApp.Templates;
-using DevExpress.ExpressApp.Utils;
-using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
-using DevExpress.Persistent.Validation;
 using DevExpress.XtraReports.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
 using XafDataModel.Module.BusinessObjects.test2;
 
 namespace HMS.Module.Win.Controllers
@@ -66,7 +54,7 @@ namespace HMS.Module.Win.Controllers
             if (objectToShow != null)
             {
                 DetailView createdView = Application.CreateDetailView(newObjectSpace, objectToShow);
-                createdView.ViewEditMode = ViewEditMode.Edit;                
+                createdView.ViewEditMode = ViewEditMode.Edit;
                 e.View = createdView;
             }
         }
@@ -156,7 +144,7 @@ namespace HMS.Module.Win.Controllers
                     user = ObjectSpace.GetObjectByKey<PermissionPolicyUser>(SecuritySystem.CurrentUserId);
                     report.Parameters["user"].Value = user.UserName;
                 }
-                
+
                 report.Parameters["parameter1"].Value = ((JournalEntry)View.CurrentObject).ID;
             }
 
@@ -165,7 +153,7 @@ namespace HMS.Module.Win.Controllers
 
         private void PaymentBondConfirm_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            var payment = View.CurrentObject as paymentSupplierBond;
+            var payment = View.CurrentObject as paymentBond;
             payment.OrderConfirm(true);
         }
 
@@ -179,14 +167,14 @@ namespace HMS.Module.Win.Controllers
         {
             reports.ReceiptVoucherReport report = new reports.ReceiptVoucherReport();
 
-            var curr = View.CurrentObject as paymentSupplierBond;
+            var curr = View.CurrentObject as paymentBond;
             if (curr == null)
             {
                 var x = System.Convert.ToString(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
                 report.Parameters["parameter1"].Value = x;
             }
             else
-                report.Parameters["parameter1"].Value = ((paymentSupplierBond)View.CurrentObject).id;
+                report.Parameters["parameter1"].Value = ((paymentBond)View.CurrentObject).id;
 
             report.Parameters["BondType"].Value = "سند صرف";
             report.Parameters["N2C"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.amount), "جنيه", "قرش") + " فقط لاغير ";

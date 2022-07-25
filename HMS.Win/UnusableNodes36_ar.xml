@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="paymentSupplierBond_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="chequeBank" Caption="بنك الشيك" />
+      </Items>
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main" Caption="الرئيسي" />
+      </Layout>
+    </DetailView>
+    <ListView Id="paymentSupplierBond_LookupListView" Caption="سند صرف خاص بالموردين">
+      <Columns Id="Columns">
+        <ColumnInfo Id="amount" Caption="المبلغ" />
+        <ColumnInfo Id="post" Caption="تم الترحيل ؟" />
+      </Columns>
+    </ListView>
+  </Views>
+  <BOModel Id="BOModel">
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.paymentSupplierBond" Caption="سند صرف خاص بالموردين">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="post" Caption="تم الترحيل ؟" />
+        <Member Name="statement" Caption="البيان" />
+        <Member Name="amount" Caption="المبلغ" />
+        <Member Name="chequeBank" Caption="بنك الشيك" />
+        <Member Name="chequeDate" Caption="تاريخ الشيك" />
+        <Member Name="chequeNumber" Caption="رقم الشيك" />
+        <Member Name="date" Caption="التاريخ" />
+        <Member Name="fromAccountBalance" Caption="رصيد حساب القبض" />
+        <Member Name="id" Caption="كود" />
+        <Member Name="intoAccountBalance" Caption="رصيد حساب الصرف" />
+        <Member Name="journal" Caption="قيد" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>

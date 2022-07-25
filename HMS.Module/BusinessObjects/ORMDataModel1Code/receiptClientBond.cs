@@ -24,6 +24,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
             date = DateTime.Now;
             journal = new JournalEntry(Session);
             journal.date = DateTime.Now;
+
+            //User currentUser = (User)SecuritySystem.CurrentUser;
+
+            //this.intoAccount = currentUser.account;
+
         }
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
@@ -225,6 +230,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 user = SecuritySystem.CurrentUser.ToString();
 
                 this.CreatedBy = user;
+
             }
 
             this.UpdatedBy = user;
