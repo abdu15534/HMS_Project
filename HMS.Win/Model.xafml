@@ -4372,8 +4372,25 @@
     <DetailView Id="Service_DetailView">
       <Layout>
         <LayoutGroup Id="Main" RelativeSize="100">
-          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
-            <LayoutGroup Id="Service" RelativeSize="100" />
+          <LayoutGroup Id="SimpleEditors" RelativeSize="25.602409638554217">
+            <LayoutGroup Id="Service" RelativeSize="66.470588235294116" Caption="Service">
+              <LayoutItem Id="ID" ViewItem="ID" Index="0" RelativeSize="28.318584070796462" IsNewNode="True" />
+              <LayoutItem Id="Name" ViewItem="Name" Index="1" RelativeSize="47.787610619469028" IsNewNode="True" />
+              <LayoutItem Id="Clinic" Index="2" RelativeSize="23.893805309734514" />
+              <LayoutItem Id="category" Removed="True" />
+              <LayoutItem Id="identefcation" Removed="True" />
+            </LayoutGroup>
+            <LayoutGroup Id="ServiceBase" RelativeSize="33.529411764705884">
+              <LayoutItem Id="LatinName" Index="0" RelativeSize="47.368421052631582" />
+              <LayoutItem Id="Departmet" Index="1" RelativeSize="52.631578947368418" />
+              <LayoutItem Id="ID" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="PriceListDetails_Group" TextAlignMode="AlignWithChildren" Direction="Vertical" RelativeSize="74.397590361445779" Index="1">
+            <LayoutItem Id="PriceListDetails" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="36.746987951807228" Caption="Name" Removed="True">
+            <LayoutItem Id="Name" RelativeSize="100" Removed="True" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
@@ -4381,8 +4398,12 @@
     <ListView Id="Service_ListView">
       <Columns>
         <ColumnInfo Id="category" Index="-1" />
+        <ColumnInfo Id="Clinic" Index="-1" />
+        <ColumnInfo Id="Departmet.Name" PropertyName="Departmet.Name" Index="-1" IsNewNode="True" />
+        <ColumnInfo Id="identefcation" Index="-1" />
         <ColumnInfo Id="ID" Index="0" />
-        <ColumnInfo Id="Name" Index="2" />
+        <ColumnInfo Id="Name" Index="1" />
+        <ColumnInfo Id="Departmet" Index="2" />
       </Columns>
     </ListView>
     <ListView Id="Service_LookupListView" ShowDetailView="True" AllowNew="False" AllowDelete="False">
