@@ -26,7 +26,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<int>(nameof(ID), ref fID, value); }
         }
         Service fClinicService;
-        [DevExpress.Persistent.Base.DataSourceCriteria(" ServiceType= '@this.Appointment.clinc.id' ")]
+        [DevExpress.Persistent.Base.DataSourceCriteria(" Departmet= '@This.Appointment.clinc.Department'")]
         public Service ClinicService
         {
             get { return fClinicService; }

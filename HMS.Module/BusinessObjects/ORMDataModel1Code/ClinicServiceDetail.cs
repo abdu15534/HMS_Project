@@ -1,17 +1,16 @@
-﻿using System;
-using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
+﻿using DevExpress.Xpo;
+using System;
+using System.Linq;
+
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
     public partial class ClinicServiceDetail
     {
         public ClinicServiceDetail(Session session) : base(session) { }
-        public override void AfterConstruction() { base.AfterConstruction();
+        public override void AfterConstruction()
+        {
+            base.AfterConstruction();
             Date = DateTime.Now;
 
         }
@@ -22,7 +21,17 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             if (propertyName == nameof(ClinicService) && ClinicService != null)
             {
-                //price = ClinicService.Price;
+                if (this.Appointment != null)
+                {
+                    if (this.Appointment.Patient.Nationality == Patient.Nationalitys.مصر)
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Appointment.Patient.Contract.PricList).First().Price;
+                    }
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Appointment.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
+                    }
+                }
             }
         }
     }
