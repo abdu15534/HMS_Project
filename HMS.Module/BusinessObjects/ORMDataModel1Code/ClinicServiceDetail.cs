@@ -23,13 +23,15 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 if (this.Appointment != null)
                 {
-                    if (this.Appointment.Patient.Nationality == Patient.Nationalitys.مصر)
-                    {
-                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Appointment.Patient.Contract.PricList).First().Price;
-                    }
-                    else
+
+                    if (this.Appointment.Patient != null && this.Appointment.Patient.Nationality != Patient.Nationalitys.مصر)
                     {
                         this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Appointment.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
+                    }
+
+                    else
+                    {
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Appointment.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1);
                     }
                 }
             }

@@ -662,6 +662,12 @@
     <Compile Include="reports\CashReceipt.Designer.cs">
       <DependentUpon>CashReceipt.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\ClinicCash.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ClinicCash.Designer.cs">
+      <DependentUpon>ClinicCash.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\ClinicReport.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1067,6 +1073,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\CashReceipt.resx">
       <DependentUpon>CashReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ClinicCash.resx">
+      <DependentUpon>ClinicCash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\ClinicReport.resx">
       <DependentUpon>ClinicReport.cs</DependentUpon>

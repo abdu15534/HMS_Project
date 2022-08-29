@@ -21,7 +21,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 {
                     if (this.admission.Patient.Nationality == Patient.Nationalitys.مصر)
                     {
-                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.admission.Patient.Contract.PricList).First().Price;
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.admission.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1);
                     }
                     else
                     {
@@ -37,7 +37,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     }
                     else
                     {
-                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Xrays.Patient.Contract.PricList).First().Price;
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Xrays.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1);
                     }
                 }
                 else if (this.Emergency != null)
@@ -49,7 +49,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     }
                     else
                     {
-                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price;
+                        this.price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1);
                     }
                 }
             }

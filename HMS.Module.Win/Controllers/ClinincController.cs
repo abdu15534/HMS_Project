@@ -48,11 +48,11 @@ namespace HMS.Module.Win.Controllers
 
         private void PaymentRecipt_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            reports.CashReceipt report = new reports.CashReceipt();
+            reports.ClinicCash report = new reports.ClinicCash();
 
             var curr = View.CurrentObject as Appointment;
-            report.Parameters["parameter1"].Value = curr.Oid;
-            report.Parameters["parameter2"].Value = curr.PaymentsCollection.Sum(p => p.amount);
+            report.Parameters["parameter1"].Value = curr.id;
+            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
 

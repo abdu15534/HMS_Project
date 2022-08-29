@@ -69,6 +69,19 @@ namespace HMS.Module.Win.Controllers
                         string myString = "";
                         //row[0] - produkt
                         //string[] ciag = row[0].ToString().Split('-');
+                        Department department = ObjectSpace.FindObject<Department>(CriteriaOperator.Parse("Name = ?", GetCellValue(row, 2)));
+                        if (department != null)
+                        {
+                            service.Departmet = department;
+                        }
+                        else
+                        {
+                            Department newDepartment = ObjectSpace.CreateObject<Department>();
+                            newDepartment.Name = row[2].ToString();
+                            newDepartment.CustomerFacing = true;
+                            ObjectSpace.CommitChanges();
+                            service.Departmet = newDepartment;
+                        }
 
                         if (row[0] != DBNull.Value)
                         {
@@ -110,30 +123,22 @@ namespace HMS.Module.Win.Controllers
 
                         if (row[4] != DBNull.Value)
                         {
-                            //myString += " - " + row[4].ToString();
+                            myString += " - " + row[4].ToString();
                             if (!string.IsNullOrEmpty(row[4].ToString()))
                             {
-                                //service.Price = Convert.ToDecimal(row[4].ToString());
+         
+                                PriceList priceList = ObjectSpace.FindObject<PriceList>(CriteriaOperator.Parse("Name = ?", "مستشفى اكتوبر كلينيك"));
+
+                                PriceListDetail priceListDetail = ObjectSpace.CreateObject<PriceListDetail>();
+                                priceListDetail.Price = Convert.ToDecimal(row[4].ToString());
+                                priceListDetail.PriceList = priceList;
+                                priceListDetail.ServiceBase = service;
+                                ObjectSpace.CommitChanges();
+                                //service.Price = Convert.ToDecimal(row[5].ToString());
                             }
 
                         }
 
-
-                        //row[5]- czy kwota netto ( nie uzywamy )  
-
-                        //row[6]- NKUP/KUP  
-                        //if (row[5] != DBNull.Value)
-                        //{
-                        //    myString += " - " + row[5].ToString();
-                        //    //if (!string.IsNullOrEmpty(row[6].ToString()))
-                        //    //{
-                        //    //    if (row[6].ToString().ToLower() == "kup")
-                        //    //        fzp.NKUP = KupNKup.KUP_;
-                        //    //    else
-                        //    //        fzp.NKUP = KupNKup.NKUP;
-                        //    //}
-
-                        //}
 
                         Debug.WriteLine(myString);
 
@@ -228,7 +233,7 @@ namespace HMS.Module.Win.Controllers
                             //myString += " - " + row[4].ToString();
                             if (!string.IsNullOrEmpty(row[4].ToString()))
                             {
-                                //service.EnglishName = row[4].ToString();
+                                service.LatinName = row[4].ToString();
                             }
 
                         }
@@ -315,19 +320,19 @@ namespace HMS.Module.Win.Controllers
                         }
 
 
+                        //if (row[1] != DBNull.Value)
+                        //{
+                        //    //myString = " - " + row[1].ToString();
+                        //    //service.ServiceType = (ServiceTypes)17;
+                        //    //if (!string.IsNullOrEmpty(row[1].ToString()))
+                        //    //    fzp.NazwaProduktu = row[1].ToString();
+                        //}
+
+
                         if (row[1] != DBNull.Value)
                         {
-                            //myString = " - " + row[1].ToString();
-                            //service.ServiceType = (ServiceTypes)17;
-                            //if (!string.IsNullOrEmpty(row[1].ToString()))
-                            //    fzp.NazwaProduktu = row[1].ToString();
-                        }
-
-
-                        if (row[2] != DBNull.Value)
-                        {
-                            myString += " - " + row[2].ToString();
-                            if (!string.IsNullOrEmpty(row[2].ToString()))
+                            myString += " - " + row[1].ToString();
+                            if (!string.IsNullOrEmpty(row[1].ToString()))
                             {
                                 service.Name = row[2].ToString();
                             }
@@ -391,7 +396,7 @@ namespace HMS.Module.Win.Controllers
 
                     SplashScreenManager.ShowDefaultWaitForm("ارجوك انتظر", "جاري حفظ الأدوية ...");
 
-                    dt = ExtractDataTable(excel, 2);
+                    dt = ExtractDataTable(excel, 1);
 
 
                     //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
@@ -404,11 +409,11 @@ namespace HMS.Module.Win.Controllers
                         string myString = "";
 
 
-                        if (row[5] != DBNull.Value)
+                        if (row[2] != DBNull.Value)
                         {
-                            myString = row[5].ToString();
-                            if (!string.IsNullOrEmpty(row[5].ToString()))
-                                product.sellingPrice = Convert.ToDecimal(row[5].ToString());
+                            myString = row[2].ToString();
+                            if (!string.IsNullOrEmpty(row[2].ToString()))
+                                product.sellingPrice = Convert.ToDecimal(row[2].ToString());
                         }
 
 
@@ -756,8 +761,6 @@ namespace HMS.Module.Win.Controllers
 
 
                         ObjectSpace.CommitChanges();
-                        //    //    fzp.FakturaZakupu = fz;
-                        //    //    fzp.Save();
                     }
 
                     ObjectSpace.Refresh();
@@ -772,10 +775,6 @@ namespace HMS.Module.Win.Controllers
                 }
 
             }
-            //var Supplies = ObjectSpace.GetObjects<Product>().Where(p => p.category.name == "مستهلكات");
-            //foreach (var item in Supplies.ToList())
-            //{
-            //}
         }
     }
 }
