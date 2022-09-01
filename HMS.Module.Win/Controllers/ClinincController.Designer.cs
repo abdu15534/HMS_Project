@@ -37,6 +37,7 @@ namespace HMS.Module.Win.Controllers
             this.createXrayAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
             this.createTestAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
             this.createEndoAppo = new DevExpress.ExpressApp.Actions.PopupWindowShowAction(this.components);
+            this.StatsReport = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // PaymentRecipt
             // 
@@ -127,6 +128,17 @@ namespace HMS.Module.Win.Controllers
             this.createEndoAppo.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.createEndoAppo.Execute += new DevExpress.ExpressApp.Actions.PopupWindowShowActionExecuteEventHandler(this.createEndoAppo_Execute);
             // 
+            // StatsReport
+            // 
+            this.StatsReport.Caption = "Stats Report";
+            this.StatsReport.ConfirmationMessage = null;
+            this.StatsReport.Id = "StatsReport";
+            this.StatsReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.Appointment);
+            this.StatsReport.TargetViewType = DevExpress.ExpressApp.ViewType.ListView;
+            this.StatsReport.ToolTip = null;
+            this.StatsReport.TypeOfView = typeof(DevExpress.ExpressApp.ListView);
+            this.StatsReport.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.StatsReport_Execute);
+            // 
             // ClinincController
             // 
             this.Actions.Add(this.PaymentRecipt);
@@ -136,6 +148,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.createXrayAppo);
             this.Actions.Add(this.createTestAppo);
             this.Actions.Add(this.createEndoAppo);
+            this.Actions.Add(this.StatsReport);
 
         }
 
@@ -148,5 +161,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction createXrayAppo;
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction createTestAppo;
         private DevExpress.ExpressApp.Actions.PopupWindowShowAction createEndoAppo;
+        private DevExpress.ExpressApp.Actions.SimpleAction StatsReport;
     }
 }

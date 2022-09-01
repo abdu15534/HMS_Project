@@ -167,5 +167,12 @@ namespace HMS.Module.Win.Controllers
             detailView.ViewEditMode = ViewEditMode.Edit;
             e.View = detailView;
         }
+
+        private void StatsReport_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.ClinicStatsReport report = new reports.ClinicStatsReport();
+
+            report.ShowPreviewDialog();
+        }
     }
 }

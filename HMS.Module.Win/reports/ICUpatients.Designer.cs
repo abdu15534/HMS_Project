@@ -180,7 +180,7 @@ namespace HMS.Module.Win.reports
             // 
             // invoiceInfoTable
             // 
-            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(469F, 9.999992F);
+            this.invoiceInfoTable.LocationFloat = new DevExpress.Utils.PointFloat(462F, 10.00001F);
             this.invoiceInfoTable.Name = "invoiceInfoTable";
             this.invoiceInfoTable.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.invoiceInfoTableRow1});
