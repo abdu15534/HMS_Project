@@ -14,6 +14,14 @@ namespace XafDataModel.Module.BusinessObjects.test2
             this.StartOn = DateTime.Now;
             this.EndOn = DateTime.Now.AddHours(2);
             base.AfterConstruction();
+
+            //int newTotal = Convert.ToInt32(this.total);
+            //int percentage = Convert.ToInt32(discountPercentage);
+            //newTotal = (newTotal * (percentage / 100) - newTotal);
+
+            //TotalAfterDiscount = Convert.ToDecimal(newTotal);
+            
+
             Appointment result = Session.Query<Appointment>().OrderByDescending(t => t.id).FirstOrDefault();
             if (result == null)
             {

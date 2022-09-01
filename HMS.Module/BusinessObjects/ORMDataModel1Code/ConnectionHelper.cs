@@ -109,7 +109,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             typeof(ConractDepartment),
             typeof(ConractServiceDiscount),
             typeof(ServiceBase),
-            typeof(AccountTransfers)
+            typeof(AccountTransfers),
+            typeof(Discount)
         };
         public static Type[] GetPersistentTypes()
         {

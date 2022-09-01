@@ -35,7 +35,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Emergency>(nameof(Emergency), ref fEmergency, value); }
         }
         Service fService;
-        [DevExpress.Persistent.Base.DataSourceCriteria("ServiceType = 1")]
+        [DevExpress.Persistent.Base.DataSourceCriteria("Departmet.Name = 'الطوارئ' ")]
         public Service Service
         {
             get { return fService; }

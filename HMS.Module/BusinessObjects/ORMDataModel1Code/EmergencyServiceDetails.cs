@@ -5,6 +5,8 @@ using DevExpress.Data.Filtering;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
+using System.Linq;
+
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
@@ -17,16 +19,22 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnChanged(propertyName, oldValue, newValue);
             if (propertyName == nameof(Service) && newValue != null)
             {
-                //if (this.Emergency.Patient.Nationality == Patient.Nationalitys.مصر)
-                //{
-                //    this.Price = ((Service)newValue).Price;
-                //}
-                //else
-                //{
-                //    this.Price = ((Service)newValue).Price * Convert.ToDecimal(1.5);
-                //}
+
+
+                if (this.Emergency != null)
+                {
+                    if (this.Emergency.Patient != null && this.Emergency.Patient.Nationality != Patient.Nationalitys.مصر)
+                    {
+                        this.Price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1.5);
+
+                    }
+                    else
+                    {
+                        this.Price = ((Service)newValue).PriceListDetails.Where(p => p.PriceList == this.Emergency.Patient.Contract.PricList).First().Price * Convert.ToDecimal(1);
+                    }
+                }
             }
         }
     }
+    }
     
-}
