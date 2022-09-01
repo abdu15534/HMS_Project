@@ -537,12 +537,6 @@
     <Compile Include="Controllers\OrderPaymentReportController.Designer.cs">
       <DependentUpon>OrderPaymentReportController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\PatientPaymentReportController.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controllers\PatientPaymentReportController.Designer.cs">
-      <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\PurchasingController.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -673,6 +667,12 @@
     </Compile>
     <Compile Include="reports\ClinicReport.Designer.cs">
       <DependentUpon>ClinicReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reports\ClinicStatsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\ClinicStatsReport.Designer.cs">
+      <DependentUpon>ClinicStatsReport.cs</DependentUpon>
     </Compile>
     <Compile Include="reports\Consultation.cs">
       <SubType>Component</SubType>
@@ -1017,9 +1017,6 @@
     <EmbeddedResource Include="Controllers\OrderPaymentReportController.resx">
       <DependentUpon>OrderPaymentReportController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\PatientPaymentReportController.resx">
-      <DependentUpon>PatientPaymentReportController.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\PurchasingController.resx">
       <DependentUpon>PurchasingController.cs</DependentUpon>
     </EmbeddedResource>
@@ -1079,6 +1076,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\ClinicReport.resx">
       <DependentUpon>ClinicReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\ClinicStatsReport.resx">
+      <DependentUpon>ClinicStatsReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\Consultation.resx">
       <DependentUpon>Consultation.cs</DependentUpon>
