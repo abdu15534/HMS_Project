@@ -79,6 +79,7 @@ namespace HMS.Module.Win.Controllers
             this.DetailedReport.Id = "DetailedReport";
             this.DetailedReport.ImageName = "BO_REPORT";
             this.DetailedReport.SelectionDependencyType = DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject;
+            this.DetailedReport.TargetObjectsCriteria = "isDischarged == true";
             this.DetailedReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
             this.DetailedReport.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.DetailedReport.ToolTip = null;
@@ -134,6 +135,7 @@ namespace HMS.Module.Win.Controllers
             this.TotalsReport.ConfirmationMessage = null;
             this.TotalsReport.Id = "TotalsReport";
             this.TotalsReport.ImageName = "BO_REPORT";
+            this.TotalsReport.TargetObjectsCriteria = "isDischarged == true";
             this.TotalsReport.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
             this.TotalsReport.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
             this.TotalsReport.ToolTip = null;

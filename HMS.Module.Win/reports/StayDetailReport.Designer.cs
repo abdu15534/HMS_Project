@@ -2244,7 +2244,8 @@ namespace HMS.Module.Win.reports
             this.DetailReport2.DataSource = this.Test;
             this.DetailReport2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Visible", "Iif(?showMedications)")});
-            this.DetailReport2.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'تحاليل\'";
+            this.DetailReport2.FilterString = "[admission.reception.enterID] = ?enterID And [service.Departmet.Name] = \'التحاليل" +
+    "\'";
             this.DetailReport2.Level = 5;
             this.DetailReport2.Name = "DetailReport2";
             // 
@@ -2547,7 +2548,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader2,
             this.GroupFooter6});
             this.DetailReport10.DataSource = this.Xrays;
-            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'الأشعة\'";
+            this.DetailReport10.FilterString = "[admission.reception.enterID] = ?enterID And [service.Departmet.Name] = \'الأشعة\'";
             this.DetailReport10.Level = 6;
             this.DetailReport10.Name = "DetailReport10";
             // 
@@ -2808,8 +2809,8 @@ namespace HMS.Module.Win.reports
             this.ReportHeader3,
             this.GroupFooter7});
             this.DetailReport11.DataSource = this.Endscope;
-            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.ServiceType] = \'الجهاز_الهض" +
-    "مى_و_المناظير\'";
+            this.DetailReport11.FilterString = "[admission.reception.enterID] = ?enterID And [service.Departmet.Name] = \'الجهاز_ا" +
+    "لهضمى_و_المناظير\'";
             this.DetailReport11.Level = 7;
             this.DetailReport11.Name = "DetailReport11";
             // 
