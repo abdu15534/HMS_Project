@@ -715,7 +715,7 @@ namespace HMS.Module.Win.Controllers
                                 //service.ServiceType = (ServiceTypes)17;
                                 if (!string.IsNullOrEmpty(row[1].ToString()))
                                 {
-
+                                    
                                 }
                             }
 
@@ -744,9 +744,9 @@ namespace HMS.Module.Win.Controllers
                             if (row[4] != DBNull.Value)
                             {
                                 //myString += " - " + row[4].ToString()+ "fifth";
-                                if (!string.IsNullOrEmpty(row[3].ToString()))
+                                if (!string.IsNullOrEmpty(row[4].ToString()))
                                 {
-                                    purchase.price = Convert.ToDecimal(row[3].ToString());
+                                    purchase.price = Convert.ToDecimal(row[4].ToString());
                                 }
                             }
 
