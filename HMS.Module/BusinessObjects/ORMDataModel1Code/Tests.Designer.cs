@@ -69,6 +69,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fjournal; }
             set { SetPropertyValue<JournalEntry>(nameof(journal), ref fjournal, value); }
         }
+        string fTransferingDoctor;
+        public string TransferingDoctor
+        {
+            get { return fTransferingDoctor; }
+            set { SetPropertyValue<string>(nameof(TransferingDoctor), ref fTransferingDoctor, value); }
+        }
         [Association(@"TestDetailsReferencesTest"), Aggregated]
         public XPCollection<TestDetails> TestDetailsCollection { get { return GetCollection<TestDetails>(nameof(TestDetailsCollection)); } }
     }

@@ -85,6 +85,24 @@ DevExpress.Persistent.Validation.RuleRequiredField]
             get { return fTicketNumber; }
             set { SetPropertyValue<int>(nameof(TicketNumber), ref fTicketNumber, value); }
         }
+        Discount fdiscountPercentage;
+        [Association(@"AppointmentReferencesDiscount")]
+        public Discount discountPercentage
+        {
+            get { return fdiscountPercentage; }
+            set { SetPropertyValue<Discount>(nameof(discountPercentage), ref fdiscountPercentage, value); }
+        }
+        decimal fTotalAfterDiscount;
+        public decimal TotalAfterDiscount
+        {
+            get { return fTotalAfterDiscount; }
+            set { SetPropertyValue<decimal>(nameof(TotalAfterDiscount), ref fTotalAfterDiscount, value); }
+        }
+        [PersistentAlias("[total] - [discountPercentage.Percentage] % 100 * [total]")]
+        public decimal? afterDiscount
+        {
+            get { return (decimal?)(EvaluateAlias(nameof(afterDiscount))); }
+        }
         [Association(@"ClinicServiceDetailReferencesAppointment"), Aggregated]
         public XPCollection<ClinicServiceDetail> ClinicServiceDetails { get { return GetCollection<ClinicServiceDetail>(nameof(ClinicServiceDetails)); } }
         [Association(@"PaymentsReferencesAppointment"), Aggregated]

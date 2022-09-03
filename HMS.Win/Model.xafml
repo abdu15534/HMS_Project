@@ -2280,7 +2280,11 @@
         <ColumnInfo Id="date" Index="3" AllowEdit="True" />
       </Columns>
     </ListView>
-    <ListView Id="EmergencyServiceDetails_LookupListView" AllowNew="False" />
+    <ListView Id="EmergencyServiceDetails_LookupListView" AllowNew="False">
+      <Columns>
+        <ColumnInfo Id="Service" DataSourceCriteria="[Departmet.Name] = 'الطوارئ'" />
+      </Columns>
+    </ListView>
     <ListView Id="Employee_AbsenceDetailsCollection_ListView" ShowDetailView="False">
       <Columns>
         <ColumnInfo Id="employee" Caption="موظف" />

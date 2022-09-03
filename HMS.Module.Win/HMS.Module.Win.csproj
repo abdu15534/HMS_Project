@@ -975,6 +975,12 @@
     <Compile Include="reports\XrayPaymentReport.Designer.cs">
       <DependentUpon>XrayPaymentReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\XrayStats.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\XrayStats.Designer.cs">
+      <DependentUpon>XrayStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinGroupFooterViewController.cs" />
     <Compile Include="WinModule.cs">
       <SubType>Component</SubType>
@@ -1229,6 +1235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\XrayPaymentReport.resx">
       <DependentUpon>XrayPaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\XrayStats.resx">
+      <DependentUpon>XrayStats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

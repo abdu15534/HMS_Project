@@ -354,6 +354,10 @@
     <Compile Include="BusinessObjects\ORMDataModel1Code\Bed.Designer.cs">
       <DependentUpon>Bed.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Discount.cs" />
+    <Compile Include="BusinessObjects\ORMDataModel1Code\Discount.Designer.cs">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessObjects\ORMDataModel1Code\User.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicService.cs" />
     <Compile Include="BusinessObjects\ORMDataModel1Code\ClinicService.Designer.cs">

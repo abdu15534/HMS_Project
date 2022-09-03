@@ -290,7 +290,7 @@ namespace HMS.Module.Win.Controllers
 
             OpenFileDialog excel = new OpenFileDialog();
             excel.Filter = "Dokument excel|*.xls;*.xlsx";
-            excel.Title = "أختر الملف الذي يحتوي على التحالي";
+            excel.Title = "أختر الملف الذي يحتوي على التحاليل";
             if (excel.ShowDialog() == DialogResult.OK)
             {
 
@@ -316,7 +316,6 @@ namespace HMS.Module.Win.Controllers
                             myString = row[0].ToString();
                             if (!string.IsNullOrEmpty(row[0].ToString()))
                                 service.identefcation = Convert.ToInt32(row[0].ToString());
-
                         }
 
 
@@ -678,7 +677,7 @@ namespace HMS.Module.Win.Controllers
                     Order.supplierAccount = supplier;
                     Order.inventory = ObjectSpace.FindObject<Inventory>(CriteriaOperator.Parse("[Name] = ?", "Stock"));
                     Order.paymentAccount = ObjectSpace.FindObject<Account>(CriteriaOperator.Parse("[accountName] = ?", "مخزون بضاعة اول المدة"));
-
+                
                     dt = ExtractDataTable(excel, 1);
 
 
@@ -712,7 +711,6 @@ namespace HMS.Module.Win.Controllers
                             if (row[1] != DBNull.Value)
                             {
                                 myString += " - " + row[1].ToString() + "second";
-                                //service.ServiceType = (ServiceTypes)17;
                                 if (!string.IsNullOrEmpty(row[1].ToString()))
                                 {
                                     
