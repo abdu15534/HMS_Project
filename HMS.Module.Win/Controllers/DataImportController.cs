@@ -713,7 +713,7 @@ namespace HMS.Module.Win.Controllers
                                 myString += " - " + row[1].ToString() + "second";
                                 if (!string.IsNullOrEmpty(row[1].ToString()))
                                 {
-                                   
+                                    
                                 }
                             }
 
