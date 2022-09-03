@@ -52,7 +52,7 @@ namespace HMS.Module.Win.Controllers
 
             var curr = View.CurrentObject as Appointment;
             report.Parameters["parameter1"].Value = curr.id;
-            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.total), "جنيه", "قرش") + " فقط لاغير ";
+            report.Parameters["n2c"].Value = N2C.ConvertN2C.ConvertNow(Convert.ToDouble(curr.afterDiscount), "جنيه", "قرش") + " فقط لاغير ";
             report.ShowPreviewDialog();
         }
 

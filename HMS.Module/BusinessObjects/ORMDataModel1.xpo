@@ -41,7 +41,7 @@
             <field Id="a0f47091-838e-4188-af1d-71c75d79b47c" name="TotalAfterDiscount" columnType="Decimal" virtualColumnType="Decimal" delayedUpdateModifiedOnly="false" />
           </generalXpObjectHasFields>
           <generalXpObjectHasFields Id="c7453724-d7a8-41b0-83c9-fe61fa7da71e">
-            <persistentAlias Id="c06ff6b3-7ac7-461c-abec-67efbc6994e6" name="afterDiscount" columnType="Decimal" virtualColumnType="Decimal" expression="[total] - [discountPercentage.Percentage] / 100 * [total]" isNullable="true" />
+            <persistentAlias Id="c06ff6b3-7ac7-461c-abec-67efbc6994e6" name="afterDiscount" columnType="Decimal" virtualColumnType="Decimal" expression="[total] - [discountPercentage.Amount]" isNullable="true" />
           </generalXpObjectHasFields>
         </fields>
         <aggrTarget>

@@ -98,7 +98,7 @@ DevExpress.Persistent.Validation.RuleRequiredField]
             get { return fTotalAfterDiscount; }
             set { SetPropertyValue<decimal>(nameof(TotalAfterDiscount), ref fTotalAfterDiscount, value); }
         }
-        [PersistentAlias("[total] - [discountPercentage.Percentage] % 100 * [total]")]
+        [PersistentAlias("[total] - [discountPercentage.Amount]")]
         public decimal? afterDiscount
         {
             get { return (decimal?)(EvaluateAlias(nameof(afterDiscount))); }
