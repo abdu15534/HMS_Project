@@ -1546,7 +1546,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell52.BorderWidth = 1F;
             this.xrTableCell52.CanShrink = true;
             this.xrTableCell52.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(?otherServies== 0.0m , \'\',?otherServies)")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Admissions].[ServiceDetailsCollection].[price]")});
             this.xrTableCell52.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrTableCell52.Multiline = true;
             this.xrTableCell52.Name = "xrTableCell52";
@@ -1571,7 +1571,7 @@ namespace HMS.Module.Win.reports
             this.xrTableCell53.BorderWidth = 1F;
             this.xrTableCell53.CanShrink = true;
             this.xrTableCell53.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(?otherServies == 0.0m , \'\',\'إجراءات طبية أخرى\' )")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(?Service= 0.0m , \'\',\'خدمات طبية\' )")});
             this.xrTableCell53.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrTableCell53.Multiline = true;
             this.xrTableCell53.Name = "xrTableCell53";
