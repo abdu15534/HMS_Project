@@ -51,7 +51,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set => SetPropertyValue(nameof(ReasonForDischarge), ref reasonForDischarge, value);
         }
 
-        public enum transferTypes { مريض_مستشفى, حالة_خاصة, تعاقد }
+        public enum transferTypes { مريض_مستشفى, حالة_خاصة }
 
         transferTypes transferReason;
 
@@ -134,6 +134,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 currentStay.Patient = this.patient;
                 currentStay.StayStart = DateTime.Now;
                 currentStay.reception = this;
+                
             }
             
             //if(!IsDeleted)

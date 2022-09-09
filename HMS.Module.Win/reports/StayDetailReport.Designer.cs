@@ -4110,7 +4110,7 @@ namespace HMS.Module.Win.reports
             this.ReportHeader6,
             this.ReportFooter5});
             this.DetailReport5.DataSource = this.services;
-            this.DetailReport5.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.ServiceType] = \'Other\'";
+            this.DetailReport5.FilterString = "[Stay.reception.enterID] = ?enterID And [Service.Departmet.Name] = \'داخلي\'";
             this.DetailReport5.Level = 9;
             this.DetailReport5.Name = "DetailReport5";
             // 

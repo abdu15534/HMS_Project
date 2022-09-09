@@ -185,11 +185,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 throw new ArgumentException("برجاء إدخال رقم هاتف صحيح!", nameof(phonenumber1));
 
 
-            if (nationalID.Length != 14)
-            {
-                MessageBox.Show("برجاء التأكد من الرقم القومى!", "برجاء التأكد", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+           
             string[] authorsList = FullName.Split(' ');
             if (authorsList.Length < 4)
             {

@@ -13,4 +13,17 @@
     <SchemaModule Name="SchedulerModuleBase" Version="20.2.3.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="20.2.3.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <DetailView Id="Patient_DetailView">
+      <Items>
+        <PropertyEditor Id="DateOfBrith" Caption="تاريخ الميلاد" />
+        <PropertyEditor Id="nationalID" Caption="إثبات الشخصية" />
+      </Items>
+    </DetailView>
+    <DetailView Id="ReceptionDesk_DetailView">
+      <Items>
+        <PropertyEditor Id="TransferReason" Caption="نوع الحالة" />
+      </Items>
+    </DetailView>
+  </Views>
 </Application>

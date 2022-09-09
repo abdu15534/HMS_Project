@@ -1,2 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application />
+<Application>
+  <BOModel>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Employee">
+      <OwnMembers>
+        <Member Name="NationalID" Caption="إثبات الشخصية" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Patient">
+      <OwnMembers>
+        <Member Name="ImageProperty" Caption="صورة إثبات الشخصية" />
+        <Member Name="nationalID" Caption="إثبات الشخصية" />
+        <Member Name="Nationality" Caption="الجنسية" />
+      </OwnMembers>
+    </Class>
+    <Class Name="XafDataModel.Module.BusinessObjects.test2.Supplier">
+      <OwnMembers>
+        <Member Name="nationalID" Caption="إثبات الشخصية" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views>
+    <DetailView Id="Patient_DetailView">
+      <Items>
+        <PropertyEditor Id="ImageProperty" Caption="صورة إثبات الشخصية" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>
