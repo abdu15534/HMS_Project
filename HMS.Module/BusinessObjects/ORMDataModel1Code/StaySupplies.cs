@@ -84,6 +84,19 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             price = medic.product.sellingPrice / medic.product.unitAmount;
                         }
                     }
+                    else if(this.Surgery != null)
+                    {
+                        if (this.Surgery.Patient != null && this.Surgery.Patient.Nationality != Patient.Nationalitys.مصر)
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                            price = price * Convert.ToDecimal(1.5);
+
+                        }
+                        else
+                        {
+                            price = medic.product.sellingPrice / medic.product.unitAmount;
+                        }
+                    }
 
                 }
             }

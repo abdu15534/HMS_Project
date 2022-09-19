@@ -18,18 +18,24 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaving()
         {
             base.OnSaving();
-            CheckforBookingConflict();
+            if(Room==null || Start==null || End == null)
+            {
+                throw new ArgumentException("برجاء إدخال البيانات كاملة");
+            }
+            //CheckforBookingConflict();
             if (CheckforBookingConflict() != null)
             {
-                throw new ArgumentException("يوجد حجز في نفس التوقيت",nameof(StartDay));
+                throw new ArgumentException("يوجد حجز في نفس التوقيت", nameof(StartDay));
             }
+
         }
 
         private SurgerySchedule CheckforBookingConflict()
         {
-            SurgerySchedule conflict = Session.Query<SurgerySchedule>().Where(c => c.StartDay.Date == StartDay.Date && c.Room == Room && ((c.Start >= Start && c.Start < End) || (c.End >= Start && c.End <= End))).First();
+            SurgerySchedule conflict = Session.Query<SurgerySchedule>().Where(c => c.StartDay.Date == StartDay.Date && c.Room == Room && ((c.Start >= Start && c.Start < End) || (c.End >= Start && c.End <= End))).FirstOrDefault();
             return conflict;
         }
+        
     }
 
 }

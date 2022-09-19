@@ -67,6 +67,19 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fRecption; }
             set { SetPropertyValue<ReceptionDesk>(nameof(Recption), ref fRecption, value); }
         }
+        Department fDepartment;
+        public Department Department
+        {
+            get { return fDepartment; }
+            set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
+        [PersistentAlias("Iif([StaySuppliesCollection][].Sum([total]) Is Null, 0.0m, [StaySuppliesCollection][].Sum([total]))")]
+        public decimal SurgerySuppliesSum
+        {
+            get { return (decimal)(EvaluateAlias(nameof(SurgerySuppliesSum))); }
+        }
+        [Association(@"StaySuppliesReferencesSurgery"), Aggregated]
+        public XPCollection<StaySupplies> StaySuppliesCollection { get { return GetCollection<StaySupplies>(nameof(StaySuppliesCollection)); } }
     }
 
 }

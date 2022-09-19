@@ -150,7 +150,7 @@ namespace HMS.Module.Win.Controllers
                 decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
                 decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
                 //decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
-                //decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
@@ -166,7 +166,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["Xrayes"].Value = xrayes;
                 report.Parameters["edos"].Value = edoscopy;
                 //report.Parameters["blood"].Value = bloodServies;
-                //report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
@@ -235,7 +235,7 @@ namespace HMS.Module.Win.Controllers
                 decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
                 decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
                 //decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
-                //decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
@@ -251,7 +251,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["Xrayes"].Value = xrayes;
                 report.Parameters["edos"].Value = edoscopy;
                 //report.Parameters["blood"].Value = bloodServies;
-                //report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
@@ -342,7 +342,7 @@ namespace HMS.Module.Win.Controllers
                 decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
                 decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
                 //decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
-                //decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
@@ -358,7 +358,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["Xrayes"].Value = xrayes;
                 report.Parameters["edos"].Value = edoscopy;
                 //report.Parameters["blood"].Value = bloodServies;
-                //report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
 
@@ -411,7 +411,7 @@ namespace HMS.Module.Win.Controllers
                 decimal xrayes = curr.Admissions.Sum(p => p.xraysSum);
                 decimal edoscopy = curr.Admissions.Sum(p => p.endscopesSum);
                 //decimal bloodServies = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Blood).Sum(x => x.price);
-                //decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr && p.Service.ServiceType == Service.ServiceTypes.Other).Sum(x => x.price);
+                decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
 
@@ -427,7 +427,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["Xrayes"].Value = xrayes;
                 report.Parameters["edos"].Value = edoscopy;
                 //report.Parameters["blood"].Value = bloodServies;
-                //report.Parameters["otherServies"].Value = otherServices;
+                report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
 

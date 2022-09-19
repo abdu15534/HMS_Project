@@ -1860,7 +1860,7 @@
     <DetailView Id="Clinc_DetailView">
       <Items>
         <PropertyEditor Id="description" Caption="وصف" />
-        <PropertyEditor Id="id" Caption="كود" />
+        <PropertyEditor Id="id" Caption="كود" AllowEdit="True" />
         <PropertyEditor Id="Name" Caption="إسم" />
       </Items>
       <Layout>
@@ -4948,7 +4948,6 @@
                 <LayoutItem Id="id" ViewItem="id" Index="1" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="Complete" RelativeSize="64.772727272727266" Removed="True" />
                 <LayoutItem Id="journal" Removed="True" />
-                <LayoutItem Id="Paid" RelativeSize="100" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
@@ -5177,7 +5176,6 @@
                 <LayoutItem Id="total" ViewItem="total" Index="0" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="id" ViewItem="id" Index="1" RelativeSize="50" IsNewNode="True" />
                 <LayoutItem Id="journal" Removed="True" />
-                <LayoutItem Id="Paid" RelativeSize="35.227272727272727" Removed="True" />
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>

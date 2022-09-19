@@ -48,7 +48,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         }
         StockProduct fsupplyProduct;
         [Association(@"StaySuppliesReferencesStockProduct")]
-        [DevExpress.Persistent.Base.DataSourceCriteria("Iif( '@this.Stay' == Null , Inventory.Department = '@this.emergency.Department',Inventory.Department = '@this.Stay.Department')")]
+        [DevExpress.Persistent.Base.DataSourceCriteria("Iif( '@this.Stay' != Null ,Inventory.Department = '@this.Stay.Department',Iif('@this.emergency' == Null,  Inventory.Department = '@this.Surgery.Department', Inventory.Department = '@this.emergency.Department') )")]
         public StockProduct supplyProduct
         {
             get { return fsupplyProduct; }
@@ -88,6 +88,13 @@ namespace XafDataModel.Module.BusinessObjects.test2
         {
             get { return fDepartment; }
             set { SetPropertyValue<Department>(nameof(Department), ref fDepartment, value); }
+        }
+        Surgery fSurgery;
+        [Association(@"StaySuppliesReferencesSurgery")]
+        public Surgery Surgery
+        {
+            get { return fSurgery; }
+            set { SetPropertyValue<Surgery>(nameof(Surgery), ref fSurgery, value); }
         }
     }
 

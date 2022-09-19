@@ -80,6 +80,7 @@ namespace HMS.Module.Win.reports
             this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow11 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -106,16 +107,15 @@ namespace HMS.Module.Win.reports
             this.xrTableCell42 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell43 = new DevExpress.XtraReports.UI.XRTableCell();
             this.id = new DevExpress.XtraReports.Parameters.Parameter();
-            this.xpObjectSource1 = new DevExpress.Xpo.XPObjectSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -481,7 +481,10 @@ namespace HMS.Module.Win.reports
             this.Detail1,
             this.GroupHeader1,
             this.GroupFooter1});
+            this.DetailReport.DataMember = "TransferProducts";
             this.DetailReport.DataSource = this.xpObjectSource1;
+            this.DetailReport.Expanded = false;
+            this.DetailReport.FilterString = "[ID] = ?id";
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             // 
@@ -878,6 +881,7 @@ namespace HMS.Module.Win.reports
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable5});
+            this.GroupFooter1.Expanded = false;
             this.GroupFooter1.HeightF = 70.58926F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
@@ -939,6 +943,13 @@ namespace HMS.Module.Win.reports
             this.xrTableCell27.Text = "ملاحظات";
             this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell27.Weight = 4.2143443167829195D;
+            // 
+            // xpObjectSource1
+            // 
+            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
+            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.StockTransfer, HMS.Module, Version=1.0." +
+    "8239.4664, Culture=neutral, PublicKeyToken=null";
+            this.xpObjectSource1.Name = "xpObjectSource1";
             // 
             // ReportFooter
             // 
@@ -1410,13 +1421,6 @@ namespace HMS.Module.Win.reports
             this.id.ValueInfo = "0";
             this.id.Visible = false;
             // 
-            // xpObjectSource1
-            // 
-            this.xpObjectSource1.ConnectionStringName = "ConnectionString";
-            this.xpObjectSource1.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.StockTransfer, HMS.Module, Version=1.0." +
-    "8239.4664, Culture=neutral, PublicKeyToken=null";
-            this.xpObjectSource1.Name = "xpObjectSource1";
-            // 
             // SuppliesExport
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1429,6 +1433,7 @@ namespace HMS.Module.Win.reports
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.xpObjectSource1});
             this.DataSource = this.xpObjectSource1;
+            this.FilterString = "[ID] = ?id";
             this.Font = new System.Drawing.Font("Arial", 9.75F);
             this.Margins = new System.Drawing.Printing.Margins(13, 10, 14, 22);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
@@ -1440,9 +1445,9 @@ namespace HMS.Module.Win.reports
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xpObjectSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

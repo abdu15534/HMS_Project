@@ -61,7 +61,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 if (this.category.name == "مستهلكات")
                 {
-                    this.barCode = this.id.ToString();
+                    //this.barCode = this.id.ToString();
                 }
             }
         }

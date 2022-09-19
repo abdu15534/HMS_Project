@@ -134,6 +134,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 currentStay.Patient = this.patient;
                 currentStay.StayStart = DateTime.Now;
                 currentStay.reception = this;
+                this.bed.isAvailable = false;
                 
             }
             

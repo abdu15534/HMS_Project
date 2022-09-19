@@ -502,7 +502,7 @@ namespace HMS.Module.Win.Controllers
                     dt = ExtractDataTable(excel, 1);
 
                     //fz = (ObjectSpace.Owner as DetailView).CurrentObject as FakturaZakupu;
-
+                    
                     foreach (DataRow row in dt.Rows)
                     {
                         if (GetCellValue(row, 0) != null && GetCellValue(row, 1) != null && GetCellValue(row, 2) != null && GetCellValue(row, 3) != null && GetCellValue(row, 4) != null)
@@ -527,7 +527,7 @@ namespace HMS.Module.Win.Controllers
                             product.category = ObjectSpace.FindObject<Category>(CriteriaOperator.Parse("name = ?", "مستهلكات"));
 
                             product.purchasingPrice = Convert.ToDecimal(GetCellValue(row, 4));
-
+                            product.barCode = GetCellValue(row, 6);
                             //Debug.WriteLine(myString);
                             ObjectSpace.CommitChanges();
 

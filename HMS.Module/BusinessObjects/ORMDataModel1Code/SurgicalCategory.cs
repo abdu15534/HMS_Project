@@ -12,6 +12,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
     {
         public SurgicalCategory(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+        public void calculatePercentage()
+        {
+            
+        }
     }
-
+    
 }

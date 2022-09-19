@@ -32,6 +32,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             set { SetPropertyValue<Surgery>(nameof(Surgery), ref fSurgery, value); }
         }
         DateTime fStart;
+        [ColumnDefaultValue(2022, 9, 18, 0, 0, 0, 0)]
         public DateTime Start
         {
             get { return fStart; }
@@ -43,7 +44,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fEnd; }
             set { SetPropertyValue<DateTime>(nameof(End), ref fEnd, value); }
         }
-        [PersistentAlias("GetDate([Start])")]
+        [PersistentAlias("Iif([Start] = null, LocalDateTimeNow(), GetDate([Start]))")]
         public DateTime StartDay
         {
             get { return (DateTime)(EvaluateAlias(nameof(StartDay))); }

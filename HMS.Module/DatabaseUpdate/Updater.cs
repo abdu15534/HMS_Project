@@ -344,6 +344,14 @@ namespace HMS.Module.DatabaseUpdate
                 dep6.Name = "المخازن";
                 dep6.CustomerFacing = false;
 
+                var dep7 = ObjectSpace.CreateObject<Department>();
+                dep7.Name = "داخلي";
+                dep7.CustomerFacing = true;
+
+                var dep8 = ObjectSpace.CreateObject<Department>();
+                dep8.Name = "العمليات";
+                dep8.CustomerFacing = false;
+
             }
             ObjectSpace.CommitChanges();
 

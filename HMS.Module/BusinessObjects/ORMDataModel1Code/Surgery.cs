@@ -34,11 +34,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 price = SurgeryPackage.Price;
                 if (SurgeryPackage.AssistantFeeRate != null)
                 {
-                    AssistantFees = SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AssistantFeeRate);
+                    AssistantFees = SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AssistantFeeRate/100);
                 }
                 if (SurgeryPackage.AnesthesiaFeeRate != null)
                 {
-                    this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AnesthesiaFeeRate);
+                    this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AnesthesiaFeeRate/100);
                 }
                 if (SurgeryPackage.openingFee != null)
                 {
