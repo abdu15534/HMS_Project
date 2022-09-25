@@ -30,6 +30,7 @@ namespace HMS.Module.Win.reports
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraPrinting.BarCode.CodabarGenerator codabarGenerator1 = new DevExpress.XtraPrinting.BarCode.CodabarGenerator();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -114,6 +115,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.id = new DevExpress.XtraReports.Parameters.Parameter();
             this.xpObjectSource2 = new DevExpress.Xpo.XPObjectSource(this.components);
+            this.xrBarCode1 = new DevExpress.XtraReports.UI.XRBarCode();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
@@ -769,8 +771,6 @@ namespace HMS.Module.Win.reports
             // 
             this.xrTableCell7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTableCell7.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[patient].[Gender]")});
             this.xrTableCell7.Multiline = true;
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseBorders = false;
@@ -1010,6 +1010,7 @@ namespace HMS.Module.Win.reports
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrBarCode1,
             this.xrTable1,
             this.xrLabel1});
             this.ReportHeader.Name = "ReportHeader";
@@ -1017,7 +1018,7 @@ namespace HMS.Module.Win.reports
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Baskerville Old Face", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(201.0417F, 0F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(187.6795F, 0F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -1040,6 +1041,19 @@ namespace HMS.Module.Win.reports
             this.xpObjectSource2.EntityTypeString = "XafDataModel.Module.BusinessObjects.test2.ReceptionDesk, HMS.Module, Version=1.0." +
     "8297.30005, Culture=neutral, PublicKeyToken=null";
             this.xpObjectSource2.Name = "xpObjectSource2";
+            // 
+            // xrBarCode1
+            // 
+            this.xrBarCode1.AutoModule = true;
+            this.xrBarCode1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[patient].[MedicalID]")});
+            this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(449.9999F, 0F);
+            this.xrBarCode1.Module = 5.08F;
+            this.xrBarCode1.Name = "xrBarCode1";
+            this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 96F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(200F, 75F);
+            codabarGenerator1.WideNarrowRatio = 2F;
+            this.xrBarCode1.Symbology = codabarGenerator1;
             // 
             // AdmissionForm
             // 
@@ -1154,5 +1168,6 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell28;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell38;
+        private DevExpress.XtraReports.UI.XRBarCode xrBarCode1;
     }
 }
