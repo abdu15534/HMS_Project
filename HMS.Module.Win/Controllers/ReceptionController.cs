@@ -518,5 +518,22 @@ namespace HMS.Module.Win.Controllers
             } 
             
         }
+
+        private void AdmissionForm_Execute(object sender, SimpleActionExecuteEventArgs e)
+        {
+            reports.AdmissionForm report = new reports.AdmissionForm();
+            var curr = View.CurrentObject as ReceptionDesk;
+
+            if (curr == null)
+            {
+                var x = System.Convert.ToInt32(((ObjectRecord)View.CurrentObject).ObjectKeyValue);
+                report.Parameters["id"].Value = x;
+            }
+            else
+            {
+                report.Parameters["id"].Value = curr.enterID;
+            }
+            report.ShowPreviewDialog();
+        }
     }
 }

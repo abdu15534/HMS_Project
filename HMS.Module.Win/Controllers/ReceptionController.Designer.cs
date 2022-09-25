@@ -44,6 +44,7 @@ namespace HMS.Module.Win.Controllers
             this.ToltalAccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.AccountStatement = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             this.PatinetDayReport = new DevExpress.ExpressApp.Actions.ParametrizedAction(this.components);
+            this.AdmissionForm = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
             // 
             // CheckOutReception
             // 
@@ -229,6 +230,17 @@ namespace HMS.Module.Win.Controllers
             this.PatinetDayReport.ValueType = typeof(System.DateTime);
             this.PatinetDayReport.Execute += new DevExpress.ExpressApp.Actions.ParametrizedActionExecuteEventHandler(this.PatinetDayReport_Execute);
             // 
+            // AdmissionForm
+            // 
+            this.AdmissionForm.Caption = "Admission";
+            this.AdmissionForm.ConfirmationMessage = null;
+            this.AdmissionForm.Id = "AdmissionForm";
+            this.AdmissionForm.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
+            this.AdmissionForm.TargetViewType = DevExpress.ExpressApp.ViewType.DetailView;
+            this.AdmissionForm.ToolTip = null;
+            this.AdmissionForm.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
+            this.AdmissionForm.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.AdmissionForm_Execute);
+            // 
             // ReceptionController
             // 
             this.Actions.Add(this.CheckOutReception);
@@ -245,6 +257,7 @@ namespace HMS.Module.Win.Controllers
             this.Actions.Add(this.ToltalAccountStatement);
             this.Actions.Add(this.AccountStatement);
             this.Actions.Add(this.PatinetDayReport);
+            this.Actions.Add(this.AdmissionForm);
             this.TargetObjectType = typeof(XafDataModel.Module.BusinessObjects.test2.ReceptionDesk);
 
         }
@@ -264,5 +277,6 @@ namespace HMS.Module.Win.Controllers
         private DevExpress.ExpressApp.Actions.SimpleAction ToltalAccountStatement;
         private DevExpress.ExpressApp.Actions.SimpleAction AccountStatement;
         private DevExpress.ExpressApp.Actions.ParametrizedAction PatinetDayReport;
+        private DevExpress.ExpressApp.Actions.SimpleAction AdmissionForm;
     }
 }

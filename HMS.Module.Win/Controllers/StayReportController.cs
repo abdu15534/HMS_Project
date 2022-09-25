@@ -139,6 +139,7 @@ namespace HMS.Module.Win.Controllers
         {
             var curr = e.CurrentObject as PackageDetail;
             curr.ApplyAnyPackage();
+            
 
             curr.Applyed = true;
             ObjectSpace.CommitChanges();

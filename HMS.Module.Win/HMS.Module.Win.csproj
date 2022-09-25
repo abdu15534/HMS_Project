@@ -632,6 +632,12 @@
     <Compile Include="reports\AdditionFromSupplier.Designer.cs">
       <DependentUpon>AdditionFromSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\AdmissionForm.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\AdmissionForm.Designer.cs">
+      <DependentUpon>AdmissionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\AdmittedPatients.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -1064,6 +1070,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reports\AdditionFromSupplier.resx">
       <DependentUpon>AdditionFromSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\AdmissionForm.resx">
+      <DependentUpon>AdmissionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\AdmittedPatients.resx">
       <DependentUpon>AdmittedPatients.cs</DependentUpon>
