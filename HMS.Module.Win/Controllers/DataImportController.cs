@@ -506,9 +506,12 @@ namespace HMS.Module.Win.Controllers
                     foreach (DataRow row in dt.Rows)
                     {
                         var productExist=ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("name=?",GetCellValue(row,1)));
+                        var IdExist = ObjectSpace.FindObject<Product>(CriteriaOperator.Parse("id=?", GetCellValue(row, 0)));
+                        var name = GetCellValue(row, 1);
                         if (productExist != null)
                         {
-                            productExist.barCode = productExist.barCode;
+                            productExist.barCode = GetCellValue(row, 6);
+                            ObjectSpace.CommitChanges();
                         }
                         else
                         {
@@ -519,9 +522,9 @@ namespace HMS.Module.Win.Controllers
                             Debug.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
                             Product product = ObjectSpace.CreateObject<Product>();
-                            //string myString = "";
-
-                            product.id = Convert.ToInt32(GetCellValue(row, 6));
+                                //string myString = "";
+                                
+                            product.id = Convert.ToInt32(GetCellValue(row, 0))+1000;
 
                             product.name = GetCellValue(row, 1);
 

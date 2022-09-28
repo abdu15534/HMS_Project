@@ -34,6 +34,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
         protected override void OnSaving()
         {
             base.OnSaving();
+          var checkBarcode=  Session.Query<Product>().Where(x => x.barCode == this.barCode).FirstOrDefault();
             if (this.category != null)
             {
                 if (this.Session.IsNewObject(this))
@@ -50,6 +51,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
                             int lastservice = Session.Query<Product>().Where(o => this.category.name != "مستهلكات").Max(t => t.id);
                             this.id = lastservice + 1;
                         }
+                    }
+                    if (checkBarcode != null)
+                    {
+                        throw new ArgumentException("هذا الباركود مستخدم من قبل", nameof(barCode));
                     }
 
                     //object val = Convert.ChangeType(this.serviceType, this.serviceType.GetTypeCode());

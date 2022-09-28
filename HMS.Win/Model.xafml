@@ -8,6 +8,7 @@
       <Action Id="AddPharmacy" ImageName="AddParameter" />
       <Action Id="AddStock" ImageName="AddParameter" />
       <Action Id="AddTests" ImageName="AddParameter" />
+      <Action Id="AdmissionForm" ImageName="BO_Contract" />
       <Action Id="ApproveTransferForSome" ImageName="ApplyChanges" />
       <Action Id="ApproveTransferofAll" ImageName="TrackingChanges_Accept" />
       <Action Id="BackUpDataBase" ImageName="Open2" />
