@@ -55,12 +55,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fName; }
             set { SetPropertyValue<string>(nameof(Name), ref fName, value); }
         }
-        decimal fprice;
-        public decimal price
-        {
-            get { return fprice; }
-            set { SetPropertyValue<decimal>(nameof(price), ref fprice, value); }
-        }
     }
 
 }

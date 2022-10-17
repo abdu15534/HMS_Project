@@ -153,7 +153,8 @@ namespace HMS.Module.Win.Controllers
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
-
+                decimal surgery = curr.Surgeries.Where(x => x.surgeryReception.enterID == curr.enterID).Select(x => x.price).FirstOrDefault();
+                decimal surgerySupply = curr.Surgeries.Select(x => x.SurgerySuppliesSum).FirstOrDefault();
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
                 report.Parameters["supervsion"].Value = supervision;
@@ -169,7 +170,8 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
-
+                report.Parameters["surgery"].Value = surgery;
+                report.Parameters["surgerySupply"].Value = surgerySupply;
                 report.Parameters["enterID"].Value = curr.enterID;
                 report.Parameters["patientName"].Value = curr.patient.FullName;
                 report.Parameters["enterDate"].Value = curr.dateEnter;
@@ -238,7 +240,8 @@ namespace HMS.Module.Win.Controllers
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
-
+                decimal surgery = curr.Surgeries.Where(x => x.surgeryReception.enterID == curr.enterID).Select(x => x.price).FirstOrDefault();
+                decimal surgerySupply = curr.Surgeries.Select(x => x.SurgerySuppliesSum).FirstOrDefault();
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
                 report.Parameters["supervsion"].Value = supervision;
@@ -254,7 +257,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
-
+                report.Parameters["surgery"].Value = surgery;
                 report.Parameters["IsAccountstatement"].Value = false;
 
                 report.Parameters["id"].Value = curr.enterID;
@@ -345,7 +348,7 @@ namespace HMS.Module.Win.Controllers
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
-
+                decimal surgery = curr.Surgeries.Where(x => x.surgeryReception.enterID == curr.enterID).Select(x => x.price).FirstOrDefault();
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
                 report.Parameters["supervsion"].Value = supervision;
@@ -361,7 +364,7 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
-
+                report.Parameters["surgery"].Value = surgery;
                 report.Parameters["IsAccountstatement"].Value = true;
 
                 report.Parameters["id"].Value = curr.enterID;
@@ -414,7 +417,8 @@ namespace HMS.Module.Win.Controllers
                 decimal otherServices = ObjectSpace.GetObjects<ServiceDetails>().Where(p => p.Stay != null && p.Stay.reception == curr).Sum(x => x.price);
                 decimal outMedication = curr.Admissions.Sum(p => p.OutMedcationSum);
                 decimal paymentsTotal = curr.PaymentsCollection.Sum(p => p.amount);
-
+                decimal surgery = curr.Surgeries.Where(x => x.surgeryReception.enterID == curr.enterID).Select(x => x.price).FirstOrDefault();
+                decimal surgerySupply = curr.Surgeries.Select(x => x.SurgerySuppliesSum).FirstOrDefault();
                 report.Parameters["norStay"].Value = regolAraddmission;
                 report.Parameters["icuStay"].Value = icuAddmission;
                 report.Parameters["supervsion"].Value = supervision;
@@ -430,7 +434,8 @@ namespace HMS.Module.Win.Controllers
                 report.Parameters["otherServies"].Value = otherServices;
                 report.Parameters["OutMedication"].Value = outMedication;
                 report.Parameters["paymentsTotal"].Value = paymentsTotal;
-
+                report.Parameters["surgery"].Value = surgery;
+                report.Parameters["surgerySupply"].Value = surgerySupply;
                 report.Parameters["enterID"].Value = curr.enterID;
                 report.Parameters["patientName"].Value = curr.patient.FullName;
                 report.Parameters["enterDate"].Value = curr.dateEnter;
