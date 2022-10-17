@@ -2,8 +2,6 @@
 using DevExpress.ExpressApp.Actions;
 using DevExpress.ExpressApp.Editors;
 using DevExpress.XtraReports.UI;
-using System;
-using System.Linq;
 using System.Windows.Forms;
 using XafDataModel.Module.BusinessObjects.test2;
 
@@ -62,7 +60,7 @@ namespace HMS.Module.Win.Controllers
 
         private void testAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-                      
+
         }
 
         private void ICUpatients_Execute(object sender, SimpleActionExecuteEventArgs e)
@@ -138,11 +136,20 @@ namespace HMS.Module.Win.Controllers
         private void ApplyPackage_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             var curr = e.CurrentObject as PackageDetail;
-            curr.ApplyAnyPackage();
-            
+            if (!curr.isSurgery)
+            {
+                curr.ApplyAnyPackage();
+
+            }
+            else
+            {
+                Surgery currSurgery = curr as Surgery;
+                currSurgery.ApplySurgeryPackage();
+            }
 
             curr.Applyed = true;
             ObjectSpace.CommitChanges();
+
             //ReceptionDesk receptionDesk = ObjectSpace.GetObjects<ReceptionDesk>().Where(o => o == curr.Reciption).First();
 
             //var medications = ObjectSpace.GetObjects<StayMedications>().Where(o => o.Stay != null && o.Stay.reception == receptionDesk);
@@ -439,7 +446,7 @@ namespace HMS.Module.Win.Controllers
 
         private void popupWindowShowAction1_Execute(object sender, PopupWindowShowActionExecuteEventArgs e)
         {
-            
+
         }
 
         private void popupWindowShowAction1_CustomizePopupWindowParams(object sender, CustomizePopupWindowParamsEventArgs e)
@@ -456,8 +463,8 @@ namespace HMS.Module.Win.Controllers
             //CollectionSourceBase collectionSource = Application.CreateDetailView(newObjectSpace, typeof(PreSchdual));
             var detailView = Application.CreateDetailView(newObjectSpace, preS);
             detailView.ViewEditMode = ViewEditMode.Edit;
-            
-            
+
+
             e.View = detailView;
 
 

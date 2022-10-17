@@ -1531,7 +1531,7 @@
       <Columns>
         <ColumnInfo Id="doctor" Width="51" />
         <ColumnInfo Id="date" Width="65" />
-        <ColumnInfo Id="price" Width="56" AllowEdit="False">
+        <ColumnInfo Id="price" Width="56" AllowEdit="True">
           <Summary>
             <ColumnSummaryItem Id="Summary0" SummaryType="Sum" IsNewNode="True" />
           </Summary>

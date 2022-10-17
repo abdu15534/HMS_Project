@@ -47,7 +47,7 @@ namespace HMS.Module.Win.Controllers
             StockTransfer curr = e.CurrentObject as StockTransfer;
             foreach(TransferProduct obj in curr.TransferProducts)
             {
-                if(obj.StockProduct.firstUnitQuantity > obj.RequstedCount)
+                if(obj.StockProduct.firstUnitQuantity >= obj.RequstedCount)
                 {
                     obj.Approved = true;
                     obj.TobeApproved = true;
@@ -105,10 +105,7 @@ namespace HMS.Module.Win.Controllers
             IEnumerable<TransferProduct> productList = ObjectSpace.GetObjects<TransferProduct>().Where(p => p.TobeApproved == true  && p.StockTransfer == curr);
             foreach (TransferProduct tProduct in productList)
             {
-                if (tProduct.StockProduct.firstUnitQuantity >= tProduct.RequstedCount)
-                {
-                }
-                else
+                if (tProduct.StockProduct.firstUnitQuantity <= tProduct.RequstedCount)
                 {
                     throw new ArgumentException("الكمية المتاحة اقل من الكمية المطلوبة!");
                 }

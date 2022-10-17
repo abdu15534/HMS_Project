@@ -1,11 +1,6 @@
-﻿using System;
-using DevExpress.Xpo;
+﻿using DevExpress.Xpo;
+using System;
 using System.Linq;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
@@ -22,9 +17,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 this.price = ((Package)newValue).Price;
             }
         }
-        
 
-            public void ApplySurgeryPackage()
+
+        public void ApplySurgeryPackage()
         {
             //IQueryable<StayMedications> FirstMedications = Session.Query<StayMedications>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Medication.Inventory.Department.ID == 7 && p.Package == null);
             //IQueryable<StaySupplies> FirstSupplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.supplyProduct.Inventory.Department.ID == 7 && p.Package == null);
@@ -33,13 +28,33 @@ namespace XafDataModel.Module.BusinessObjects.test2
             //IQueryable<EndscopeDetails> Firstendoscpy = Session.Query<EndscopeDetails>().Where(o => o.admission != null && o.admission.reception == Reciption && o.service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
             //IQueryable<ServiceDetails> Firstservies = Session.Query<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == Reciption && o.Service.ServiceType == Service.ServiceTypes.Surgeries && o.Package == null);
 
+            Surgery currentSurgery = this as Surgery;
+            Console.WriteLine(currentSurgery.surgeryReception);
+            Console.WriteLine(currentSurgery.surgeryReception.patient.FullName);
+            var daylimits = currentSurgery.SurgeryPackage.NumDaysnorm;
+            //var dayOffset = currentSurgery.Reciption.Admissions.Select(x => x.dayOffset).FirstOrDefault();
+            //var totaldays = currentSurgery.Reciption.Admissions.Select(x => x.totalDays).FirstOrDefault();
+            //ApplayDays(daylimits,dayOffset);
+            var admisiion = currentSurgery.surgeryReception.Admissions[0];
+            admisiion.dayOffset =daylimits;
+            
+
+            decimal applyedSupplies = Session.Query<StaySupplies>().Where(p => p.Surgery.surgeryReception != null && p.Surgery.surgeryReception == currentSurgery.surgeryReception && p.Package == this.Package).Sum(p => p.total);
             ApplyPackageToMedecations();
-            ApplyPackageToMedicalSupplies();
+            ApplyPackageToMedicalSupplies(applyedSupplies);
             ApplyPackageToTests();
             ApplyPackageToXrays();
             ApplyPackageToEndos();
             ApplyPackageToServics();
-            ApplyAnyPackage();
+            
+            //ApplyAnyPackage();
+        }
+
+        private void ApplayDays(int daylimits, int dayOffset)
+        {
+            dayOffset = daylimits;
+          
+
         }
 
         public void ApplyAnyPackage()
@@ -52,7 +67,6 @@ namespace XafDataModel.Module.BusinessObjects.test2
             //IQueryable<ServiceDetails> servies = Session.Query<ServiceDetails>().Where(o => o.Stay != null && o.Stay.reception == Reciption && o.Package == null);
 
             ApplyPackageToMedecations();
-            ApplyPackageToMedicalSupplies();
             ApplyPackageToTests();
             ApplyPackageToXrays();
             ApplyPackageToEndos();
@@ -61,20 +75,20 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
         public void UpdateInfo()
         {
-            
-                //ApplySurgeryPackage();
-            
-          
-                ApplyAnyPackage();
-            
-            
+
+            //ApplySurgeryPackage();
+
+
+            ApplyAnyPackage();
+
+
         }
 
-        public void ApplyPackageToMedicalSupplies()
+        public void ApplyPackageToMedicalSupplies(decimal applySupply)
         {
-            decimal applyedSupplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == this.Package).Sum(p => p.total);
+            //decimal applyedSupplies = Session.Query<StaySupplies>().Where(p => p.Surgery.surgeryReception != null && p.Surgery.surgeryReception == Reciption && p.Package == this.Package).Sum(p => p.total);
             IQueryable<StaySupplies> supplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception == Reciption && p.Package == null);
-            decimal totalAmount = applyedSupplies;
+            decimal totalAmount = applySupply;
             foreach (StaySupplies item in supplies)
             {
                 if (this.Package.SuppliesLimit > totalAmount)
@@ -291,7 +305,9 @@ namespace XafDataModel.Module.BusinessObjects.test2
 
             this.Applyed = false;
             Session.CommitTransaction();
-            
+            Surgery currentSurgery = this as Surgery;
+            var admisiion = currentSurgery.surgeryReception.Admissions[0];
+            admisiion.dayOffset = 0;
 
         }
     }

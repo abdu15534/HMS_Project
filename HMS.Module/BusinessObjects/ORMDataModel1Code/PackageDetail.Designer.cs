@@ -64,6 +64,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fApplyed; }
             set { SetPropertyValue<bool>(nameof(Applyed), ref fApplyed, value); }
         }
+        bool fisSurgery;
+        public bool isSurgery
+        {
+            get { return fisSurgery; }
+            set { SetPropertyValue<bool>(nameof(isSurgery), ref fisSurgery, value); }
+        }
     }
 
 }

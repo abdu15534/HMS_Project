@@ -238,6 +238,12 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fHalfDayAtEnd; }
             set { SetPropertyValue<bool>(nameof(HalfDayAtEnd), ref fHalfDayAtEnd, value); }
         }
+        int fdayOffset;
+        public int dayOffset
+        {
+            get { return fdayOffset; }
+            set { SetPropertyValue<int>(nameof(dayOffset), ref fdayOffset, value); }
+        }
         [Association(@"SupervisionDetailsReferencesAdmission")]
         public XPCollection<SupervisionDetails> SupervisionDetailsCollection { get { return GetCollection<SupervisionDetails>(nameof(SupervisionDetailsCollection)); } }
         [Association(@"TestDetailsReferencesAdmission")]

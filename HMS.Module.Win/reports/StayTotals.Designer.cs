@@ -118,6 +118,9 @@ namespace HMS.Module.Win.reports
             this.xrTableRow32 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell62 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell64 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableRow34 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrTableCell42 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell43 = new DevExpress.XtraReports.UI.XRTableCell();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -189,6 +192,7 @@ namespace HMS.Module.Win.reports
             this.IsAccountstatement = new DevExpress.XtraReports.Parameters.Parameter();
             this.OutMedication = new DevExpress.XtraReports.Parameters.Parameter();
             this.paymentsTotal = new DevExpress.XtraReports.Parameters.Parameter();
+            this.surgery = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
@@ -787,8 +791,9 @@ namespace HMS.Module.Win.reports
             this.xrTableRow28,
             this.xrTableRow26,
             this.xrTableRow27,
-            this.xrTableRow32});
-            this.xrTable6.SizeF = new System.Drawing.SizeF(730.0016F, 445.8887F);
+            this.xrTableRow32,
+            this.xrTableRow34});
+            this.xrTable6.SizeF = new System.Drawing.SizeF(730.0016F, 477.7379F);
             this.xrTable6.StylePriority.UseBackColor = false;
             // 
             // xrTableRow7
@@ -1580,12 +1585,67 @@ namespace HMS.Module.Win.reports
             this.xrTableCell64.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell64.Weight = 3.0006083056857733D;
             // 
+            // xrTableRow34
+            // 
+            this.xrTableRow34.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrTableCell42,
+            this.xrTableCell43});
+            this.xrTableRow34.Name = "xrTableRow34";
+            this.xrTableRow34.Weight = 1.0066972757107671D;
+            // 
+            // xrTableCell42
+            // 
+            this.xrTableCell42.BackColor = System.Drawing.Color.White;
+            this.xrTableCell42.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell42.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell42.BorderWidth = 1F;
+            this.xrTableCell42.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(?surgery== 0.0m , \'\',?surgery)\n")});
+            this.xrTableCell42.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell42.Multiline = true;
+            this.xrTableCell42.Name = "xrTableCell42";
+            this.xrTableCell42.StylePriority.UseBackColor = false;
+            this.xrTableCell42.StylePriority.UseBorderColor = false;
+            this.xrTableCell42.StylePriority.UseBorders = false;
+            this.xrTableCell42.StylePriority.UseBorderWidth = false;
+            this.xrTableCell42.StylePriority.UseFont = false;
+            this.xrTableCell42.StylePriority.UseForeColor = false;
+            this.xrTableCell42.StylePriority.UseTextAlignment = false;
+            this.xrTableCell42.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell42.Weight = 3.1519581333298925D;
+            // 
+            // xrTableCell43
+            // 
+            this.xrTableCell43.BackColor = System.Drawing.Color.White;
+            this.xrTableCell43.BorderColor = System.Drawing.Color.LightGray;
+            this.xrTableCell43.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell43.BorderWidth = 1F;
+            this.xrTableCell43.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif(?surgery== 0.0m , \'\',[Surgeries].[SurgeryPackage].[Name])\n")});
+            this.xrTableCell43.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell43.Multiline = true;
+            this.xrTableCell43.Name = "xrTableCell43";
+            this.xrTableCell43.StylePriority.UseBackColor = false;
+            this.xrTableCell43.StylePriority.UseBorderColor = false;
+            this.xrTableCell43.StylePriority.UseBorders = false;
+            this.xrTableCell43.StylePriority.UseBorderWidth = false;
+            this.xrTableCell43.StylePriority.UseFont = false;
+            this.xrTableCell43.StylePriority.UseForeColor = false;
+            this.xrTableCell43.StylePriority.UseTextAlignment = false;
+            this.xrTableCell43.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell43.Weight = 3.0006083056857733D;
+            // 
             // DetailReport1
             // 
             this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail2});
             this.DetailReport1.DataMember = "PackageDetails";
             this.DetailReport1.DataSource = this.xpObjectSource2;
+            this.DetailReport1.Expanded = false;
             this.DetailReport1.FilterString = "[Applyed] = True And [Reciption.enterID] = ?id";
             this.DetailReport1.Level = 0;
             this.DetailReport1.Name = "DetailReport1";
@@ -1715,7 +1775,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell12.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[amountC]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([amountC]==0, \'\',[amountC] )\n")});
             this.xrTableCell12.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell12.Multiline = true;
             this.xrTableCell12.Name = "xrTableCell12";
@@ -1739,6 +1799,8 @@ namespace HMS.Module.Win.reports
             this.xrTableCell13.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell13.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([amountC]==0, \'\',\'الإجمالي\' )")});
             this.xrTableCell13.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell13.Multiline = true;
             this.xrTableCell13.Name = "xrTableCell13";
@@ -1828,7 +1890,7 @@ namespace HMS.Module.Win.reports
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell65.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[medicationC]")});
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([medicationC]==0, \'\',[medicationC])\n")});
             this.xrTableCell65.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell65.Multiline = true;
             this.xrTableCell65.Name = "xrTableCell65";
@@ -1851,6 +1913,8 @@ namespace HMS.Module.Win.reports
             this.xrTableCell66.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrTableCell66.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Iif([medicationC]==0, \'\',\'الأدوية\' )\n")});
             this.xrTableCell66.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell66.Multiline = true;
             this.xrTableCell66.Name = "xrTableCell66";
@@ -2318,6 +2382,7 @@ namespace HMS.Module.Win.reports
             this.xrLabel27,
             this.xrLabel26,
             this.xrLabel25});
+            this.Detail13.Expanded = false;
             this.Detail13.HeightF = 34.08098F;
             this.Detail13.Name = "Detail13";
             // 
@@ -2325,6 +2390,7 @@ namespace HMS.Module.Win.reports
             // 
             this.GroupHeader4.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable8});
+            this.GroupHeader4.Expanded = false;
             this.GroupHeader4.HeightF = 41.82339F;
             this.GroupHeader4.Name = "GroupHeader4";
             // 
@@ -2339,6 +2405,7 @@ namespace HMS.Module.Win.reports
             this.ReportFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel35,
             this.xrLabel36});
+            this.ReportFooter1.Expanded = false;
             this.ReportFooter1.HeightF = 29.60612F;
             this.ReportFooter1.Name = "ReportFooter1";
             // 
@@ -2574,6 +2641,14 @@ namespace HMS.Module.Win.reports
             this.paymentsTotal.ValueInfo = "0";
             this.paymentsTotal.Visible = false;
             // 
+            // surgery
+            // 
+            this.surgery.Description = "surgery";
+            this.surgery.Name = "surgery";
+            this.surgery.Type = typeof(decimal);
+            this.surgery.ValueInfo = "0";
+            this.surgery.Visible = false;
+            // 
             // StayTotals
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2611,7 +2686,8 @@ namespace HMS.Module.Win.reports
             this.Companion,
             this.IsAccountstatement,
             this.OutMedication,
-            this.paymentsTotal});
+            this.paymentsTotal,
+            this.surgery});
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.baseControlStyle,
             this.evenDetailStyle,
@@ -2788,5 +2864,9 @@ namespace HMS.Module.Win.reports
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow33;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell65;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell66;
+        private DevExpress.XtraReports.Parameters.Parameter surgery;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow34;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell42;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
     }
 }

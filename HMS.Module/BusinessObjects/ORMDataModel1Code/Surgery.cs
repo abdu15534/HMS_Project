@@ -1,20 +1,16 @@
-﻿using System;
-using DevExpress.Xpo;
-using DevExpress.Xpo.Metadata;
-using DevExpress.Data.Filtering;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
+﻿using DevExpress.Xpo;
+using System;
 namespace XafDataModel.Module.BusinessObjects.test2
 {
 
     public partial class Surgery
     {
         public Surgery(Session session) : base(session) { }
-        public override void AfterConstruction() 
-        { 
+        public override void AfterConstruction()
+        {
             base.AfterConstruction();
             Date = DateTime.Now;
+            isSurgery = true;
         }
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
         {
@@ -34,11 +30,11 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 price = SurgeryPackage.Price;
                 if (SurgeryPackage.AssistantFeeRate != null)
                 {
-                    AssistantFees = SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AssistantFeeRate/100);
+                    AssistantFees = SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AssistantFeeRate / 100);
                 }
                 if (SurgeryPackage.AnesthesiaFeeRate != null)
                 {
-                    this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AnesthesiaFeeRate/100);
+                    this.AnesthesiaFees = this.SurgeryPackage.SurgeonsFees * Convert.ToDecimal(SurgeryPackage.AnesthesiaFeeRate / 100);
                 }
                 if (SurgeryPackage.openingFee != null)
                 {

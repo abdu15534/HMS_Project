@@ -39,6 +39,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
             base.OnLoaded();
             // CalculateRoomServices();
             DaysOfStay();
+            
         }
 
         protected override void OnChanged(string propertyName, object oldValue, object newValue)
@@ -82,6 +83,7 @@ namespace XafDataModel.Module.BusinessObjects.test2
                     }
                 }
             }
+           
         }
         protected override void OnSaving()
         {
@@ -197,19 +199,21 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 if (this.Patient.Nationality != Patient.Nationalitys.مصر)
                 {
-                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays);
-                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays);
-                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays);
+                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays-dayOffset);
+                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays-dayOffset);
+                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays-dayOffset);
                     roomStaySum = roomStaySum * Convert.ToDecimal(1.5);
                     medicalCareSum = medicalCareSum * Convert.ToDecimal(1.5);
                     MedicalSupervisionSum = MedicalSupervisionSum * Convert.ToDecimal(1.5);
+                    
                 }
                 else
                 {
-                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays);
-                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays);
-                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays);
+                    roomStaySum = this.roomStayCost * Convert.ToDecimal(totalDays-dayOffset);
+                    medicalCareSum = this.roomCareCost * Convert.ToDecimal(totalDays-dayOffset);
+                    MedicalSupervisionSum = this.roomSupervisionCost * Convert.ToDecimal(totalDays-dayOffset);
                 }
+                
             }
 
             //this.SupervisionDetailsCollection.Sum(p => p.price);
@@ -291,6 +295,8 @@ namespace XafDataModel.Module.BusinessObjects.test2
             {
                 totalDays = _totalDays;
             }
+            
+
         }
 
 

@@ -128,9 +128,10 @@ namespace XafDataModel.Module.BusinessObjects.test2
                 IEnumerable<PackageDetail> packages = Stay.reception.PackageDetails.Where(o => o.Applyed);
                 if (packages != null)
                 {
+                    //decimal applyedSupplies = Session.Query<StaySupplies>().Where(p => p.Stay.reception != null && p.Stay.reception ==  && p.Package == this.Package).Sum(p => p.total);
                     foreach (PackageDetail item in packages)
                     {
-                        item.ApplyPackageToMedicalSupplies();
+                        item.ApplyPackageToMedicalSupplies(333);
                     }
                 }
             } 

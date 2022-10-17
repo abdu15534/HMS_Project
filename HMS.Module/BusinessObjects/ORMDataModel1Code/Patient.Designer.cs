@@ -115,6 +115,18 @@ namespace XafDataModel.Module.BusinessObjects.test2
             get { return fContract; }
             set { SetPropertyValue<Conratct>(nameof(Contract), ref fContract, value); }
         }
+        string fcreatedBy;
+        public string createdBy
+        {
+            get { return fcreatedBy; }
+            set { SetPropertyValue<string>(nameof(createdBy), ref fcreatedBy, value); }
+        }
+        string fupdatedBy;
+        public string updatedBy
+        {
+            get { return fupdatedBy; }
+            set { SetPropertyValue<string>(nameof(updatedBy), ref fupdatedBy, value); }
+        }
         [Association(@"StayReferencesPatient")]
         public XPCollection<Admission> Stays { get { return GetCollection<Admission>(nameof(Stays)); } }
         [Association(@"AppointmentReferencesPatient")]
